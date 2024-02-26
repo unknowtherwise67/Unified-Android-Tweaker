@@ -7,7 +7,3 @@ rm -rf /metadata/magisk/"$MODID"\
  /cache/magisk/"$MODID"\
  /cust/magisk/"$MODID"
 }
-
-
-
-

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BRANCHES=(balance budget latency throughput)
+BRANCHES=(universal-custom)
 SCRIPT_PARENT_PATH="system/bin"
 SCRIPT_NAME="ktweak"
 SCRIPT_PATH="$SCRIPT_PARENT_PATH/$SCRIPT_NAME"
