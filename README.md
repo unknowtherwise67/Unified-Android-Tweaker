@@ -25,9 +25,13 @@ Re-modified and re-configured into one convenient package.
 
 ## Install
 
-1. Install in any installed root manager with module capablity
-2. Reboot and forget
+1. Install in any installed root manager with module capablity.
+2. Reboot and forget.
 5. Have fun. :)
+
+## TO BE INCLUDED
+
+- Will add support for update throught root module manager soon.
 
 ## CAUTION
 
@@ -35,9 +39,9 @@ Re-modified and re-configured into one convenient package.
 
 ## Credits 
 
-- [tytydrago](https://github.com/tytydraco/KTweak): For the original Ktweak
-- [erenyeagarr](https://github.com/erenyeagarr/ThermalKiller-All-Devices-): Thermal Killer
-- [reiryuki](https://github.com/reiryuki/ZRAM-Swap-Configurator-Magisk-Module): ZRAM Swap Configurator
-- [topjohnwu](https://github.com/topjohnwu): Make new Root (Magisk) with module possible
-- [tiann](https://github.com/tiann): Make new kernel-based root with module-capable possible
-- [osm0sis](https://github.com/osm0sis): For AnyKernel
+- [tytydrago](https://github.com/tytydraco/KTweak): For the original Ktweak.
+- [erenyeagarr](https://github.com/erenyeagarr/ThermalKiller-All-Devices-): Thermal Killer.
+- [reiryuki](https://github.com/reiryuki/ZRAM-Swap-Configurator-Magisk-Module): ZRAM Swap Configurator.
+- [topjohnwu](https://github.com/topjohnwu): Make new Root (Magisk) with module possible.
+- [tiann](https://github.com/tiann): Make new kernel-based root with module-capable possible.
+- [osm0sis](https://github.com/osm0sis): For AnyKernel.
