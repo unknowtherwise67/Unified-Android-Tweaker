@@ -1,0 +1,6 @@
+id=ktweak-x-fkbts-x-zram
+name=KTWEAK x FKBTS x ZRAM
+version=v1.0-2024
+versionCode=12024
+author=tytydraco, reiryuki(Ryuki), erenyeagarr(ZyCromerZ), unknowtherwise67
+description=Reduce latency, shutters and improve performance, force kernel-based thermal system and configure ZRAM to 100% of actual RAM size. Flash and Forget.
