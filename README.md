@@ -38,7 +38,7 @@ ZRAM: Swap on RAM, faster than Swap on Storage/Disk, BUT DOES NOT IMPROVE SYSTEM
 ## Credits 
 
 - [tytydrago](https://github.com/tytydraco/KTweak): For the original Ktweak
-- [erenyeagarr(ZyCromerZ)](https://github.com/erenyeagarr/ThermalKiller-All-Devices-): Thermal Killer
+- [erenyeagarr](https://github.com/erenyeagarr/ThermalKiller-All-Devices-): Thermal Killer
 - [reiryuki](https://github.com/reiryuki/ZRAM-Swap-Configurator-Magisk-Module): ZRAM Swap Configurator
 - [topjohnwu](https://github.com/topjohnwu): Make new Root (Magisk) with module possible
 - [tiann](https://github.com/tiann): Make new kernel-based root with module-capable possible
