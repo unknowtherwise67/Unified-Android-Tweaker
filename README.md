@@ -1,13 +1,11 @@
 ## Introduction 
-# KTWEAK X FKBTS X ZRAM
-A unified module, include: fine-tuned kernel tweaks forked from tytydraco's original Ktweak, with forked Thermal Killer and ZRAM Swap Configuration.
-Re-modified and configured into KTWEAK (Kernel Parameters Tweaks X FKBTS (Force Kernel-Based Thermal System) X ZRAM (Configure ZRAM to 100% of actual RAM size) module
+# Unified Android Tweaker
+A unified module consist of 3 core scripts forked from modules: tytydraco Ktweak, Thermal Killer and ZRAM Swap Configuration.
+Re-modified and re-configured into one convenient package.
 
-KTWEAK: Fine-tune system kernel parameters with best setting, this has done by experienced kernel developers.
-
-FKBTS: Locate, modified found configs files into .bck (ex: msm_thermal.bck) or relocate files to the folder of the installed module. This will force system to use thermal system in kernel as default. No harm done on system file, modidied file will be reinstated to original after uninstall module.
-
-ZRAM: Swap on RAM, faster than Swap on Storage/Disk, BUT DOES NOT IMPROVE SYSTEM PEFORMANCE. Module will configure and resize ZRAM to 100% of actual installed RAM size during device boot. 
+- Fine-tune system kernel parameters with best setting, this has done by experienced kernel developers.
+- Locate, modified found configs files into .bck (ex: msm_thermal.bck) or relocate files to the folder of the installed module. This will force system to use thermal system in kernel as default. No harm done on system file, modidied file will be reinstated to original after uninstall module.
+- Module will configure and resize ZRAM to 100% of actual installed RAM size during device boot. It swap memory on RAM, faster than swap memory on Storage/Disk
 
 ## DISCLAMER
 - USE THIS MODULE AT YOUR OWN RISKS
