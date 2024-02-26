@@ -1,6 +1,7 @@
 ## Introduction 
 # KTWEAK X FKBTS X ZRAM
 A no-bull-sh**t, fine-tuned kernel tweaks forked from tytydraco's original Ktweak, with forked Thermal Killer and ZRAM Swap Configuration.
+Re-modified and configured into KTWEAK X FKBTS X ZRAM module
 
 ## CAUTION
 
