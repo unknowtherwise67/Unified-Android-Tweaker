@@ -1,7 +1,7 @@
 ## Introduction 
 # KTWEAK X FKBTS X ZRAM
-A no-bull-sh**t, fine-tuned kernel tweaks forked from tytydraco's original Ktweak, with forked Thermal Killer and ZRAM Swap Configuration.
-Re-modified and configured into KTWEAK X FKBTS X ZRAM module
+A unified module, include: fine-tuned kernel tweaks forked from tytydraco's original Ktweak, with forked Thermal Killer and ZRAM Swap Configuration.
+Re-modified and configured into KTWEAK (Kernel Parameters Tweaks X FKBTS (Force Kernel-Based Thermal System) X ZRAM (Configure ZRAM to 100% of actual RAM size) module
 
 ## CAUTION
 
@@ -27,8 +27,9 @@ Re-modified and configured into KTWEAK X FKBTS X ZRAM module
 
 ## Credits 
 
-- [tytydrago]
-- [erenyeagarr(ZyCromerZ)]
-- [topjohnwu]
-- [tiann]
-- [osm0sis]
+- [tytydrago](https://github.com/tytydraco/KTweak): For the original Ktweak
+- [erenyeagarr(ZyCromerZ)](https://github.com/erenyeagarr/ThermalKiller-All-Devices-): Thermal Killer
+- [reiryuki](https://github.com/reiryuki/ZRAM-Swap-Configurator-Magisk-Module): ZRAM Swap Configurator
+- [topjohnwu](https://github.com/topjohnwu): Make new Root (Magisk) with module possible
+- [tiann](https://github.com/tiann): Make new kernel-based root with module-capable possible
+- [osm0sis](https://github.com/osm0sis): For AnyKernel
