@@ -10,7 +10,7 @@ Re-modified and configured into KTWEAK (Kernel Parameters Tweaks X FKBTS (Force 
 ## REQUIREMENT
 
 - 1Ghz of Device Processor/APU
-- 1GBs of RAM
+- 1GBs of RAM, 4GB of STORAGE/ROM
 - UNLOCKED BOOTLOADER, any installed root with module capablity
 - Minimum Linux Kernel: 3+ ; Recommended Linux Kernel: 4+
 - A brains with a little knowledges about softwares and experiences
