@@ -3,9 +3,9 @@
 A unified module, include: fine-tuned kernel tweaks forked from tytydraco's original Ktweak, with forked Thermal Killer and ZRAM Swap Configuration.
 Re-modified and configured into KTWEAK (Kernel Parameters Tweaks X FKBTS (Force Kernel-Based Thermal System) X ZRAM (Configure ZRAM to 100% of actual RAM size) module
 
-## CAUTION
-
-- Do not install any tweaks relative, especially the sketchy, snake oil and harmful one.
+## DISCLAMER
+- USE THIS MODULE AT YOUR OWN RISKS
+- DEVELOPERS OF THIS MODULE ARE NOT TOOK RESPONSIBILITY FOR ANYHING THAT HAPPENS
 
 ## REQUIREMENT
 
@@ -24,6 +24,10 @@ Re-modified and configured into KTWEAK (Kernel Parameters Tweaks X FKBTS (Force 
 1. Install in any installed root manager with module capablity
 2. Reboot and Forget
 5. Have fun! :)
+
+## CAUTION
+
+- Do not install with any tweaks relative, especially the sketchy, snake oil and harmful one.
 
 ## Credits 
 
