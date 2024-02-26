@@ -24,6 +24,10 @@ By the ZRAM scripts in module, it will configure ZRAM to 100% of actual RAM size
 - Minimum Linux Kernel: 3+ ; Recommended Linux Kernel: 4+
 - A brains with a little knowledges about softwares and experiences
 
+## KNOW ISSUES
+
+- On newest KernelSU manager (0.8.0+), module may failed to install due to KernelSU been reconstructed and use new spare image to store module. User may stop updating and stay on old manager version for now until new solution is found.
+
 ## Install
 
 1. Install in any installed root manager with module capablity
