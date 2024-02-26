@@ -1,16 +1,6 @@
 ## Introduction 
 # KTWEAK X FKBTS X ZRAM
-A no-bullsheet, fine-tuned kernel tweaks forked from tytydraco's original Ktweak, with force default kernel-based thermal system and configure ZRAM to 100% of actual RAM size.
-
-> As called KTWEAK X FKBTS X ZRAM by combine Ktweak and 2 other intergrated scripts.
-
-> Ktweaks: When install module, it will config, fine-tune, and made adjustments to available parameters in system kernel (like Android Kernel) to the best settings without messing other stuffs, this has done by the experienced kernel developers.
-
-> FKBTS: If you don't know, some operating system had 2 thermal function system, one is on configs stored on (ex: thermal_config.cfg) which is system use it to excecute and management from it. Other is thermal system stored on kernel (ex: MSM Thermal, ThermalDriver), operating system will use kernel-based thermal system if configs are not available, or user changed power mode on the device.
-By the FKBTS scripts, it will locate and rewrite to a new diffirent file name extensions or relocate files to the folder of the installed module. And yet, no harm done on system files. When uninstall module and reboot, all files will be back into origin
-
-> ZRAM: Virtual Memory, a crucial part of operating system, used to store vital processes and temporaries, thus also prevent system crashes that may damage hardware when there's a lot of processes running on the device.
-By the ZRAM scripts in module, it will configure ZRAM to 100% of actual RAM size, but not fully because of hardware reserved.
+A no-bull-sh**t, fine-tuned kernel tweaks forked from tytydraco's original Ktweak, with forked Thermal Killer and ZRAM Swap Configuration.
 
 ## CAUTION
 
