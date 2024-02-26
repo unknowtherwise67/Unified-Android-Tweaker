@@ -17,7 +17,7 @@ Re-modified and configured into KTWEAK (Kernel Parameters Tweaks X FKBTS (Force 
 
 ## KNOW ISSUES
 
-- On newest KernelSU manager (0.8.0+), module may failed to install due to KernelSU been reconstructed and use new spare image to store module. User may stop updating and stay on old manager version for now until new solution is found.
+- On newest KernelSU manager (0.8.0+), module may failed to install after KernelSU been reconstructed and use new spare image to store module. User may stop updating and stay on old manager version for now until new solution is found.
 
 ## Install
 
