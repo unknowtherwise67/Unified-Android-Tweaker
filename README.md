@@ -23,6 +23,7 @@ Re-modified and re-configured into one convenient package.
 ## KNOW ISSUES
 
 - On newest KernelSU manager (0.8.0+), module may failed to install after new KernelSU been reconstructed and use new spare image to store module. User may stop updating and stay on old manager version for now until new solution is found.
+-Some tweak paramter may failed to apply, this may because some of them is hardcode-locked by developers or manufacturers
 
 ## Install
 
