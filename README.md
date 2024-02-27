@@ -1,6 +1,6 @@
 ## Introduction 
 # Unified Android Tweaker
-A unified module consist of 3 core scripts forked from modules: tytydraco Ktweak, Thermal Killer and ZRAM Swap Configuration.
+A unified module consist of 3 core scripts forked from modules: tytydraco's Ktweak, erenyeagarr's Thermal Killer and reiryuki's ZRAM Swap Configuration.
 Re-modified and re-configured into one convenient package.
 
 Feature:
