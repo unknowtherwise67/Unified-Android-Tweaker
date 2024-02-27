@@ -14,9 +14,9 @@ Feature:
 - DEVELOPERS OF THIS MODULE ARE NOT TOOK RESPONSIBILITY FOR ANYHING THAT HAPPENS
 
 ## REQUIREMENT
-- ANDROID 6 and above
 - 1Ghz of ANDROID Device Processor/APU
 - 1GBs of RAM, 4GBs of STORAGE/ROM
+- ANDROID 6 and above
 - UNLOCKED BOOTLOADER, any installed root with module capablity
 - Minimum Linux Kernel: 3+ ; Recommended Linux Kernel: 4+
 - A brains with a little knowledges about softwares and experiences
