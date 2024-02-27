@@ -35,7 +35,7 @@ Feature:
 
 ## CAUTION
 
-- Do not install with any tweaks relative modules, especially the sketchy, snake oil and harmful one.
+- Do not install with any tweaks relative modules as it cause some conflicts.
 
 ## TO BE INCLUDED
 
