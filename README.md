@@ -22,26 +22,21 @@ Feature:
 - A brains with a little knowledges about softwares and experiences
 
 ## KNOW ISSUES
-
 - On newest KernelSU manager (0.8.0+), module may failed to install after new KernelSU been reconstructed and use new spare image to store module. User may stop updating and stay on old manager version for now until new solution is found.
-
 - Some tweak paramter may failed to apply, this may because some of them is hardcode-locked by developers or manufacturers.
 
 ## Install
-
 1. Install in any installed root manager with module capablity.
 2. Reboot and forget.
 5. Have fun. :)
 
 ## CAUTION
-
 - Do not install with any tweaks-relative modules as it cause some conflicts.
 
 ## TO BE INCLUDED
 - None
 
 ## Credits 
-
 - [tytydrago](https://github.com/tytydraco/KTweak): For the original Ktweak.
 - [erenyeagarr](https://github.com/erenyeagarr/ThermalKiller-All-Devices-): Thermal Killer.
 - [reiryuki](https://github.com/reiryuki/ZRAM-Swap-Configurator-Magisk-Module): ZRAM Swap Configurator.
