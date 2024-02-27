@@ -5,7 +5,7 @@ Re-modified and re-configured into one convenient package.
 
 Feature:
 - Fine-tune system kernel parameters with best setting, this has done by experienced kernel developers.
-- Locate, modified found configs files into .bck (ex: msm_thermal.bck) or relocate files to the folder of the installed module. This will force system to use thermal system in kernel as default. No harm done on system file, modidied file will be reinstated to original after uninstall module.
+- Locate, modified found configs files into .bck (ex: msm_thermal.bck) or relocate files to the folder of the installed module. This will force system to use thermal system in kernel as default. No harm done on system file, modified file will be reinstated to original after uninstall module.
 - Module will configure and resize ZRAM to 100% of actual installed RAM size during device boot. It swap memory on RAM, faster than swap memory on Storage/Disk.
 - Module should work on any Android device based on Linux Kernel.
 
