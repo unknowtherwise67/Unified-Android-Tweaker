@@ -37,7 +37,7 @@ Feature:
 - None
 
 ## Credits 
-- [tytydrago](https://github.com/tytydraco/KTweak): For the original Ktweak.
+- [tytydrago](https://github.com/tytydraco/KTweak): Ktweak.
 - [erenyeagarr](https://github.com/erenyeagarr/ThermalKiller-All-Devices-): Thermal Killer.
 - [reiryuki](https://github.com/reiryuki/ZRAM-Swap-Configurator-Magisk-Module): ZRAM Swap Configurator.
 - [topjohnwu](https://github.com/topjohnwu): Make new Root (Magisk) with module possible.
