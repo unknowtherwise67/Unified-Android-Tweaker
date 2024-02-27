@@ -38,8 +38,7 @@ Feature:
 - Do not install with any tweaks-relative modules as it cause some conflicts.
 
 ## TO BE INCLUDED
-
-- Will add support for update throught root module manager soon.
+- None
 
 ## Credits 
 
