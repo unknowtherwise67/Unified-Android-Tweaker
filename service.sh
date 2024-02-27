@@ -1,5 +1,4 @@
 MODPATH=${0%/*}
-
 # log
 LOGFILE=$MODPATH/debug.log
 exec 2>$LOGFILE
@@ -22,7 +21,7 @@ DEF=`getprop ro.lmk.thrashing_limit_critical`
 
 # zram
 #ALGO=
-#oZRAM=3G
+#oZRAM=100%
 #%MemTotalStr=`cat /proc/meminfo | grep MemTotal`
 #%MemTotal=${MemTotalStr:16:8}
 #%let VALUE="$MemTotal * VAR / 100"

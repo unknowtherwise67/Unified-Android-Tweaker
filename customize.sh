@@ -1,5 +1,4 @@
 #!/system/bin/sh
-
 SCRIPT_PARENT_PATH="$MODPATH/system/bin"
 SCRIPT_NAME="ktweak"
 SCRIPT_PATH="$SCRIPT_PARENT_PATH/$SCRIPT_NAME"
@@ -12,6 +11,8 @@ sh "$SCRIPT_PATH"
 
 ui_print ""
 ui_print " * The next section will be start excecuting..."
+ui_print " * Executing script..."
+ui_print ""
 
 SKIPUNZIP=0
 ## Variables
@@ -46,9 +47,6 @@ SKIPUNZIP=0
 #      set_perm file owner group filepermission context
 #   for all directories in <directory> (including itself), it will call:
 #      set_perm dir owner group dirpermission context
-
-## print word
-ui_print " * Executing script..."
 
 ### fix module command
 bin=xbin
@@ -106,9 +104,8 @@ echo "$NVBASE/modules" > /data/magisk_path.txt
 
 ui_print ""
 ui_print " * The next section will be start excecuting..."
-
-## print word
 ui_print " * Executing script..."
+ui_print ""
 
 # space
 ui_print " "
@@ -187,9 +184,9 @@ else
     sed -i 's|#%||g' $MODPATH/service.sh
   elif [ "$PROP" ]; then
     ui_print "  to $PROP Byte"
-    sed -i "s|ZRAM=3G|ZRAM=$PROP|g" $MODPATH/service.sh
+    sed -i "s|ZRAM=100|ZRAM=$PROP|g" $MODPATH/service.sh
   else
-    ui_print "  to 3G Byte"
+    ui_print "  to 100% of RAM size"
   fi
   ui_print " "
   PROP=`grep_prop zram.algo $OPTIONALS`
@@ -222,21 +219,18 @@ fi
 
 ## print word
 ui_print ""
-ui_print " * Module installed and executing scripts completed"
-ui_print " * ZRAM is configured and will be in effects after reboot"
-ui_print " * You need to reboot the device to take effects"
+ui_print " * Module installed and executing scripts completed."
+ui_print " * ZRAM is configured and will be in effects after reboot."
+ui_print " * You need to reboot the device to take effects."
 ui_print ""
-ui_print "----------- Additional Notes -----------"
-ui_print ""
-ui_print " * Note that some tuning parameters may not available in system kernel due to different system kernel build"
-ui_print " * Your device may risks of overheat and many unexpected problems after installed this module"
-ui_print " * Be sure to check ZRAM, id there's no changes, then ZRAM had problems or it's hardcode-locked by developers or manufactures"
-ui_print " * Do not use with other optimizer, tweak related modules, as it will cause some unexpected problems"
-ui_print " * Report issues to Github or Telegram dedicated group"
-ui_print ""
+ui_print " * ADDITIONAL NOTES:"
 ui_print " * NOTE THAT USE THIS MODULE AT YOUR OWN RISKS"
-ui_print " * DEVELOPERS OF THIS MODULE ARE NOT TOOK RESPONSIBILITY FOR ANYHING THAT HAPPENS"
-ui_print ""
-ui_print " * Source codes is available on GitHub, you can find it in there"
-ui_print " * Credits to tytydraco, reiryuki(Ryuki), erenyeagarr(ZyCromerZ), topjohnwu, tiann and osm0sis"
+ui_print " * DEVELOPERS OF THIS MODULE ARE NOT TOOK RESPONSIBILITY FOR ANYHING THAT HAPPENS."
+ui_print " * Note that some tuning parameters may not available in system kernel due to different system kernel build."
+ui_print " * Your device may risks of overheat and many unexpected problems after installed this module."
+ui_print " * Be sure to check ZRAM, id there's no changes, then ZRAM had problems or it's hardcode-locked by developers or manufactures."
+ui_print " * Do not use with other optimizer, tweak related modules, as it will cause some unexpected problems."
+ui_print " * Report issues to Github"
+ui_print " * Source codes is available on GitHub, you can find it in there."
+ui_print " * Credits to tytydraco, reiryuki, erenyeagarr, topjohnwu, tiann and osm0sis."
 ui_print ""
