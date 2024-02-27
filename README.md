@@ -14,7 +14,7 @@ Re-modified and re-configured into one convenient package.
 
 ## REQUIREMENT
 
-- 1Ghz of Device Processor/APU
+- 1Ghz of ANDROID Device Processor/APU
 - 1GBs of RAM, 4GBs of STORAGE/ROM
 - UNLOCKED BOOTLOADER, any installed root with module capablity
 - Minimum Linux Kernel: 3+ ; Recommended Linux Kernel: 4+
