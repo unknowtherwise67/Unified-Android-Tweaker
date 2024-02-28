@@ -1,7 +1,4 @@
 #!/system/bin/sh
-# Written by Draco (tytydraco @ GitHub)
-# Modified by unknowtherwise67
-
 # The name of the current branch for logging purposes
 BRANCH="universal-custom"
 
