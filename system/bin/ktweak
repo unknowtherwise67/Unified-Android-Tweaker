@@ -228,11 +228,11 @@ do
 	# Allow I/O statistics accounting
 	write "$queue/iostats" 1
 
-	# Reduce read_ahead_kb to stabilize and improve memory efficient and reduce overhead and latency
+	# Reduce read_ahead_kb to stabilize and improve efficient and reduce overhead and latency
 	write "$queue/read_ahead_kb" 4
 
-	# Allow more CPUs for aggressive on I/O
-    write "$queue/rq_affinity" 2
+	# Kept default on rq_affinity to improve caching effectiveness
+    write "$queue/rq_affinity" 1
 
 	# Allow maximum requests to allow more process to peforms on I/O
 	write "$queue/nr_requests" 4096
