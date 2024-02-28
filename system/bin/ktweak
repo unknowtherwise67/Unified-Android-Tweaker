@@ -47,7 +47,7 @@ echo "Branch: $BRANCH"
 sync
 
 # Limit max perf event processing time to this much CPU usage
-write /proc/sys/kernel/perf_cpu_time_max_percent 15
+write /proc/sys/kernel/perf_cpu_time_max_percent 30
 
 # Sacrifice latency for throughput when grouping tasks
 write /proc/sys/kernel/sched_autogroup_enabled 0
