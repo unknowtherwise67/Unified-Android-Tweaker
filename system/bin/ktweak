@@ -231,11 +231,11 @@ do
 	# Reduce read_ahead_kb to stabilize and improve efficient and reduce overhead and latency
 	write "$queue/read_ahead_kb" 4
 
-	# Kept default on rq_affinity to improve caching effectiveness
-    write "$queue/rq_affinity" 1
+	# Force completion on CPU that issued the I/O requests
+    write "$queue/rq_affinity" 2
 
-	# Allow maximum requests to allow more process to peforms on I/O
-	write "$queue/nr_requests" 4096
+	# Balance requests to allow more process to peforms on I/O
+	write "$queue/nr_requests" 128
 done
 
 # Always return completed, ignore any write fails
