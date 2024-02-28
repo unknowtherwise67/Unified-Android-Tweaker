@@ -1,6 +1,5 @@
 > 2/28/2024
-- Nothing new.
-- Changelogs in previous relase/date.
+- Made some fixes.
 > 2/28/2024
 - Added support for update module via any root managers (Magisk, KernelSU).
 - Updated module templates.
