@@ -37,7 +37,7 @@ Feature:
 ## TO BE INCLUDED
 - None
 
-## Credits and Notess
+## Credits and Notes:
 - [tytydrago](https://github.com/tytydraco/KTweak): Ktweak.
 - [erenyeagarr](https://github.com/erenyeagarr/ThermalKiller-All-Devices-): Thermal Killer.
 - [reiryuki](https://github.com/reiryuki/ZRAM-Swap-Configurator-Magisk-Module): ZRAM Swap Configurator.
