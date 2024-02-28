@@ -47,7 +47,7 @@ echo "Branch: $BRANCH"
 sync
 
 # Limit max perf event processing time to this much CPU usage
-write /proc/sys/kernel/perf_cpu_time_max_percent 30
+write /proc/sys/kernel/perf_cpu_time_max_percent 10
 
 # Sacrifice latency for throughput when grouping tasks
 write /proc/sys/kernel/sched_autogroup_enabled 0
@@ -140,14 +140,14 @@ fi
 
 [[ "$ANDROID" == true ]] && if [[ -d "/dev/stune/" ]]
 then
-	# Balance the schedtune to save power
-	write /dev/stune/schedtune.prefer_idle 1
-	write /dev/stune/background/schedtune.prefer_idle 1
-	write /dev/stune/foreground/schedtune.prefer_idle 1
-	write /dev/stune/nnapi-hal/schedtune.prefer_idle 1
-	write /dev/stune/camera-daemon/schedtune.prefer_idle 1
-	write /dev/stune/rt/schedtune.prefer_idle 1
-	write /dev/stune/top-app/schedtune.prefer_idle 1
+	# Priority low latency on schedtune
+	write /dev/stune/schedtune.prefer_idle 0
+	write /dev/stune/background/schedtune.prefer_idle 0
+	write /dev/stune/foreground/schedtune.prefer_idle 0
+	write /dev/stune/nnapi-hal/schedtune.prefer_idle 0
+	write /dev/stune/camera-daemon/schedtune.prefer_idle 0
+	write /dev/stune/rt/schedtune.prefer_idle 0
+	write /dev/stune/top-app/schedtune.prefer_idle 0
 
 	# Mark all schedtune stune-boosts as boosted
 	write /dev/stune/schedtune.boost 1
@@ -228,14 +228,14 @@ do
 	# Allow I/O statistics accounting
 	write "$queue/iostats" 1
 
-	# Reduce read_ahead_kb to stabilize and improve efficient and reduce overhead and latency
+	# Reduce throughtput0000000000 to improve I/O efficient, latency
 	write "$queue/read_ahead_kb" 4
 
 	# Force completion on CPU that issued the I/O requests
     write "$queue/rq_affinity" 2
 
-	# Balance requests to allow more process to peforms on I/O
-	write "$queue/nr_requests" 128
+	# Buffer maximum requests at once on I/O
+	write "$queue/nr_requests" 4096
 done
 
 # Always return completed, ignore any write fails
