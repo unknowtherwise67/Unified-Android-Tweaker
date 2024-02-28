@@ -41,8 +41,8 @@ Feature:
 - [tytydrago](https://github.com/tytydraco/KTweak): Ktweak.
 - [erenyeagarr](https://github.com/erenyeagarr/ThermalKiller-All-Devices-): Thermal Killer.
 - [reiryuki](https://github.com/reiryuki/ZRAM-Swap-Configurator-Magisk-Module): ZRAM Swap Configurator.
-- [topjohnwu](https://github.com/topjohnwu): Make new Root (Magisk) with module possible.
-- [tiann](https://github.com/tiann): Make new kernel-based root with module-capable possible.
-- [osm0sis](https://github.com/osm0sis): For AnyKernel.
+- [topjohnwu](https://github.com/topjohnwu): Make Root (Magisk) with module possible.
+- [tiann](https://github.com/tiann): Make kernel-based root with module-capable possible.
+- [osm0sis](https://github.com/osm0sis): AnyKernel.
 
 - If you do like my work, buy me a coffe or donate, I'll thank you later. :D
