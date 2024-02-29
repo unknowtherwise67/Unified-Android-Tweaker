@@ -22,9 +22,9 @@ Feature:
 - Minimum Linux Kernel: 3+ ; Recommended Linux Kernel: 4+
 - A brains with a little knowledges about softwares and experiences
 
-## KNOW ISSUES
-- On newest KernelSU manager (0.8.0+), module may failed to install after new KernelSU been reconstructed and use new spare image to store module. User may stop updating and stay on old manager version for now until new solution is found.
-- Some tweak paramter may failed to apply, this may because some of them is hardcode-locked by developers or manufacturers.
+## KNOW ISSUES AND FIXES
+- On newest KernelSU manager (0.8.0+), module may failed to install after new KernelSU been reconstructed and use new spare image to store module - Fix by completely remove adb inside data folder of system root and reboot or clean install software/firmware/rom on device before update to newest KernelSU Manager.
+- Some tweak paramter may failed to apply, this may because some of them is hardcode-locked by developers or manufacturers - It can be normal.
 
 ## Install
 1. Install in any installed root manager with module capablity.
@@ -37,7 +37,7 @@ Feature:
 ## TO BE INCLUDED
 - None
 
-## Credits and Notes:
+## Credits and Notes
 - [tytydrago](https://github.com/tytydraco/KTweak): Ktweak.
 - [erenyeagarr](https://github.com/erenyeagarr/ThermalKiller-All-Devices-): Thermal Killer.
 - [reiryuki](https://github.com/reiryuki/ZRAM-Swap-Configurator-Magisk-Module): ZRAM Swap Configurator.
