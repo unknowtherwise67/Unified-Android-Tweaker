@@ -232,7 +232,7 @@ do
 	write "$queue/read_ahead_kb" 4
 
 	# Force completion on CPU that issued the I/O requests
-    write "$queue/rq_affinity" 2
+        write "$queue/rq_affinity" 2
 
 	# Buffer maximum requests at once on I/O
 	write "$queue/nr_requests" 4096
