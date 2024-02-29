@@ -39,9 +39,9 @@ fi
 #!/system/bin/sh
 while [[ "$(getprop sys.boot_completed)" -ne 1 ]] && [[ ! -d "/sdcard" ]]
 do
-       sleep 120
+       sleep 60
 done
-sleep 120
+sleep 60
 ktweak
 
 # function
