@@ -123,8 +123,6 @@ write /sys/module/cpu_boost/parameters/input_boost_enabled 0
 write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
 write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
 write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0
-write /proc/sys/kernel/random/read_wakeup_threshold 0
-write /proc/sys/kernel/random/write_wakeup_threshold 0
 write /sys/kernel/sched/gentle_fair_sleepers 1
 write /sys/fs/selinux/enforce 1
 
