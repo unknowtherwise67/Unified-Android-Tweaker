@@ -45,8 +45,8 @@ echo "Time of execution: $(date)"
 # Sync to data in the rare case a device crashes
 sync
 
-# Disable limit perf event processing time of CPU usage
-write /proc/sys/kernel/perf_cpu_time_max_percent 0
+# Limit max perf event processing time to this maximum CPU usage
+write /proc/sys/kernel/perf_cpu_time_max_percent 100
 
 # Sacrifice latency for throughput when grouping tasks
 write /proc/sys/kernel/sched_autogroup_enabled 0
@@ -123,8 +123,8 @@ write /sys/module/cpu_boost/parameters/input_boost_enabled 0
 write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
 write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
 write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0
-write /proc/sys/kernel/random/read_wakeup_threshold 64
-write /proc/sys/kernel/random/write_wakeup_threshold 128
+write /proc/sys/kernel/random/read_wakeup_threshold 0
+write /proc/sys/kernel/random/write_wakeup_threshold 0
 write /sys/kernel/sched/gentle_fair_sleepers 1
 write /sys/fs/selinux/enforce 1
 
@@ -180,9 +180,9 @@ done
 find /sys/devices/system/cpu/ -name schedutil -type d | while IFS= read -r governor
 do
 	# Consider changing frequencies once per scheduling period
-	write "$governor/up_rate_limit_us" 0
-	write "$governor/down_rate_limit_us" 0
-	write "$governor/rate_limit_us" 0
+	write "$governor/up_rate_limit_us" "$((SCHED_PERIOD / 1000))"
+	write "$governor/down_rate_limit_us" "$((5 * SCHED_PERIOD / 1000))"
+	write "$governor/rate_limit_us" "$((SCHED_PERIOD / 1000))"
 
 	# Jump to hispeed frequency at this load percentage
 	write "$governor/hispeed_load" 100
@@ -193,8 +193,8 @@ done
 find /sys/devices/system/cpu/ -name interactive -type d | while IFS= read -r governor
 do
 	# Consider changing frequencies once per scheduling period
-	write "$governor/timer_rate" 0
-	write "$governor/min_sample_time" 0
+	write "$governor/timer_rate" "$((SCHED_PERIOD / 1000))"
+	write "$governor/min_sample_time" "$((SCHED_PERIOD / 1000))"
 
 	# Jump to hispeed frequency at this load percentage
 	write "$governor/go_hispeed_load" 100
