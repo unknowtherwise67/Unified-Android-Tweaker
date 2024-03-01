@@ -22,7 +22,7 @@ Feature:
 - A brains with a little knowledges about softwares and experiences
 
 ## KNOW ISSUES AND FIXES
-- On newest KernelSU manager (0.8.0+), module may failed to install after new KernelSU been reconstructed and use new spare image to store module - Fix by completely remove adb inside data folder of system root and reboot or clean install software/firmware/rom on device before update to newest KernelSU Manager.
+- On newest KernelSU manager (0.8.0+), module may failed to install after new KernelSU been reconstructed and use new spare image to store module - Fix by completely remove adb inside data folder of system root and reboot or clean install software/firmware/rom on device and update to newest KernelSU Manager.
 - Some tweak parameters may failed to apply, this may because some of them is hardcode-locked by developers or manufacturers - This can be normal.
 
 ## Install
