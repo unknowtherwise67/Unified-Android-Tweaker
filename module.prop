@@ -1,7 +1,7 @@
 id=unifiedandroidtweaker
 name=Unified Android Tweaker
-version=v1.2.2024
-versionCode=122024
+version=v1.3.2024
+versionCode=132024
 author=unknowtherwise67
 description=A unified tweaker module consist of 3 core script: reduce latency, shutters and improve performance, force kernel-based thermal system and configure ZRAM to 100% of actual RAM size. Install and forget. Credits to tytydraco, reiryuki, erenyeagarr.
 updateJson=https://raw.githubusercontent.com/unknowtherwise67/Unified-Android-Tweaker/main/update.json

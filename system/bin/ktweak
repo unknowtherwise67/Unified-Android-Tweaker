@@ -139,7 +139,7 @@ fi
 
 [[ "$ANDROID" == true ]] && if [[ -d "/dev/stune/" ]]
 then
-	# Priority low latency on schedtune
+	# Balance on schedtune 
 	write /dev/stune/schedtune.prefer_idle 0
 	write /dev/stune/background/schedtune.prefer_idle 0
 	write /dev/stune/foreground/schedtune.prefer_idle 0
@@ -185,7 +185,7 @@ do
 	write "$governor/rate_limit_us" "$((SCHED_PERIOD / 1000))"
 
 	# Jump to hispeed frequency at this load percentage
-	write "$governor/hispeed_load" 85
+	write "$governor/hispeed_load" 100
 	write "$governor/hispeed_freq" "$UINT_MAX"
 done
 
@@ -197,7 +197,7 @@ do
 	write "$governor/min_sample_time" "$((SCHED_PERIOD / 1000))"
 
 	# Jump to hispeed frequency at this load percentage
-	write "$governor/go_hispeed_load" 85
+	write "$governor/go_hispeed_load" 100
 	write "$governor/hispeed_freq" "$UINT_MAX"
 done
 
@@ -205,7 +205,7 @@ done
 find /sys/devices/system/cpu/ -name ondemand -type d | while IFS= read -r governor
 do
 	# Set maximum ramp up threshold
-	write "$governor/up_threshold" 85
+	write "$governor/up_threshold" 100
 done
 
 for queue in /sys/block/*/queue
@@ -232,9 +232,6 @@ do
 
 	# Force completion on CPU that issued the I/O requests
 	write "$queue/rq_affinity" 2
-
-	# Buffer maximum requests at once on I/O
-	write "$queue/nr_requests" 4096
 done
 
 # Always return completed, ignore any write fails
