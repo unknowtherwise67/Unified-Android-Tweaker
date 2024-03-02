@@ -139,7 +139,7 @@ fi
 
 [[ "$ANDROID" == true ]] && if [[ -d "/dev/stune/" ]]
 then
-	# Balance on schedtune 
+	# Priority low latency on schedtune
 	write /dev/stune/schedtune.prefer_idle 0
 	write /dev/stune/background/schedtune.prefer_idle 0
 	write /dev/stune/foreground/schedtune.prefer_idle 0
@@ -232,6 +232,9 @@ do
 
 	# Force completion on CPU that issued the I/O requests
 	write "$queue/rq_affinity" 2
+
+	# Buffer maximum requests at once on I/O
+	write "$queue/nr_requests" 4096
 done
 
 # Always return completed, ignore any write fails
