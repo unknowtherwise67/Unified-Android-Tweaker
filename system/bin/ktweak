@@ -127,6 +127,7 @@ write /proc/sys/kernel/random/write_wakeup_threshold 128
 write /sys/kernel/sched/gentle_fair_sleepers 1
 write /sys/fs/selinux/enforce 1
 dumpsys deviceidle enable
+dumpsys deviceidle force-idle
 
 if [[ -f "/sys/kernel/debug/sched_features" ]]
 then
