@@ -45,8 +45,8 @@ echo "Time of execution: $(date)"
 # Sync to data in the rare case a device crashes
 sync
 
-# Limit perf event processing time to this CPU usage
-write /proc/sys/kernel/perf_cpu_time_max_percent 100
+# Disable monitoring CPU usage for limit perf sampling events
+write /proc/sys/kernel/perf_cpu_time_max_percent 0
 
 # Sacrifice latency for throughput when grouping tasks
 write /proc/sys/kernel/sched_autogroup_enabled 0
@@ -100,7 +100,7 @@ write /proc/sys/vm/page-cluster 0
 write /proc/sys/vm/stat_interval 10
 
 # Swap to the swap device at a fair rate
-write /proc/sys/vm/swappiness 100
+write /proc/sys/vm/swappiness 50
 
 # Allow inodes and dentries to build up a larger cache
 write /proc/sys/vm/vfs_cache_pressure 100
@@ -119,7 +119,6 @@ write /sys/module/workqueue/parameters/power_efficient N
 write /sys/class/kgsl/kgsl-3d0/throttling 0
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 6
 write /sys/kernel/fast_charge/force_fast_charge 1
-write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0
 write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
 write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
 write /proc/sys/kernel/random/read_wakeup_threshold 64
