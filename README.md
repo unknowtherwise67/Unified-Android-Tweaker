@@ -42,7 +42,7 @@ Feature:
 - [reiryuki](https://github.com/reiryuki/ZRAM-Swap-Configurator-Magisk-Module): ZRAM Swap Configurator.
 - [topjohnwu](https://github.com/topjohnwu): Make Root (Magisk) with module-capable (with OverlayFS) possible.
 - [tiann](https://github.com/tiann): Make kernel-based root with module-capable (with OverlayFS) possible.
-- [osm0sis](https://github.com/osm0sis): AnyKernel, Flashable/Installable zips.
+- [osm0sis](https://github.com/osm0sis): AnyKernel, Flashable/Installable zips, scripts, bins, etc.
 
 
 - If you do like my work, buy me a coffe or donate, I'll thank you later. :D
