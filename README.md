@@ -44,4 +44,6 @@ Feature:
 - [tiann](https://github.com/tiann): Make kernel-based root with module-capable (with OverlayFS) possible.
 - [osm0sis](https://github.com/osm0sis): AnyKernel.
 
+
 - If you do like my work, buy me a coffe or donate, I'll thank you later. :D
+- You are free to fork my repo, but MAKE SURE to add name on credits or get rekt.
