@@ -7,10 +7,12 @@ ui_print " * Setting executable permissions..."
 set_perm_recursive "$SCRIPT_PATH" root root 0777 0755
 
 ui_print " * Executing script immediately..."
+ui_print ""
 sh "$SCRIPT_PATH"
 
 ui_print ""
 ui_print " * The next section will be start excecuting..."
+ui_print " * Setting executable permissions..."
 ui_print " * Executing script..."
 ui_print ""
 
