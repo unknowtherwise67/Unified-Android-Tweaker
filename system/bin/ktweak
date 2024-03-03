@@ -46,7 +46,7 @@ echo "Time of execution: $(date)"
 sync
 
 # Limit perf event processing time to this CPU usage
-write /proc/sys/kernel/perf_cpu_time_max_percent 1
+write /proc/sys/kernel/perf_cpu_time_max_percent 100
 
 # Sacrifice latency for throughput when grouping tasks
 write /proc/sys/kernel/sched_autogroup_enabled 0
@@ -120,6 +120,8 @@ write /sys/class/kgsl/kgsl-3d0/throttling 0
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 6
 write /sys/kernel/fast_charge/force_fast_charge 1
 write /sys/module/cpu_boost/parameters/input_boost_enabled 0
+write /sys/module/cpu_boost/parameters/input_boost_ms 0
+write /sys/module/cpu_input_boost/parameters/input_boost_duration 0
 write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0
 write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
 write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
@@ -231,9 +233,6 @@ do
 
 	# Reduce throughtput0000000000 to improve I/O efficient, latency
 	write "$queue/read_ahead_kb" 4
-
-	# Force completion on CPU that issued the I/O requests
-	write "$queue/rq_affinity" 2
 
 	# Buffer maximum requests at once on I/O
 	write "$queue/nr_requests" 4096
