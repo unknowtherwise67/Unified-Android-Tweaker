@@ -47,3 +47,4 @@ Feature:
 
 - If you do like my work, buy me a coffe or donate, I'll thank you later. :D
 - You are free to fork my repo for your iwn purposes, but MAKE SURE to add my name and other person on credits or get rekt.
+- I only accept reported issues with LOGCAT files, otherwise will be ignored and or closed.
