@@ -46,4 +46,4 @@ Feature:
 
 
 - If you do like my work, buy me a coffe or donate, I'll thank you later. :D
-- You are free to fork my repo, but MAKE SURE to add name on credits or get rekt.
+- You are free to fork my repo for your iwn purposes, but MAKE SURE to add my name and other person on credits or get rekt.
