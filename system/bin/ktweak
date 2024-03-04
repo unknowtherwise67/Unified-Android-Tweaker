@@ -114,17 +114,31 @@ write /proc/sys/net/ipv4/tcp_fastopen 3
 # Disable SYN cookies
 write /proc/sys/net/ipv4/tcp_syncookies 0
 
-# Fine-tune these settings/parameters in kernel if possible
+# Disable CPU power efficient to improve latency
 write /sys/module/workqueue/parameters/power_efficient N
+
+# Tweak GPU if possible
 write /sys/class/kgsl/kgsl-3d0/throttling 0
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 6
+
+# Enable Fast Charge if possible
 write /sys/kernel/fast_charge/force_fast_charge 1
+
+# Disable adaptive/fast-run LMK
 write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
 write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
+
+# Balance Entropy at a fair value
 write /proc/sys/kernel/random/read_wakeup_threshold 64
 write /proc/sys/kernel/random/write_wakeup_threshold 128
+
+# Enable GFS for improve user interface responsiveness but at the cost of more power use
 write /sys/kernel/sched/gentle_fair_sleepers 1
+
+# Set SELinux Enforce by default
 write /sys/fs/selinux/enforce 1
+
+# Enable Doze
 dumpsys deviceidle enable
 dumpsys deviceidle force-idle
 
@@ -227,13 +241,13 @@ do
 	# Allow I/O statistics accounting
 	write "$queue/iostats" 1
 
-	# Reduce throughtput0000000000 to improve I/O efficient, latency
+	# Reduce throughtput to improve I/O efficient and latency
 	write "$queue/read_ahead_kb" 4
 
-	# Force completion on CPU that issued the I/O requests
+	# Force completion on CPUs that issued the I/O requests
 	write "$queue/rq_affinity" 2
 
-	# Buffer maximum requests at once on I/O
+	# Buffer at this maximum requests/blocks at once on I/O to improve efficiency and latency
 	write "$queue/nr_requests" 4096
 done
 
