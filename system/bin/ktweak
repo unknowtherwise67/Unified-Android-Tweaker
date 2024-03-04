@@ -247,8 +247,8 @@ do
 	# Force completion on CPUs that issued the I/O requests
 	write "$queue/rq_affinity" 2
 
-	# Buffer to maximum read/write requests
-	write "$queue/nr_requests" 4096
+	# Reduce to this read/write requests value for priority low latency
+	write "$queue/nr_requests" 4
 done
 
 # Always return completed, ignore any write fails
