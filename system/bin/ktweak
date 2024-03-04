@@ -21,7 +21,7 @@ write() {
 	# Write the new value and bail if there's an error
 	if ! echo "$2" > "$1" 2> /dev/null
 	then
-		echo "Failed: $1 → $2"
+		echo "Failed - Cannot apply (01): $1 → $2"
 		return 1
 	fi
 
@@ -247,8 +247,8 @@ do
 	# Force completion on CPUs that issued the I/O requests
 	write "$queue/rq_affinity" 2
 
-	# Buffer at this maximum requests/blocks at once on I/O to improve efficiency and latency
-	write "$queue/nr_requests" 4096
+	# Reduce request/blocks to priority latency
+	write "$queue/nr_requests" 4
 done
 
 # Always return completed, ignore any write fails
