@@ -9,7 +9,7 @@ Feature:
 - Module will configure and resize ZRAM to 100% of actual installed RAM size during device boot (Not fully because of hardware reserve). It swap memory on RAM, faster than swap memory on Storage/Disk.
 - Module should work on any Android device (Tablets and Smartphones only. No Virtual because such this not take full advantage on hardware performance) based on Linux Kernel along with installed root with module capablity.
 - Non-intrusive and systemless.
-- Fully open source.
+- Open source.
 
 ## DISCLAMER
 - USE THIS MODULE AT YOUR OWN RISKS.
