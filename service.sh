@@ -39,9 +39,9 @@ fi
 #!/system/bin/sh
 while [[ "$(getprop sys.boot_completed)" -ne 1 ]] && [[ ! -d "/sdcard" ]]
 do
-       sleep 1
+       sleep 3
 done
-sleep 1
+sleep 3
 ktweak
 
 # function
@@ -59,7 +59,7 @@ fi
 }
 lmk_config() {
 stop_log
-sleep 300
+sleep 5
 DEF=`device_config get lmkd_native swap_free_low_percentage`
 DEF2=`device_config get lmkd_native thrashing_limit_critical`
 DEF3=`getprop persist.device_config.lmkd_native.swap_free_low_percentage`
