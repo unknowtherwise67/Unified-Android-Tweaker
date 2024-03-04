@@ -1,13 +1,15 @@
 ## Introduction 
 # Unified Android Tweaker
 A unified module consist of 3 core scripts forked from modules: tytydraco's Ktweak, erenyeagarr's Thermal Killer and reiryuki's ZRAM Swap Configuration.
-Re-modified and re-configured into one convenient package.
+Re-modified and re-configured into one convenient package. 
 
 Feature:
 - Fine-tune system kernel parameters with best setting, this has done by experienced kernel developers.
 - Locate, modified found configs files into different file extensions (ex: msm_thermal.bck) or relocate files to the folder of the installed module. This will force system to use thermal system in kernel as default. No harm done on system file, modified file will be reinstated to original after uninstall module.
 - Module will configure and resize ZRAM to 100% of actual installed RAM size during device boot (Not fully because of hardware reserve). It swap memory on RAM, faster than swap memory on Storage/Disk.
 - Module should work on any Android device (Tablets and Smartphones only. No Virtual because such this not take full advantage on hardware performance) based on Linux Kernel along with installed root with module capablity.
+- Non-intrusive and systemless.
+- Fully open source.
 
 ## DISCLAMER
 - USE THIS MODULE AT YOUR OWN RISKS.
@@ -46,5 +48,5 @@ Feature:
 
 
 - If you do like my work, buy me a coffe or donate, I'll thank you later. :D
-- You are free to fork my repo for your iwn purposes, but MAKE SURE to add my name and other person on credits or get rekt.
+- You are free to fork my repo for your study or any own purposes, but MAKE SURE to add my name and other person on credits or get rekt.
 - I only accept reported issues with LOGCAT files, otherwise will be ignored and or closed.
