@@ -7,7 +7,7 @@ Feature:
 - Fine-tune system kernel parameters with best setting, this has done by experienced kernel developers.
 - Locate, modified found configs files into different file extensions (ex: msm_thermal.bck) or relocate files to the folder of the installed module. This will force system to use thermal system in kernel as default. No harm done on system file, modified file will be reinstated to original after uninstall module.
 - Module will configure and resize ZRAM to 100% of actual installed RAM size during device boot (Not fully because of hardware reserve). It swap memory on RAM, faster than swap memory on Storage/Disk.
-- Module should work on any Android device (Tablets and Smartphones only. No Virtual because such this not take full advantage on hardware performance) based on Linux Kernel along with installed root with module capablity.
+- Module should work on any Android device (Tablets and Smartphones only. No Virtual because such this not take full advantage on hardware performance) based on Linux Kernel along with Rooted (Magisk, KernelSU, etc).
 - Non-intrusive and systemless.
 - Open source.
 
@@ -19,7 +19,7 @@ Feature:
 - 1Ghz+ of ANDROID Device Processor/APU
 - 1GBs+/4GBs+ of RAM/ROM
 - ANDROID 6+
-- UNLOCKED BOOTLOADER, any installed root with module capablity
+- UNLOCKED BOOTLOADER and Rooted (Magisk, KernelSU, etc)
 - Minimum Linux Kernel: 3+ ; Recommended Linux Kernel: 4+
 - A brains with a little knowledges about softwares and experiences
 
@@ -28,7 +28,7 @@ Feature:
 - Some kernel parameters are unable to applied due to being hardcode-locked by manufacturers or developer. This can be normal and not a serious problem.
 
 ## Install
-1. Install in any installed root manager with module capablity.
+1. Install in Magisk, KernelSU, etc.
 2. Reboot and forget.
 5. Have fun. :)
 
