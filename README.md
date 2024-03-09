@@ -33,7 +33,7 @@ Feature:
 5. Have fun. :)
 
 ## CAUTION
-- Do not install with any tweaks-relative modules as it cause some conflicts.
+- Do not install with any tweaks-relative modules as it can cause conflicts.
 
 ## TO BE INCLUDED
 - None
