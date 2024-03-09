@@ -120,6 +120,10 @@ write /sys/module/workqueue/parameters/power_efficient N
 # Tweak GPU if possible
 write /sys/class/kgsl/kgsl-3d0/throttling 0
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 6
+write /sys/module/simple_gpu_algorithm/parameters/simple_gpu_active 1
+write /sys/module/simple_gpu_algorithm/parameters/simple_ramp_threshold 10000
+write /sys/module/simple_gpu_algorithm/parameters/simple_laziness 0
+write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 3
 
 # Enable Fast Charge if possible
 write /sys/kernel/fast_charge/force_fast_charge 1
@@ -132,15 +136,14 @@ write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
 write /proc/sys/kernel/random/read_wakeup_threshold 64
 write /proc/sys/kernel/random/write_wakeup_threshold 128
 
-# Enable GFS for improve user interface responsiveness but at the cost of more power use
+# Enable GFS for improve user-interface responsiveness but at the cost of more power use
 write /sys/kernel/sched/gentle_fair_sleepers 1
 
 # Set SELinux Enforce by default
 write /sys/fs/selinux/enforce 1
 
-# Enable Doze
-dumpsys deviceidle enable
-dumpsys deviceidle force-idle
+# Disable Doze by default
+dumpsys deviceidle disable
 
 if [[ -f "/sys/kernel/debug/sched_features" ]]
 then
