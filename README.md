@@ -20,7 +20,7 @@ Feature:
 - 1GBs+/4GBs+ of RAM/ROM
 - ANDROID 6+
 - UNLOCKED BOOTLOADER and Rooted (Magisk, KernelSU, etc)
-- Minimum Linux Kernel: 3+ ; Recommended Linux Kernel: 4+
+- Minimum Linux Kernel: 3 ; Recommended Linux Kernel: 4+
 - A brains with a little knowledges about softwares and experiences
 
 ## KNOW ISSUES AND FIXES
