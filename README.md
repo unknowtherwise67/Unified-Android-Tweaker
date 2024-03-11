@@ -48,5 +48,5 @@ Feature:
 
 
 - If you do like my work, buy me a coffe or donate, I'll thank you later. :D
-- You are free to fork my repo for your study or any own purposes, but MAKE SURE to add CREDITS or get rekt.
+- You are free to fork my repo for your study or any other purposes, but MAKE SURE to add CREDITS or get rekt.
 - I only accept reported issues with LOGCAT files, otherwise will be ignored and or closed.
