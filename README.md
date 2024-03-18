@@ -16,12 +16,12 @@ Feature:
 - DEVELOPERS OF THIS MODULE ARE NOT TOOK RESPONSIBILITY FOR ANYHING THAT HAPPENS.
 
 ## REQUIREMENT
-- 1Ghz+ of ANDROID Device Processor/APU
-- 1GBs+/4GBs+ of RAM/ROM
-- ANDROID 6+
-- UNLOCKED BOOTLOADER and Rooted (Magisk, KernelSU, etc)
-- Minimum Linux Kernel: 3 ; Recommended Linux Kernel: 4+
-- A brains with a little knowledges about softwares and experiences
+- 1Ghz+ of ANDROID Device Processor/APU.
+- 1GBs+/4GBs+ of RAM/ROM.
+- ANDROID 6 and above.
+- UNLOCKED BOOTLOADER and Rooted (Magisk, KernelSU, etc).
+- Minimum Linux Kernel: 3 ; Recommended Linux Kernel: 4 and above.
+- A brains with a little knowledges about softwares and experiences.
 
 ## KNOW ISSUES AND FIXES
 - On newest KernelSU manager (0.8.0+), module may failed to install after new KernelSU been reconstructed and use new spare image to store module - Fix by completely remove adb inside data folder of system root and reboot or clean install software/firmware/rom on device and update to newest KernelSU Manager.
