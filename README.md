@@ -24,8 +24,7 @@ Feature:
 - A brains with a little knowledges about softwares and experiences.
 
 ## KNOW ISSUES AND FIXES
-- On newest KernelSU manager (0.8.0+), module may failed to install after new KernelSU been reconstructed and use new spare image to store module - Fix by completely remove adb inside data folder of system root and reboot or clean install software/firmware/rom on device and update to newest KernelSU Manager.
-- Some kernel parameters are unable to applied due to has been hardcode-locked by manufacturers or developer. This can be normal and not a serious problem.
+- None.
 
 ## Install
 1. Install in Magisk, KernelSU, etc.
