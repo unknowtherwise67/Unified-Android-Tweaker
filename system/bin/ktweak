@@ -136,13 +136,13 @@ write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
 write /proc/sys/kernel/random/read_wakeup_threshold 64
 write /proc/sys/kernel/random/write_wakeup_threshold 128
 
-# Enable GFS for improve user-interface responsiveness but at the cost of more power use
+# Enable GFS (Gentle Fair Sleepers) for improve user-interface performance but at the cost of more power use
 write /sys/kernel/sched/gentle_fair_sleepers 1
 
 # Set SELinux Enforce by default
 write /sys/fs/selinux/enforce 1
 
-# Disable Doze by default
+# Disable Doze
 dumpsys deviceidle disable
 
 if [[ -f "/sys/kernel/debug/sched_features" ]]
@@ -178,13 +178,13 @@ fi
 # Loop over each CPU in the system
 for cpu in /sys/devices/system/cpu/cpu*/cpufreq
 do
-	# Fetch the available governors from the CPU
+	# Fetch available governors from the CPU
 	avail_govs="$(cat "$cpu/scaling_available_governors")"
 
 	# Attempt to set the governor in this order
-	for governor in schedutil interactive ondemand
+	for governor in walt schedutil interactive ondemand
 	do
-		# Once a matching governor is found, set it and break for this CPU
+		# Once a matching governor is found, set and break for this CPU
 		if [[ "$avail_govs" == *"$governor"* ]]
 		then
 			write "$cpu/scaling_governor" "$governor"
@@ -193,15 +193,20 @@ do
 	done
 done
 
+# Apply CPU governor specific tunables for walt
+find /sys/devices/system/cpu/ -name walt -type d | while IFS= read -r governor
+do
+	# Apply these parameters for CPU governor tunable
+	write "$governor/hispeed_load" 100
+	write "$governor/hispeed_freq" "$UINT_MAX"
+	write "$governor/boost" 1
+	write "$governor/pl" 1
+done
+
 # Apply governor specific tunables for schedutil
 find /sys/devices/system/cpu/ -name schedutil -type d | while IFS= read -r governor
 do
-	# Consider changing frequencies once per scheduling period
-	write "$governor/up_rate_limit_us" "$((SCHED_PERIOD / 1000))"
-	write "$governor/down_rate_limit_us" "$((4 * SCHED_PERIOD / 1000))"
-	write "$governor/rate_limit_us" "$((SCHED_PERIOD / 1000))"
-
-	# Jump to hispeed frequency at this load percentage
+	# Apply these parameters for CPU governor tunable
 	write "$governor/hispeed_load" 100
 	write "$governor/hispeed_freq" "$UINT_MAX"
 done
@@ -209,12 +214,8 @@ done
 # Apply governor specific tunables for interactive
 find /sys/devices/system/cpu/ -name interactive -type d | while IFS= read -r governor
 do
-	# Consider changing frequencies once per scheduling period
-	write "$governor/timer_rate" "$((SCHED_PERIOD / 1000))"
-	write "$governor/min_sample_time" "$((SCHED_PERIOD / 1000))"
-
-	# Jump to hispeed frequency at this load percentage
-	write "$governor/go_hispeed_load" 100
+	# Apply these parameters for CPU governor tunable
+	write "$governor/hispeed_load" 100
 	write "$governor/hispeed_freq" "$UINT_MAX"
 done
 
