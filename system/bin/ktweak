@@ -175,82 +175,24 @@ then
 	write /dev/stune/top-app/schedtune.boost 1
 fi
 
-# Loop over each CPU in the system
-for cpu in /sys/devices/system/cpu/cpu*/cpufreq
+for governor in /sys/devices/system/cpu/*/cpufreq/*
 do
-	# Fetch available governors from the CPU
-	avail_govs="$(cat "$cpu/scaling_available_governors")"
-
-	# Attempt to set the governor in this order
-	for governor in walt schedutil interactive ondemand
-	do
-		# Once a matching governor is found, set and break for this CPU
-		if [[ "$avail_govs" == *"$governor"* ]]
-		then
-			write "$cpu/scaling_governor" "$governor"
-			break
-		fi
-	done
-done
-
-# Apply CPU governor specific tunables for walt
-find /sys/devices/system/cpu/ -name walt -type d | while IFS= read -r governor
-do
-	# Apply these parameters for CPU governor tunable
+	# Apply these parameters to governor tunable
+	write "$governor/up_rate_limit_us" 1000
+	write "$governor/down_rate_limit_us" 10000
 	write "$governor/hispeed_load" 100
 	write "$governor/boost" 1
-	write "$governor/pl" 1
-done
-
-# Apply governor specific tunables for schedutil
-find /sys/devices/system/cpu/ -name schedutil -type d | while IFS= read -r governor
-do
-	# Apply these parameters for CPU governor tunable
-	write "$governor/hispeed_load" 100
-	write "$governor/pl" 1
 	write "$governor/iowait_boost_enable" 1
-done
-
-# Apply governor specific tunables for interactive
-find /sys/devices/system/cpu/ -name interactive -type d | while IFS= read -r governor
-do
-	# Apply these parameters for CPU governor tunable
-	write "$governor/hispeed_load" 100
-done
-
-# Apply governor specific tunables for ondemand
-find /sys/devices/system/cpu/ -name ondemand -type d | while IFS= read -r governor
-do
-	# Set maximum ramp up threshold
-	write "$governor/up_threshold" 100
+	write "$governor/pl" 1
 done
 
 for queue in /sys/block/*/queue
 do
-	# Choose the first governor available
-	avail_scheds="$(cat "$queue/scheduler")"
-	for sched in cfq noop kyber bfq mq-deadline none
-	do
-		if [[ "$avail_scheds" == *"$sched"* ]]
-		then
-			write "$queue/scheduler" "$sched"
-			break
-		fi
-	done
-
-	# Do not use I/O as a source of randomness
+	# Apply these parameters for I/O
 	write "$queue/add_random" 0
-
-	# Allow I/O statistics accounting
 	write "$queue/iostats" 1
-
-	# Reduce throughtput to improve I/O efficient and latency
 	write "$queue/read_ahead_kb" 4
-
-	# Force completion on CPUs that issued the I/O requests
 	write "$queue/rq_affinity" 2
-
-	# Priority low latency on I/O
 	write "$queue/nr_requests" 4
 done
 
