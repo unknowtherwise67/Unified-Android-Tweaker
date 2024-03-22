@@ -49,3 +49,4 @@ Feature:
 - If you do like my work, buy me a coffe or donate, I'll thank you later. :D
 - You are free to fork the repository, but MAKE SURE to add CREDITS or get rekt.
 - I only accept reported issues with LOGCAT files, otherwise will be ignored and or closed.
+- I will try to keep module up-to-date as possible, even though I literally got no device for testing, and you can support if you want, and yet I'm doing all this just for free, not like I'm being paid.
