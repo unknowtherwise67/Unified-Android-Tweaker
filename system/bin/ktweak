@@ -194,7 +194,7 @@ do
 	write "$queue/iostats" 1
 	write "$queue/read_ahead_kb" 4
 	write "$queue/rq_affinity" 2
-	write "$queue/nr_requests" 4
+	write "$queue/nr_requests" 4096
 done
 
 # Always return completed, ignore any write fails
