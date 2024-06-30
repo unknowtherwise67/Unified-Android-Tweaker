@@ -195,12 +195,17 @@ do
 	write "$governor/fast_ramp_down" 1
 	write "$governor/boostpulse" 1
 	write "$governor/use_sched_load" 1
+	write "$governor/use_migration_notif" 1
+	write "$governor/enable_prediction" 1
 	write "$governor/sampling_down_factor" 1
 	write "$governor/ignore_hispeed_on_notif" 1
 	write "$governor/io_is_busy" 1
+	write "$governor/align_windows" 1
 	write "$governor/hispeed_load" 75
 	write "$governor/go_hispeed_load" 75
 	write "$governor/up_threshold" 75
+	write "$governor/target_load" 75
+	write "$governor/above_hispeed_delay" 100000
 	write "$governor/up_rate_limit_us" 10000
 	write "$governor/down_rate_limit_us" 100000
 	write "$governor/up_throttle_nsec" 100000
@@ -209,7 +214,7 @@ do
 	write "$governor/timer_rate" 100000
 	write "$governor/min_sample_time" 10000
 	write "$governor/timer_slack" 100000
-	write "$governor/sampling_rate" 500000
+	write "$governor/sampling_rate" 100000
 	write "$governor/sampling_rate_min" 1000000
 done
 
@@ -221,12 +226,17 @@ do
 	write "$governor/fast_ramp_down" 1
 	write "$governor/boostpulse" 1
 	write "$governor/use_sched_load" 1
+	write "$governor/use_migration_notif" 1
+	write "$governor/enable_prediction" 1
 	write "$governor/sampling_down_factor" 1
 	write "$governor/ignore_hispeed_on_notif" 1
 	write "$governor/io_is_busy" 1
+	write "$governor/align_windows" 1
 	write "$governor/hispeed_load" 75
 	write "$governor/go_hispeed_load" 75
 	write "$governor/up_threshold" 75
+	write "$governor/target_load" 75
+	write "$governor/above_hispeed_delay" 100000
 	write "$governor/up_rate_limit_us" 10000
 	write "$governor/down_rate_limit_us" 100000
 	write "$governor/up_throttle_nsec" 100000
@@ -235,7 +245,7 @@ do
 	write "$governor/timer_rate" 100000
 	write "$governor/min_sample_time" 10000
 	write "$governor/timer_slack" 100000
-	write "$governor/sampling_rate" 500000
+	write "$governor/sampling_rate" 100000
 	write "$governor/sampling_rate_min" 1000000
 done
 
