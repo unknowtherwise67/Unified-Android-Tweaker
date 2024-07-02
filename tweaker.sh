@@ -26,6 +26,7 @@ write /proc/sys/kernel/sched_min_granularity_ns 5000000
 write /proc/sys/kernel/sched_wakeup_granularity_ns 5000000
 write /proc/sys/kernel/sched_migration_cost_ns 5000000
 write /proc/sys/kernel/sched_nr_migrate 4096
+write /proc/sys/kernel/sched_cfs_boost 10
 write /proc/sys/kernel/sched_schedstats 1
 write /proc/sys/kernel/sched_autogroup_enabled 0
 write /proc/sys/kernel/sched_child_runs_first 0
@@ -34,7 +35,6 @@ write /proc/sys/kernel/sched_min_task_util_for_colocation 0
 write /proc/sys/kernel/sched_util_clamp_min_rt_default 0
 write /proc/sys/kernel/sched_energy_aware 0
 write /proc/sys/kernel/sched_pelt_multiplier 0
-write /proc/sys/kernel/sched_cfs_boost 0
 write /proc/sys/kernel/sched_cstate_aware 0
 write /proc/sys/kernel/sched_initial_task_util 0
 write /proc/sys/kernel/sched_is_big_little 0
@@ -201,6 +201,7 @@ do
 	write "$governor/ignore_hispeed_on_notif" 1
 	write "$governor/io_is_busy" 1
 	write "$governor/align_windows" 1
+	write "$governor/iowait_boost_enable" 1
 	write "$governor/hispeed_load" 75
 	write "$governor/go_hispeed_load" 75
 	write "$governor/up_threshold" 75
@@ -232,6 +233,7 @@ do
 	write "$governor/ignore_hispeed_on_notif" 1
 	write "$governor/io_is_busy" 1
 	write "$governor/align_windows" 1
+	write "$governor/iowait_boost_enable" 1
 	write "$governor/hispeed_load" 75
 	write "$governor/go_hispeed_load" 75
 	write "$governor/up_threshold" 75
