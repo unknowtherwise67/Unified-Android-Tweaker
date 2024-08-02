@@ -1,0 +1,2 @@
+zram.resize=
+zram.algo=
