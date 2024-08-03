@@ -629,15 +629,15 @@ do
 	write "$governor/up_threshold_multi_core" 75
 	write "$governor/up_threshold_any_cpu_load" 75
 	write "$governor/target_load_thresh" 4096
-	write "$governor/above_hispeed_delay" 50000
-	write "$governor/timer_rate" 10000
-	write "$governor/up_rate_limit_us" 10000
-	write "$governor/down_rate_limit_us" 10000
-	write "$governor/boostpulse_duration" 10000
-	write "$governor/min_sample_time" 10000
-	write "$governor/timer_slack" 10000
-	write "$governor/sampling_rate" 10000
-	write "$governor/sampling_rate_min" 10000
+	write "$governor/above_hispeed_delay" 30000
+	write "$governor/timer_rate" 100000
+	write "$governor/up_rate_limit_us" 100000
+	write "$governor/down_rate_limit_us" 100000
+	write "$governor/boostpulse_duration" 100000
+	write "$governor/min_sample_time" 100000
+	write "$governor/timer_slack" 100000
+	write "$governor/sampling_rate" 100000
+	write "$governor/sampling_rate_min" 100000
 	write "$governor/up_throttle_nsec" 100000000
 	write "$governor/down_throttle_nsec" 100000000
 done
@@ -672,15 +672,15 @@ do
 	write "$governor/up_threshold_multi_core" 75
 	write "$governor/up_threshold_any_cpu_load" 75
 	write "$governor/target_load_thresh" 4096
-	write "$governor/above_hispeed_delay" 50000
-	write "$governor/timer_rate" 10000
-	write "$governor/up_rate_limit_us" 10000
-	write "$governor/down_rate_limit_us" 10000
-	write "$governor/boostpulse_duration" 10000
-	write "$governor/min_sample_time" 10000
-	write "$governor/timer_slack" 10000
-	write "$governor/sampling_rate" 10000
-	write "$governor/sampling_rate_min" 10000
+	write "$governor/above_hispeed_delay" 30000
+	write "$governor/timer_rate" 100000
+	write "$governor/up_rate_limit_us" 100000
+	write "$governor/down_rate_limit_us" 100000
+	write "$governor/boostpulse_duration" 100000
+	write "$governor/min_sample_time" 100000
+	write "$governor/timer_slack" 100000
+	write "$governor/sampling_rate" 100000
+	write "$governor/sampling_rate_min" 100000
 	write "$governor/up_throttle_nsec" 100000000
 	write "$governor/down_throttle_nsec" 100000000
 done
