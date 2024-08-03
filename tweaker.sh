@@ -67,25 +67,29 @@ write /proc/sys/kernel/sched_freq_aggregate_threshold 1000000000
 write /proc/sys/kernel/sched_freq_dec_notify 1000000000
 write /proc/sys/kernel/sched_freq_inc_notify 1000000000
 write /proc/sys/kernel/sched_pred_alert_freq 1000000000
+write /proc/sys/kernel/sched_short_burst_ns 1000000000
 write /proc/sys/kernel/sched_short_sleep_ns 1000000000
 write /proc/sys/kernel/sched_rr_timeslice_ms 1000000000
 write /proc/sys/kernel/sched_time_avg_ms 1000000000
 write /proc/sys/kernel/sched_rr_timeslice_us 1000000000
 write /proc/sys/kernel/sched_select_prev_cpu_us 1000000000
 write /proc/sys/kernel/sched_time_avg 1000000000
+write /proc/sys/kernel/sched_freq_aggregate_threshold 10000
 write /proc/sys/kernel/sched_util_clamp_max 1024
 write /proc/sys/kernel/sched_util_clamp_min 1024
-write /proc/sys/kernel/sched_init_task_load 100
-write /proc/sys/kernel/sched_big_waker_task_load 100
+write /proc/sys/kernel/perf_cpu_time_max_percent 100
 write /proc/sys/kernel/sched_upmigrate 100
 write /proc/sys/kernel/sched_group_upmigrate 100
 write /proc/sys/kernel/sched_downmigrate 100
 write /proc/sys/kernel/sched_group_downmigrate 100
-write /proc/sys/kernel/sched_spill_load 100
-write /proc/sys/kernel/sched_small_wakee_task_load 100
+write /proc/sys/kernel/sched_init_task_load 50
+write /proc/sys/kernel/sched_spill_load 50
+write /proc/sys/kernel/sched_big_waker_task_load 50
+write /proc/sys/kernel/sched_small_wakee_task_load 50
 write /proc/sys/kernel/sched_cfs_boost 10
+write /proc/sys/kernel/sched_ravg_hist_size 10
+write /proc/sys/kernel/sched_window_stats_policy 3
 write /proc/sys/kernel/sched_schedstats 1
-write /proc/sys/kernel/perf_cpu_time_max_percent 1
 write /proc/sys/kernel/sched_autogroup_enabled 1
 write /proc/sys/kernel/sched_child_runs_first 1
 write /proc/sys/kernel/sched_tunable_scaling 1
@@ -625,16 +629,17 @@ do
 	write "$governor/up_threshold_multi_core" 75
 	write "$governor/up_threshold_any_cpu_load" 75
 	write "$governor/target_load_thresh" 4096
-	write "$governor/timer_rate" 1000
-	write "$governor/up_rate_limit_us" 1000
-	write "$governor/down_rate_limit_us" 1000
-	write "$governor/boostpulse_duration" 1000
-	write "$governor/min_sample_time" 1000
-	write "$governor/timer_slack" 1000
-	write "$governor/sampling_rate" 1000
-	write "$governor/sampling_rate_min" 1000
-	write "$governor/up_throttle_nsec" 100000
-	write "$governor/down_throttle_nsec" 100000
+	write "$governor/above_hispeed_delay" 50000
+	write "$governor/timer_rate" 10000
+	write "$governor/up_rate_limit_us" 10000
+	write "$governor/down_rate_limit_us" 10000
+	write "$governor/boostpulse_duration" 10000
+	write "$governor/min_sample_time" 10000
+	write "$governor/timer_slack" 10000
+	write "$governor/sampling_rate" 10000
+	write "$governor/sampling_rate_min" 10000
+	write "$governor/up_throttle_nsec" 100000000
+	write "$governor/down_throttle_nsec" 100000000
 done
 
 for governor in /sys/*/system/cpu/cpufreq/*
@@ -667,16 +672,17 @@ do
 	write "$governor/up_threshold_multi_core" 75
 	write "$governor/up_threshold_any_cpu_load" 75
 	write "$governor/target_load_thresh" 4096
-	write "$governor/timer_rate" 1000
-	write "$governor/up_rate_limit_us" 1000
-	write "$governor/down_rate_limit_us" 1000
-	write "$governor/boostpulse_duration" 1000
-	write "$governor/min_sample_time" 1000
-	write "$governor/timer_slack" 1000
-	write "$governor/sampling_rate" 1000
-	write "$governor/sampling_rate_min" 1000
-	write "$governor/up_throttle_nsec" 100000
-	write "$governor/down_throttle_nsec" 100000
+	write "$governor/above_hispeed_delay" 50000
+	write "$governor/timer_rate" 10000
+	write "$governor/up_rate_limit_us" 10000
+	write "$governor/down_rate_limit_us" 10000
+	write "$governor/boostpulse_duration" 10000
+	write "$governor/min_sample_time" 10000
+	write "$governor/timer_slack" 10000
+	write "$governor/sampling_rate" 10000
+	write "$governor/sampling_rate_min" 10000
+	write "$governor/up_throttle_nsec" 100000000
+	write "$governor/down_throttle_nsec" 100000000
 done
 
 write /proc/cpufreq/cpufreq_power_mode 3
