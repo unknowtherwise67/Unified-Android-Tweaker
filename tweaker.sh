@@ -683,7 +683,7 @@ write /proc/cpufreq/cpufreq_power_mode 3
 write /proc/cpufreq/cpufreq_cci_mode 1
 write /sys/devices/system/cpu/perf/enable 1
 
-write /sys/class/kgsl/kgsl-3d0/devfreq/governor performance
+write /sys/class/kgsl/kgsl-3d0/devfreq/governor
 write /sys/class/kgsl/kgsl-3d0/throttling 0
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 6
 write /sys/class/simple_gpu_algorithm/parameters/simple_gpu_active 1
