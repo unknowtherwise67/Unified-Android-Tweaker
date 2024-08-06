@@ -22,6 +22,7 @@ sync
 # Device Settings
 wm disable-blur 0
 settings put global disable_window_blurs 0
+settings put system screen_brightness_mode 0
 settings put system peak_refresh_rate 0
 settings put system min_refresh_rate 0
 settings put system low_power_refresh_rate 0
@@ -49,6 +50,35 @@ settings put system tube_amp_effect 1
 settings put system k2hd_effect 1
 settings put secure tap_duration_threshold 0.0
 settings put secure touch_blocking_period 0.0
+
+# System Kernel Governors
+for cpu in /sys/devices/system/cpu/cpu*/cpufreq
+do
+	avail_govs="$(cat "$cpu/scaling_available_governors")"
+	for governor in
+	do
+		if [[ "$avail_govs" == *"$governor"* ]]
+		then
+			write "$cpu/scaling_governor" "$governor"
+			break
+		fi
+	done
+done
+
+for queue in /sys/*/*/queue
+do
+	avail_scheds="$(cat "$queue/scheduler")"
+	for sched in
+	do
+		if [[ "$avail_scheds" == *"$sched"* ]]
+		then
+			write "$queue/scheduler" "$sched"
+			break
+		fi
+	done
+done
+
+write /sys/class/kgsl/kgsl-3d0/devfreq/governor
 
 # Schedulers
 write /proc/sys/kernel/sched_latency_ns 1000000000
