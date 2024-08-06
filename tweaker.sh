@@ -50,6 +50,35 @@ settings put system k2hd_effect 1
 settings put secure tap_duration_threshold 0.0
 settings put secure touch_blocking_period 0.0
 
+# System Kernel Governors (Set/Change/Modify At Your Own Risks)
+for cpu in /sys/devices/system/cpu/cpu*/cpufreq
+do
+	avail_govs="$(cat "$cpu/scaling_available_governors")"
+	for governor in
+	do
+		if [[ "$avail_govs" == *"$governor"* ]]
+		then
+			write "$cpu/scaling_governor" "$governor"
+			break
+		fi
+	done
+done
+
+for queue in /sys/*/*/queue
+do
+	avail_scheds="$(cat "$queue/scheduler")"
+	for sched in
+	do
+		if [[ "$avail_scheds" == *"$sched"* ]]
+		then
+			write "$queue/scheduler" "$sched"
+			break
+		fi
+	done
+done
+
+write /sys/class/kgsl/kgsl-3d0/devfreq/governor
+
 # Schedulers
 write /proc/sys/kernel/sched_latency_ns 1000000000
 write /proc/sys/kernel/sched_migration_cost_ns 1000000000
@@ -586,24 +615,10 @@ write /proc/sys/net/ipv4/tcp_fastopen 3
 write /proc/sys/net/ipv4/tcp_syncookies 0
 
 # CPU/GPU/IO
-for cpu in /sys/devices/system/cpu/cpu*/cpufreq
-do
-	avail_govs="$(cat "$cpu/scaling_available_governors")"
-	for governor in
-	do
-		if [[ "$avail_govs" == *"$governor"* ]]
-		then
-			write "$cpu/scaling_governor" "$governor"
-			break
-		fi
-	done
-done
-
 write /proc/cpufreq/cpufreq_power_mode 3
 write /proc/cpufreq/cpufreq_cci_mode 1
 write /sys/devices/system/cpu/perf/enable 1
 
-write /sys/class/kgsl/kgsl-3d0/devfreq/governor
 write /sys/class/kgsl/kgsl-3d0/throttling 0
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 6
 write /sys/class/simple_gpu_algorithm/parameters/simple_gpu_active 1
@@ -628,19 +643,6 @@ write /sys/devices/system/cpu/cpu8/online 1
 write /sys/devices/system/cpu/cpu9/online 1
 write /sys/devices/system/cpu/cpu10/online 1
 write /sys/devices/system/cpu/cpu11/online 1
-
-for queue in /sys/*/*/queue
-do
-	avail_scheds="$(cat "$queue/scheduler")"
-	for sched in
-	do
-		if [[ "$avail_scheds" == *"$sched"* ]]
-		then
-			write "$queue/scheduler" "$sched"
-			break
-		fi
-	done
-done
 
 for queue in /sys/*/*/queue
 do
