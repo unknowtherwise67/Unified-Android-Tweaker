@@ -632,7 +632,7 @@ write /sys/devices/system/cpu/cpu11/online 1
 for queue in /sys/*/*/queue
 do
 	avail_scheds="$(cat "$queue/scheduler")"
-	for sched in mq-deadline fiops deadline kyber cfq bfq noop
+	for sched in
 	do
 		if [[ "$avail_scheds" == *"$sched"* ]]
 		then
