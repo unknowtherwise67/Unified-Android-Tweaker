@@ -37,6 +37,7 @@ ui_print "- Fine-Tunning Android System/User/Kernel settings and parameters..."
 sh $MODPATH/tweaker.sh
 
 # Zygisk MapHide
+ui_print ""
 mkdir -p "$MODPATH/zygisk"
 api_level_arch_detect
 [ ! -d "$MODPATH/libs/$ABI" ] && abort "Error - $ABI is not supported"
