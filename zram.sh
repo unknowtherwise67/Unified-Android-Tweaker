@@ -1,2 +1,2 @@
-zram.resize=
+zram.resize=100%
 zram.algo=

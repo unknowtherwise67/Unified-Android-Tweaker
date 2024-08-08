@@ -35,16 +35,6 @@ ui_print "- Executing Scripts..."
 ui_print ""
 ui_print "- Fine-Tunning Android System/User/Kernel settings and parameters..."
 sh $MODPATH/tweaker.sh
-
-# Zygisk MapHide
-ui_print ""
-mkdir -p "$MODPATH/zygisk"
-api_level_arch_detect
-[ ! -d "$MODPATH/libs/$ABI" ] && abort "Error - $ABI is not supported"
-ui_print "- Extracting Zygisk module..."
-cp -af "$MODPATH/libs/$ABI/libzygisk_module.so" "$MODPATH/zygisk/$ABI.so"
-cp -af "$MODPATH/libs/$ABI32/libzygisk_module.so" "$MODPATH/zygisk/$ABI32.so"
-rm -rf "$MODPATH/libs"
 ui_print "- Completed."
 
 # ZRAM Virtual Memory
@@ -54,7 +44,7 @@ if [ ! -f $ZRAM ]; then
   touch $ZRAM
 fi
 
-sh $MODPATH/function.sh
+. $MODPATH/function.sh
 
 FILE=$MODPATH/sepolicy.rule
 DES=$MODPATH/sepolicy.pfsd
@@ -65,6 +55,7 @@ fi
 
 ui_print "- Cleaning..."
 remove_sepolicy_rule
+ui_print "- Completed."
 ui_print ""
 
 PROP=`grep_prop zram.resize $ZRAM`
@@ -74,43 +65,42 @@ if [ "$PROP" == 0 ]; then
   LMK=false
 else
   FILE=/sys/block/zram0/disksize
-  ui_print "- Modifying $FILE"
+  ui_print "- Modifying $FILE..."
   sed -i 's|#o||g' $MODPATH/service.sh
   if echo "$PROP" | grep -q %; then
-    ui_print "- To $PROP of RAM size"
+    ui_print "- To $PROP of RAM Size..."
     PROP=`echo "$PROP" | sed 's|%||g'`
     sed -i "s|VAR|$PROP|g" $MODPATH/service.sh
     sed -i 's|#%||g' $MODPATH/service.sh
   elif [ "$PROP" ]; then
-    ui_print "- To $PROP Byte"
+    ui_print "- To $PROP of RAM Size..."
     sed -i "s|ZRAM=1G|ZRAM=$PROP|g" $MODPATH/service.sh
   else
     ui_print "- To 1GBs"
   fi
+  ui_print "- Completed."
   ui_print ""
   PROP=`grep_prop zram.algo $ZRAM`
   if [ "$PROP" ]; then
     FILE=/sys/block/zram0/comp_algorithm
     if grep -q "$PROP" $FILE; then
-      ui_print "- Modifying $FILE"
-      ui_print "- To $PROP"
+      ui_print "- Modifying $FILE..."
+      ui_print "- To $PROP..."
       sed -i "s|#ALGO=|ALGO=$PROP|g" $MODPATH/service.sh
     else
       ui_print "! $PROP is UNSUPPORTED"
-      ui_print "- in $FILE"
+      ui_print "- In $FILE..."
     fi
-    ui_print ""
+    ui_print "- Completed."
   fi
 fi
 
 ui_print "- DONE."
-
-ui_print ""
-ui_print "- Module installed and executing scripts completed."
-ui_print "- You are required to REBOOT the device to take effects."
+ui_print "- Script execution completed, Root Module is installed."
+ui_print "- It may Recommended to REBOOT the Device."
 ui_print ""
 ui_print "- ADDITIONAL NOTES:"
-ui_print "- NOTE THAT USE THIS MODULE AT YOUR OWN RISKS"
+ui_print "- USE THIS MODULE AT YOUR OWN RISKS"
 ui_print "- DEVELOPERS OF THIS MODULE ARE NOT TOOK RESPONSIBILITY FOR ANYHING THAT HAPPENS."
 ui_print "- README, Sources Codes, Credits, known/reported issues are on GitHub."
 ui_print ""

@@ -5,7 +5,6 @@ Feature:
 - Fine-tune Android System/User/Kernel settings and parameters.
 - Configurable ZRAM Swap Virtual Memory.
 - Modify Thermal System.
-- Clear traces of mounted files/directories of Root Module with Zygisk
 - Powered by OverlayFS - Non-instrutive and Systemless.
 - Open-Source complilance.
 
@@ -42,7 +41,6 @@ Feature:
 ## Credits
 - [tytydrago](https://github.com/tytydraco): KTweak.
 - [reiryuki](https://github.com/reiryuki): ZRAM Swap Configurator.
-- [huskyDG](https://github.com/HuskyDG): Zygisk MapHide.
 - [topjohnwu](https://github.com/topjohnwu): Magisk ROOT, Zygisk, Module Plaform, SuperUser and MagiskBOOT.
 - [tiann](https://github.com/tiann): KernelSU ROOT.
 - [osm0sis](https://github.com/osm0sis): Installable ZIPs and other stuffs.
