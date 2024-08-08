@@ -556,10 +556,12 @@ write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0,0
 write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
 write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
 
-# Device/Others parameters
+# Others parameters
 write /sys/fs/selinux/enforce 1
 write /sys/class/power_supply/battery/charging_enabled 1
 write /sys/module/fast_charge/force_fast_charge 1
+write /sys/kernel/fast_charge/force_fast_charge 1
+write /sys/module/sync/parameters/fsync_enabled 1
 write /sys/module/workqueue/parameters/power_efficient N
 write /sys/module/mmc_core/parameters/use_spi_crc 0
 write /sys/module/system/cpu/sched_mc_power_savings 0
