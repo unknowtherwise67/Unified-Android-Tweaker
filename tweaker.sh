@@ -51,35 +51,6 @@ settings put system k2hd_effect 1
 settings put secure tap_duration_threshold 0.0
 settings put secure touch_blocking_period 0.0
 
-# System Kernel Governors
-for cpu in /sys/devices/system/cpu/cpu*/cpufreq
-do
-	avail_govs="$(cat "$cpu/scaling_available_governors")"
-	for governor in
-	do
-		if [[ "$avail_govs" == *"$governor"* ]]
-		then
-			write "$cpu/scaling_governor" "$governor"
-			break
-		fi
-	done
-done
-
-for queue in /sys/*/*/queue
-do
-	avail_scheds="$(cat "$queue/scheduler")"
-	for sched in
-	do
-		if [[ "$avail_scheds" == *"$sched"* ]]
-		then
-			write "$queue/scheduler" "$sched"
-			break
-		fi
-	done
-done
-
-write /sys/class/kgsl/kgsl-3d0/devfreq/governor
-
 # Schedulers
 write /proc/sys/kernel/sched_schedstats 1
 write /proc/sys/kernel/sched_latency_ns 1000000000
@@ -107,16 +78,18 @@ write /proc/sys/kernel/sched_select_prev_cpu_us 1000000000
 write /proc/sys/kernel/sched_time_avg 1000000000
 write /proc/sys/kernel/sched_coloc_busy_hyst_ns 1000000000
 write /proc/sys/kernel/sched_task_unfilter_period 100000000
-write /proc/sys/kernel/sched_asym_cap_sibling_freq_match_pct 100
+write /proc/sys/kernel/sched_coloc_busy_hyst_max_ms 10000
 write /proc/sys/kernel/sched_freq_aggregate_threshold 1000
 write /proc/sys/kernel/sched_many_wakeup_threshold 1000
 write /proc/sys/kernel/sched_util_clamp_max 1024
 write /proc/sys/kernel/sched_util_clamp_min 1024
-write /proc/sys/kernel/sched_upmigrate 100
 write /proc/sys/kernel/sched_lib_mask_force 250
 write /proc/sys/kernel/sched_group_upmigrate 150
-write /proc/sys/kernel/sched_downmigrate 100
 write /proc/sys/kernel/sched_group_downmigrate 150
+write /proc/sys/kernel/sched_coloc_busy_hysteresis_enable_cpus 150
+write /proc/sys/kernel/sched_upmigrate 100
+write /proc/sys/kernel/sched_downmigrate 100
+write /proc/sys/kernel/sched_asym_cap_sibling_freq_match_pct 100
 write /proc/sys/kernel/sched_init_task_load 50
 write /proc/sys/kernel/sched_spill_load 50
 write /proc/sys/kernel/sched_min_task_util_for_colocation 50
@@ -662,8 +635,20 @@ write /sys/devices/system/cpu/cpu9/online 1
 write /sys/devices/system/cpu/cpu10/online 1
 write /sys/devices/system/cpu/cpu11/online 1
 
+
+
 for queue in /sys/*/*/queue
 do
+	avail_scheds="$(cat "$queue/scheduler")"
+	for sched in mq-deadline deadline kyber fiops bfq cfq noop
+	do
+		if [[ "$avail_scheds" == *"$sched"* ]]
+		then
+			write "$queue/scheduler" "$sched"
+			break
+		fi
+	done
+
 	write "$queue/iostats" 1
 	write "$queue/rq_affinity" 2
 	write "$queue/read_ahead_kb" 2048
