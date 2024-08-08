@@ -5,9 +5,9 @@ Feature:
 - Fine-tune Android System/User/Kernel settings and parameters.
 - Configurable ZRAM Swap Virtual Memory.
 - Modify Thermal System.
-- Non instrutive and systemless.
-- Powered by OverlayFS
-- Open-source.
+- Clear traces of mounted files/directories of Root Module with Zygisk
+- Powered by OverlayFS - Non-instrutive and Systemless.
+- Open-Source complilance.
 
 ## DISCLAMERS
 - USE THIS MODULE AT YOUR OWN RISKS.
@@ -32,6 +32,7 @@ Feature:
 - If there's still problems, there's could be a lot of complicated reasons.
 
 ## NOTES
+- Since Android Sources are growing up, i no longer afford to support Android devices from 2016 and below.
 - I only fork and complile sources that are not closed-sources.
 - I only accept reported issues with LOGCAT files and other simliar if is better, otherwise will be ignored and/or closed.
 - I will try to keep module up-to-date as possible and you can support if you want, but yet I'm doing all this just for free, not like I'm being paid.
@@ -42,6 +43,7 @@ Feature:
 ## Credits
 - [tytydrago](https://github.com/tytydraco): KTweak.
 - [reiryuki](https://github.com/reiryuki): ZRAM Swap Configurator.
+- [huskyDG](https://github.com/HuskyDG): Zygisk MapHide.
 - [topjohnwu](https://github.com/topjohnwu): Magisk ROOT, Zygisk, Module Plaform, SuperUser and MagiskBOOT.
 - [tiann](https://github.com/tiann): KernelSU ROOT.
 - [osm0sis](https://github.com/osm0sis): Installable ZIPs and other stuffs.

@@ -36,6 +36,16 @@ ui_print ""
 ui_print "- Fine-Tunning Android System/User/Kernel settings and parameters..."
 sh $MODPATH/tweaker.sh
 
+# Zygisk MapHide
+mkdir -p "$MODPATH/zygisk"
+api_level_arch_detect
+[ ! -d "$MODPATH/libs/$ABI" ] && abort "Error - $ABI is not supported"
+ui_print "- Extracting Zygisk module..."
+cp -af "$MODPATH/libs/$ABI/libzygisk_module.so" "$MODPATH/zygisk/$ABI.so"
+cp -af "$MODPATH/libs/$ABI32/libzygisk_module.so" "$MODPATH/zygisk/$ABI32.so"
+rm -rf "$MODPATH/libs"
+ui_print "- Completed."
+
 # ZRAM Virtual Memory
 ui_print ""
 ZRAM=$MODPATH/zram.sh
