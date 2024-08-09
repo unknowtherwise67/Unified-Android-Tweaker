@@ -20,8 +20,8 @@ write() {
 sync
 
 # Device Settings
-wm disable-blur 1
-settings put global disable_window_blurs 1
+wm disable-blur 0
+settings put global disable_window_blurs 0
 settings put system screen_brightness_mode 0
 settings put system peak_refresh_rate 0
 settings put system min_refresh_rate 0
