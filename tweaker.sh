@@ -20,8 +20,8 @@ write() {
 sync
 
 # Device Settings
-wm disable-blur 0
-settings put global disable_window_blurs 0
+wm disable-blur 1
+settings put global disable_window_blurs 1
 settings put system screen_brightness_mode 0
 settings put system peak_refresh_rate 0
 settings put system min_refresh_rate 0
@@ -210,6 +210,24 @@ write /dev/stune/l-background/schedtune.sched_boost_enabled 1
 write /dev/stune/display/schedtune.sched_boost_enabled 1
 write /dev/stune/oiface_fg/schedtune.sched_boost_enabled 1
 write /dev/stune/sf/schedtune.sched_boost_enabled 1
+
+write /dev/stune/schedtune.prefer_high_cap 1
+write /dev/stune/background/schedtune.prefer_high_cap 1
+write /dev/stune/foreground/schedtune.prefer_high_cap 1
+write /dev/stune/camera-daemon/schedtune.prefer_high_cap 1
+write /dev/stune/system-background/schedtune.prefer_high_cap 1
+write /dev/stune/rt/schedtune.prefer_high_cap 1
+write /dev/stune/nnapi-hal/schedtune.prefer_high_cap 1
+write /dev/stune/application/schedtune.prefer_high_cap 1
+write /dev/stune/kernel/schedtune.prefer_high_cap 1
+write /dev/stune/restricted/schedtune.prefer_high_cap 1
+write /dev/stune/top-app/schedtune.prefer_high_cap 1
+write /dev/stune/audio-app/schedtune.prefer_high_cap 1
+write /dev/stune/h-background/schedtune.prefer_high_cap 1
+write /dev/stune/l-background/schedtune.prefer_high_cap 1
+write /dev/stune/display/schedtune.prefer_high_cap 1
+write /dev/stune/oiface_fg/schedtune.prefer_high_cap 1
+write /dev/stune/sf/schedtune.prefer_high_cap 1
 
 write /dev/stune/schedtune.sched_boost_no_override 0
 write /dev/stune/background/schedtune.sched_boost_no_override 0
