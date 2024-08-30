@@ -1,0 +1,5 @@
+ro.surface_flinger.supports_background_blur=1
+persist.camera.HAL3.enabled=1
+persist.camera.eis.enable=1
+persist.vendor.camera.HAL3.enabled=1
+persist.vendor.camera.eis.enabled=1
