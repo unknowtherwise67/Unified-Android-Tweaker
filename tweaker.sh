@@ -130,7 +130,7 @@ write /proc/sys/kernel/sched_cfs_boost 10
 write /proc/sys/kernel/sched_ravg_hist_size 5
 write /proc/sys/kernel/sched_ravg_window_nr_ticks 5
 write /proc/sys/kernel/sched_window_stats_policy 5
-write /proc/sys/kernel/sched_schedstats 1
+write /proc/sys/kernel/sched_schedstats 0
 write /proc/sys/kernel/sched_autogroup_enabled 1
 write /proc/sys/kernel/sched_child_runs_first 1
 write /proc/sys/kernel/sched_tunable_scaling 1
@@ -583,8 +583,8 @@ write /dev/cpuset/audio-app/cpus 0-10
 write /dev/cpuset/audio-app/cpus 0-11
 
 # Memory
+write /proc/sys/vm/drop_caches 0
 write /proc/sys/vm/page-cluster 3
-write /proc/sys/vm/drop_caches 3
 write /proc/sys/vm/dirty_background_ratio 100
 write /proc/sys/vm/dirty_ratio 100
 write /proc/sys/vm/swappiness 100
@@ -794,6 +794,7 @@ write /sys/devices/system/cpu/cpu11/online 1
 
 for queue in /sys/*/*/queue
 do
+	write "$queue/rq_affinity" 2
 	write "$queue/read_ahead_kb" 2048
 	write "$queue/nr_requests" 4
 	write "$queue/nr_requests" 8
@@ -806,15 +807,6 @@ do
 	write "$queue/nr_requests" 1024
 	write "$queue/nr_requests" 2048
 	write "$queue/nr_requests" 4096
-done
-
-for queue in /sys/*/*/queue
-do
-	write "$queue/iostats" 1
-	write "$queue/add_random" 1
-	write "$queue/rotational" 1
-	write "$queue/nomerges" 2
-	write "$queue/rq_affinity" 2
 done
 
 for queue in /sys/*/*/queue
