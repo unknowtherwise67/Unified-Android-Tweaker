@@ -139,7 +139,7 @@ ui_print "- Completed."
 ui_print ""
 
 ui_print "- Script execution completed, Root Module is installed."
-ui_print "- You are recommended to REBOOT the Device."
+ui_print "- It's may Recommended to REBOOT the Device."
 ui_print ""
 ui_print "- ADDITIONAL NOTES:"
 ui_print "- INSTALL AND USE THIS MODULE AT YOUR OWN RISKS."
