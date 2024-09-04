@@ -82,11 +82,11 @@ write /sys/class/kgsl/kgsl-3d0/devfreq/governor
 
 # Schedulers
 write /proc/sys/kernel/perf_cpu_time_max_percent 0
+write /proc/sys/kernel/sched_nr_migrate 128
 write /proc/sys/kernel/sched_latency_ns 1000000000
 write /proc/sys/kernel/sched_migration_cost_ns 1000000000
 write /proc/sys/kernel/sched_min_granularity_ns 1000000000
 write /proc/sys/kernel/sched_wakeup_granularity_ns 1000000000
-write /proc/sys/kernel/sched_nr_migrate 1000000
 write /proc/sys/kernel/sched_rr_timeslice_us 1000000
 write /proc/sys/kernel/sched_deadline_period_max_us 1000000
 write /proc/sys/kernel/sched_deadline_period_min_us 1000000
