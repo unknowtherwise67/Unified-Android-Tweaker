@@ -3,7 +3,7 @@
 
 Feature:
 - Fine-tune Android System/User/Kernel Settings, Tunables and Parameters.
-- Configurable ZRAM Swap Virtual Memory - Enhance System Multitasking and prevent System Memory crashes (Does not improve Device Hardware Performance).
+- Configurable ZRAM Swap Virtual Memory - Improve System Multitasking and prevent System Memory crashes (Does not improve Device Hardware Performance).
 - Modify Thermal System - Allow full performance capability while maintain Device Hardwares safety.
 - Powered by OverlayFS - Non-instrutive and Systemless.
 - Open-Source complilance.
