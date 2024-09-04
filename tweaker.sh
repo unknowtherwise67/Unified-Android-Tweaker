@@ -81,12 +81,11 @@ done
 write /sys/class/kgsl/kgsl-3d0/devfreq/governor
 
 # Schedulers
-write /proc/sys/kernel/perf_cpu_time_max_percent 0
-write /proc/sys/kernel/sched_nr_migrate 128
 write /proc/sys/kernel/sched_latency_ns 1000000000
 write /proc/sys/kernel/sched_migration_cost_ns 1000000000
 write /proc/sys/kernel/sched_min_granularity_ns 1000000000
 write /proc/sys/kernel/sched_wakeup_granularity_ns 1000000000
+write /proc/sys/kernel/sched_nr_migrate 1000000
 write /proc/sys/kernel/sched_rr_timeslice_us 1000000
 write /proc/sys/kernel/sched_deadline_period_max_us 1000000
 write /proc/sys/kernel/sched_deadline_period_min_us 1000000
@@ -119,6 +118,7 @@ write /proc/sys/kernel/sched_coloc_busy_hysteresis_enable_cpus 100
 write /proc/sys/kernel/sched_upmigrate 100
 write /proc/sys/kernel/sched_downmigrate 100
 write /proc/sys/kernel/sched_asym_cap_sibling_freq_match_pct 100
+write /proc/sys/kernel/perf_cpu_time_max_percent 100
 write /proc/sys/kernel/sched_init_task_load 50
 write /proc/sys/kernel/sched_spill_load 50
 write /proc/sys/kernel/sched_min_task_util_for_colocation 50
@@ -794,6 +794,8 @@ write /sys/devices/system/cpu/cpu11/online 1
 
 for queue in /sys/*/*/queue
 do
+	write "$queue/iostats" 1
+	write "$queue/rq_affinity" 2
 	write "$queue/read_ahead_kb" 2048
 	write "$queue/nr_requests" 4
 	write "$queue/nr_requests" 8
@@ -806,48 +808,6 @@ do
 	write "$queue/nr_requests" 1024
 	write "$queue/nr_requests" 2048
 	write "$queue/nr_requests" 4096
-done
-
-for queue in /sys/*/*/queue
-do
-	write "$queue/iostats" 1
-	write "$queue/add_random" 1
-	write "$queue/rotational" 1
-	write "$queue/nomerges" 2
-	write "$queue/rq_affinity" 2
-done
-
-for queue in /sys/*/*/queue
-do
-	write "$queue/iosched/max_budget" 0
-	write "$queue/iosched/strict_guarantees" 0
-	write "$queue/iosched/slice_idle" 0
-	write "$queue/iosched/group_idle" 0
-	write "$queue/iosched/slice_idle_us" 0
-	write "$queue/iosched/group_idle_us" 0
-	write "$queue/iosched/low_latency" 1
-	write "$queue/iosched/front_merges" 1
-	write "$queue/iosched/back_seek_penalty" 100
-	write "$queue/iosched/slice_async_rq" 100
-	write "$queue/iosched/writes_starved" 100
-	write "$queue/iosched/quantum" 100
-	write "$queue/iosched/fifo_batch" 100
-	write "$queue/iosched/async_depth" 1000000
-	write "$queue/iosched/slice_async" 1000000
-	write "$queue/iosched/slice_sync" 1000000
-	write "$queue/iosched/fifo_expire_sync" 1000000
-	write "$queue/iosched/timeout_sync" 1000000
-	write "$queue/iosched/fifo_expire_async" 1000000
-	write "$queue/iosched/target_latency" 1000000
-	write "$queue/iosched/aging_expire" 1000000
-	write "$queue/iosched/read_expire" 1000000
-	write "$queue/iosched/target_latency_us" 1000000
-	write "$queue/iosched/read_lat_nsec" 1000000
-	write "$queue/iosched/write_lat_nsec" 1000000
-	write "$queue/iosched/write_expire" 1000000
-	write "$queue/iosched/slice_sync_us" 1000000
-	write "$queue/iosched/slice_async_us" 1000000
-	write "$queue/iosched/back_seek_max" 1000000000
 done
 
 # Return to completed regardless of any writes that failed or succeed
