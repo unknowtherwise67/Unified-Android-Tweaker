@@ -81,6 +81,11 @@ done
 write /sys/class/kgsl/kgsl-3d0/devfreq/governor
 
 # Schedulers
+write /proc/sys/kernel/perf_cpu_time_max_percent 0
+write /proc/sys/kernel/sched_schedstats 0
+write /proc/sys/kernel/sched_autogroup_enabled 0
+write /proc/sys/kernel/sched_child_runs_first 0
+write /proc/sys/kernel/sched_tunable_scaling 0
 write /proc/sys/kernel/sched_latency_ns 1000000000
 write /proc/sys/kernel/sched_migration_cost_ns 1000000000
 write /proc/sys/kernel/sched_min_granularity_ns 1000000000
@@ -118,7 +123,6 @@ write /proc/sys/kernel/sched_coloc_busy_hysteresis_enable_cpus 100
 write /proc/sys/kernel/sched_upmigrate 100
 write /proc/sys/kernel/sched_downmigrate 100
 write /proc/sys/kernel/sched_asym_cap_sibling_freq_match_pct 100
-write /proc/sys/kernel/perf_cpu_time_max_percent 100
 write /proc/sys/kernel/sched_init_task_load 50
 write /proc/sys/kernel/sched_spill_load 50
 write /proc/sys/kernel/sched_min_task_util_for_colocation 50
@@ -130,10 +134,6 @@ write /proc/sys/kernel/sched_cfs_boost 10
 write /proc/sys/kernel/sched_ravg_hist_size 5
 write /proc/sys/kernel/sched_ravg_window_nr_ticks 5
 write /proc/sys/kernel/sched_window_stats_policy 5
-write /proc/sys/kernel/sched_schedstats 0
-write /proc/sys/kernel/sched_autogroup_enabled 1
-write /proc/sys/kernel/sched_child_runs_first 1
-write /proc/sys/kernel/sched_tunable_scaling 1
 write /proc/sys/kernel/sched_force_lb_enable 1
 write /proc/sys/kernel/sched_prefer_spread 1
 write /proc/sys/kernel/sched_dynamic_ravg_window_enable 1
@@ -794,7 +794,6 @@ write /sys/devices/system/cpu/cpu11/online 1
 
 for queue in /sys/*/*/queue
 do
-	write "$queue/rq_affinity" 2
 	write "$queue/read_ahead_kb" 2048
 	write "$queue/nr_requests" 4
 	write "$queue/nr_requests" 8
@@ -807,6 +806,15 @@ do
 	write "$queue/nr_requests" 1024
 	write "$queue/nr_requests" 2048
 	write "$queue/nr_requests" 4096
+done
+
+for queue in /sys/*/*/queue
+do
+	write "$queue/iostats" 1
+	write "$queue/add_random" 1
+	write "$queue/rotational" 1
+	write "$queue/nomerges" 2
+	write "$queue/rq_affinity" 2
 done
 
 for queue in /sys/*/*/queue
