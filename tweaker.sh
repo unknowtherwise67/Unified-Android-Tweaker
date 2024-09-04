@@ -794,8 +794,6 @@ write /sys/devices/system/cpu/cpu11/online 1
 
 for queue in /sys/*/*/queue
 do
-	write "$queue/iostats" 1
-	write "$queue/rq_affinity" 2
 	write "$queue/read_ahead_kb" 2048
 	write "$queue/nr_requests" 4
 	write "$queue/nr_requests" 8
@@ -808,6 +806,48 @@ do
 	write "$queue/nr_requests" 1024
 	write "$queue/nr_requests" 2048
 	write "$queue/nr_requests" 4096
+done
+
+for queue in /sys/*/*/queue
+do
+	write "$queue/iostats" 1
+	write "$queue/add_random" 1
+	write "$queue/rotational" 1
+	write "$queue/nomerges" 2
+	write "$queue/rq_affinity" 2
+done
+
+for queue in /sys/*/*/queue
+do
+	write "$queue/iosched/max_budget" 0
+	write "$queue/iosched/strict_guarantees" 0
+	write "$queue/iosched/slice_idle" 0
+	write "$queue/iosched/group_idle" 0
+	write "$queue/iosched/slice_idle_us" 0
+	write "$queue/iosched/group_idle_us" 0
+	write "$queue/iosched/low_latency" 1
+	write "$queue/iosched/front_merges" 1
+	write "$queue/iosched/back_seek_penalty" 100
+	write "$queue/iosched/slice_async_rq" 100
+	write "$queue/iosched/writes_starved" 100
+	write "$queue/iosched/quantum" 100
+	write "$queue/iosched/fifo_batch" 100
+	write "$queue/iosched/async_depth" 1000000
+	write "$queue/iosched/slice_async" 1000000
+	write "$queue/iosched/slice_sync" 1000000
+	write "$queue/iosched/fifo_expire_sync" 1000000
+	write "$queue/iosched/timeout_sync" 1000000
+	write "$queue/iosched/fifo_expire_async" 1000000
+	write "$queue/iosched/target_latency" 1000000
+	write "$queue/iosched/aging_expire" 1000000
+	write "$queue/iosched/read_expire" 1000000
+	write "$queue/iosched/read_lat_nsec" 1000000
+	write "$queue/iosched/write_lat_nsec" 1000000
+	write "$queue/iosched/write_expire" 1000000
+	write "$queue/iosched/target_latency_us" 1000000000
+	write "$queue/iosched/slice_sync_us" 1000000000
+	write "$queue/iosched/slice_async_us" 1000000000
+	write "$queue/iosched/back_seek_max" 1000000000
 done
 
 # Return to completed regardless of any writes that failed or succeed
