@@ -810,6 +810,15 @@ done
 
 for queue in /sys/*/*/queue
 do
+	write "$queue/iostats" 1
+	write "$queue/add_random" 1
+	write "$queue/rotational" 1
+	write "$queue/nomerges" 2
+	write "$queue/rq_affinity" 2
+done
+
+for queue in /sys/*/*/queue
+do
 	write "$queue/iosched/max_budget" 0
 	write "$queue/iosched/strict_guarantees" 0
 	write "$queue/iosched/slice_idle" 0
