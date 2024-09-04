@@ -82,10 +82,6 @@ write /sys/class/kgsl/kgsl-3d0/devfreq/governor
 
 # Schedulers
 write /proc/sys/kernel/perf_cpu_time_max_percent 0
-write /proc/sys/kernel/sched_schedstats 0
-write /proc/sys/kernel/sched_autogroup_enabled 0
-write /proc/sys/kernel/sched_child_runs_first 0
-write /proc/sys/kernel/sched_tunable_scaling 0
 write /proc/sys/kernel/sched_latency_ns 1000000000
 write /proc/sys/kernel/sched_migration_cost_ns 1000000000
 write /proc/sys/kernel/sched_min_granularity_ns 1000000000
@@ -134,6 +130,10 @@ write /proc/sys/kernel/sched_cfs_boost 10
 write /proc/sys/kernel/sched_ravg_hist_size 5
 write /proc/sys/kernel/sched_ravg_window_nr_ticks 5
 write /proc/sys/kernel/sched_window_stats_policy 5
+write /proc/sys/kernel/sched_schedstats 1
+write /proc/sys/kernel/sched_autogroup_enabled 1
+write /proc/sys/kernel/sched_child_runs_first 1
+write /proc/sys/kernel/sched_tunable_scaling 1
 write /proc/sys/kernel/sched_force_lb_enable 1
 write /proc/sys/kernel/sched_prefer_spread 1
 write /proc/sys/kernel/sched_dynamic_ravg_window_enable 1
