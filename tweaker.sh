@@ -68,7 +68,7 @@ done
 for queue in /sys/*/*/queue
 do
 	avail_scheds="$(cat "$queue/scheduler")"
-	for sched in mq-deadline deadline kyber
+	for sched in
 	do
 		if [[ "$avail_scheds" == *"$sched"* ]]
 		then
