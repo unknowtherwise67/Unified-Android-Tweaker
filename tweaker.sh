@@ -106,7 +106,7 @@ write /proc/sys/kernel/sched_coloc_busy_hyst_ns 1000000
 write /proc/sys/kernel/sched_task_unfilter_period 1000000
 write /proc/sys/kernel/sched_rt_period_us 1000000
 write /proc/sys/kernel/sched_rt_runtime_us 1000000
-write /proc/sys/kernel/sched_coloc_busy_hyst_max_ms 10000
+write /proc/sys/kernel/sched_coloc_busy_hyst_max_ms 1000
 write /proc/sys/kernel/sched_freq_aggregate_threshold 1000
 write /proc/sys/kernel/sched_many_wakeup_threshold 1000
 write /proc/sys/kernel/sched_util_clamp_max 1024
