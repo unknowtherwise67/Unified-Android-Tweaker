@@ -68,7 +68,7 @@ done
 for queue in /sys/*/*/queue
 do
 	avail_scheds="$(cat "$queue/scheduler")"
-	for sched in
+	for sched in mq-deadline deadline kyber
 	do
 		if [[ "$avail_scheds" == *"$sched"* ]]
 		then
@@ -280,23 +280,23 @@ write /dev/stune/display/schedtune.sched_boost_no_override 0
 write /dev/stune/oiface_fg/schedtune.sched_boost_no_override 0
 write /dev/stune/sf/schedtune.sched_boost_no_override 0
 
-write /dev/stune/schedtune.prefer_idle 1
-write /dev/stune/background/schedtune.prefer_idle 1
-write /dev/stune/foreground/schedtune.prefer_idle 1
-write /dev/stune/rt/schedtune.prefer_idle 1
-write /dev/stune/application/schedtune.prefer_idle 1
-write /dev/stune/kernel/schedtune.prefer_idle 1
-write /dev/stune/restricted/schedtune.prefer_idle 1
-write /dev/stune/camera-daemon/schedtune.prefer_idle 1
-write /dev/stune/nnapi-hal/schedtune.prefer_idle 1
-write /dev/stune/system-background/schedtune.prefer_idle 1
-write /dev/stune/top-app/schedtune.prefer_idle 1
-rite /dev/stune/audio/schedtune.prefer_idle 1
-rite /dev/stune/h-background/schedtune.prefer_idle 1
-rite /dev/stune/l-background/schedtune.prefer_idle 1
-rite /dev/stune/display/schedtune.prefer_idle 1
-rite /dev/stune/oiface_fg/schedtune.prefer_idle 1
-rite /dev/stune/sf/schedtune.prefer_idle 1
+write /dev/stune/schedtune.prefer_idle 0
+write /dev/stune/background/schedtune.prefer_idle 0
+write /dev/stune/foreground/schedtune.prefer_idle 0
+write /dev/stune/rt/schedtune.prefer_idle 0
+write /dev/stune/application/schedtune.prefer_idle 0
+write /dev/stune/kernel/schedtune.prefer_idle 0
+write /dev/stune/restricted/schedtune.prefer_idle 0
+write /dev/stune/camera-daemon/schedtune.prefer_idle 0
+write /dev/stune/nnapi-hal/schedtune.prefer_idle 0
+write /dev/stune/system-background/schedtune.prefer_idle 0
+write /dev/stune/top-app/schedtune.prefer_idle 0
+rite /dev/stune/audio/schedtune.prefer_idle 0
+rite /dev/stune/h-background/schedtune.prefer_idle 0
+rite /dev/stune/l-background/schedtune.prefer_idle 0
+rite /dev/stune/display/schedtune.prefer_idle 0
+rite /dev/stune/oiface_fg/schedtune.prefer_idle 0
+rite /dev/stune/sf/schedtune.prefer_idle 0
 
 write /dev/stune/background/schedtune.uclamp.max max
 write /dev/stune/foreground/schedtune.uclamp.max max
@@ -315,56 +315,56 @@ write /dev/stune/display/schedtune.uclamp.max max
 write /dev/stune/oiface_fg/schedtune.uclamp.max max
 write /dev/stune/sf/schedtune.uclamp.max max
 
-write /dev/stune/background/schedtune.uclamp.max.effective 4096
-write /dev/stune/foreground/schedtune.uclamp.max.effective 4096
-write /dev/stune/camera-daemon/schedtune.uclamp.max.effective 4096
-write /dev/stune/system-background/schedtune.uclamp.max.effective 4096
-write /dev/stune/nnapi-hal/schedtune.uclamp.max.effective 4096
-write /dev/stune/rt/schedtune.uclamp.max.effective 4096
-write /dev/stune/application/schedtune.uclamp.max.effective 4096
-write /dev/stune/kernel/schedtune.uclamp.max.effective 4096
-write /dev/stune/restricted/schedtune.uclamp.max.effective 4096
-write /dev/stune/top-app/schedtune.uclamp.max max.effective 4096
-write /dev/stune/audio-app/schedtune.uclamp.max.effective 4096
-write /dev/stune/h-background/schedtune.uclamp.max.effective 4096
-write /dev/stune/l-background/schedtune.uclamp.max.effective 4096
-write /dev/stune/display/schedtune.uclamp.max.effective 4096
-write /dev/stune/oiface_fg/schedtune.uclamp.max.effective 4096
-write /dev/stune/sf/schedtune.uclamp.max.effective 4096
+write /dev/stune/background/schedtune.uclamp.max.effective 1024
+write /dev/stune/foreground/schedtune.uclamp.max.effective 1024
+write /dev/stune/camera-daemon/schedtune.uclamp.max.effective 1024
+write /dev/stune/system-background/schedtune.uclamp.max.effective 1024
+write /dev/stune/nnapi-hal/schedtune.uclamp.max.effective 1024
+write /dev/stune/rt/schedtune.uclamp.max.effective 1024
+write /dev/stune/application/schedtune.uclamp.max.effective 1024
+write /dev/stune/kernel/schedtune.uclamp.max.effective 1024
+write /dev/stune/restricted/schedtune.uclamp.max.effective 1024
+write /dev/stune/top-app/schedtune.uclamp.max max.effective 1024
+write /dev/stune/audio-app/schedtune.uclamp.max.effective 1024
+write /dev/stune/h-background/schedtune.uclamp.max.effective 1024
+write /dev/stune/l-background/schedtune.uclamp.max.effective 1024
+write /dev/stune/display/schedtune.uclamp.max.effective 1024
+write /dev/stune/oiface_fg/schedtune.uclamp.max.effective 1024
+write /dev/stune/sf/schedtune.uclamp.max.effective 1024
 
-write /dev/stune/background/schedtune.uclamp.min 0.00
-write /dev/stune/foreground/schedtune.uclamp.min 0.00
-write /dev/stune/camera-daemon/schedtune.uclamp.min 0.00
-write /dev/stune/system-background/schedtune.uclamp.min 0.00
-write /dev/stune/nnapi-hal/schedtune.uclamp.min 0.00
-write /dev/stune/rt/schedtune.uclamp.min 0.00
-write /dev/stune/application/schedtune.uclamp.min 0.00
-write /dev/stune/kernel/schedtune.uclamp.min 0.00
-write /dev/stune/restricted/schedtune.uclamp.min 0.00
-write /dev/stune/top-app/schedtune.uclamp.min 0.00
-write /dev/stune/audio-app/schedtune.uclamp.min 0.00
-write /dev/stune/h-background/schedtune.uclamp.min 0.00
-write /dev/stune/l-background/schedtune.uclamp.min 0.00
-write /dev/stune/display/schedtune.uclamp.min 0.00
-write /dev/stune/oiface_fg/schedtune.uclamp.min 0.00
-write /dev/stune/sf/schedtune.uclamp.min 0.00
+write /dev/stune/background/schedtune.uclamp.min 1024
+write /dev/stune/foreground/schedtune.uclamp.min 1024
+write /dev/stune/camera-daemon/schedtune.uclamp.min 1024
+write /dev/stune/system-background/schedtune.uclamp.min 1024
+write /dev/stune/nnapi-hal/schedtune.uclamp.min 1024
+write /dev/stune/rt/schedtune.uclamp.min 1024
+write /dev/stune/application/schedtune.uclamp.min 1024
+write /dev/stune/kernel/schedtune.uclamp.min 1024
+write /dev/stune/restricted/schedtune.uclamp.min 1024
+write /dev/stune/top-app/schedtune.uclamp.min 1024
+write /dev/stune/audio-app/schedtune.uclamp.min 1024
+write /dev/stune/h-background/schedtune.uclamp.min 1024
+write /dev/stune/l-background/schedtune.uclamp.min 1024
+write /dev/stune/display/schedtune.uclamp.min 1024
+write /dev/stune/oiface_fg/schedtune.uclamp.min 1024
+write /dev/stune/sf/schedtune.uclamp.min 1024
 
-write /dev/stune/background/schedtune.uclamp.min.effective 0
-write /dev/stune/foreground/schedtune.uclamp.min.effective 0
-write /dev/stune/camera-daemon/schedtune.uclamp.min.effective 0
-write /dev/stune/system-background/schedtune.uclamp.min.effective 0
-write /dev/stune/nnapi-hal/schedtune.uclamp.min.effective 0
-write /dev/stune/rt/schedtune.uclamp.min.effective 0
-write /dev/stune/application/schedtune.uclamp.min.effective 0
-write /dev/stune/kernel/schedtune.uclamp.min.effective 0
-write /dev/stune/restricted/schedtune.uclamp.min.effective 0
-write /dev/stune/top-app/schedtune.uclamp.min.effective 0
-write /dev/stune/audio-app/schedtune.uclamp.min.effective 0
-write /dev/stune/h-background/schedtune.uclamp.min.effective 0
-write /dev/stune/l-background/schedtune.uclamp.min.effective 0
-write /dev/stune/display/schedtune.uclamp.min.effective 0
-write /dev/stune/oiface_fg/schedtune.uclamp.min.effective 0
-write /dev/stune/sf/schedtune.uclamp.min.effective 0
+write /dev/stune/background/schedtune.uclamp.min.effective 1024
+write /dev/stune/foreground/schedtune.uclamp.min.effective 1024
+write /dev/stune/camera-daemon/schedtune.uclamp.min.effective 1024
+write /dev/stune/system-background/schedtune.uclamp.min.effective 1024
+write /dev/stune/nnapi-hal/schedtune.uclamp.min.effective 1024
+write /dev/stune/rt/schedtune.uclamp.min.effective 1024
+write /dev/stune/application/schedtune.uclamp.min.effective 1024
+write /dev/stune/kernel/schedtune.uclamp.min.effective 1024
+write /dev/stune/restricted/schedtune.uclamp.min.effective 1024
+write /dev/stune/top-app/schedtune.uclamp.min.effective 1024
+write /dev/stune/audio-app/schedtune.uclamp.min.effective 1024
+write /dev/stune/h-background/schedtune.uclamp.min.effective 1024
+write /dev/stune/l-background/schedtune.uclamp.min.effective 1024
+write /dev/stune/display/schedtune.uclamp.min.effective 1024
+write /dev/stune/oiface_fg/schedtune.uclamp.min.effective 1024
+write /dev/stune/sf/schedtune.uclamp.min.effective 1024
 
 write /dev/cpuset/cpus 0-1
 write /dev/cpuset/cpus 0-2
@@ -584,14 +584,15 @@ write /dev/cpuset/audio-app/cpus 0-11
 
 # Memory
 write /proc/sys/vm/drop_caches 0
-write /proc/sys/vm/page-cluster 3
-write /proc/sys/vm/dirty_background_ratio 100
-write /proc/sys/vm/dirty_ratio 100
+write /proc/sys/vm/page-cluster 0
+write /proc/sys/vm/dirty_background_ratio 10
+write /proc/sys/vm/dirty_ratio 10
+write "/proc/sys/vm/stat_interval" 10
 write /proc/sys/vm/swappiness 100
 write /proc/sys/vm/overcommit_ratio 100
 write /proc/sys/vm/vfs_cache_pressure 100
-write /proc/sys/vm/dirty_expire_centisecs 10000
-write /proc/sys/vm/dirty_writeback_centisecs 10000
+write /proc/sys/vm/dirty_expire_centisecs 1000
+write /proc/sys/vm/dirty_writeback_centisecs 1000
 write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0,0
 write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
 write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
@@ -681,25 +682,23 @@ do
 	write "$governor/ignore_nice_load" 1
 	write "$governor/input_boost" 1
 	write "$governor/iowait_boost_enable" 1
-	write "$governor/down_differential" 5
-	write "$governor/down_differential_multi_core" 5
-	write "$governor/target_load_shift" 5
-	write "$governor/freq_step" 5
-	write "$governor/powersave_bias" 50
-	write "$governor/sched_upmigrate_min_nice" 50
-	write "$governor/hispeed_load" 75
-	write "$governor/go_hispeed_load" 75
-	write "$governor/up_threshold" 75
-	write "$governor/target_loads" 75
-	write "$governor/single_enter_load" 75
-	write "$governor/single_exit_load" 75
-	write "$governor/up_threshold_multi_core" 75
-	write "$governor/up_threshold_any_cpu_load" 75
+	write "$governor/down_differential" 3
+	write "$governor/down_differential_multi_core" 3
+	write "$governor/target_load_shift" 3
+	write "$governor/freq_step" 3
+	write "$governor/powersave_bias" 100
+	write "$governor/sched_upmigrate_min_nice" 100
+	write "$governor/hispeed_load" 100
+	write "$governor/go_hispeed_load" 100
+	write "$governor/up_threshold" 100
+	write "$governor/target_loads" 100
+	write "$governor/up_threshold_multi_core" 100
+	write "$governor/up_threshold_any_cpu_load" 100
 	write "$governor/boost_ms" 100
 	write "$governor/input_boost_ms" 100
-	write "$governor/target_load_thresh" 4096
-	write "$governor/above_hispeed_delay" 30000
-	write "$governor/up_rate_limit_us" 100
+	write "$governor/target_load_thresh" 1024
+	write "$governor/above_hispeed_delay" 10000
+	write "$governor/up_rate_limit_us" 1000
 	write "$governor/down_rate_limit_us" 1000
 	write "$governor/boostpulse_duration" 1000
 	write "$governor/timer_rate" 1000
@@ -707,7 +706,7 @@ do
 	write "$governor/sampling_rate" 1000
 	write "$governor/min_sample_time" 1000
 	write "$governor/sampling_rate_min" 1000
-	write "$governor/up_throttle_nsec" 100000
+	write "$governor/up_throttle_nsec" 1000000
 	write "$governor/down_throttle_nsec" 1000000
 done
 
@@ -733,25 +732,23 @@ do
 	write "$governor/ignore_nice_load" 1
 	write "$governor/input_boost" 1
 	write "$governor/iowait_boost_enable" 1
-	write "$governor/down_differential" 5
-	write "$governor/down_differential_multi_core" 5
-	write "$governor/target_load_shift" 5
-	write "$governor/freq_step" 5
-	write "$governor/powersave_bias" 50
-	write "$governor/sched_upmigrate_min_nice" 50
-	write "$governor/hispeed_load" 75
-	write "$governor/go_hispeed_load" 75
-	write "$governor/up_threshold" 75
-	write "$governor/target_loads" 75
-	write "$governor/single_enter_load" 75
-	write "$governor/single_exit_load" 75
-	write "$governor/up_threshold_multi_core" 75
-	write "$governor/up_threshold_any_cpu_load" 75
+	write "$governor/down_differential" 3
+	write "$governor/down_differential_multi_core" 3
+	write "$governor/target_load_shift" 3
+	write "$governor/freq_step" 3
+	write "$governor/powersave_bias" 100
+	write "$governor/sched_upmigrate_min_nice" 100
+	write "$governor/hispeed_load" 100
+	write "$governor/go_hispeed_load" 100
+	write "$governor/up_threshold" 100
+	write "$governor/target_loads" 100
+	write "$governor/up_threshold_multi_core" 100
+	write "$governor/up_threshold_any_cpu_load" 100
 	write "$governor/boost_ms" 100
 	write "$governor/input_boost_ms" 100
-	write "$governor/target_load_thresh" 4096
-	write "$governor/above_hispeed_delay" 30000
-	write "$governor/up_rate_limit_us" 100
+	write "$governor/target_load_thresh" 1024
+	write "$governor/above_hispeed_delay" 10000
+	write "$governor/up_rate_limit_us" 1000
 	write "$governor/down_rate_limit_us" 1000
 	write "$governor/boostpulse_duration" 1000
 	write "$governor/timer_rate" 1000
@@ -759,7 +756,7 @@ do
 	write "$governor/sampling_rate" 1000
 	write "$governor/min_sample_time" 1000
 	write "$governor/sampling_rate_min" 1000
-	write "$governor/up_throttle_nsec" 100000
+	write "$governor/up_throttle_nsec" 1000000
 	write "$governor/down_throttle_nsec" 1000000
 done
 
@@ -769,6 +766,7 @@ write /sys/devices/system/cpu/perf/enable 1
 
 write /sys/class/kgsl/kgsl-3d0/throttling 0
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 0
+write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 0
 write /sys/class/simple_gpu_algorithm/parameters/simple_gpu_active 1
 write /sys/class/simple_gpu_algorithm/parameters/simple_ramp_threshold 10000
 write /sys/class/simple_gpu_algorithm/parameters/simple_laziness 0
@@ -821,18 +819,16 @@ for queue in /sys/*/*/queue
 do
 	write "$queue/iosched/max_budget" 0
 	write "$queue/iosched/strict_guarantees" 0
-	write "$queue/iosched/slice_idle" 0
-	write "$queue/iosched/group_idle" 0
-	write "$queue/iosched/slice_idle_us" 0
-	write "$queue/iosched/group_idle_us" 0
 	write "$queue/iosched/low_latency" 1
 	write "$queue/iosched/front_merges" 1
+	write "$queue/iosched/slice_idle" 5
+	write "$queue/iosched/group_idle" 5
 	write "$queue/iosched/back_seek_penalty" 100
 	write "$queue/iosched/slice_async_rq" 100
 	write "$queue/iosched/writes_starved" 100
 	write "$queue/iosched/quantum" 100
 	write "$queue/iosched/fifo_batch" 100
-	write "$queue/iosched/async_depth" 1000
+	write "$queue/iosched/async_depth" 100
 	write "$queue/iosched/slice_async" 1000
 	write "$queue/iosched/slice_sync" 1000
 	write "$queue/iosched/fifo_expire_sync" 1000
@@ -844,6 +840,8 @@ do
 	write "$queue/iosched/read_lat_nsec" 1000
 	write "$queue/iosched/write_lat_nsec" 1000
 	write "$queue/iosched/write_expire" 1000
+	write "$queue/iosched/slice_idle_us" 5000
+	write "$queue/iosched/group_idle_us" 5000
 	write "$queue/iosched/target_latency_us" 1000000
 	write "$queue/iosched/slice_sync_us" 1000000
 	write "$queue/iosched/slice_async_us" 1000000
