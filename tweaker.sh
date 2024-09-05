@@ -698,20 +698,20 @@ do
 	write "$governor/boost_ms" 100
 	write "$governor/input_boost_ms" 100
 	write "$governor/target_load_thresh" 4096
-	write "$governor/above_hispeed_delay" 10000
-	write "$governor/up_rate_limit_us" 1000000
-	write "$governor/down_rate_limit_us" 1000000
-	write "$governor/boostpulse_duration" 1000000
-	write "$governor/timer_rate" 1000000
-	write "$governor/timer_slack" 1000000
-	write "$governor/sampling_rate" 1000000
-	write "$governor/min_sample_time" 1000000
-	write "$governor/sampling_rate_min" 1000000
-	write "$governor/up_throttle_nsec" 1000000000
-	write "$governor/down_throttle_nsec" 1000000000
+	write "$governor/above_hispeed_delay" 30000
+	write "$governor/up_rate_limit_us" 100
+	write "$governor/down_rate_limit_us" 1000
+	write "$governor/boostpulse_duration" 1000
+	write "$governor/timer_rate" 1000
+	write "$governor/timer_slack" 1000
+	write "$governor/sampling_rate" 1000
+	write "$governor/min_sample_time" 1000
+	write "$governor/sampling_rate_min" 1000
+	write "$governor/up_throttle_nsec" 100000
+	write "$governor/down_throttle_nsec" 1000000
 done
 
-for governor in /sys/*/system/cpu/*/cpufreq/*
+for governor in /sys/*/system/cpu/cpufreq/*
 do
 	write "$governor/boost" 1
 	write "$governor/pl" 1
@@ -751,16 +751,16 @@ do
 	write "$governor/input_boost_ms" 100
 	write "$governor/target_load_thresh" 4096
 	write "$governor/above_hispeed_delay" 30000
-	write "$governor/up_rate_limit_us" 1000000
-	write "$governor/down_rate_limit_us" 1000000
-	write "$governor/boostpulse_duration" 1000000
-	write "$governor/timer_rate" 1000000
-	write "$governor/timer_slack" 1000000
-	write "$governor/sampling_rate" 1000000
-	write "$governor/min_sample_time" 1000000
-	write "$governor/sampling_rate_min" 1000000
-	write "$governor/up_throttle_nsec" 1000000000
-	write "$governor/down_throttle_nsec" 1000000000
+	write "$governor/up_rate_limit_us" 100
+	write "$governor/down_rate_limit_us" 1000
+	write "$governor/boostpulse_duration" 1000
+	write "$governor/timer_rate" 1000
+	write "$governor/timer_slack" 1000
+	write "$governor/sampling_rate" 1000
+	write "$governor/min_sample_time" 1000
+	write "$governor/sampling_rate_min" 1000
+	write "$governor/up_throttle_nsec" 100000
+	write "$governor/down_throttle_nsec" 1000000
 done
 
 write /proc/cpufreq/cpufreq_power_mode 3
@@ -832,22 +832,22 @@ do
 	write "$queue/iosched/writes_starved" 100
 	write "$queue/iosched/quantum" 100
 	write "$queue/iosched/fifo_batch" 100
-	write "$queue/iosched/async_depth" 1000000
-	write "$queue/iosched/slice_async" 1000000
-	write "$queue/iosched/slice_sync" 1000000
-	write "$queue/iosched/fifo_expire_sync" 1000000
-	write "$queue/iosched/timeout_sync" 1000000
-	write "$queue/iosched/fifo_expire_async" 1000000
-	write "$queue/iosched/target_latency" 1000000
-	write "$queue/iosched/aging_expire" 1000000
-	write "$queue/iosched/read_expire" 1000000
-	write "$queue/iosched/read_lat_nsec" 1000000
-	write "$queue/iosched/write_lat_nsec" 1000000
-	write "$queue/iosched/write_expire" 1000000
-	write "$queue/iosched/target_latency_us" 1000000000
-	write "$queue/iosched/slice_sync_us" 1000000000
-	write "$queue/iosched/slice_async_us" 1000000000
-	write "$queue/iosched/back_seek_max" 1000000000
+	write "$queue/iosched/async_depth" 1000
+	write "$queue/iosched/slice_async" 1000
+	write "$queue/iosched/slice_sync" 1000
+	write "$queue/iosched/fifo_expire_sync" 1000
+	write "$queue/iosched/timeout_sync" 1000
+	write "$queue/iosched/fifo_expire_async" 1000
+	write "$queue/iosched/target_latency" 1000
+	write "$queue/iosched/aging_expire" 1000
+	write "$queue/iosched/read_expire" 1000
+	write "$queue/iosched/read_lat_nsec" 1000
+	write "$queue/iosched/write_lat_nsec" 1000
+	write "$queue/iosched/write_expire" 1000
+	write "$queue/iosched/target_latency_us" 1000000
+	write "$queue/iosched/slice_sync_us" 1000000
+	write "$queue/iosched/slice_async_us" 1000000
+	write "$queue/iosched/back_seek_max" 1000000
 done
 
 # Return to completed regardless of any writes that failed or succeed
