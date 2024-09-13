@@ -834,18 +834,18 @@ do
 	write "$queue/iosched/slice_async" 100
 	write "$queue/iosched/slice_sync" 100
 	write "$queue/iosched/timeout_sync" 150
-	write "$queue/iosched/fifo_expire_async" 350
-	write "$queue/iosched/fifo_expire_sync" 350
+	write "$queue/iosched/fifo_expire_async" 150
+	write "$queue/iosched/fifo_expire_sync" 150
 	write "$queue/iosched/target_latency" 500
 	write "$queue/iosched/read_expire" 500
 	write "$queue/iosched/write_expire" 1000
 	write "$queue/iosched/aging_expire" 100000
 	write "$queue/iosched/slice_sync_us" 100000
 	write "$queue/iosched/slice_async_us" 100000
+	write "$queue/iosched/back_seek_max" 300000
 	write "$queue/iosched/target_latency_us" 500000
-	write "$queue/iosched/back_seek_max" 1000000
-	write "$queue/iosched/read_lat_nsec" 1000000000
-	write "$queue/iosched/write_lat_nsec" 1000000000
+	write "$queue/iosched/read_lat_nsec" 1000000
+	write "$queue/iosched/write_lat_nsec" 1000000
 done
 
 # Return to completed regardless of any writes that failed or succeed
