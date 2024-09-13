@@ -698,16 +698,16 @@ do
 	write "$governor/input_boost_ms" 100
 	write "$governor/target_load_thresh" 1024
 	write "$governor/above_hispeed_delay" 30000
-	write "$governor/up_rate_limit_us" 1000000
-	write "$governor/down_rate_limit_us" 1000000
-	write "$governor/boostpulse_duration" 1000000
-	write "$governor/timer_rate" 1000000
-	write "$governor/timer_slack" 1000000
-	write "$governor/sampling_rate" 1000000
-	write "$governor/min_sample_time" 1000000
-	write "$governor/sampling_rate_min" 1000000
-	write "$governor/up_throttle_nsec" 1000000000
-	write "$governor/down_throttle_nsec" 1000000000
+	write "$governor/up_rate_limit_us" 1000
+	write "$governor/down_rate_limit_us" 1000
+	write "$governor/boostpulse_duration" 1000
+	write "$governor/timer_rate" 1000
+	write "$governor/timer_slack" 1000
+	write "$governor/sampling_rate" 1000
+	write "$governor/min_sample_time" 1000
+	write "$governor/sampling_rate_min" 1000
+	write "$governor/up_throttle_nsec" 1000000
+	write "$governor/down_throttle_nsec" 1000000
 done
 
 for governor in /sys/*/system/cpu/cpufreq/*
@@ -748,16 +748,16 @@ do
 	write "$governor/input_boost_ms" 100
 	write "$governor/target_load_thresh" 1024
 	write "$governor/above_hispeed_delay" 30000
-	write "$governor/up_rate_limit_us" 1000000
-	write "$governor/down_rate_limit_us" 1000000
-	write "$governor/boostpulse_duration" 1000000
-	write "$governor/timer_rate" 1000000
-	write "$governor/timer_slack" 1000000
-	write "$governor/sampling_rate" 1000000
-	write "$governor/min_sample_time" 1000000
-	write "$governor/sampling_rate_min" 1000000
-	write "$governor/up_throttle_nsec" 1000000000
-	write "$governor/down_throttle_nsec" 1000000000
+	write "$governor/up_rate_limit_us" 1000
+	write "$governor/down_rate_limit_us" 1000
+	write "$governor/boostpulse_duration" 1000
+	write "$governor/timer_rate" 1000
+	write "$governor/timer_slack" 1000
+	write "$governor/sampling_rate" 1000
+	write "$governor/min_sample_time" 1000
+	write "$governor/sampling_rate_min" 1000
+	write "$governor/up_throttle_nsec" 1000000
+	write "$governor/down_throttle_nsec" 1000000
 done
 
 write /proc/cpufreq/cpufreq_power_mode 3
