@@ -81,28 +81,28 @@ done
 write /sys/class/kgsl/kgsl-3d0/devfreq/governor
 
 # Schedulers
-write /proc/sys/kernel/sched_latency_ns 1000000000
-write /proc/sys/kernel/sched_migration_cost_ns 1000000000
-write /proc/sys/kernel/sched_min_granularity_ns 1000000000
-write /proc/sys/kernel/sched_wakeup_granularity_ns 1000000000
+write /proc/sys/kernel/sched_latency_ns 1000000
+write /proc/sys/kernel/sched_migration_cost_ns 1000000
+write /proc/sys/kernel/sched_min_granularity_ns 1000000
+write /proc/sys/kernel/sched_wakeup_granularity_ns 1000000
+write /proc/sys/kernel/sched_coloc_busy_hyst_ns 1000000
+write /proc/sys/kernel/sched_short_burst_ns 1000000
+write /proc/sys/kernel/sched_short_sleep_ns 1000000
 write /proc/sys/kernel/sched_nr_migrate 1000000
 write /proc/sys/kernel/sched_rr_timeslice_us 1000000
 write /proc/sys/kernel/sched_deadline_period_max_us 1000000
 write /proc/sys/kernel/sched_deadline_period_min_us 1000000
 write /proc/sys/kernel/sched_walt_cpu_high_irqload 1000000
 write /proc/sys/kernel/sched_shares_window 1000000
-write /proc/sys/kernel/sched_shares_window_ns 1000000
+write /proc/sys/kernel/sched_shares_window_ns 1000000000
 write /proc/sys/kernel/sched_freq_aggregate_threshold 1000000
 write /proc/sys/kernel/sched_freq_dec_notify 1000000
 write /proc/sys/kernel/sched_freq_inc_notify 1000000
 write /proc/sys/kernel/sched_pred_alert_freq 1000000
-write /proc/sys/kernel/sched_short_burst_ns 1000000
-write /proc/sys/kernel/sched_short_sleep_ns 1000000
 write /proc/sys/kernel/sched_rr_timeslice_ms 1000000
 write /proc/sys/kernel/sched_time_avg_ms 1000000
 write /proc/sys/kernel/sched_select_prev_cpu_us 1000000
 write /proc/sys/kernel/sched_time_avg 1000000
-write /proc/sys/kernel/sched_coloc_busy_hyst_ns 1000000
 write /proc/sys/kernel/sched_task_unfilter_period 1000000
 write /proc/sys/kernel/sched_rt_period_us 1000000
 write /proc/sys/kernel/sched_rt_runtime_us 1000000
@@ -697,15 +697,15 @@ do
 	write "$governor/boost_ms" 100
 	write "$governor/input_boost_ms" 100
 	write "$governor/target_load_thresh" 1024
-	write "$governor/above_hispeed_delay" 30000
-	write "$governor/up_rate_limit_us" 1000
-	write "$governor/down_rate_limit_us" 1000
-	write "$governor/boostpulse_duration" 1000
-	write "$governor/timer_rate" 1000
-	write "$governor/timer_slack" 1000
-	write "$governor/sampling_rate" 1000
-	write "$governor/min_sample_time" 1000
-	write "$governor/sampling_rate_min" 1000
+	write "$governor/up_rate_limit_us" 10000
+	write "$governor/down_rate_limit_us" 10000
+	write "$governor/boostpulse_duration" 10000
+	write "$governor/timer_rate" 10000
+	write "$governor/timer_slack" 10000
+	write "$governor/sampling_rate" 10000
+	write "$governor/min_sample_time" 10000
+	write "$governor/sampling_rate_min" 10000
+	write "$governor/above_hispeed_delay" 10000
 	write "$governor/up_throttle_nsec" 1000000
 	write "$governor/down_throttle_nsec" 1000000
 done
@@ -747,15 +747,15 @@ do
 	write "$governor/boost_ms" 100
 	write "$governor/input_boost_ms" 100
 	write "$governor/target_load_thresh" 1024
-	write "$governor/above_hispeed_delay" 30000
-	write "$governor/up_rate_limit_us" 1000
-	write "$governor/down_rate_limit_us" 1000
-	write "$governor/boostpulse_duration" 1000
-	write "$governor/timer_rate" 1000
-	write "$governor/timer_slack" 1000
-	write "$governor/sampling_rate" 1000
-	write "$governor/min_sample_time" 1000
-	write "$governor/sampling_rate_min" 1000
+	write "$governor/up_rate_limit_us" 10000
+	write "$governor/down_rate_limit_us" 10000
+	write "$governor/boostpulse_duration" 10000
+	write "$governor/timer_rate" 10000
+	write "$governor/timer_slack" 10000
+	write "$governor/sampling_rate" 10000
+	write "$governor/min_sample_time" 10000
+	write "$governor/sampling_rate_min" 10000
+	write "$governor/above_hispeed_delay" 10000
 	write "$governor/up_throttle_nsec" 1000000
 	write "$governor/down_throttle_nsec" 1000000
 done
@@ -833,17 +833,17 @@ do
 	write "$queue/iosched/fifo_batch" 50
 	write "$queue/iosched/slice_async" 100
 	write "$queue/iosched/slice_sync" 100
-	write "$queue/iosched/timeout_sync" 150
-	write "$queue/iosched/fifo_expire_async" 150
-	write "$queue/iosched/fifo_expire_sync" 150
+	write "$queue/iosched/timeout_sync" 350
+	write "$queue/iosched/fifo_expire_async" 350
+	write "$queue/iosched/fifo_expire_sync" 350
 	write "$queue/iosched/target_latency" 500
 	write "$queue/iosched/read_expire" 500
 	write "$queue/iosched/write_expire" 1000
 	write "$queue/iosched/aging_expire" 100000
 	write "$queue/iosched/slice_sync_us" 100000
 	write "$queue/iosched/slice_async_us" 100000
-	write "$queue/iosched/back_seek_max" 300000
 	write "$queue/iosched/target_latency_us" 500000
+	write "$queue/iosched/back_seek_max" 500000
 	write "$queue/iosched/read_lat_nsec" 1000000
 	write "$queue/iosched/write_lat_nsec" 1000000
 done
