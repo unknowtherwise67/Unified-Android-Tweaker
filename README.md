@@ -26,7 +26,7 @@ Feature:
 5. Have fun. :)
 
 ## CAUTIONS AND NOTES
-- In Releases section, there will be only one, make it easier to manage the updates and changelogs.
+- In Releases section, there will be only one, make it easier to manage updates, changelogs and other stuffs.
 - Do not install with any tweaks or mods relative modules as it can cause conflicts.
 - If you had any problems after installed the module, try these methods: Uninstall, reboot and re-install all the Root Module, reboot Recovery Mode to remove Root Module by remove file or command magisk --remove-modules
 - If there's still problems, there's could be a lot of complicated reasons.

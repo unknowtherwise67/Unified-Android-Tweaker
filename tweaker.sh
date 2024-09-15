@@ -81,6 +81,11 @@ done
 write /sys/class/kgsl/kgsl-3d0/devfreq/governor
 
 # Schedulers
+write /proc/sys/kernel/sched_schedstats 0
+write /proc/sys/kernel/sched_tunable_scaling 0
+write /proc/sys/kernel/sched_child_runs_first 0
+write /proc/sys/kernel/sched_autogroup_enabled 0
+write /proc/sys/kernel/perf_cpu_time_max_percent 0
 write /proc/sys/kernel/sched_latency_ns 10000000
 write /proc/sys/kernel/sched_migration_cost_ns 10000000
 write /proc/sys/kernel/sched_min_granularity_ns 10000000
@@ -118,7 +123,6 @@ write /proc/sys/kernel/sched_coloc_busy_hysteresis_enable_cpus 100
 write /proc/sys/kernel/sched_upmigrate 100
 write /proc/sys/kernel/sched_downmigrate 100
 write /proc/sys/kernel/sched_asym_cap_sibling_freq_match_pct 100
-write /proc/sys/kernel/perf_cpu_time_max_percent 100
 write /proc/sys/kernel/sched_init_task_load 100
 write /proc/sys/kernel/sched_spill_load 100
 write /proc/sys/kernel/sched_min_task_util_for_colocation 100
@@ -130,10 +134,6 @@ write /proc/sys/kernel/sched_cfs_boost 10
 write /proc/sys/kernel/sched_ravg_hist_size 1
 write /proc/sys/kernel/sched_ravg_window_nr_ticks 1
 write /proc/sys/kernel/sched_window_stats_policy 1
-write /proc/sys/kernel/sched_schedstats 1
-write /proc/sys/kernel/sched_autogroup_enabled 1
-write /proc/sys/kernel/sched_child_runs_first 1
-write /proc/sys/kernel/sched_tunable_scaling 1
 write /proc/sys/kernel/sched_force_lb_enable 1
 write /proc/sys/kernel/sched_prefer_spread 1
 write /proc/sys/kernel/sched_dynamic_ravg_window_enable 1
@@ -141,9 +141,6 @@ write /proc/sys/kernel/sched_conservative_pl 1
 write /proc/sys/kernel/sched_walt_rotate_big_tasks 1
 write /proc/sys/kernel/sched_user_hint 1
 write /proc/sys/kernel/sched_sync_hint_enable 1
-write /proc/sys/kernel/sched_autogroup_enabled 1
-write /proc/sys/kernel/sched_child_runs_first 1
-write /proc/sys/kernel/sched_tunable_scaling 1
 write /proc/sys/kernel/sched_prefer_sync_wakee_to_waker 1
 write /proc/sys/kernel/sched_min_task_util_for_colocation 1
 write /proc/sys/kernel/sched_util_clamp_min_rt_default 1
@@ -583,8 +580,8 @@ write /dev/cpuset/audio-app/cpus 0-10
 write /dev/cpuset/audio-app/cpus 0-11
 
 # Memory
-write /proc/sys/vm/drop_caches 0
-write /proc/sys/vm/page-cluster 0
+write /proc/sys/vm/drop_caches 3
+write /proc/sys/vm/page-cluster 3
 write /proc/sys/vm/stat_interval 10
 write /proc/sys/vm/dirty_background_ratio 100
 write /proc/sys/vm/dirty_ratio 100
@@ -660,6 +657,106 @@ write /proc/sys/net/ipv4/tcp_fastopen 3
 write /proc/sys/net/ipv4/tcp_syncookies 0
 
 # CPU/GPU/IO
+for governor in /sys/*/system/cpu/*/cpufreq/*
+do
+	write "$governor/boost" 1
+	write "$governor/pl" 1
+	write "$governor/fastlane" 1
+	write "$governor/fast_ramp_down" 1
+	write "$governor/boostpulse" 1
+	write "$governor/use_sched_load" 1
+	write "$governor/use_migration_notif" 1
+	write "$governor/enable_prediction" 1
+	write "$governor/sampling_early_factor" 1
+	write "$governor/sampling_down_factor" 1
+	write "$governor/sampling_interim_factor" 1
+	write "$governor/ignore_hispeed_on_notif" 1
+	write "$governor/param_index" 1
+	write "$governor/sampling_down_factor" 1
+	write "$governor/enforced_mode" 1
+	write "$governor/io_is_busy" 1
+	write "$governor/align_windows" 1
+	write "$governor/ignore_nice_load" 1
+	write "$governor/input_boost" 1
+	write "$governor/iowait_boost_enable" 1
+	write "$governor/down_differential" 5
+	write "$governor/down_differential_multi_core" 5
+	write "$governor/target_load_shift" 5
+	write "$governor/freq_step" 5
+	write "$governor/powersave_bias" 50
+	write "$governor/sched_upmigrate_min_nice" 50
+	write "$governor/hispeed_load" 100
+	write "$governor/go_hispeed_load" 100
+	write "$governor/up_threshold" 100
+	write "$governor/target_loads" 100
+	write "$governor/up_threshold_multi_core" 100
+	write "$governor/up_threshold_any_cpu_load" 100
+	write "$governor/boost_ms" 100
+	write "$governor/input_boost_ms" 100
+	write "$governor/target_load_thresh" 1024
+	write "$governor/above_highspeed_delay" 30000
+	write "$governor/min_sample_time" 10000
+	write "$governor/sampling_rate_min" 10000
+	write "$governor/up_rate_limit_us" 10000
+	write "$governor/down_rate_limit_us" 10000
+	write "$governor/boostpulse_duration" 10000
+	write "$governor/timer_rate" 10000
+	write "$governor/timer_slack" 10000
+	write "$governor/sampling_rate" 10000
+	write "$governor/up_throttle_nsec" 10000000
+	write "$governor/down_throttle_nsec" 10000000
+done
+
+for governor in /sys/*/system/cpu/cpufreq/*
+do
+	write "$governor/boost" 1
+	write "$governor/pl" 1
+	write "$governor/fastlane" 1
+	write "$governor/fast_ramp_down" 1
+	write "$governor/boostpulse" 1
+	write "$governor/use_sched_load" 1
+	write "$governor/use_migration_notif" 1
+	write "$governor/enable_prediction" 1
+	write "$governor/sampling_early_factor" 1
+	write "$governor/sampling_down_factor" 1
+	write "$governor/sampling_interim_factor" 1
+	write "$governor/ignore_hispeed_on_notif" 1
+	write "$governor/param_index" 1
+	write "$governor/sampling_down_factor" 1
+	write "$governor/enforced_mode" 1
+	write "$governor/io_is_busy" 1
+	write "$governor/align_windows" 1
+	write "$governor/ignore_nice_load" 1
+	write "$governor/input_boost" 1
+	write "$governor/iowait_boost_enable" 1
+	write "$governor/down_differential" 5
+	write "$governor/down_differential_multi_core" 5
+	write "$governor/target_load_shift" 5
+	write "$governor/freq_step" 5
+	write "$governor/powersave_bias" 50
+	write "$governor/sched_upmigrate_min_nice" 50
+	write "$governor/hispeed_load" 100
+	write "$governor/go_hispeed_load" 100
+	write "$governor/up_threshold" 100
+	write "$governor/target_loads" 100
+	write "$governor/up_threshold_multi_core" 100
+	write "$governor/up_threshold_any_cpu_load" 100
+	write "$governor/boost_ms" 100
+	write "$governor/input_boost_ms" 100
+	write "$governor/target_load_thresh" 1024
+	write "$governor/above_highspeed_delay" 30000
+	write "$governor/min_sample_time" 10000
+	write "$governor/sampling_rate_min" 10000
+	write "$governor/up_rate_limit_us" 10000
+	write "$governor/down_rate_limit_us" 10000
+	write "$governor/boostpulse_duration" 10000
+	write "$governor/timer_rate" 10000
+	write "$governor/timer_slack" 10000
+	write "$governor/sampling_rate" 10000
+	write "$governor/up_throttle_nsec" 10000000
+	write "$governor/down_throttle_nsec" 10000000
+done
+
 write /proc/cpufreq/cpufreq_power_mode 3
 write /proc/cpufreq/cpufreq_cci_mode 1
 write /sys/devices/system/cpu/perf/enable 1
@@ -708,11 +805,44 @@ done
 
 for queue in /sys/*/*/queue
 do
-	write "$queue/iostats" 1
+	write "$queue/iostats" 0
 	write "$queue/add_random" 1
 	write "$queue/rotational" 1
 	write "$queue/nomerges" 2
 	write "$queue/rq_affinity" 2
+done
+
+for queue in /sys/*/*/queue
+do
+	write "$queue/iosched/max_budget" 0
+	write "$queue/iosched/slice_idle" 0
+	write "$queue/iosched/group_idle" 0
+	write "$queue/iosched/slice_idle_us" 0
+	write "$queue/iosched/group_idle_us" 0
+	write "$queue/iosched/strict_guarantees" 0
+	write "$queue/iosched/low_latency" 1
+	write "$queue/iosched/front_merges" 1
+	write "$queue/iosched/back_seek_penalty" 5
+	write "$queue/iosched/slice_async_rq" 5
+	write "$queue/iosched/writes_starved" 10
+	write "$queue/iosched/async_depth" 10
+	write "$queue/iosched/quantum" 50
+	write "$queue/iosched/fifo_batch" 50
+	write "$queue/iosched/slice_async" 100
+	write "$queue/iosched/slice_sync" 100
+	write "$queue/iosched/timeout_sync" 350
+	write "$queue/iosched/fifo_expire_async" 350
+	write "$queue/iosched/fifo_expire_sync" 350
+	write "$queue/iosched/target_latency" 500
+	write "$queue/iosched/read_expire" 500
+	write "$queue/iosched/write_expire" 1000
+	write "$queue/iosched/aging_expire" 100000
+	write "$queue/iosched/slice_sync_us" 100000
+	write "$queue/iosched/slice_async_us" 100000
+	write "$queue/iosched/back_seek_max" 300000
+	write "$queue/iosched/target_latency_us" 500000
+	write "$queue/iosched/read_lat_nsec" 10000000
+	write "$queue/iosched/write_lat_nsec" 10000000
 done
 
 # Return to completed regardless of any writes that failed or succeed
