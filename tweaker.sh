@@ -81,20 +81,20 @@ done
 write /sys/class/kgsl/kgsl-3d0/devfreq/governor
 
 # Schedulers
-write /proc/sys/kernel/sched_latency_ns 1000000
-write /proc/sys/kernel/sched_migration_cost_ns 1000000
-write /proc/sys/kernel/sched_min_granularity_ns 1000000
-write /proc/sys/kernel/sched_wakeup_granularity_ns 1000000
-write /proc/sys/kernel/sched_coloc_busy_hyst_ns 1000000
-write /proc/sys/kernel/sched_short_burst_ns 1000000
-write /proc/sys/kernel/sched_short_sleep_ns 1000000
+write /proc/sys/kernel/sched_latency_ns 10000000
+write /proc/sys/kernel/sched_migration_cost_ns 10000000
+write /proc/sys/kernel/sched_min_granularity_ns 10000000
+write /proc/sys/kernel/sched_wakeup_granularity_ns 10000000
+write /proc/sys/kernel/sched_coloc_busy_hyst_ns 10000000
+write /proc/sys/kernel/sched_short_burst_ns 10000000
+write /proc/sys/kernel/sched_short_sleep_ns 10000000
+write /proc/sys/kernel/sched_shares_window_ns 10000000
 write /proc/sys/kernel/sched_nr_migrate 1000000
 write /proc/sys/kernel/sched_rr_timeslice_us 1000000
 write /proc/sys/kernel/sched_deadline_period_max_us 1000000
 write /proc/sys/kernel/sched_deadline_period_min_us 1000000
 write /proc/sys/kernel/sched_walt_cpu_high_irqload 1000000
 write /proc/sys/kernel/sched_shares_window 1000000
-write /proc/sys/kernel/sched_shares_window_ns 1000000000
 write /proc/sys/kernel/sched_freq_aggregate_threshold 1000000
 write /proc/sys/kernel/sched_freq_dec_notify 1000000
 write /proc/sys/kernel/sched_freq_inc_notify 1000000
@@ -127,9 +127,9 @@ write /proc/sys/kernel/sched_big_waker_task_load 100
 write /proc/sys/kernel/sched_small_wakee_task_load 100
 write /proc/sys/kernel/sched_walt_init_task_load_pct 100
 write /proc/sys/kernel/sched_cfs_boost 10
-write /proc/sys/kernel/sched_ravg_hist_size 5
-write /proc/sys/kernel/sched_ravg_window_nr_ticks 5
-write /proc/sys/kernel/sched_window_stats_policy 5
+write /proc/sys/kernel/sched_ravg_hist_size 1
+write /proc/sys/kernel/sched_ravg_window_nr_ticks 1
+write /proc/sys/kernel/sched_window_stats_policy 1
 write /proc/sys/kernel/sched_schedstats 1
 write /proc/sys/kernel/sched_autogroup_enabled 1
 write /proc/sys/kernel/sched_child_runs_first 1
@@ -586,13 +586,13 @@ write /dev/cpuset/audio-app/cpus 0-11
 write /proc/sys/vm/drop_caches 0
 write /proc/sys/vm/page-cluster 0
 write /proc/sys/vm/stat_interval 10
-write /proc/sys/vm/dirty_background_ratio 5
-write /proc/sys/vm/dirty_ratio 10
+write /proc/sys/vm/dirty_background_ratio 100
+write /proc/sys/vm/dirty_ratio 100
 write /proc/sys/vm/vfs_cache_pressure 100
 write /proc/sys/vm/swappiness 100
 write /proc/sys/vm/overcommit_ratio 100
-write /proc/sys/vm/dirty_expire_centisecs 3000
-write /proc/sys/vm/dirty_writeback_centisecs 3000
+write /proc/sys/vm/dirty_expire_centisecs 10000
+write /proc/sys/vm/dirty_writeback_centisecs 10000
 write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0,0
 write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
 write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
