@@ -695,14 +695,14 @@ do
 	write "$governor/input_boost_ms" 100
 	write "$governor/target_load_thresh" 1024
 	write "$governor/above_highspeed_delay" 30000
-	write "$governor/min_sample_time" 10000
-	write "$governor/sampling_rate_min" 10000
-	write "$governor/up_rate_limit_us" 10000
-	write "$governor/down_rate_limit_us" 10000
-	write "$governor/boostpulse_duration" 10000
-	write "$governor/timer_rate" 10000
-	write "$governor/timer_slack" 10000
-	write "$governor/sampling_rate" 10000
+	write "$governor/min_sample_time" 100000
+	write "$governor/sampling_rate_min" 100000
+	write "$governor/up_rate_limit_us" 100000
+	write "$governor/down_rate_limit_us" 100000
+	write "$governor/boostpulse_duration" 100000
+	write "$governor/timer_rate" 100000
+	write "$governor/timer_slack" 100000
+	write "$governor/sampling_rate" 100000
 	write "$governor/up_throttle_nsec" 10000000
 	write "$governor/down_throttle_nsec" 10000000
 done
@@ -745,14 +745,14 @@ do
 	write "$governor/input_boost_ms" 100
 	write "$governor/target_load_thresh" 1024
 	write "$governor/above_highspeed_delay" 30000
-	write "$governor/min_sample_time" 10000
-	write "$governor/sampling_rate_min" 10000
-	write "$governor/up_rate_limit_us" 10000
-	write "$governor/down_rate_limit_us" 10000
-	write "$governor/boostpulse_duration" 10000
-	write "$governor/timer_rate" 10000
-	write "$governor/timer_slack" 10000
-	write "$governor/sampling_rate" 10000
+	write "$governor/min_sample_time" 100000
+	write "$governor/sampling_rate_min" 100000
+	write "$governor/up_rate_limit_us" 100000
+	write "$governor/down_rate_limit_us" 100000
+	write "$governor/boostpulse_duration" 100000
+	write "$governor/timer_rate" 100000
+	write "$governor/timer_slack" 100000
+	write "$governor/sampling_rate" 100000
 	write "$governor/up_throttle_nsec" 10000000
 	write "$governor/down_throttle_nsec" 10000000
 done
@@ -830,12 +830,12 @@ do
 	write "$queue/iosched/fifo_batch" 50
 	write "$queue/iosched/slice_async" 100
 	write "$queue/iosched/slice_sync" 100
-	write "$queue/iosched/timeout_sync" 350
-	write "$queue/iosched/fifo_expire_async" 350
-	write "$queue/iosched/fifo_expire_sync" 350
+	write "$queue/iosched/timeout_sync" 300
+	write "$queue/iosched/fifo_expire_async" 300
+	write "$queue/iosched/fifo_expire_sync" 300
 	write "$queue/iosched/target_latency" 500
 	write "$queue/iosched/read_expire" 500
-	write "$queue/iosched/write_expire" 1000
+	write "$queue/iosched/write_expire" 5000
 	write "$queue/iosched/aging_expire" 100000
 	write "$queue/iosched/slice_sync_us" 100000
 	write "$queue/iosched/slice_async_us" 100000
