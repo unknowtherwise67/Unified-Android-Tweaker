@@ -81,19 +81,14 @@ done
 write /sys/class/kgsl/kgsl-3d0/devfreq/governor
 
 # Schedulers
-write /proc/sys/kernel/sched_schedstats 0
-write /proc/sys/kernel/sched_tunable_scaling 0
-write /proc/sys/kernel/sched_child_runs_first 0
-write /proc/sys/kernel/sched_autogroup_enabled 0
-write /proc/sys/kernel/perf_cpu_time_max_percent 0
-write /proc/sys/kernel/sched_latency_ns 10000000
-write /proc/sys/kernel/sched_migration_cost_ns 10000000
-write /proc/sys/kernel/sched_min_granularity_ns 10000000
-write /proc/sys/kernel/sched_wakeup_granularity_ns 10000000
-write /proc/sys/kernel/sched_coloc_busy_hyst_ns 10000000
-write /proc/sys/kernel/sched_short_burst_ns 10000000
-write /proc/sys/kernel/sched_short_sleep_ns 10000000
-write /proc/sys/kernel/sched_shares_window_ns 10000000
+write /proc/sys/kernel/sched_latency_ns 1000000
+write /proc/sys/kernel/sched_migration_cost_ns 1000000
+write /proc/sys/kernel/sched_min_granularity_ns 1000000
+write /proc/sys/kernel/sched_wakeup_granularity_ns 1000000
+write /proc/sys/kernel/sched_coloc_busy_hyst_ns 1000000
+write /proc/sys/kernel/sched_short_burst_ns 1000000
+write /proc/sys/kernel/sched_short_sleep_ns 1000000
+write /proc/sys/kernel/sched_shares_window_ns 1000000
 write /proc/sys/kernel/sched_nr_migrate 1000000
 write /proc/sys/kernel/sched_rr_timeslice_us 1000000
 write /proc/sys/kernel/sched_deadline_period_max_us 1000000
@@ -131,61 +126,66 @@ write /proc/sys/kernel/sched_big_waker_task_load 100
 write /proc/sys/kernel/sched_small_wakee_task_load 100
 write /proc/sys/kernel/sched_walt_init_task_load_pct 100
 write /proc/sys/kernel/sched_cfs_boost 10
+write /proc/sys/kernel/sched_energy_aware 1
+write /proc/sys/kernel/sched_pelt_multiplier 1
 write /proc/sys/kernel/sched_ravg_hist_size 1
 write /proc/sys/kernel/sched_ravg_window_nr_ticks 1
 write /proc/sys/kernel/sched_window_stats_policy 1
-write /proc/sys/kernel/sched_force_lb_enable 1
-write /proc/sys/kernel/sched_prefer_spread 1
-write /proc/sys/kernel/sched_dynamic_ravg_window_enable 1
-write /proc/sys/kernel/sched_conservative_pl 1
-write /proc/sys/kernel/sched_walt_rotate_big_tasks 1
-write /proc/sys/kernel/sched_user_hint 1
-write /proc/sys/kernel/sched_sync_hint_enable 1
-write /proc/sys/kernel/sched_prefer_sync_wakee_to_waker 1
-write /proc/sys/kernel/sched_min_task_util_for_colocation 1
-write /proc/sys/kernel/sched_util_clamp_min_rt_default 1
-write /proc/sys/kernel/sched_freq_aggregate 1
-write /proc/sys/kernel/sched_energy_aware 1
-write /proc/sys/kernel/sched_pelt_multiplier 1
-write /proc/sys/kernel/sched_cstate_aware 1
-write /proc/sys/kernel/sched_initial_task_util 1
-write /proc/sys/kernel/sched_is_big_little 1
-write /proc/sys/kernel/sched_use_walt_cpu_util 1
-write /proc/sys/kernel/sched_use_walt_task_util 1
-write /proc/sys/kernel/sched_sync_hint_enable 1
-write /proc/sys/kernel/sched_wake_to_idle 1
-write /proc/sys/kernel/sched_enable_thread_grouping 1
-write /proc/sys/kernel/sched_restrict_cluster_spill 1
-write /proc/sys/kernel/sched_assist_enabled 1
-write /proc/sys/kernel/sched_assist_scenes 1
-write /proc/sys/kernel/sched_assist_ux_uclamp_max_enable 1
-write /proc/sys/kernel/sched_spill_nr_run 1
-write /proc/sys/kernel/sched_little_cluster_coloc_fmin_khz 1
-write /proc/sys/kernel/sched_min_task_util_for_boost_colocation 1
+write /proc/sys/kernel/sched_schedstats 0
+write /proc/sys/kernel/sched_tunable_scaling 0
+write /proc/sys/kernel/sched_child_runs_first 0
+write /proc/sys/kernel/sched_autogroup_enabled 0
+write /proc/sys/kernel/perf_cpu_time_max_percent 0
+write /proc/sys/kernel/sched_force_lb_enable 0
+write /proc/sys/kernel/sched_prefer_spread 0
+write /proc/sys/kernel/sched_dynamic_ravg_window_enable 0
+write /proc/sys/kernel/sched_conservative_pl 0
+write /proc/sys/kernel/sched_walt_rotate_big_tasks 0
+write /proc/sys/kernel/sched_user_hint 0
+write /proc/sys/kernel/sched_sync_hint_enable 0
+write /proc/sys/kernel/sched_prefer_sync_wakee_to_waker 0
+write /proc/sys/kernel/sched_min_task_util_for_colocation 0
+write /proc/sys/kernel/sched_util_clamp_min_rt_default 0
+write /proc/sys/kernel/sched_freq_aggregate 0
+write /proc/sys/kernel/sched_cstate_aware 0
+write /proc/sys/kernel/sched_initial_task_util 0
+write /proc/sys/kernel/sched_is_big_little 0
+write /proc/sys/kernel/sched_use_walt_cpu_util 0
+write /proc/sys/kernel/sched_use_walt_task_util 0
+write /proc/sys/kernel/sched_sync_hint_enable 0
+write /proc/sys/kernel/sched_wake_to_idle 0
+write /proc/sys/kernel/sched_enable_thread_grouping 0
+write /proc/sys/kernel/sched_restrict_cluster_spill 0
+write /proc/sys/kernel/sched_assist_enabled 0
+write /proc/sys/kernel/sched_assist_scenes 0
+write /proc/sys/kernel/sched_assist_ux_uclamp_max_enable 0
+write /proc/sys/kernel/sched_spill_nr_run 0
+write /proc/sys/kernel/sched_little_cluster_coloc_fmin_khz 0
+write /proc/sys/kernel/sched_min_task_util_for_boost_colocation 0
 
-write /sys/kernel/debug/sched_features GENTLE_FAIR_SLEEPERS
-write /sys/kernel/debug/sched_features HRTICK
-write /sys/kernel/debug/sched_features DOUBLE_TICK
-write /sys/kernel/debug/sched_features RT_RUNTIME_SHARE
-write /sys/kernel/debug/sched_features NEXT_BUDDY
-write /sys/kernel/debug/sched_features LAST_BUDDY
-write /sys/kernel/debug/sched_features TTWU_QUEUE
-write /sys/kernel/debug/sched_features UTIL_EST
-write /sys/kernel/debug/sched_features ARCH_CAPACITY
-write /sys/kernel/debug/sched_features ARCH_POWER
-write /sys/kernel/debug/sched_features START_DEBIT
-write /sys/kernel/debug/sched_features CACHE_HOT_BUDDY
-write /sys/kernel/debug/sched_features WAKEUP_PREEMPTION
-write /sys/kernel/debug/sched_features LB_BIAS
-write /sys/kernel/debug/sched_features NONTASK_CAPACITY
-write /sys/kernel/debug/sched_features RT_PUSH_IPI
-write /sys/kernel/debug/sched_features FORCE_SD_OVERLAP
-write /sys/kernel/debug/sched_features LB_MIN
-write /sys/kernel/debug/sched_features ATTACH_AGE_LOAD
-write /sys/kernel/debug/sched_features SIS_AVG_CPU
-write /sys/kernel/debug/sched_features MIN_CAPACITY_CAPPING
-write /sys/kernel/debug/sched_features FBT_STRICT_ORDER
-write /sys/kernel/debug/sched_features EAS_USE_NEED_IDLE
+write /sys/kernel/debug/sched_features NO_GENTLE_FAIR_SLEEPERS
+write /sys/kernel/debug/sched_features NO_HRTICK
+write /sys/kernel/debug/sched_features NO_DOUBLE_TICK
+write /sys/kernel/debug/sched_features NO_RT_RUNTIME_SHARE
+write /sys/kernel/debug/sched_features NO_NEXT_BUDDY
+write /sys/kernel/debug/sched_features NO_LAST_BUDDY
+write /sys/kernel/debug/sched_features NO_TTWU_QUEUE
+write /sys/kernel/debug/sched_features NO_UTIL_EST
+write /sys/kernel/debug/sched_features NO_ARCH_CAPACITY
+write /sys/kernel/debug/sched_features NO_ARCH_POWER
+write /sys/kernel/debug/sched_features NO_START_DEBIT
+write /sys/kernel/debug/sched_features NO_CACHE_HOT_BUDDY
+write /sys/kernel/debug/sched_features NO_WAKEUP_PREEMPTION
+write /sys/kernel/debug/sched_features NO_LB_BIAS
+write /sys/kernel/debug/sched_features NO_NONTASK_CAPACITY
+write /sys/kernel/debug/sched_features NO_RT_PUSH_IPI
+write /sys/kernel/debug/sched_features NO_FORCE_SD_OVERLAP
+write /sys/kernel/debug/sched_features NO_LB_MIN
+write /sys/kernel/debug/sched_features NO_ATTACH_AGE_LOAD
+write /sys/kernel/debug/sched_features NO_SIS_AVG_CPU
+write /sys/kernel/debug/sched_features NO_MIN_CAPACITY_CAPPING
+write /sys/kernel/debug/sched_features NO_FBT_STRICT_ORDER
+write /sys/kernel/debug/sched_features NO_EAS_USE_NEED_IDLE
 
 # Schedtune Idles/Boosts/CPUs-Set
 write /dev/stune/schedtune.boost 10
@@ -694,17 +694,17 @@ do
 	write "$governor/boost_ms" 100
 	write "$governor/input_boost_ms" 100
 	write "$governor/target_load_thresh" 1024
-	write "$governor/above_highspeed_delay" 30000
-	write "$governor/min_sample_time" 100000
-	write "$governor/sampling_rate_min" 100000
-	write "$governor/up_rate_limit_us" 100000
-	write "$governor/down_rate_limit_us" 100000
-	write "$governor/boostpulse_duration" 100000
-	write "$governor/timer_rate" 100000
-	write "$governor/timer_slack" 100000
-	write "$governor/sampling_rate" 100000
-	write "$governor/up_throttle_nsec" 10000000
-	write "$governor/down_throttle_nsec" 10000000
+	write "$governor/min_sample_time" 1000
+	write "$governor/sampling_rate_min" 1000
+	write "$governor/up_rate_limit_us" 1000
+	write "$governor/down_rate_limit_us" 1000
+	write "$governor/boostpulse_duration" 1000
+	write "$governor/timer_rate" 1000
+	write "$governor/timer_slack" 1000
+	write "$governor/sampling_rate" 1000
+	write "$governor/above_highspeed_delay" 10000
+	write "$governor/up_throttle_nsec" 1000000
+	write "$governor/down_throttle_nsec" 1000000
 done
 
 for governor in /sys/*/system/cpu/cpufreq/*
@@ -744,17 +744,17 @@ do
 	write "$governor/boost_ms" 100
 	write "$governor/input_boost_ms" 100
 	write "$governor/target_load_thresh" 1024
-	write "$governor/above_highspeed_delay" 30000
-	write "$governor/min_sample_time" 100000
-	write "$governor/sampling_rate_min" 100000
-	write "$governor/up_rate_limit_us" 100000
-	write "$governor/down_rate_limit_us" 100000
-	write "$governor/boostpulse_duration" 100000
-	write "$governor/timer_rate" 100000
-	write "$governor/timer_slack" 100000
-	write "$governor/sampling_rate" 100000
-	write "$governor/up_throttle_nsec" 10000000
-	write "$governor/down_throttle_nsec" 10000000
+	write "$governor/min_sample_time" 1000
+	write "$governor/sampling_rate_min" 1000
+	write "$governor/up_rate_limit_us" 1000
+	write "$governor/down_rate_limit_us" 1000
+	write "$governor/boostpulse_duration" 1000
+	write "$governor/timer_rate" 1000
+	write "$governor/timer_slack" 1000
+	write "$governor/sampling_rate" 1000
+	write "$governor/above_highspeed_delay" 10000
+	write "$governor/up_throttle_nsec" 1000000
+	write "$governor/down_throttle_nsec" 1000000
 done
 
 write /proc/cpufreq/cpufreq_power_mode 3
@@ -815,17 +815,17 @@ done
 for queue in /sys/*/*/queue
 do
 	write "$queue/iosched/max_budget" 0
+	write "$queue/iosched/strict_guarantees" 0
 	write "$queue/iosched/slice_idle" 0
 	write "$queue/iosched/group_idle" 0
 	write "$queue/iosched/slice_idle_us" 0
 	write "$queue/iosched/group_idle_us" 0
-	write "$queue/iosched/strict_guarantees" 0
 	write "$queue/iosched/low_latency" 1
 	write "$queue/iosched/front_merges" 1
-	write "$queue/iosched/back_seek_penalty" 5
-	write "$queue/iosched/slice_async_rq" 5
-	write "$queue/iosched/writes_starved" 10
-	write "$queue/iosched/async_depth" 10
+	write "$queue/iosched/back_seek_penalty" 1
+	write "$queue/iosched/slice_async_rq" 1
+	write "$queue/iosched/writes_starved" 1
+	write "$queue/iosched/async_depth" 1
 	write "$queue/iosched/quantum" 50
 	write "$queue/iosched/fifo_batch" 50
 	write "$queue/iosched/slice_async" 100
