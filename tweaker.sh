@@ -670,6 +670,7 @@ do
 	write "$governor/sampling_early_factor" 1
 	write "$governor/sampling_down_factor" 1
 	write "$governor/sampling_interim_factor" 1
+	write "$governor/powersave_bias" 1
 	write "$governor/ignore_hispeed_on_notif" 1
 	write "$governor/param_index" 1
 	write "$governor/sampling_down_factor" 1
@@ -679,30 +680,47 @@ do
 	write "$governor/ignore_nice_load" 1
 	write "$governor/input_boost" 1
 	write "$governor/iowait_boost_enable" 1
+	write "$governor/hispeed_freq" 1
+	write "$governor/optimal_freq" 1
+	write "$governor/sync_freq" 1
+	write "$governor/rtg_boost_freq" 1
+	write "$governor/adaptive_high_freq" 1
+	write "$governor/adaptive_low_freq" 1
+	write "$governor/max_freq_hysteresis" 1
+	write "$governor/step_up_early_hispeed" 1
+	write "$governor/step_up_interim_hispeed" 1
+	write "$governor/up_threshold_any_cpu_freq" 1
 	write "$governor/down_differential" 5
 	write "$governor/down_differential_multi_core" 5
 	write "$governor/target_load_shift" 5
 	write "$governor/freq_step" 5
-	write "$governor/powersave_bias" 50
-	write "$governor/sched_upmigrate_min_nice" 50
-	write "$governor/hispeed_load" 100
-	write "$governor/go_hispeed_load" 100
-	write "$governor/up_threshold" 100
-	write "$governor/target_loads" 100
-	write "$governor/up_threshold_multi_core" 100
-	write "$governor/up_threshold_any_cpu_load" 100
+	write "$governor/sched_upmigrate_min_nice" 10
+	write "$governor/hispeed_load" 50
+	write "$governor/go_hispeed_load" 50
+	write "$governor/up_threshold" 50
+	write "$governor/target_loads" 50
+	write "$governor/single_enter_load" 50
+	write "$governor/single_exit_load" 50
+	write "$governor/up_threshold_multi_core" 50
+	write "$governor/up_threshold_any_cpu_load" 50
+	write "$governor/multi_enter_load" 100
+	write "$governor/multi_exit_load" 100
 	write "$governor/boost_ms" 100
 	write "$governor/input_boost_ms" 100
 	write "$governor/target_load_thresh" 1024
-	write "$governor/min_sample_time" 1000
-	write "$governor/sampling_rate_min" 1000
+	write "$governor/timer_rate" 1000
 	write "$governor/up_rate_limit_us" 1000
 	write "$governor/down_rate_limit_us" 1000
+	write "$governor/single_enter_time" 1000
+	write "$governor/single_exit_time" 1000
+	write "$governor/multi_enter_time" 1000
+	write "$governor/multi_exit_time" 1000
 	write "$governor/boostpulse_duration" 1000
-	write "$governor/timer_rate" 1000
+	write "$governor/min_sample_time" 1000
 	write "$governor/timer_slack" 1000
 	write "$governor/sampling_rate" 1000
-	write "$governor/above_highspeed_delay" 10000
+	write "$governor/sampling_rate_min" 1000
+	write "$governor/above_hispeed_delay" 10000
 	write "$governor/up_throttle_nsec" 1000000
 	write "$governor/down_throttle_nsec" 1000000
 done
@@ -720,6 +738,7 @@ do
 	write "$governor/sampling_early_factor" 1
 	write "$governor/sampling_down_factor" 1
 	write "$governor/sampling_interim_factor" 1
+	write "$governor/powersave_bias" 1
 	write "$governor/ignore_hispeed_on_notif" 1
 	write "$governor/param_index" 1
 	write "$governor/sampling_down_factor" 1
@@ -729,30 +748,47 @@ do
 	write "$governor/ignore_nice_load" 1
 	write "$governor/input_boost" 1
 	write "$governor/iowait_boost_enable" 1
+	write "$governor/hispeed_freq" 1
+	write "$governor/optimal_freq" 1
+	write "$governor/sync_freq" 1
+	write "$governor/rtg_boost_freq" 1
+	write "$governor/adaptive_high_freq" 1
+	write "$governor/adaptive_low_freq" 1
+	write "$governor/max_freq_hysteresis" 1
+	write "$governor/step_up_early_hispeed" 1
+	write "$governor/step_up_interim_hispeed" 1
+	write "$governor/up_threshold_any_cpu_freq" 1
 	write "$governor/down_differential" 5
 	write "$governor/down_differential_multi_core" 5
 	write "$governor/target_load_shift" 5
 	write "$governor/freq_step" 5
-	write "$governor/powersave_bias" 50
-	write "$governor/sched_upmigrate_min_nice" 50
-	write "$governor/hispeed_load" 100
-	write "$governor/go_hispeed_load" 100
-	write "$governor/up_threshold" 100
-	write "$governor/target_loads" 100
-	write "$governor/up_threshold_multi_core" 100
-	write "$governor/up_threshold_any_cpu_load" 100
+	write "$governor/sched_upmigrate_min_nice" 10
+	write "$governor/hispeed_load" 50
+	write "$governor/go_hispeed_load" 50
+	write "$governor/up_threshold" 50
+	write "$governor/target_loads" 50
+	write "$governor/single_enter_load" 50
+	write "$governor/single_exit_load" 50
+	write "$governor/up_threshold_multi_core" 50
+	write "$governor/up_threshold_any_cpu_load" 50
+	write "$governor/multi_enter_load" 100
+	write "$governor/multi_exit_load" 100
 	write "$governor/boost_ms" 100
 	write "$governor/input_boost_ms" 100
 	write "$governor/target_load_thresh" 1024
-	write "$governor/min_sample_time" 1000
-	write "$governor/sampling_rate_min" 1000
+	write "$governor/timer_rate" 1000
 	write "$governor/up_rate_limit_us" 1000
 	write "$governor/down_rate_limit_us" 1000
+	write "$governor/single_enter_time" 1000
+	write "$governor/single_exit_time" 1000
+	write "$governor/multi_enter_time" 1000
+	write "$governor/multi_exit_time" 1000
 	write "$governor/boostpulse_duration" 1000
-	write "$governor/timer_rate" 1000
+	write "$governor/min_sample_time" 1000
 	write "$governor/timer_slack" 1000
 	write "$governor/sampling_rate" 1000
-	write "$governor/above_highspeed_delay" 10000
+	write "$governor/sampling_rate_min" 1000
+	write "$governor/above_hispeed_delay" 10000
 	write "$governor/up_throttle_nsec" 1000000
 	write "$governor/down_throttle_nsec" 1000000
 done
@@ -789,11 +825,6 @@ write /sys/devices/system/cpu/cpu11/online 1
 
 for queue in /sys/*/*/queue
 do
-	write "$queue/iostats" 1
-	write "$queue/rotational" 1
-	write "$queue/add_random" 1
-	write "$queue/nomerges" 2
-	write "$queue/rq_affinity" 2
 	write "$queue/read_ahead_kb" 2048
 	write "$queue/nr_requests" 4
 	write "$queue/nr_requests" 8
@@ -806,6 +837,15 @@ do
 	write "$queue/nr_requests" 1024
 	write "$queue/nr_requests" 2048
 	write "$queue/nr_requests" 4096
+done
+
+for queue in /sys/*/*/queue
+do
+	write "$queue/iostats" 1
+	write "$queue/rotational" 1
+	write "$queue/add_random" 1
+	write "$queue/nomerges" 2
+	write "$queue/rq_affinity" 2
 done
 
 for queue in /sys/*/*/queue
