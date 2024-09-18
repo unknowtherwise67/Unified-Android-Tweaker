@@ -690,10 +690,10 @@ do
 	write "$governor/step_up_early_hispeed" 1
 	write "$governor/step_up_interim_hispeed" 1
 	write "$governor/up_threshold_any_cpu_freq" 1
-	write "$governor/down_differential" 5
-	write "$governor/down_differential_multi_core" 5
-	write "$governor/target_load_shift" 5
-	write "$governor/freq_step" 5
+	write "$governor/down_differential" 3
+	write "$governor/down_differential_multi_core" 3
+	write "$governor/target_load_shift" 3
+	write "$governor/freq_step" 3
 	write "$governor/sched_upmigrate_min_nice" 10
 	write "$governor/hispeed_load" 50
 	write "$governor/go_hispeed_load" 50
@@ -707,6 +707,7 @@ do
 	write "$governor/multi_exit_load" 100
 	write "$governor/boost_ms" 100
 	write "$governor/input_boost_ms" 100
+	write "$governor/target_load_thresh" 1024
 	write "$governor/timer_rate" 1000
 	write "$governor/up_rate_limit_us" 1000
 	write "$governor/down_rate_limit_us" 1000
@@ -719,7 +720,6 @@ do
 	write "$governor/timer_slack" 1000
 	write "$governor/sampling_rate" 1000
 	write "$governor/sampling_rate_min" 1000
-	write "$governor/target_load_thresh" 10000
 	write "$governor/above_hispeed_delay" 10000
 	write "$governor/up_throttle_nsec" 1000000
 	write "$governor/down_throttle_nsec" 1000000
@@ -758,10 +758,10 @@ do
 	write "$governor/step_up_early_hispeed" 1
 	write "$governor/step_up_interim_hispeed" 1
 	write "$governor/up_threshold_any_cpu_freq" 1
-	write "$governor/down_differential" 5
-	write "$governor/down_differential_multi_core" 5
-	write "$governor/target_load_shift" 5
-	write "$governor/freq_step" 5
+	write "$governor/down_differential" 3
+	write "$governor/down_differential_multi_core" 3
+	write "$governor/target_load_shift" 3
+	write "$governor/freq_step" 3
 	write "$governor/sched_upmigrate_min_nice" 10
 	write "$governor/hispeed_load" 50
 	write "$governor/go_hispeed_load" 50
@@ -775,6 +775,7 @@ do
 	write "$governor/multi_exit_load" 100
 	write "$governor/boost_ms" 100
 	write "$governor/input_boost_ms" 100
+	write "$governor/target_load_thresh" 1024
 	write "$governor/timer_rate" 1000
 	write "$governor/up_rate_limit_us" 1000
 	write "$governor/down_rate_limit_us" 1000
@@ -787,7 +788,6 @@ do
 	write "$governor/timer_slack" 1000
 	write "$governor/sampling_rate" 1000
 	write "$governor/sampling_rate_min" 1000
-	write "$governor/target_load_thresh" 10000
 	write "$governor/above_hispeed_delay" 10000
 	write "$governor/up_throttle_nsec" 1000000
 	write "$governor/down_throttle_nsec" 1000000
