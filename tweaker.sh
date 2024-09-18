@@ -856,22 +856,22 @@ do
 	write "$queue/iosched/group_idle" 1
 	write "$queue/iosched/low_latency" 1
 	write "$queue/iosched/front_merges" 1
-	write "$queue/iosched/back_seek_penalty" 1
-	write "$queue/iosched/slice_async_rq" 1
-	write "$queue/iosched/writes_starved" 1
-	write "$queue/iosched/async_depth" 1
-	write "$queue/iosched/quantum" 10
-	write "$queue/iosched/fifo_batch" 10
-	write "$queue/iosched/slice_async" 100
-	write "$queue/iosched/slice_sync" 100
-	write "$queue/iosched/timeout_sync" 100
-	write "$queue/iosched/fifo_expire_async" 100
-	write "$queue/iosched/fifo_expire_sync" 100
-	write "$queue/iosched/target_latency" 100
-	write "$queue/iosched/read_expire" 100
-	write "$queue/iosched/write_expire" 1000
+	write "$queue/iosched/back_seek_penalty" 10
+	write "$queue/iosched/slice_async_rq" 10
+	write "$queue/iosched/writes_starved" 10
+	write "$queue/iosched/async_depth" 10
+	write "$queue/iosched/quantum" 100
+	write "$queue/iosched/fifo_batch" 100
+	write "$queue/iosched/slice_async" 1000
+	write "$queue/iosched/slice_sync" 1000
+	write "$queue/iosched/timeout_sync" 1000
+	write "$queue/iosched/fifo_expire_async" 1000
+	write "$queue/iosched/fifo_expire_sync" 1000
+	write "$queue/iosched/target_latency" 1000
 	write "$queue/iosched/slice_idle_us" 1000
 	write "$queue/iosched/group_idle_us" 1000
+	write "$queue/iosched/read_expire" 10000
+	write "$queue/iosched/write_expire" 10000
 	write "$queue/iosched/aging_expire" 100000
 	write "$queue/iosched/slice_sync_us" 100000
 	write "$queue/iosched/slice_async_us" 100000
