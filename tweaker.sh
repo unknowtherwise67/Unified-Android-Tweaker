@@ -163,29 +163,29 @@ write /proc/sys/kernel/sched_spill_nr_run 1
 write /proc/sys/kernel/sched_little_cluster_coloc_fmin_khz 1
 write /proc/sys/kernel/sched_min_task_util_for_boost_colocation 1
 
-write /sys/kernel/debug/sched_features GENTLE_FAIR_SLEEPERS
-write /sys/kernel/debug/sched_features HRTICK
-write /sys/kernel/debug/sched_features DOUBLE_TICK
-write /sys/kernel/debug/sched_features RT_RUNTIME_SHARE
-write /sys/kernel/debug/sched_features NEXT_BUDDY
-write /sys/kernel/debug/sched_features LAST_BUDDY
-write /sys/kernel/debug/sched_features TTWU_QUEUE
-write /sys/kernel/debug/sched_features UTIL_EST
-write /sys/kernel/debug/sched_features ARCH_CAPACITY
-write /sys/kernel/debug/sched_features ARCH_POWER
-write /sys/kernel/debug/sched_features START_DEBIT
-write /sys/kernel/debug/sched_features CACHE_HOT_BUDDY
-write /sys/kernel/debug/sched_features WAKEUP_PREEMPTION
-write /sys/kernel/debug/sched_features LB_BIAS
-write /sys/kernel/debug/sched_features NONTASK_CAPACITY
-write /sys/kernel/debug/sched_features RT_PUSH_IPI
-write /sys/kernel/debug/sched_features FORCE_SD_OVERLAP
-write /sys/kernel/debug/sched_features LB_MIN
-write /sys/kernel/debug/sched_features ATTACH_AGE_LOAD
-write /sys/kernel/debug/sched_features SIS_AVG_CPU
-write /sys/kernel/debug/sched_features MIN_CAPACITY_CAPPING
-write /sys/kernel/debug/sched_features FBT_STRICT_ORDER
-write /sys/kernel/debug/sched_features EAS_USE_NEED_IDLE
+write /sys/kernel/debug/sched_features NO_GENTLE_FAIR_SLEEPERS
+write /sys/kernel/debug/sched_features NO_HRTICK
+write /sys/kernel/debug/sched_features NO_DOUBLE_TICK
+write /sys/kernel/debug/sched_features NO_RT_RUNTIME_SHARE
+write /sys/kernel/debug/sched_features NO_NEXT_BUDDY
+write /sys/kernel/debug/sched_features NO_LAST_BUDDY
+write /sys/kernel/debug/sched_features NO_TTWU_QUEUE
+write /sys/kernel/debug/sched_features NO_UTIL_EST
+write /sys/kernel/debug/sched_features NO_ARCH_CAPACITY
+write /sys/kernel/debug/sched_features NO_ARCH_POWER
+write /sys/kernel/debug/sched_features NO_START_DEBIT
+write /sys/kernel/debug/sched_features NO_CACHE_HOT_BUDDY
+write /sys/kernel/debug/sched_features NO_WAKEUP_PREEMPTION
+write /sys/kernel/debug/sched_features NO_LB_BIAS
+write /sys/kernel/debug/sched_features NO_NONTASK_CAPACITY
+write /sys/kernel/debug/sched_features NO_RT_PUSH_IPI
+write /sys/kernel/debug/sched_features NO_FORCE_SD_OVERLAP
+write /sys/kernel/debug/sched_features NO_LB_MIN
+write /sys/kernel/debug/sched_features NO_ATTACH_AGE_LOAD
+write /sys/kernel/debug/sched_features NO_SIS_AVG_CPU
+write /sys/kernel/debug/sched_features NO_MIN_CAPACITY_CAPPING
+write /sys/kernel/debug/sched_features NO_FBT_STRICT_ORDER
+write /sys/kernel/debug/sched_features NO_EAS_USE_NEED_IDLE
 
 # Schedtune Idles/Boosts/CPUs-Set
 write /dev/stune/schedtune.boost 10
@@ -288,12 +288,30 @@ write /dev/stune/camera-daemon/schedtune.prefer_idle 0
 write /dev/stune/nnapi-hal/schedtune.prefer_idle 0
 write /dev/stune/system-background/schedtune.prefer_idle 0
 write /dev/stune/top-app/schedtune.prefer_idle 0
-rite /dev/stune/audio/schedtune.prefer_idle 0
-rite /dev/stune/h-background/schedtune.prefer_idle 0
-rite /dev/stune/l-background/schedtune.prefer_idle 0
-rite /dev/stune/display/schedtune.prefer_idle 0
-rite /dev/stune/oiface_fg/schedtune.prefer_idle 0
-rite /dev/stune/sf/schedtune.prefer_idle 0
+write /dev/stune/audio/schedtune.prefer_idle 0
+write /dev/stune/h-background/schedtune.prefer_idle 0
+write /dev/stune/l-background/schedtune.prefer_idle 0
+write /dev/stune/display/schedtune.prefer_idle 0
+write /dev/stune/oiface_fg/schedtune.prefer_idle 0
+write /dev/stune/sf/schedtune.prefer_idle 0
+
+write /dev/stune/cpu.uclamp.latency_sensitive 0
+write /dev/stune/background/cpu.uclamp.latency_sensitive 0
+write /dev/stune/foreground/cpu.uclamp.latency_sensitive 0
+write /dev/stune/rt/cpu.uclamp.latency_sensitive 0
+write /dev/stune/application/cpu.uclamp.latency_sensitive 0
+write /dev/stune/kernel/cpu.uclamp.latency_sensitive 0
+write /dev/stune/restricted/cpu.uclamp.latency_sensitive 0
+write /dev/stune/camera-daemon/cpu.uclamp.latency_sensitive 0
+write /dev/stune/nnapi-hal/cpu.uclamp.latency_sensitive 0
+write /dev/stune/system-background/cpu.uclamp.latency_sensitive 0
+write /dev/stune/top-app/cpu.uclamp.latency_sensitive 0
+write /dev/stune/audio/cpu.uclamp.latency_sensitive 0
+write /dev/stune/h-background/cpu.uclamp.latency_sensitive 0
+write /dev/stune/l-background/cpu.uclamp.latency_sensitive 0
+write /dev/stune/display/cpu.uclamp.latency_sensitive 0
+write /dev/stune/oiface_fg/cpu.uclamp.latency_sensitive 0
+write /dev/stune/sf/cpu.uclamp.latency_sensitive 0
 
 write /dev/stune/background/schedtune.uclamp.max max
 write /dev/stune/foreground/schedtune.uclamp.max max
@@ -605,12 +623,20 @@ write /proc/sys/kernel/random/read_wakeup_threshold 128
 write /proc/sys/kernel/random/write_wakeup_threshold 128
 write /proc/touchpanel/game_switch_enable 1
 write /proc/touchpanel/oplus_tp_direction 1
+write /sys/class/sec/switch/afc_disable 1
+write /sys/class/mmc_host/mmc0/clk_scaling/enable 1
+write /sys/class/mmc_host/mmc1/clk_scaling/enable 1
+write /sys/devices/platform/soc/1d84000.ufshc/clkscale_enable 0
+write /sys/devices/platform/soc/1d84000.ufshc/hibern8_on_idle_enable 0
+write /sys/devices/platform/soc/1d84000.ufshc/clkgate_enable 0
 write /sys/kernel/oppo_display/LCM_CABC 0
+write /proc/touchpanel/oplus_tp_limit_enable 0
 write /proc/touchpanel/oplus_tp_limit_enable 0
 write /sys/module/mmc_core/parameters/use_spi_crc 0
 write /sys/module/system/cpu/sched_mc_power_savings 0
-write /proc/sys/kernel/printk_devkmsg off
+write /sys/module/battery_saver/parameters/enabled N
 write /sys/module/workqueue/parameters/power_efficient N
+write /proc/sys/kernel/printk_devkmsg off
 Modify CPUStune
 
 write /sys/module/ged/parameters/gx_game_mode 1
@@ -622,12 +648,25 @@ write /sys/module/ged/parameters/enable_gpu_boost 1
 write /sys/module/ged/parameters/gx_frc_mode 1
 write /sys/module/ged/parameters/gx_boost_on 1
 write /sys/module/ged/parameters/gx_force_cpu_boost 1
+write /sys/module/ged/parameters/is_GED_KPI_enabled 1
+write /sys/module/ged/parameters/boost_amp 1
 write /sys/module/ged/parameters/enable_game_self_frc_detect 1
 write /sys/module/ged/parameters/ged_boost_enable 1
+write /sys/module/ged/parameters/gpu_dvfs_enable 1
+write /sys/kernel/gbe/gbe_enable1 1
+write /sys/kernel/gbe/gbe_enable2 1
+write /sys/kernel/gbe/gbe2_max_boost_cnt 1
+write /sys/kernel/gbe/gbe2_loading_th 10
 write /sys/module/ged/parameters/gpu_idle 10
 write /sys/module/ged/parameters/cpu_boost_policy 100
 write /sys/module/ged/parameters/ged_smart_boost 100
 write /sys/module/ged/parameters/ged_force_mdp_enable 0
+write /sys/module/ged/parameters/ged_log_perf_trace_enable 0
+write /sys/module/ged/parameters/ged_log_trace_enable 0
+write /sys/module/ged/parameters/ged_monitor_3D_fence_debug 0
+write /sys/module/ged/parameters/ged_monitor_3D_fence_disable 0
+write /sys/module/ged/parameters/ged_monitor_3D_fence_systrace 0
+write /sys/module/ged/parameters/gpu_debug_enable 0
 
 settings put global settings_enable_monitor_phantom_procs false
 setprop persist.sys.fflag.override.settings_enable_monitor_phantom_procs false
@@ -721,6 +760,8 @@ do
 	write "$governor/sampling_rate" 1000
 	write "$governor/sampling_rate_min" 1000
 	write "$governor/above_hispeed_delay" 10000
+	write "$governor/sched_freq_inc_notify" 100000
+	write "$governor/sched_freq_dec_notify" 100000
 	write "$governor/up_throttle_nsec" 1000000
 	write "$governor/down_throttle_nsec" 1000000
 done
@@ -789,25 +830,57 @@ do
 	write "$governor/sampling_rate" 1000
 	write "$governor/sampling_rate_min" 1000
 	write "$governor/above_hispeed_delay" 10000
+	write "$governor/sched_freq_inc_notify" 100000
+	write "$governor/sched_freq_dec_notify" 100000
 	write "$governor/up_throttle_nsec" 1000000
 	write "$governor/down_throttle_nsec" 1000000
 done
 
-write /proc/cpufreq/cpufreq_power_mode 3
+write /sys/module/cpu_boost/parameters/input_boost_enabled 1
+write /sys/module/cpu_boost/parameters/sched_boost_on_input 1
+write /sys/module/cpu_boost/parameters/sched_boost_on_powerkey_input 1
+write /sys/module/cpu_boost/parameters/dynamic_stune_boost 10
+write /sys/module/cpu_boost/parameters/input_boost_ms 1000
+write /sys/module/cpu_boost/parameters/dynamic_stune_boost_ms 1000
+write /sys/module/cpu_boost/parameters/powerkey_input_boost_ms 1000
+write /sys/module/cpu_input_boost/parameters/input_boost_duration 1000
+
+write /proc/ppm/enabled 1
+write /proc/cpufreq/cpufreq_power_mode 1
+write /proc/cpufreq/cpufreq_stress_test 1
+write /proc/cpufreq/cpufreq_sched_disable 1
 write /proc/cpufreq/cpufreq_cci_mode 1
 write /sys/devices/system/cpu/perf/enable 1
+write /sys/devices/system/cpu/cpuidle/use_deepest_state 1
 
-write /sys/class/kgsl/kgsl-3d0/throttling 0
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 0
-write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 0
-write /sys/class/simple_gpu_algorithm/parameters/simple_gpu_active 1
-write /sys/class/simple_gpu_algorithm/parameters/simple_ramp_threshold 10000
-write /sys/class/simple_gpu_algorithm/parameters/simple_laziness 0
-write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 3
+write /sys/kernel/hmp/boost 1
+write /sys/kernel/hmp/down_compensation_enabled 1
+write /sys/kernel/hmp/family_boost 1
+write /sys/kernel/hmp/semiboost 1
+write /sys/kernel/hmp/up_threshold 100
+write /sys/kernel/hmp/down_threshold 100
+
+write /proc/mali/always_on 1
+write /proc/mali/dvfs_enable 1
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 1
+write /sys/class/kgsl/kgsl-3d0/max_pwrlevel 1
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 1
+write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 1
+write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 1
 write /sys/class/kgsl/kgsl-3d0/force_bus_on 1
 write /sys/class/kgsl/kgsl-3d0/force_clk_on 1
 write /sys/class/kgsl/kgsl-3d0/force_rail_on 1
-write /proc/mali/always_on 1
+write /sys/kernel/debug/sde_rotator0/clk_always_on 1
+write /sys/class/kgsl/kgsl-3d0/popp 1
+write /sys/class/kgsl/kgsl-3d0/pwrnap 1
+write /sys/class/simple_gpu_algorithm/parameters/simple_gpu_active 1
+write /sys/class/simple_gpu_algorithm/parameters/simple_laziness 1
+write /sys/module/adreno_idler/parameters/adreno_idler_downdifferential 30
+write /sys/module/adreno_idler/parameters/adreno_idler_idlewait 10
+write /sys/module/adreno_idler/parameters/adreno_idler_idleworkload 10000
+write /sys/class/simple_gpu_algorithm/parameters/simple_ramp_threshold 10000
+write /sys/class/kgsl/kgsl-3d0/throttling 0
+write /sys/module/adreno_idler/parameters/adreno_idler_active Y
 write /sys/devices/platform/13040000.mali/power_policy always_on
 
 write /sys/devices/system/cpu/cpu0/online 1
@@ -825,6 +898,12 @@ write /sys/devices/system/cpu/cpu11/online 1
 
 for queue in /sys/*/*/queue
 do
+	write "$queue/iostats" 1
+	write "$queue/add_random" 1
+	write "$queue/rotational" 1
+	write "$queue/nomerges" 2
+	write "$queue/rq_affinity" 2
+	write "$queue/nr_requests" 4
 	write "$queue/read_ahead_kb" 2048
 	write "$queue/nr_requests" 4
 	write "$queue/nr_requests" 8
