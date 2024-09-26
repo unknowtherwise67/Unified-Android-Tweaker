@@ -621,6 +621,8 @@ write /proc/touchpanel/game_switch_enable 1
 write /proc/touchpanel/oplus_tp_direction 1
 write /sys/class/sec/switch/afc_disable 1
 write /sys/kernel/mi_reclaim/enable 1
+write /sys/kernel/fp_boost/enabled 1
+write /proc/sys/dev/tty/ldisc_autoload 1
 write /sys/devices/system/cpu/sched/hint_enable 1
 write /sys/devices/system/cpu/sched/hint_enable
 write /sys/module/fast_charge/force_fast_charge 1
@@ -628,24 +630,51 @@ write /sys/kernel/fast_charge/force_fast_charge 1
 write /sys/module/sync/parameters/fsync_enabled 1
 write /sys/class/mmc_host/mmc0/clk_scaling/enable 1
 write /sys/class/mmc_host/mmc1/clk_scaling/enable 1
+write /sys/module/lpm_levels/parameters/bias_hyst 1
+write /proc/sys/kernel/slide_boost_enabled 1
+write /proc/sys/kernel/launcher_boost_enabled 1
+write /proc/sys/fs/dir-notify-enable 1
+write /proc/sys/fs/leases-enable 1
+write /sys/kernel/dyn_fsync/Dyn_fsync_active 1
+write /sys/kernel/tracing/events/sched/sched_boost_cpu 1
 write /sys/class/power_supply/battery/charging_enabled 1
+write /proc/sys/fs/lease-break-time 10
 write /proc/sys/kernel/random/read_wakeup_threshold 128
 write /proc/sys/kernel/random/write_wakeup_threshold 128
 write /sys/devices/platform/soc/1d84000.ufshc/clkscale_enable 0
 write /sys/devices/platform/soc/1d84000.ufshc/hibern8_on_idle_enable 0
 write /sys/devices/platform/soc/1d84000.ufshc/clkgate_enable 0
+write /sys/kernel/debug/msm_vidc/fw_low_power_mode 0
 write /sys/kernel/oppo_display/LCM_CABC 0
 write /proc/touchpanel/oplus_tp_limit_enable 0
 write /proc/touchpanel/oplus_tp_limit_enable 0
 write /sys/module/mmc_core/parameters/use_spi_crc 0
 write /sys/module/system/cpu/sched_mc_power_savings 0
+write /sys/module/pm2/parameters/idle_sleep_mode Y
+write /sys/module/lpm_levels/parameters/lpm_prediction Y
+write /sys/module/lpm_levels/parameters/lpm_ipi_prediction Y
+write /sys/module/lpm_levels/parameters/sleep_disabled Y
 write /sys/module/battery_saver/parameters/enabled N
 write /sys/module/workqueue/parameters/power_efficient N
 write /sys/module/mmc_core/parameters/removable N
 write /sys/module/mmc_core/parameters/crc N
 write /sys/module/mmc_core/parameters/use_spi_crc N
+write /sys/module/exynos_acme/parameters/enable_suspend_freqs N
 write /proc/sys/kernel/printk_devkmsg off
 Modify CPUStune
+
+write /proc/perfmgr/tchbst/user/usrtch enable 1
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_prefer_idle 1
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_boost 1
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_boost 1
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_boost 1
+write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_enable 1
+write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_up_loading 10
+write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_down_loading 10
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_uclamp_min 1024
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_uclamp_min 1024
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_uclamp_min 1024
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_uclamp_min 1024
 
 write /sys/module/ged/parameters/gx_game_mode 1
 write /sys/module/ged/parameters/boost_amp 1
@@ -703,6 +732,21 @@ write /proc/ppm/policy_status 9 0
 
 # TCP
 write /proc/sys/net/ipv4/tcp_ecn 1
+write /proc/sys/net/ipv4/ip_no_pmtu_disc 1
+write /proc/sys/net/ipv4/tcp_timestamps 1
+write /proc/sys/net/ipv4/route/flush 1
+write /proc/sys/net/ipv4/tcp_rfc1337 1
+write /proc/sys/net/ipv4/tcp_tw_reuse 1
+write /proc/sys/net/ipv4/tcp_sack 1
+write /proc/sys/net/ipv4/tcp_fack 1
+write /proc/sys/net/ipv4/tcp_tw_recycle 1
+write /proc/sys/net/ipv4/tcp_no_metrics_save 1
+write /proc/sys/net/ipv4/tcp_window_scaling 1
+write /proc/sys/net/ipv4/tcp_keepalive_probes 10
+write /proc/sys/net/ipv4/tcp_keepalive_intvl 10
+write /proc/sys/net/ipv4/tcp_fin_timeout 10
+write /proc/sys/net/ipv4/tcp_mtu_probing 1
+write /proc/sys/net/ipv4/tcp_slow_start_after_idle 0
 write /proc/sys/net/ipv4/tcp_fastopen 3
 write /proc/sys/net/ipv4/tcp_syncookies 0
 
