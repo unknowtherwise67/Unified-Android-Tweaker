@@ -81,7 +81,6 @@ done
 write /sys/class/kgsl/kgsl-3d0/devfreq/governor
 
 # Schedulers
-write /proc/sys/kernel/sched_nr_migrate 1000000
 write /proc/sys/kernel/sched_latency_ns 1000000
 write /proc/sys/kernel/sched_migration_cost_ns 1000000
 write /proc/sys/kernel/sched_min_granularity_ns 1000000
@@ -90,6 +89,7 @@ write /proc/sys/kernel/sched_coloc_busy_hyst_ns 1000000
 write /proc/sys/kernel/sched_short_burst_ns 1000000
 write /proc/sys/kernel/sched_short_sleep_ns 1000000
 write /proc/sys/kernel/sched_shares_window_ns 1000000
+write /proc/sys/kernel/sched_nr_migrate 1000000
 write /proc/sys/kernel/sched_rr_timeslice_us 1000000
 write /proc/sys/kernel/sched_deadline_period_max_us 1000000
 write /proc/sys/kernel/sched_deadline_period_min_us 1000000
@@ -188,23 +188,23 @@ write /sys/kernel/debug/sched_features FBT_STRICT_ORDER
 write /sys/kernel/debug/sched_features EAS_USE_NEED_IDLE
 
 # Schedtune Idles/Boosts/CPUs-Set
-write /dev/stune/schedtune.boost 10
-write /dev/stune/background/schedtune.boost 10
-write /dev/stune/foreground/schedtune.boost 10
-write /dev/stune/camera-daemon/schedtune.boost 10
-write /dev/stune/system-background/schedtune.boost 10
-write /dev/stune/nnapi-hal/schedtune.boost 10
-write /dev/stune/rt/schedtune.boost 10
-write /dev/stune/application/schedtune.boost 10
-write /dev/stune/kernel/schedtune.boost 10
-write /dev/stune/restricted/schedtune.boost 10
-write /dev/stune/top-app/schedtune.boost 10
-write /dev/stune/audio-app/schedtune.boost 10
-write /dev/stune/h-background/schedtune.boost 10
-write /dev/stune/l-background/schedtune.boost 10
-write /dev/stune/display/schedtune.boost 10
-write /dev/stune/oiface_fg/schedtune.boost 10
-write /dev/stune/sf/schedtune.boost 10
+write /dev/stune/schedtune.boost 1
+write /dev/stune/background/schedtune.boost 1
+write /dev/stune/foreground/schedtune.boost 1
+write /dev/stune/camera-daemon/schedtune.boost 1
+write /dev/stune/system-background/schedtune.boost 1
+write /dev/stune/nnapi-hal/schedtune.boost 1
+write /dev/stune/rt/schedtune.boost 1
+write /dev/stune/application/schedtune.boost 1
+write /dev/stune/kernel/schedtune.boost 1
+write /dev/stune/restricted/schedtune.boost 1
+write /dev/stune/top-app/schedtune.boost 1
+write /dev/stune/audio-app/schedtune.boost 1
+write /dev/stune/h-background/schedtune.boost 1
+write /dev/stune/l-background/schedtune.boost 1
+write /dev/stune/display/schedtune.boost 1
+write /dev/stune/oiface_fg/schedtune.boost 1
+write /dev/stune/sf/schedtune.boost 1
 
 write /dev/stune/schedtune.colocate 1
 write /dev/stune/background/schedtune.colocate 1
@@ -615,17 +615,22 @@ write /sys/module/process_reclaim/parameters/enable_process_reclaim 0
 
 # Others parameters
 write /sys/fs/selinux/enforce 1
-write /sys/class/power_supply/battery/charging_enabled 1
-write /sys/module/fast_charge/force_fast_charge 1
-write /sys/kernel/fast_charge/force_fast_charge 1
-write /sys/module/sync/parameters/fsync_enabled 1
-write /proc/sys/kernel/random/read_wakeup_threshold 128
-write /proc/sys/kernel/random/write_wakeup_threshold 128
+write /sys/kernel/rcu_normal 1
+write /sys/kernel/rcu_expedited 1
 write /proc/touchpanel/game_switch_enable 1
 write /proc/touchpanel/oplus_tp_direction 1
 write /sys/class/sec/switch/afc_disable 1
+write /sys/kernel/mi_reclaim/enable 1
+write /sys/devices/system/cpu/sched/hint_enable 1
+write /sys/devices/system/cpu/sched/hint_enable
+write /sys/module/fast_charge/force_fast_charge 1
+write /sys/kernel/fast_charge/force_fast_charge 1
+write /sys/module/sync/parameters/fsync_enabled 1
 write /sys/class/mmc_host/mmc0/clk_scaling/enable 1
 write /sys/class/mmc_host/mmc1/clk_scaling/enable 1
+write /sys/class/power_supply/battery/charging_enabled 1
+write /proc/sys/kernel/random/read_wakeup_threshold 128
+write /proc/sys/kernel/random/write_wakeup_threshold 128
 write /sys/devices/platform/soc/1d84000.ufshc/clkscale_enable 0
 write /sys/devices/platform/soc/1d84000.ufshc/hibern8_on_idle_enable 0
 write /sys/devices/platform/soc/1d84000.ufshc/clkgate_enable 0
@@ -636,6 +641,9 @@ write /sys/module/mmc_core/parameters/use_spi_crc 0
 write /sys/module/system/cpu/sched_mc_power_savings 0
 write /sys/module/battery_saver/parameters/enabled N
 write /sys/module/workqueue/parameters/power_efficient N
+write /sys/module/mmc_core/parameters/removable N
+write /sys/module/mmc_core/parameters/crc N
+write /sys/module/mmc_core/parameters/use_spi_crc N
 write /proc/sys/kernel/printk_devkmsg off
 Modify CPUStune
 
@@ -655,9 +663,12 @@ write /sys/module/ged/parameters/ged_boost_enable 1
 write /sys/module/ged/parameters/gpu_dvfs_enable 1
 write /sys/kernel/gbe/gbe_enable1 1
 write /sys/kernel/gbe/gbe_enable2 1
+write /sys/kernel/ged/hal/dcs_mode 1
 write /sys/kernel/gbe/gbe2_max_boost_cnt 1
 write /sys/kernel/gbe/gbe2_loading_th 10
 write /sys/module/ged/parameters/gpu_idle 10
+write /sys/kernel/ged/hal/timer_base_dvfs_margin 15
+write /sys/kernel/ged/hal/dvfs_margin_value 15
 write /sys/module/ged/parameters/cpu_boost_policy 100
 write /sys/module/ged/parameters/ged_smart_boost 100
 write /sys/module/ged/parameters/ged_force_mdp_enable 0
@@ -678,7 +689,7 @@ setprop ctl.stop mpdecision;stop mpdecision
 write /sys/module/msm_thermal/core_control/enabled 0
 write /sys/module/msm_thermal/vdd_restriction/enabled 0
 
-write /proc/ppm/enabled 0 
+write /proc/ppm/enabled 1 
 write /proc/ppm/policy_status 0 0
 write /proc/ppm/policy_status 1 0
 write /proc/ppm/policy_status 2 0
@@ -862,17 +873,17 @@ write /sys/kernel/hmp/down_threshold 100
 
 write /proc/mali/always_on 1
 write /proc/mali/dvfs_enable 1
+write /sys/class/kgsl/kgsl-3d0/popp 1
+write /sys/class/kgsl/kgsl-3d0/pwrnap 1
+write /sys/class/kgsl/kgsl-3d0/force_bus_on 1
+write /sys/class/kgsl/kgsl-3d0/force_clk_on 1
+write /sys/class/kgsl/kgsl-3d0/force_rail_on 1
 write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 1
 write /sys/class/kgsl/kgsl-3d0/max_pwrlevel 1
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 1
 write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 1
 write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 1
-write /sys/class/kgsl/kgsl-3d0/force_bus_on 1
-write /sys/class/kgsl/kgsl-3d0/force_clk_on 1
-write /sys/class/kgsl/kgsl-3d0/force_rail_on 1
 write /sys/kernel/debug/sde_rotator0/clk_always_on 1
-write /sys/class/kgsl/kgsl-3d0/popp 1
-write /sys/class/kgsl/kgsl-3d0/pwrnap 1
 write /sys/class/simple_gpu_algorithm/parameters/simple_gpu_active 1
 write /sys/class/simple_gpu_algorithm/parameters/simple_laziness 1
 write /sys/module/adreno_idler/parameters/adreno_idler_downdifferential 30
@@ -882,6 +893,17 @@ write /sys/class/simple_gpu_algorithm/parameters/simple_ramp_threshold 10000
 write /sys/class/kgsl/kgsl-3d0/throttling 0
 write /sys/module/adreno_idler/parameters/adreno_idler_active Y
 write /sys/devices/platform/13040000.mali/power_policy always_on
+
+write /sys/class/kgsl/kgsl-3d0/bus_split 1
+write /sys/class/kgsl/kgsl-3d0/power_policy always_on
+write /sys/class/kgsl/kgsl-3d0/tmu 1
+write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync 1
+write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync_upthreshold 50
+write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync_downdifferential 30
+write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/no_vsync_upthreshold 30
+write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/no_vsync_downdifferential 10
+write /sys/module/mali/parameters/mali_touch_boost_level 1
+write /sys/kernel/gpu/boost 1
 
 write /sys/devices/system/cpu/cpu0/online 1
 write /sys/devices/system/cpu/cpu1/online 1
@@ -898,12 +920,6 @@ write /sys/devices/system/cpu/cpu11/online 1
 
 for queue in /sys/*/*/queue
 do
-	write "$queue/iostats" 1
-	write "$queue/add_random" 1
-	write "$queue/rotational" 1
-	write "$queue/nomerges" 2
-	write "$queue/rq_affinity" 2
-	write "$queue/nr_requests" 4
 	write "$queue/read_ahead_kb" 2048
 	write "$queue/nr_requests" 4
 	write "$queue/nr_requests" 8
@@ -916,6 +932,15 @@ do
 	write "$queue/nr_requests" 1024
 	write "$queue/nr_requests" 2048
 	write "$queue/nr_requests" 4096
+done
+
+for queue in /sys/*/*/queue
+do
+	write "$queue/iostats" 1
+	write "$queue/add_random" 1
+	write "$queue/rotational" 1
+	write "$queue/rq_affinity" 2
+	write "$queue/nomerges" 2
 done
 
 for queue in /sys/*/*/queue
@@ -947,8 +972,8 @@ do
 	write "$queue/iosched/slice_sync_us" 100000
 	write "$queue/iosched/slice_async_us" 100000
 	write "$queue/iosched/target_latency_us" 100000
-	write "$queue/iosched/read_lat_nsec" 10000000
-	write "$queue/iosched/write_lat_nsec" 10000000
+	write "$queue/iosched/read_lat_nsec" 1000000
+	write "$queue/iosched/write_lat_nsec" 1000000
 done
 
 # Return to completed regardless of any writes that failed or succeed
