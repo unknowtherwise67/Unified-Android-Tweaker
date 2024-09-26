@@ -689,7 +689,7 @@ setprop ctl.stop mpdecision;stop mpdecision
 write /sys/module/msm_thermal/core_control/enabled 0
 write /sys/module/msm_thermal/vdd_restriction/enabled 0
 
-write /proc/ppm/enabled 1 
+write /proc/ppm/enabled 1
 write /proc/ppm/policy_status 0 0
 write /proc/ppm/policy_status 1 0
 write /proc/ppm/policy_status 2 0
@@ -856,7 +856,6 @@ write /sys/module/cpu_boost/parameters/dynamic_stune_boost_ms 1000
 write /sys/module/cpu_boost/parameters/powerkey_input_boost_ms 1000
 write /sys/module/cpu_input_boost/parameters/input_boost_duration 1000
 
-write /proc/ppm/enabled 1
 write /proc/cpufreq/cpufreq_power_mode 1
 write /proc/cpufreq/cpufreq_stress_test 1
 write /proc/cpufreq/cpufreq_sched_disable 1
@@ -871,10 +870,13 @@ write /sys/kernel/hmp/semiboost 1
 write /sys/kernel/hmp/up_threshold 100
 write /sys/kernel/hmp/down_threshold 100
 
+write /sys/kernel/gpu/boost 1
 write /proc/mali/always_on 1
 write /proc/mali/dvfs_enable 1
+write /sys/class/kgsl/kgsl-3d0/tmu 1
 write /sys/class/kgsl/kgsl-3d0/popp 1
 write /sys/class/kgsl/kgsl-3d0/pwrnap 1
+write /sys/class/kgsl/kgsl-3d0/bus_split 1
 write /sys/class/kgsl/kgsl-3d0/force_bus_on 1
 write /sys/class/kgsl/kgsl-3d0/force_clk_on 1
 write /sys/class/kgsl/kgsl-3d0/force_rail_on 1
@@ -884,26 +886,22 @@ write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 1
 write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 1
 write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 1
 write /sys/kernel/debug/sde_rotator0/clk_always_on 1
+write /sys/module/mali/parameters/mali_touch_boost_level 1
 write /sys/class/simple_gpu_algorithm/parameters/simple_gpu_active 1
 write /sys/class/simple_gpu_algorithm/parameters/simple_laziness 1
-write /sys/module/adreno_idler/parameters/adreno_idler_downdifferential 30
+write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync 1
 write /sys/module/adreno_idler/parameters/adreno_idler_idlewait 10
+write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/no_vsync_downdifferential 10
+write /sys/module/adreno_idler/parameters/adreno_idler_downdifferential 30
+write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync_downdifferential 30
+write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/no_vsync_upthreshold 30
+write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync_upthreshold 50
 write /sys/module/adreno_idler/parameters/adreno_idler_idleworkload 10000
 write /sys/class/simple_gpu_algorithm/parameters/simple_ramp_threshold 10000
 write /sys/class/kgsl/kgsl-3d0/throttling 0
 write /sys/module/adreno_idler/parameters/adreno_idler_active Y
 write /sys/devices/platform/13040000.mali/power_policy always_on
-
-write /sys/class/kgsl/kgsl-3d0/bus_split 1
 write /sys/class/kgsl/kgsl-3d0/power_policy always_on
-write /sys/class/kgsl/kgsl-3d0/tmu 1
-write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync 1
-write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync_upthreshold 50
-write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync_downdifferential 30
-write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/no_vsync_upthreshold 30
-write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/no_vsync_downdifferential 10
-write /sys/module/mali/parameters/mali_touch_boost_level 1
-write /sys/kernel/gpu/boost 1
 
 write /sys/devices/system/cpu/cpu0/online 1
 write /sys/devices/system/cpu/cpu1/online 1
