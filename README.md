@@ -6,6 +6,7 @@ Feature:
 - Configurable ZRAM Swap Virtual Memory - Improve System Multitasking and prevent System Memory crashes (Does not improve Device Hardware Performance).
 - Modify Thermal System - Allow full performance capability while maintain Device Hardwares safety.
 - Powered by OverlayFS - Non-instrutive and Systemless.
+- Developed and designed for User-Configurables (tweaker.sh, system.prop, virtual_memory.sh)
 - Open-Source complilance.
 
 ## DISCLAMERS

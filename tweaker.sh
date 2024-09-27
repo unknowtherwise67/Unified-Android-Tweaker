@@ -924,10 +924,6 @@ write /sys/class/kgsl/kgsl-3d0/bus_split 1
 write /sys/class/kgsl/kgsl-3d0/force_bus_on 1
 write /sys/class/kgsl/kgsl-3d0/force_clk_on 1
 write /sys/class/kgsl/kgsl-3d0/force_rail_on 1
-write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 1
-write /sys/class/kgsl/kgsl-3d0/max_pwrlevel 1
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 1
-write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 1
 write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 1
 write /sys/kernel/debug/sde_rotator0/clk_always_on 1
 write /sys/module/mali/parameters/mali_touch_boost_level 1
@@ -943,6 +939,10 @@ write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync_upthreshold 5
 write /sys/module/adreno_idler/parameters/adreno_idler_idleworkload 10000
 write /sys/class/simple_gpu_algorithm/parameters/simple_ramp_threshold 10000
 write /sys/class/kgsl/kgsl-3d0/throttling 0
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 0
+write /sys/class/kgsl/kgsl-3d0/max_pwrlevel 0
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 0
+write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 0
 write /sys/module/adreno_idler/parameters/adreno_idler_active Y
 write /sys/devices/platform/13040000.mali/power_policy always_on
 write /sys/class/kgsl/kgsl-3d0/power_policy always_on
@@ -987,12 +987,8 @@ done
 
 for queue in /sys/*/*/queue
 do
-	write "$queue/iosched/max_budget" 0
-	write "$queue/iosched/strict_guarantees" 0
-	write "$queue/iosched/slice_idle" 0
-	write "$queue/iosched/group_idle" 0
-	write "$queue/iosched/slice_idle_us" 0
-	write "$queue/iosched/group_idle_us" 0
+	write "$queue/iosched/slice_idle" 1
+	write "$queue/iosched/group_idle" 1
 	write "$queue/iosched/low_latency" 1
 	write "$queue/iosched/front_merges" 1
 	write "$queue/iosched/back_seek_penalty" 1
@@ -1007,6 +1003,8 @@ do
 	write "$queue/iosched/fifo_expire_async" 100
 	write "$queue/iosched/fifo_expire_sync" 100
 	write "$queue/iosched/target_latency" 100
+	write "$queue/iosched/slice_idle_us" 1000
+	write "$queue/iosched/group_idle_us" 1000
 	write "$queue/iosched/read_expire" 1000
 	write "$queue/iosched/write_expire" 1000
 	write "$queue/iosched/aging_expire" 1000
@@ -1016,6 +1014,8 @@ do
 	write "$queue/iosched/target_latency_us" 100000
 	write "$queue/iosched/read_lat_nsec" 1000000
 	write "$queue/iosched/write_lat_nsec" 1000000
+	write "$queue/iosched/max_budget" 0
+	write "$queue/iosched/strict_guarantees" 0
 done
 
 # Return to completed regardless of any writes that failed or succeed
