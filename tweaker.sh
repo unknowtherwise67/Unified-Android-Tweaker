@@ -608,10 +608,14 @@ write /proc/sys/vm/vfs_cache_pressure 100
 write /proc/sys/vm/overcommit_ratio 100
 write /proc/sys/vm/dirty_expire_centisecs 10000
 write /proc/sys/vm/dirty_writeback_centisecs 10000
+write /proc/sys/vm/min_free_kb 100000
+write /proc/sys/vm/extra_free_kb 300000
 write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0,0
+write /proc/sys/vm/laptop_mode 0
 write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
 write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
 write /sys/module/process_reclaim/parameters/enable_process_reclaim 0
+write /proc/sys/vm/oom_kill_allocating_task 0
 
 # Others parameters
 write /sys/fs/selinux/enforce 1
@@ -712,7 +716,7 @@ settings put global settings_enable_monitor_phantom_procs false
 setprop persist.sys.fflag.override.settings_enable_monitor_phantom_procs false
 dumpsys deviceidle disable
 
-# Thermal/Processor Controls
+# Thermal/HotPlug/Processor Controls
 stop thermal
 setprop ctl.stop mpdecision;stop mpdecision
 write /sys/module/msm_thermal/core_control/enabled 0
@@ -729,6 +733,73 @@ write /proc/ppm/policy_status 6 0
 write /proc/ppm/policy_status 7 0
 write /proc/ppm/policy_status 8 0
 write /proc/ppm/policy_status 9 0
+write /proc/ppm/policy_status 10 0
+write /proc/ppm/policy_status 11 0
+
+write /sys/devices/system/cpu/cpu0/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu1/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu2/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu3/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu5/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu6/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu7/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu8/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu9/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu10/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu11/core_ctl/min_cpus 4
+
+write /sys/devices/system/cpu/cpu0/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu1/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu2/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu3/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu4/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu5/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu6/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu7/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu8/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu9/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu10/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu11/core_ctl/task_thres 100
+
+write /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu1/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu2/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu3/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu5/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu6/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu7/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu8/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu9/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu10/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu11/core_ctl/offline_delay_ms 0
+
+write /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu1/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu2/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu3/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu5/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu6/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu7/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu8/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu9/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu10/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu11/core_ctl/busy_down_thres 0
+
+write /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu1/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu2/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu3/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu5/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu6/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu7/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu8/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu9/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu10/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu11/core_ctl/busy_up_thres 0
 
 # TCP
 write /proc/sys/net/ipv4/tcp_ecn 1
@@ -747,6 +818,16 @@ write /proc/sys/net/ipv4/tcp_fastopen 3
 write /proc/sys/net/ipv4/tcp_keepalive_probes 10
 write /proc/sys/net/ipv4/tcp_keepalive_intvl 10
 write /proc/sys/net/ipv4/tcp_fin_timeout 10
+write /proc/sys/net/core/optmem_max 30000
+write /proc/sys/net/core/rmem_default 500000
+write /proc/sys/net/core/wmem_default 500000
+write /proc/sys/net/core/rmem_max 10000000
+write /proc/sys/net/core/wmem_max 10000000
+write /proc/sys/net/core/netdev_max_backlog 10000
+write /proc/sys/net/ipv4/tcp_rmem 3000000 5000000 10000000
+write /proc/sys/net/ipv4/tcp_wmem 300000 500000 10000000
+write /proc/sys/net/ipv4/tcp_mem 50000 70000 100000
+write /proc/sys/net/ipv4/udp_mem 100000 150000 300000
 write /proc/sys/net/ipv4/tcp_slow_start_after_idle 0
 write /proc/sys/net/ipv4/tcp_syncookies 0
 
@@ -774,16 +855,6 @@ do
 	write "$governor/ignore_nice_load" 1
 	write "$governor/input_boost" 1
 	write "$governor/iowait_boost_enable" 1
-	write "$governor/hispeed_freq" 1
-	write "$governor/optimal_freq" 1
-	write "$governor/sync_freq" 1
-	write "$governor/rtg_boost_freq" 1
-	write "$governor/adaptive_high_freq" 1
-	write "$governor/adaptive_low_freq" 1
-	write "$governor/max_freq_hysteresis" 1
-	write "$governor/step_up_early_hispeed" 1
-	write "$governor/step_up_interim_hispeed" 1
-	write "$governor/up_threshold_any_cpu_freq" 1
 	write "$governor/down_differential" 3
 	write "$governor/down_differential_multi_core" 3
 	write "$governor/target_load_shift" 3
@@ -819,6 +890,16 @@ do
 	write "$governor/sched_freq_dec_notify" 100000
 	write "$governor/up_throttle_nsec" 1000000
 	write "$governor/down_throttle_nsec" 1000000
+	write "$governor/hispeed_freq" 1000000
+	write "$governor/optimal_freq" 1000000
+	write "$governor/sync_freq" 1000000
+	write "$governor/rtg_boost_freq" 1000000
+	write "$governor/adaptive_high_freq" 1000000
+	write "$governor/adaptive_low_freq" 1000000
+	write "$governor/max_freq_hysteresis" 1000000
+	write "$governor/step_up_early_hispeed" 1000000
+	write "$governor/step_up_interim_hispeed" 1000000
+	write "$governor/up_threshold_any_cpu_freq" 1000000
 done
 
 for governor in /sys/*/system/cpu/cpufreq/*
@@ -844,16 +925,6 @@ do
 	write "$governor/ignore_nice_load" 1
 	write "$governor/input_boost" 1
 	write "$governor/iowait_boost_enable" 1
-	write "$governor/hispeed_freq" 1
-	write "$governor/optimal_freq" 1
-	write "$governor/sync_freq" 1
-	write "$governor/rtg_boost_freq" 1
-	write "$governor/adaptive_high_freq" 1
-	write "$governor/adaptive_low_freq" 1
-	write "$governor/max_freq_hysteresis" 1
-	write "$governor/step_up_early_hispeed" 1
-	write "$governor/step_up_interim_hispeed" 1
-	write "$governor/up_threshold_any_cpu_freq" 1
 	write "$governor/down_differential" 3
 	write "$governor/down_differential_multi_core" 3
 	write "$governor/target_load_shift" 3
@@ -889,16 +960,39 @@ do
 	write "$governor/sched_freq_dec_notify" 100000
 	write "$governor/up_throttle_nsec" 1000000
 	write "$governor/down_throttle_nsec" 1000000
+	write "$governor/hispeed_freq" 1000000
+	write "$governor/optimal_freq" 1000000
+	write "$governor/sync_freq" 1000000
+	write "$governor/rtg_boost_freq" 1000000
+	write "$governor/adaptive_high_freq" 1000000
+	write "$governor/adaptive_low_freq" 1000000
+	write "$governor/max_freq_hysteresis" 1000000
+	write "$governor/step_up_early_hispeed" 1000000
+	write "$governor/step_up_interim_hispeed" 1000000
+	write "$governor/up_threshold_any_cpu_freq" 1000000
 done
 
+write /sys/module/cpu_boost/parameters/input_boost_ms 1
 write /sys/module/cpu_boost/parameters/input_boost_enabled 1
 write /sys/module/cpu_boost/parameters/sched_boost_on_input 1
+write /sys/module/cpu_boost/parameters/dynamic_stune_boost_ms 1
+write /sys/module/cpu_boost/parameters/powerkey_input_boost_ms 1
+write /sys/module/cpu_input_boost/parameters/input_boost_duration 1
 write /sys/module/cpu_boost/parameters/sched_boost_on_powerkey_input 1
 write /sys/module/cpu_boost/parameters/dynamic_stune_boost 10
-write /sys/module/cpu_boost/parameters/input_boost_ms 1000
-write /sys/module/cpu_boost/parameters/dynamic_stune_boost_ms 1000
-write /sys/module/cpu_boost/parameters/powerkey_input_boost_ms 1000
-write /sys/module/cpu_input_boost/parameters/input_boost_duration 1000
+
+write /sys/module/cpu_boost/parameters/input_boost_freq 0:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 1:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 2:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 3:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 4:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 5:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 6:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 7:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 8:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 9:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 10:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 11:1000000
 
 write /proc/cpufreq/cpufreq_power_mode 1
 write /proc/cpufreq/cpufreq_stress_test 1
