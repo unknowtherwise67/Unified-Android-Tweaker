@@ -1024,6 +1024,10 @@ write /sys/module/mali/parameters/mali_touch_boost_level 1
 write /sys/class/simple_gpu_algorithm/parameters/simple_gpu_active 1
 write /sys/class/simple_gpu_algorithm/parameters/simple_laziness 1
 write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync 1
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 6
+write /sys/class/kgsl/kgsl-3d0/max_pwrlevel 6
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 6
+write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 6
 write /sys/module/adreno_idler/parameters/adreno_idler_idlewait 10
 write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/no_vsync_downdifferential 10
 write /sys/module/adreno_idler/parameters/adreno_idler_downdifferential 30
@@ -1033,10 +1037,6 @@ write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync_upthreshold 5
 write /sys/module/adreno_idler/parameters/adreno_idler_idleworkload 10000
 write /sys/class/simple_gpu_algorithm/parameters/simple_ramp_threshold 10000
 write /sys/class/kgsl/kgsl-3d0/throttling 0
-write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 0
-write /sys/class/kgsl/kgsl-3d0/max_pwrlevel 0
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 0
-write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 0
 write /sys/module/adreno_idler/parameters/adreno_idler_active Y
 write /sys/devices/platform/13040000.mali/power_policy always_on
 write /sys/class/kgsl/kgsl-3d0/power_policy always_on

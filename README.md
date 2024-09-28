@@ -10,7 +10,7 @@ Feature:
 - Open-Source complilance.
 
 ## DISCLAMERS
-- USE THIS MODULE AT YOUR OWN RISKS.
+- USE THE ROOT MODULE AT YOUR OWN RISKS.
 - DEVELOPERS ARE DO NOT TOOK RESPONSIBILITY FOR ANYHING THAT HAPPENS ONLY IF IS YOUR FAULTS.
 
 ## REQUIREMENTS/COMPATIBILITY
@@ -18,7 +18,7 @@ Feature:
 - Linux Kernel 3 and/or Above.
 - UNLOCKED BOOTLOADER and Installed ROOT (Magisk - Version 20 and Above, KernelSU, etc).
 - Zygisk or similar supports if its better (Optional).
-- A little knowledges of technologies and experiences.
+- Knowledges of technologies and experiences.
 - Should work only on any Android devices.
 
 ## INSTALLATIONS
