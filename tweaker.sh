@@ -599,7 +599,6 @@ write /dev/cpuset/audio-app/cpus 0-11
 
 # Memory
 write /proc/sys/vm/page-cluster 3
-write /proc/sys/vm/drop_caches 3
 write /proc/sys/vm/stat_interval 10
 write /proc/sys/vm/dirty_background_ratio 100
 write /proc/sys/vm/dirty_ratio 100
@@ -612,6 +611,7 @@ write /proc/sys/vm/min_free_kb 100000
 write /proc/sys/vm/extra_free_kb 300000
 write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0,0
 write /proc/sys/vm/laptop_mode 0
+write /proc/sys/vm/drop_caches 0
 write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
 write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
 write /sys/module/process_reclaim/parameters/enable_process_reclaim 0
