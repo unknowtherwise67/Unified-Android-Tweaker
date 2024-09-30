@@ -608,9 +608,9 @@ write /proc/sys/vm/overcommit_ratio 100
 write /proc/sys/vm/dirty_expire_centisecs 10000
 write /proc/sys/vm/dirty_writeback_centisecs 10000
 write /proc/sys/vm/min_free_kbytes 5000
-write /proc/sys/vm/admin_reserve_kbytes 7000
+write /proc/sys/vm/admin_reserve_kbytes 5000
 write /proc/sys/vm/extra_free_kbytes 10000
-write /proc/sys/vm/user_reserve_kbytes 100000
+write /proc/sys/vm/user_reserve_kbytes 50000
 write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0,0
 write /proc/sys/vm/laptop_mode 0
 write /proc/sys/vm/drop_caches 0
