@@ -607,15 +607,18 @@ write /proc/sys/vm/vfs_cache_pressure 100
 write /proc/sys/vm/overcommit_ratio 100
 write /proc/sys/vm/dirty_expire_centisecs 10000
 write /proc/sys/vm/dirty_writeback_centisecs 10000
-write /proc/sys/vm/min_free_kb 100000
-write /proc/sys/vm/extra_free_kb 300000
+write /proc/sys/vm/min_free_kbyte 5000
+write /proc/sys/vm/admin_reserve_kbyte 7000
+write /proc/sys/vm/extra_free_kbyte 10000
+write /proc/sys/vm/user_reserve_kbyte 100000
 write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0,0
 write /proc/sys/vm/laptop_mode 0
 write /proc/sys/vm/drop_caches 0
-write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
-write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
-write /sys/module/process_reclaim/parameters/enable_process_reclaim 0
+write /proc/sys/vm/overcommit_free_kbyte 0
 write /proc/sys/vm/oom_kill_allocating_task 0
+write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
+write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
+write /sys/module/process_reclaim/parameters/enable_process_reclaim 0
 
 # Others parameters
 write /sys/fs/selinux/enforce 1
