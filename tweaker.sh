@@ -127,10 +127,10 @@ write /proc/sys/kernel/sched_small_wakee_task_load 100
 write /proc/sys/kernel/sched_walt_init_task_load_pct 100
 write /proc/sys/kernel/sched_cfs_boost 10
 write /proc/sys/kernel/perf_cpu_time_max_percent 1
-write /proc/sys/kernel/sched_schedstats 1
 write /proc/sys/kernel/sched_tunable_scaling 1
 write /proc/sys/kernel/sched_child_runs_first 1
 write /proc/sys/kernel/sched_autogroup_enabled 1
+write /proc/sys/kernel/sched_schedstats 1
 write /proc/sys/kernel/sched_energy_aware 1
 write /proc/sys/kernel/sched_pelt_multiplier 1
 write /proc/sys/kernel/sched_ravg_hist_size 1
@@ -1084,24 +1084,19 @@ done
 
 for queue in /sys/*/*/queue
 do
-	write "$queue/iosched/slice_idle" 1
-	write "$queue/iosched/group_idle" 1
-	write "$queue/iosched/low_latency" 1
 	write "$queue/iosched/front_merges" 1
-	write "$queue/iosched/back_seek_penalty" 1
-	write "$queue/iosched/slice_async_rq" 1
-	write "$queue/iosched/writes_starved" 1
-	write "$queue/iosched/async_depth" 1
-	write "$queue/iosched/quantum" 5
-	write "$queue/iosched/fifo_batch" 5
+	write "$queue/iosched/back_seek_penalty" 10
+	write "$queue/iosched/slice_async_rq" 10
+	write "$queue/iosched/writes_starved" 10
+	write "$queue/iosched/async_depth" 10
+	write "$queue/iosched/quantum" 100
+	write "$queue/iosched/fifo_batch" 100
 	write "$queue/iosched/slice_async" 100
 	write "$queue/iosched/slice_sync" 100
 	write "$queue/iosched/timeout_sync" 100
 	write "$queue/iosched/fifo_expire_async" 100
 	write "$queue/iosched/fifo_expire_sync" 100
-	write "$queue/iosched/target_latency" 100
-	write "$queue/iosched/slice_idle_us" 1000
-	write "$queue/iosched/group_idle_us" 1000
+	write "$queue/iosched/target_latency" 1000
 	write "$queue/iosched/read_expire" 1000
 	write "$queue/iosched/write_expire" 1000
 	write "$queue/iosched/aging_expire" 1000
@@ -1111,7 +1106,12 @@ do
 	write "$queue/iosched/target_latency_us" 100000
 	write "$queue/iosched/read_lat_nsec" 1000000
 	write "$queue/iosched/write_lat_nsec" 1000000
+	write "$queue/iosched/slice_idle" 0
+	write "$queue/iosched/group_idle" 0
 	write "$queue/iosched/max_budget" 0
+	write "$queue/iosched/low_latency" 0
+	write "$queue/iosched/slice_idle_us" 0
+	write "$queue/iosched/group_idle_us" 0
 	write "$queue/iosched/strict_guarantees" 0
 done
 

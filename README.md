@@ -31,7 +31,6 @@ Feature:
 - Do not install with any tweaks or mods relative modules as it can cause conflicts.
 - If you had any problems after installed the module, try these methods: Uninstall, reboot and re-install all the Root Module, reboot Recovery Mode to remove Root Module by remove file or command magisk --remove-modules
 - If there's still problems, there's could be a lot of complicated reasons.
-- I only fork and complile sources that are not closed-sources.
 - I only accept reported issues with LOGCAT files and other simliar if is better, otherwise will be ignored and/or closed.
 - I will try to keep module up-to-date as possible and you can support if you want, but yet I'm doing all this just for free, not like I'm being paid.
 - I DO NOT and NEVER public Releases to any other websites such as Androidacy.
