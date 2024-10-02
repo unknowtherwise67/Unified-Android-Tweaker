@@ -56,10 +56,10 @@ settings put secure touch_blocking_period 0.0
 # System Kernel Governor
 for cpu in /sys/devices/system/cpu/cpu*/cpufreq
 do
-	avail_govs="$(cat "$cpu/scaling_available_governors")"
+	available_governors="$(cat "$cpu/scaling_available_governors")"
 	for governor in
 	do
-		if [[ "$avail_govs" == *"$governor"* ]]
+		if [[ "$available_governors" == *"$governor"* ]]
 		then
 			write "$cpu/scaling_governor" "$governor"
 			break
@@ -69,10 +69,10 @@ done
 
 for queue in /sys/*/*/queue
 do
-	avail_scheds="$(cat "$queue/scheduler")"
+	available_scheds="$(cat "$queue/scheduler")"
 	for sched in
 	do
-		if [[ "$avail_scheds" == *"$sched"* ]]
+		if [[ "$available_scheds" == *"$sched"* ]]
 		then
 			write "$queue/scheduler" "$sched"
 			break
@@ -80,7 +80,31 @@ do
 	done
 done
 
-write /sys/class/kgsl/kgsl-3d0/devfreq/governor
+for tcp in /proc/sys/net/*
+do
+	available_tcps="$(cat "$tcp/tcp_available_congestion_control")"
+	for tcp_ctrl in
+	do
+		if [[ "$available_tcps" == *"$tcp_ctrl"* ]]
+		then
+			write "$tcp/tcp_congestion_control" "$tcp_ctrl"
+			break
+		fi
+	done
+done
+
+for gpu in /sys/class/kgsl/kgsl-3d0/devfreq
+do
+	available_governors="$(cat "$gpu/available_governors")"
+	for governor in
+	do
+		if [[ "$available_governors" == *"$governor"* ]]
+		then
+			write "$gpu/governor" "$governor"
+			break
+		fi
+	done
+done
 
 # Schedulers
 write /proc/sys/kernel/sched_latency_ns 1000000
