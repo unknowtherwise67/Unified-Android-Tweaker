@@ -1064,7 +1064,6 @@ write /sys/class/simple_gpu_algorithm/parameters/simple_ramp_threshold 10000
 write /sys/class/kgsl/kgsl-3d0/throttling 0
 write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 0
 write /sys/class/kgsl/kgsl-3d0/max_pwrlevel 0
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 0
 write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 0
 write /sys/module/adreno_idler/parameters/adreno_idler_active Y
 write /sys/devices/platform/13040000.mali/power_policy always_on
@@ -1082,6 +1081,20 @@ write /sys/devices/system/cpu/cpu8/online 1
 write /sys/devices/system/cpu/cpu9/online 1
 write /sys/devices/system/cpu/cpu10/online 1
 write /sys/devices/system/cpu/cpu11/online 1
+
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 1
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 2
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 3
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 4
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 5
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 6
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 7
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 8
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 9
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 10
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 11
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 12
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 13
 
 for queue in /sys/*/*/queue
 do
