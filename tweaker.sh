@@ -57,7 +57,7 @@ settings put secure touch_blocking_period 0.0
 for cpu in /sys/devices/system/cpu/cpu*/cpufreq
 do
 	available_governors="$(cat "$cpu/scaling_available_governors")"
-	for governor in
+	for governor in performance
 	do
 		if [[ "$available_governors" == *"$governor"* ]]
 		then
@@ -70,7 +70,7 @@ done
 for queue in /sys/*/*/queue
 do
 	available_scheds="$(cat "$queue/scheduler")"
-	for sched in
+	for sched in mq-deadline kyber deadline
 	do
 		if [[ "$available_scheds" == *"$sched"* ]]
 		then
@@ -83,7 +83,7 @@ done
 for tcp in /proc/sys/net/*
 do
 	available_tcps="$(cat "$tcp/tcp_available_congestion_control")"
-	for tcp_ctrl in
+	for tcp_ctrl in bbr2 westwood bbr cubic reno bic
 	do
 		if [[ "$available_tcps" == *"$tcp_ctrl"* ]]
 		then
@@ -96,7 +96,7 @@ done
 for gpu in /sys/class/kgsl/kgsl-3d0/devfreq
 do
 	available_governors="$(cat "$gpu/available_governors")"
-	for governor in
+	for governor in performance
 	do
 		if [[ "$available_governors" == *"$governor"* ]]
 		then
@@ -778,18 +778,18 @@ write /sys/devices/system/cpu/cpu9/core_ctl/min_cpus 4
 write /sys/devices/system/cpu/cpu10/core_ctl/min_cpus 4
 write /sys/devices/system/cpu/cpu11/core_ctl/min_cpus 4
 
-write /sys/devices/system/cpu/cpu0/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu1/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu2/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu3/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu4/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu5/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu6/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu7/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu8/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu9/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu10/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu11/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu0/core_ctl/task_thres 1
+write /sys/devices/system/cpu/cpu1/core_ctl/task_thres 1
+write /sys/devices/system/cpu/cpu2/core_ctl/task_thres 1
+write /sys/devices/system/cpu/cpu3/core_ctl/task_thres 1
+write /sys/devices/system/cpu/cpu4/core_ctl/task_thres 1
+write /sys/devices/system/cpu/cpu5/core_ctl/task_thres 1
+write /sys/devices/system/cpu/cpu6/core_ctl/task_thres 1
+write /sys/devices/system/cpu/cpu7/core_ctl/task_thres 1
+write /sys/devices/system/cpu/cpu8/core_ctl/task_thres 1
+write /sys/devices/system/cpu/cpu9/core_ctl/task_thres 1
+write /sys/devices/system/cpu/cpu10/core_ctl/task_thres 1
+write /sys/devices/system/cpu/cpu11/core_ctl/task_thres 1
 
 write /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms 0
 write /sys/devices/system/cpu/cpu1/core_ctl/offline_delay_ms 0
