@@ -17,6 +17,15 @@ write() {
 }
 
 # Variables
+kernel="/proc/sys/kernel/"
+vm="/proc/sys/vm/"
+cpuset="/dev/cpuset/"
+cpuctl="/dev/cpuctl/"
+stune="/dev/stune/"
+lmk="/sys/module/lowmemorykiller/parameters"
+tcp_v4="/proc/sys/net/ipv4/"
+fs="/proc/sys/fs/"
+perfmgr="/proc/perfmgr/"
 
 # Sync Data
 sync
@@ -847,16 +856,16 @@ write /proc/sys/net/ipv4/tcp_fastopen 3
 write /proc/sys/net/ipv4/tcp_keepalive_probes 10
 write /proc/sys/net/ipv4/tcp_keepalive_intvl 10
 write /proc/sys/net/ipv4/tcp_fin_timeout 10
+write /proc/sys/net/core/netdev_max_backlog 10000
 write /proc/sys/net/core/optmem_max 30000
 write /proc/sys/net/core/rmem_default 500000
 write /proc/sys/net/core/wmem_default 500000
 write /proc/sys/net/core/rmem_max 10000000
 write /proc/sys/net/core/wmem_max 10000000
-write /proc/sys/net/core/netdev_max_backlog 10000
-write /proc/sys/net/ipv4/tcp_rmem 3000000 5000000 10000000
-write /proc/sys/net/ipv4/tcp_wmem 300000 500000 10000000
-write /proc/sys/net/ipv4/tcp_mem 50000 70000 100000
-write /proc/sys/net/ipv4/udp_mem 100000 150000 300000
+write "${tcp_v4}tcp_mem" "50000 70000 100000"
+write "${tcp_v4}udp_mem" "100000 150000 300000"
+write "${tcp_v4}tcp_rmem" "3000000 5000000 10000000"
+write "${tcp_v4}tcp_wmem" "300000 500000 10000000"
 write /proc/sys/net/ipv4/tcp_slow_start_after_idle 0
 write /proc/sys/net/ipv4/tcp_syncookies 0
 
