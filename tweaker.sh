@@ -778,18 +778,18 @@ write /sys/devices/system/cpu/cpu9/core_ctl/min_cpus 4
 write /sys/devices/system/cpu/cpu10/core_ctl/min_cpus 4
 write /sys/devices/system/cpu/cpu11/core_ctl/min_cpus 4
 
-write /sys/devices/system/cpu/cpu0/core_ctl/task_thres 1
-write /sys/devices/system/cpu/cpu1/core_ctl/task_thres 1
-write /sys/devices/system/cpu/cpu2/core_ctl/task_thres 1
-write /sys/devices/system/cpu/cpu3/core_ctl/task_thres 1
-write /sys/devices/system/cpu/cpu4/core_ctl/task_thres 1
-write /sys/devices/system/cpu/cpu5/core_ctl/task_thres 1
-write /sys/devices/system/cpu/cpu6/core_ctl/task_thres 1
-write /sys/devices/system/cpu/cpu7/core_ctl/task_thres 1
-write /sys/devices/system/cpu/cpu8/core_ctl/task_thres 1
-write /sys/devices/system/cpu/cpu9/core_ctl/task_thres 1
-write /sys/devices/system/cpu/cpu10/core_ctl/task_thres 1
-write /sys/devices/system/cpu/cpu11/core_ctl/task_thres 1
+write /sys/devices/system/cpu/cpu0/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu1/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu2/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu3/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu4/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu5/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu6/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu7/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu8/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu9/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu10/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu11/core_ctl/task_thres 100
 
 write /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms 0
 write /sys/devices/system/cpu/cpu1/core_ctl/offline_delay_ms 0
