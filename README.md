@@ -35,7 +35,7 @@ Feature:
 - I will try to keep module up-to-date as possible and you can support if you want, but yet I'm doing all this just for free, not like I'm being paid.
 - I DO NOT and NEVER public Releases to any other websites such as Androidacy.
 - If you do like my work, buy me a coffe or donate, I'll thank you later. :D
-- You are free to fork the repository, but please MAKE SURE to add CREDITS or get rekt.
+- You are free to fork the repository, but please MAKE SURE to add CREDITS or get rekt and don't forget to extract any archives.
 
 ## Credits
 - [tytydrago](https://github.com/tytydraco): KTweak.
