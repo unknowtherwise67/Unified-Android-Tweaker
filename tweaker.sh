@@ -125,7 +125,7 @@ write /proc/sys/kernel/sched_short_burst_ns 1000000
 write /proc/sys/kernel/sched_short_sleep_ns 1000000
 write /proc/sys/kernel/sched_shares_window_ns 1000000
 write /proc/sys/kernel/sched_nr_migrate 1000000
-write /proc/sys/kernel/sched_rr_timeslice_us 1000000
+write /proc/sys/kernel/sched_r r_timeslice_us 1000000
 write /proc/sys/kernel/sched_deadline_period_max_us 1000000
 write /proc/sys/kernel/sched_deadline_period_min_us 1000000
 write /proc/sys/kernel/sched_walt_cpu_high_irqload 1000000
@@ -1137,23 +1137,28 @@ do
 	write "$queue/iosched/slice_async_rq" 10
 	write "$queue/iosched/writes_starved" 10
 	write "$queue/iosched/async_depth" 10
+	write "$queue/iosched/io_threshold" 100
 	write "$queue/iosched/quantum" 100
 	write "$queue/iosched/fifo_batch" 100
 	write "$queue/iosched/slice_async" 100
 	write "$queue/iosched/slice_sync" 100
 	write "$queue/iosched/timeout_sync" 100
+	write "$queue/iosched/back_timeout" 100
 	write "$queue/iosched/fifo_expire_async" 100
 	write "$queue/iosched/fifo_expire_sync" 100
 	write "$queue/iosched/target_latency" 1000
 	write "$queue/iosched/read_expire" 1000
 	write "$queue/iosched/write_expire" 1000
 	write "$queue/iosched/aging_expire" 1000
+	write "$queue/iosched/fore_timeout" 1000
+	write "$queue/iosched/prio_aging_expire" 1000
 	write "$queue/iosched/back_seek_max" 10000
 	write "$queue/iosched/slice_sync_us" 100000
 	write "$queue/iosched/slice_async_us" 100000
 	write "$queue/iosched/target_latency_us" 100000
 	write "$queue/iosched/read_lat_nsec" 1000000
 	write "$queue/iosched/write_lat_nsec" 1000000
+	write "$queue/iosched/cpq_log" 0
 	write "$queue/iosched/slice_idle" 0
 	write "$queue/iosched/group_idle" 0
 	write "$queue/iosched/max_budget" 0
