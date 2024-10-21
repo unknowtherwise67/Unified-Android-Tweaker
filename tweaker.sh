@@ -640,8 +640,8 @@ write /proc/sys/vm/dirty_ratio 10
 write /proc/sys/vm/swappiness 100
 write /proc/sys/vm/overcommit_ratio 100
 write /proc/sys/vm/vfs_cache_pressure 100
-write /proc/sys/vm/dirty_expire_centisecs 10000
-write /proc/sys/vm/dirty_writeback_centisecs 10000
+write /proc/sys/vm/dirty_expire_centisecs 1000
+write /proc/sys/vm/dirty_writeback_centisecs 1000
 write /proc/sys/vm/min_free_kbytes 1000
 write /proc/sys/vm/admin_reserve_kbytes 1000
 write /proc/sys/vm/extra_free_kbytes 1000
