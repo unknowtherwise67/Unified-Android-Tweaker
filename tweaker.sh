@@ -62,6 +62,12 @@ settings put system k2hd_effect 1
 settings put secure tap_duration_threshold 0.0
 settings put secure touch_blocking_period 0.0
 
+# Fix Mobile Network
+settings put global airplane_mode_on 1
+am broadcast -a android.intent.action.AIRPLANE_MODE
+settings put global airplane_mode_on 0
+am broadcast -a android.intent.action.AIRPLANE_MODE
+
 # System Kernel Governor
 for cpu in /sys/devices/system/cpu/*/cpufreq
 do
