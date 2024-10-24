@@ -1058,7 +1058,6 @@ write /proc/mali/dvfs_enable 1
 write /sys/class/kgsl/kgsl-3d0/tmu 1
 write /sys/class/kgsl/kgsl-3d0/popp 1
 write /sys/class/kgsl/kgsl-3d0/pwrnap 1
-write /sys/class/kgsl/kgsl-3d0/bus_split 1
 write /sys/class/kgsl/kgsl-3d0/force_bus_on 1
 write /sys/class/kgsl/kgsl-3d0/force_clk_on 1
 write /sys/class/kgsl/kgsl-3d0/force_rail_on 1
@@ -1077,6 +1076,7 @@ write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync_upthreshold 5
 write /sys/module/adreno_idler/parameters/adreno_idler_idleworkload 10000
 write /sys/class/simple_gpu_algorithm/parameters/simple_ramp_threshold 10000
 write /sys/class/kgsl/kgsl-3d0/throttling 0
+write /sys/class/kgsl/kgsl-3d0/bus_split 0
 write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 0
 write /sys/class/kgsl/kgsl-3d0/max_pwrlevel 0
 write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 0
