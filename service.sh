@@ -38,10 +38,24 @@ MODDIR=${0%/*}
 until [ "`getprop sys.boot_completed`" == 1 ]; do
   sleep 1
 done
+sleep 2
+sh $MODPATH/device_settings.sh
+
+until [ "`getprop sys.boot_completed`" == 1 ]; do
+  sleep 1
+done
+sleep 3
+sh $MODPATH/system_governors.sh
+
+until [ "`getprop sys.boot_completed`" == 1 ]; do
+  sleep 1
+done
 sleep 60
 sh $MODPATH/tweaker.sh
 
 # ZRAM Swap Virtual Memory Functions
+MODPATH=${0%/*}
+MODDIR=${0%/*}
 lmk_prop() {
 resetprop -n ro.lmk.swap_free_low_percentage "$SFLP"
 resetprop lmkd.reinit 1

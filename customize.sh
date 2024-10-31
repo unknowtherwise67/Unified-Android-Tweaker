@@ -30,6 +30,8 @@ ui_print "- Executing Scripts..."
 # Kernel Tweaks
 ui_print ""
 ui_print "- Fine-Tunning Android System/User/Kernel Settings, Tunables and Parameters..."
+sh $MODPATH/device_settings.sh
+sh $MODPATH/system_governors.sh
 sh $MODPATH/tweaker.sh
 ui_print "- Completed."
 

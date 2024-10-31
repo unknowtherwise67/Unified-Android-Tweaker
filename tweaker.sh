@@ -30,96 +30,11 @@ perfmgr="/proc/perfmgr/"
 # Sync Data
 sync
 
-# Device Settings
-wm disable-blur 0
-settings put global disable_window_blurs 0
-settings put system screen_brightness_mode 0
-settings put system peak_refresh_rate 0
-settings put system min_refresh_rate 0
-settings put system low_power_refresh_rate 0
-settings put global development_settings_enabled 0
-settings put global adb_enabled 0
-settings put global window_animation_scale 1.00
-settings put global transition_animation_scale 1.00
-settings put global animator_duration_scale 1.00
-settings put global adaptive_battery_management_enabled 0
-settings put global tether_offload_disabled 0
-settings put global wifi_power_save 0
-settings put global ble_scan_always_enabled 0
-settings put global network_scoring_ui_enabled 0
-settings put global cached_apps_freezer disabled 0
-settings put secure adaptive_sleep 0
-settings put global dynamic_power_savings_enabled 0
-settings put global automatic_power_save_mode 0
-settings put global app_standby_enabled 0
-settings put secure screensaver_activate_on_sleep 0
-settings put secure screensaver_enabled 0
-settings put global network_recommendations_enabled 0
-settings put secure bluetooth_a2dp_bt_uhq_state 1
-settings put secure bluetooh_a2dp_uhqa_support 1
-settings put system tube_amp_effect 1
-settings put system k2hd_effect 1
-settings put secure tap_duration_threshold 0.0
-settings put secure touch_blocking_period 0.0
-
 # Fix Mobile Network
 settings put global airplane_mode_on 1
 am broadcast -a android.intent.action.AIRPLANE_MODE
 settings put global airplane_mode_on 0
 am broadcast -a android.intent.action.AIRPLANE_MODE
-
-# System Kernel Governor
-for cpu in /sys/devices/system/cpu/*/cpufreq
-do
-	available_governors="$(cat "$cpu/scaling_available_governors")"
-	for governor in
-	do
-		if [[ "$available_governors" == *"$governor"* ]]
-		then
-			write "$cpu/scaling_governor" "$governor"
-			break
-		fi
-	done
-done
-
-for gpu in /sys/kernel/kgsl/*/devfreq
-do
-	available_governors="$(cat "$gpu/available_governors")"
-	for governor in
-	do
-		if [[ "$available_governors" == *"$governor"* ]]
-		then
-			write "$gpu/governor" "$governor"
-			break
-		fi
-	done
-done
-
-for queue in /sys/block/*/queue
-do
-	available_schedulers="$(cat "$queue/scheduler")"
-	for sched in
-	do
-		if [[ "$available_schedulers" == *"$sched"* ]]
-		then
-			write "$queue/scheduler" "$sched"
-			break
-		fi
-	done
-done
-
-for tcp in /proc/sys/net/*
-do
-	available_tcps="$(cat "$tcp/tcp_available_congestion_control")"
-	for tcp_ctrl in
-	do
-		if [[ "$available_tcps" == *"$tcp_ctrl"* ]]
-		then
-			write "$tcp/tcp_congestion_control" "$tcp_ctrl"
-			break
-		fi
-	done
-done
 
 # Schedulers
 write /proc/sys/kernel/sched_latency_ns 1000000
@@ -755,16 +670,6 @@ write /sys/module/ged/parameters/ged_log_trace_enable 0
 write /sys/module/ged/parameters/ged_monitor_3D_fence_debug 0
 write /sys/module/ged/parameters/ged_monitor_3D_fence_disable 0
 write /sys/module/ged/parameters/ged_monitor_3D_fence_systrace 0
-
-settings put global settings_enable_monitor_phantom_procs false
-setprop persist.sys.fflag.override.settings_enable_monitor_phantom_procs false
-dumpsys deviceidle disable
-
-# Thermal/HotPlug/Processor Controls
-stop thermal
-setprop ctl.stop mpdecision;stop mpdecision
-write /sys/module/msm_thermal/core_control/enabled 0
-write /sys/module/msm_thermal/vdd_restriction/enabled 0
 
 write /proc/ppm/enabled 1
 write /proc/ppm/policy_status 0 0

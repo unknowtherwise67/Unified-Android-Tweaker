@@ -27,6 +27,7 @@ Feature:
 5. Have fun. :)
 
 ## CAUTIONS AND NOTES
+- Do not use other, similar Root Module that is not legit or verified by developer.
 - Do not install with any tweaks or mods relative modules as it can cause conflicts.
 - If you had any problems after installed the module, try these methods: Uninstall, reboot and re-install all the Root Module, reboot Recovery Mode to remove Root Module by remove file or command magisk --remove-modules
 - If there's still problems, there's could be a lot of complicated reasons.
