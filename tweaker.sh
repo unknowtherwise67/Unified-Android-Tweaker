@@ -1043,6 +1043,7 @@ done
 
 for queue in /sys/*/*/queue
 do
+	write "$queue/iosched/low_latency" 1
 	write "$queue/iosched/front_merges" 1
 	write "$queue/iosched/back_seek_penalty" 10
 	write "$queue/iosched/slice_async_rq" 10
@@ -1073,7 +1074,6 @@ do
 	write "$queue/iosched/slice_idle" 0
 	write "$queue/iosched/group_idle" 0
 	write "$queue/iosched/max_budget" 0
-	write "$queue/iosched/low_latency" 0
 	write "$queue/iosched/slice_idle_us" 0
 	write "$queue/iosched/group_idle_us" 0
 	write "$queue/iosched/strict_guarantees" 0
