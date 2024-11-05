@@ -1018,6 +1018,11 @@ write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 13
 
 for queue in /sys/*/*/queue
 do
+	write "$queue/iostats" 1
+	write "$queue/add_random" 1
+	write "$queue/rotational" 1
+	write "$queue/nomerges" 2
+	write "$queue/rq_affinity" 2
 	write "$queue/read_ahead_kb" 2048
 	write "$queue/nr_requests" 4
 	write "$queue/nr_requests" 8
