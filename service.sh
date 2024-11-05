@@ -32,7 +32,7 @@ PRIO=0
 #o|| /vendor/bin/swapon /dev$ZRAM -p "$PRIO"\
 #o|| swapon /dev$ZRAM
 
-# Kernel Tweaks
+# Device/Kernel Settings/Parameters Configuration
 MODPATH=${0%/*}
 MODDIR=${0%/*}
 until [ "`getprop sys.boot_completed`" == 1 ]; do
@@ -46,6 +46,14 @@ until [ "`getprop sys.boot_completed`" == 1 ]; do
 done
 sleep 3
 sh $MODPATH/system_governors.sh
+
+until [ "`getprop sys.boot_completed`" == 1 ]; do
+  sleep 1
+done
+sleep 5
+fstrim -v /cache
+fstrim -v /data
+fstrim -v /system
 
 until [ "`getprop sys.boot_completed`" == 1 ]; do
   sleep 1
