@@ -59,7 +59,7 @@ until [ "`getprop sys.boot_completed`" == 1 ]; do
   sleep 1
 done
 sleep 60
-sh $MODPATH/tweaker.sh
+sh $MODPATH/system_kernel.sh
 
 # ZRAM Swap Virtual Memory Functions
 MODPATH=${0%/*}
