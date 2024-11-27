@@ -19,21 +19,23 @@ Feature:
 - UNLOCKED BOOTLOADER and Installed ROOT (Magisk - Version 20 and Above, KernelSU, etc).
 - Zygisk or similar supports if its better (Optional).
 - Knowledges of technologies and experiences.
-- Should work only on any Android devices.
+- Should work but only on any Android devices.
 
 ## INSTALLATIONS
 1. Install in Magisk, KernelSU, etc.
 2. Reboot.
 5. Have fun. :)
 
-## CAUTIONS AND NOTES
+## CAUTIONS
 - Do not use other, similar Root Module that is not legit or verified by developer.
 - Do not install with any tweaks or mods relative modules as it can cause conflicts.
+
+## NOTES
 - If you had any problems after installed the module, try these methods: Uninstall, reboot and re-install all the Root Module, reboot Recovery Mode to remove Root Module by remove file or command magisk --remove-modules
 - If there's still problems, there's could be a lot of complicated reasons.
 - I only accept reported issues with LOGCAT files and other simliar if is better, otherwise will be ignored and/or closed.
 - I will try to keep module up-to-date as possible and you can support if you want, but yet I'm doing all this just for free, not like I'm being paid.
-- I DO NOT and NEVER public Releases to any other websites such as Androidacy.
+- I DO NOT and NEVER publish repository and releases to any other websites such as Androidacy.
 - If you do like my work, buy me a coffe or donate, I'll thank you later. :D
 - You are free to fork the repository, but please MAKE SURE to add CREDITS or get rekt and don't forget to extract any archives.
 

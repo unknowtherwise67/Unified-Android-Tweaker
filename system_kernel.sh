@@ -771,12 +771,12 @@ write /proc/sys/net/core/netdev_max_backlog 10000
 write /proc/sys/net/core/optmem_max 30000
 write /proc/sys/net/core/rmem_default 500000
 write /proc/sys/net/core/wmem_default 500000
-write /proc/sys/net/core/rmem_max 10000000
-write /proc/sys/net/core/wmem_max 10000000
-write "${tcp_v4}tcp_mem" "50000 70000 100000"
-write "${tcp_v4}udp_mem" "100000 150000 300000"
-write "${tcp_v4}tcp_rmem" "3000000 5000000 10000000"
-write "${tcp_v4}tcp_wmem" "300000 500000 10000000"
+write /proc/sys/net/core/rmem_max 1000000
+write /proc/sys/net/core/wmem_max 1000000
+write "${tcp_v4}tcp_mem" "100000 300000 500000"
+write "${tcp_v4}udp_mem" "100000 300000 500000"
+write "${tcp_v4}tcp_rmem" "50000 700000 1000000"
+write "${tcp_v4}tcp_wmem" "50000 700000 1000000"
 write /proc/sys/net/ipv4/tcp_slow_start_after_idle 0
 write /proc/sys/net/ipv4/tcp_syncookies 0
 
@@ -821,7 +821,7 @@ do
 	write "$governor/multi_exit_load" 100
 	write "$governor/boost_ms" 100
 	write "$governor/input_boost_ms" 100
-	write "$governor/target_load_thresh" 1024
+	write "$governor/target_load_thresh" 128
 	write "$governor/timer_rate" 1000
 	write "$governor/up_rate_limit_us" 1000
 	write "$governor/down_rate_limit_us" 1000
@@ -891,7 +891,7 @@ do
 	write "$governor/multi_exit_load" 100
 	write "$governor/boost_ms" 100
 	write "$governor/input_boost_ms" 100
-	write "$governor/target_load_thresh" 1024
+	write "$governor/target_load_thresh" 128
 	write "$governor/timer_rate" 1000
 	write "$governor/up_rate_limit_us" 1000
 	write "$governor/down_rate_limit_us" 1000
@@ -973,11 +973,11 @@ write /sys/class/simple_gpu_algorithm/parameters/simple_gpu_active 1
 write /sys/class/simple_gpu_algorithm/parameters/simple_laziness 1
 write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync 1
 write /sys/module/adreno_idler/parameters/adreno_idler_idlewait 10
+write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync_downdifferential 10
+write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/no_vsync_upthreshold 10
+write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync_upthreshold 10
 write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/no_vsync_downdifferential 10
 write /sys/module/adreno_idler/parameters/adreno_idler_downdifferential 30
-write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync_downdifferential 30
-write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/no_vsync_upthreshold 30
-write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync_upthreshold 50
 write /sys/module/adreno_idler/parameters/adreno_idler_idleworkload 10000
 write /sys/class/simple_gpu_algorithm/parameters/simple_ramp_threshold 10000
 write /sys/class/kgsl/kgsl-3d0/throttling 0
@@ -1006,10 +1006,10 @@ write /sys/devices/system/cpu/cpu11/online 1
 for queue in /sys/*/*/queue
 do
 	write "$queue/iostats" 1
-	write "$queue/add_random" 1
 	write "$queue/rotational" 1
-	write "$queue/nomerges" 2
+	write "$queue/add_random" 1
 	write "$queue/rq_affinity" 2
+	write "$queue/nomerges" 2
 	write "$queue/read_ahead_kb" 2048
 	write "$queue/nr_requests" 4
 	write "$queue/nr_requests" 8
@@ -1026,7 +1026,6 @@ done
 
 for queue in /sys/*/*/queue
 do
-	write "$queue/iosched/low_latency" 1
 	write "$queue/iosched/front_merges" 1
 	write "$queue/iosched/back_seek_penalty" 10
 	write "$queue/iosched/slice_async_rq" 10
@@ -1057,6 +1056,7 @@ do
 	write "$queue/iosched/slice_idle" 0
 	write "$queue/iosched/group_idle" 0
 	write "$queue/iosched/max_budget" 0
+	write "$queue/iosched/low_latency" 0
 	write "$queue/iosched/slice_idle_us" 0
 	write "$queue/iosched/group_idle_us" 0
 	write "$queue/iosched/strict_guarantees" 0
