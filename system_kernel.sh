@@ -930,19 +930,6 @@ write /sys/module/cpu_input_boost/parameters/input_boost_duration 1
 write /sys/module/cpu_boost/parameters/sched_boost_on_powerkey_input 1
 write /sys/module/cpu_boost/parameters/dynamic_stune_boost 10
 
-write /sys/module/cpu_boost/parameters/input_boost_freq 0:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 1:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 2:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 3:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 4:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 5:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 6:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 7:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 8:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 9:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 10:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 11:1000000
-
 write /proc/cpufreq/cpufreq_power_mode 1
 write /proc/cpufreq/cpufreq_stress_test 1
 write /proc/cpufreq/cpufreq_sched_disable 1
@@ -980,11 +967,9 @@ write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/no_vsync_downdiffer
 write /sys/module/adreno_idler/parameters/adreno_idler_downdifferential 30
 write /sys/module/adreno_idler/parameters/adreno_idler_idleworkload 10000
 write /sys/class/simple_gpu_algorithm/parameters/simple_ramp_threshold 10000
-write /sys/class/kgsl/kgsl-3d0/throttling 0
 write /sys/class/kgsl/kgsl-3d0/bus_split 0
-write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 0
+write /sys/class/kgsl/kgsl-3d0/throttling 0
 write /sys/class/kgsl/kgsl-3d0/max_pwrlevel 0
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 0
 write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 0
 write /sys/module/adreno_idler/parameters/adreno_idler_active Y
 write /sys/devices/platform/13040000.mali/power_policy always_on
@@ -1002,6 +987,47 @@ write /sys/devices/system/cpu/cpu8/online 1
 write /sys/devices/system/cpu/cpu9/online 1
 write /sys/devices/system/cpu/cpu10/online 1
 write /sys/devices/system/cpu/cpu11/online 1
+
+write /sys/module/cpu_boost/parameters/input_boost_freq 0:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 1:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 2:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 3:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 4:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 5:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 6:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 7:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 8:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 9:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 10:1000000
+write /sys/module/cpu_boost/parameters/input_boost_freq 11:1000000
+
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 1
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 2
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 3
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 4
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 5
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 6
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 7
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 8
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 9
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 10
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 11
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 12
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 13
+
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 1
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 2
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 3
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 4
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 5
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 6
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 7
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 8
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 9
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 10
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 11
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 12
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 13
 
 for queue in /sys/*/*/queue
 do
