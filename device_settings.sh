@@ -41,10 +41,11 @@ settings put global adb_enabled 0
 settings put global window_animation_scale 1.00
 settings put global transition_animation_scale 1.00
 settings put global animator_duration_scale 1.00
+settings put global wifi_scan_always_enabled 0
+settings put global ble_scan_always_enabled 0
 settings put global adaptive_battery_management_enabled 0
 settings put global tether_offload_disabled 0
 settings put global wifi_power_save 0
-settings put global ble_scan_always_enabled 0
 settings put global network_scoring_ui_enabled 0
 settings put global cached_apps_freezer disabled 0
 settings put secure adaptive_sleep 0
@@ -60,9 +61,9 @@ settings put system tube_amp_effect 1
 settings put system k2hd_effect 1
 settings put secure tap_duration_threshold 0.0
 settings put secure touch_blocking_period 0.0
-settings put global settings_enable_monitor_phantom_procs enable
-setprop persist.sys.fflag.override.settings_enable_monitor_phantom_procs enable
-dumpsys deviceidle enable
+settings put global settings_enable_monitor_phantom_procs disable
+setprop persist.sys.fflag.override.settings_enable_monitor_phantom_procs disable
+dumpsys deviceidle disable
 
 # Thermal/HotPlug/Processor Controls
 stop thermal
