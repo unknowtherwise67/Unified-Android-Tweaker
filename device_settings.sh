@@ -60,9 +60,9 @@ settings put system tube_amp_effect 1
 settings put system k2hd_effect 1
 settings put secure tap_duration_threshold 0.0
 settings put secure touch_blocking_period 0.0
-settings put global settings_enable_monitor_phantom_procs false
-setprop persist.sys.fflag.override.settings_enable_monitor_phantom_procs false
-dumpsys deviceidle disable
+settings put global settings_enable_monitor_phantom_procs enable
+setprop persist.sys.fflag.override.settings_enable_monitor_phantom_procs enable
+dumpsys deviceidle enable
 
 # Thermal/HotPlug/Processor Controls
 stop thermal
