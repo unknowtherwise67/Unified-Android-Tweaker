@@ -67,6 +67,7 @@ write /proc/sys/kernel/sched_freq_aggregate_threshold 1000
 write /proc/sys/kernel/sched_many_wakeup_threshold 1000
 write /proc/sys/kernel/sched_util_clamp_max 1024
 write /proc/sys/kernel/sched_util_clamp_min 1024
+write /proc/sys/kernel/sched_util_clamp_min_rt_default 1024
 write /proc/sys/kernel/sched_lib_mask_force 100
 write /proc/sys/kernel/sched_group_upmigrate 100
 write /proc/sys/kernel/sched_group_downmigrate 100
@@ -101,7 +102,6 @@ write /proc/sys/kernel/sched_user_hint 1
 write /proc/sys/kernel/sched_sync_hint_enable 1
 write /proc/sys/kernel/sched_prefer_sync_wakee_to_waker 1
 write /proc/sys/kernel/sched_min_task_util_for_colocation 1
-write /proc/sys/kernel/sched_util_clamp_min_rt_default 1
 write /proc/sys/kernel/sched_freq_aggregate 1
 write /proc/sys/kernel/sched_cstate_aware 1
 write /proc/sys/kernel/sched_initial_task_util 1
@@ -821,7 +821,7 @@ do
 	write "$governor/multi_exit_load" 100
 	write "$governor/boost_ms" 100
 	write "$governor/input_boost_ms" 100
-	write "$governor/target_load_thresh" 128
+	write "$governor/target_load_thresh" 1024
 	write "$governor/timer_rate" 1000
 	write "$governor/up_rate_limit_us" 1000
 	write "$governor/down_rate_limit_us" 1000
@@ -891,7 +891,7 @@ do
 	write "$governor/multi_exit_load" 100
 	write "$governor/boost_ms" 100
 	write "$governor/input_boost_ms" 100
-	write "$governor/target_load_thresh" 128
+	write "$governor/target_load_thresh" 1024
 	write "$governor/timer_rate" 1000
 	write "$governor/up_rate_limit_us" 1000
 	write "$governor/down_rate_limit_us" 1000
