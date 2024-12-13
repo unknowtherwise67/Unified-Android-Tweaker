@@ -30,6 +30,7 @@ perfmgr="/proc/perfmgr/"
 # Sync Data
 sync
 
+# CPU
 for cpu in /sys/devices/system/cpu/*/cpufreq
 do
 	available_governors="$(cat "$cpu/scaling_available_governors")"
@@ -43,6 +44,7 @@ do
 	done
 done
 
+# GPU
 for gpu in /sys/kernel/kgsl/*/devfreq
 do
 	available_governors="$(cat "$gpu/available_governors")"
@@ -56,6 +58,20 @@ do
 	done
 done
 
+for gpu in /sys/kernel/gpu
+do
+	available_governors="$(cat "$gpu/gpu_available_governor")"
+	for governor in
+	do
+		if [[ "$available_governors" == *"$governor"* ]]
+		then
+			write "$gpu/gpu_governor" "$governor"
+			break
+		fi
+	done
+done
+
+# I/O SCHEDULERS
 for queue in /sys/block/*/queue
 do
 	available_schedulers="$(cat "$queue/scheduler")"
@@ -69,6 +85,7 @@ do
 	done
 done
 
+# TCP CONGESTION ALGORITHM
 for tcp in /proc/sys/net/*
 do
 	available_tcps="$(cat "$tcp/tcp_available_congestion_control")"
