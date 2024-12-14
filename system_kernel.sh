@@ -66,8 +66,8 @@ write /proc/sys/kernel/sched_coloc_busy_hyst_max_ms 1000
 write /proc/sys/kernel/sched_freq_aggregate_threshold 1000
 write /proc/sys/kernel/sched_many_wakeup_threshold 1000
 write /proc/sys/kernel/sched_util_clamp_max 1024
-write /proc/sys/kernel/sched_util_clamp_min 1024
-write /proc/sys/kernel/sched_util_clamp_min_rt_default 1024
+write /proc/sys/kernel/sched_util_clamp_min 128
+write /proc/sys/kernel/sched_util_clamp_min_rt_default 128
 write /proc/sys/kernel/sched_lib_mask_force 100
 write /proc/sys/kernel/sched_group_upmigrate 100
 write /proc/sys/kernel/sched_group_downmigrate 100
@@ -577,28 +577,27 @@ write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
 write /sys/module/process_reclaim/parameters/enable_process_reclaim 0
 
 # Others parameters
-write /sys/fs/selinux/enforce 1
 write /sys/kernel/rcu_normal 1
+write /sys/fs/selinux/enforce 1
 write /sys/kernel/rcu_expedited 1
-write /proc/touchpanel/game_switch_enable 1
-write /proc/touchpanel/oplus_tp_direction 1
-write /sys/class/sec/switch/afc_disable 1
-write /sys/kernel/mi_reclaim/enable 1
-write /sys/kernel/fp_boost/enabled 1
-write /proc/sys/fs/dir-notify-enable 1
 write /proc/sys/fs/leases-enable 1
+write /sys/kernel/fp_boost/enabled 1
+write /sys/kernel/mi_reclaim/enable 1
+write /proc/sys/fs/dir-notify-enable 1
 write /proc/sys/dev/tty/ldisc_autoload 1
+write /sys/class/sec/switch/afc_disable 1
+write /proc/touchpanel/oplus_tp_direction 1
+write /proc/touchpanel/game_switch_enable 1
+write /proc/sys/kernel/slide_boost_enabled 1
+write /sys/kernel/dyn_fsync/Dyn_fsync_active 1
+write /proc/sys/kernel/launcher_boost_enabled 1
 write /sys/devices/system/cpu/sched/hint_enable 1
-write /sys/devices/system/cpu/sched/hint_enable
 write /sys/module/fast_charge/force_fast_charge 1
 write /sys/kernel/fast_charge/force_fast_charge 1
 write /sys/module/sync/parameters/fsync_enabled 1
 write /sys/class/mmc_host/mmc0/clk_scaling/enable 1
 write /sys/class/mmc_host/mmc1/clk_scaling/enable 1
 write /sys/module/lpm_levels/parameters/bias_hyst 1
-write /proc/sys/kernel/slide_boost_enabled 1
-write /proc/sys/kernel/launcher_boost_enabled 1
-write /sys/kernel/dyn_fsync/Dyn_fsync_active 1
 write /sys/kernel/tracing/events/sched/sched_boost_cpu 1
 write /sys/class/power_supply/battery/charging_enabled 1
 write /proc/sys/fs/lease-break-time 10
@@ -1031,11 +1030,6 @@ write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 13
 
 for queue in /sys/*/*/queue
 do
-	write "$queue/iostats" 1
-	write "$queue/rotational" 1
-	write "$queue/add_random" 1
-	write "$queue/rq_affinity" 2
-	write "$queue/nomerges" 2
 	write "$queue/read_ahead_kb" 2048
 	write "$queue/nr_requests" 4
 	write "$queue/nr_requests" 8
