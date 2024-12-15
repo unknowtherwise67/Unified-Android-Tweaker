@@ -66,8 +66,8 @@ write /proc/sys/kernel/sched_coloc_busy_hyst_max_ms 1000
 write /proc/sys/kernel/sched_freq_aggregate_threshold 1000
 write /proc/sys/kernel/sched_many_wakeup_threshold 1000
 write /proc/sys/kernel/sched_util_clamp_max 1024
-write /proc/sys/kernel/sched_util_clamp_min 128
-write /proc/sys/kernel/sched_util_clamp_min_rt_default 128
+write /proc/sys/kernel/sched_util_clamp_min 1024
+write /proc/sys/kernel/sched_util_clamp_min_rt_default 1024
 write /proc/sys/kernel/sched_lib_mask_force 100
 write /proc/sys/kernel/sched_group_upmigrate 100
 write /proc/sys/kernel/sched_group_downmigrate 100
@@ -1042,6 +1042,15 @@ do
 	write "$queue/nr_requests" 1024
 	write "$queue/nr_requests" 2048
 	write "$queue/nr_requests" 4096
+done
+
+for queue in /sys/*/*/queue
+do
+	write "$queue/iostats" 1
+	write "$queue/add_random" 1
+	write "$queue/rotational" 1
+	write "$queue/rq_affinity" 2
+	write "$queue/nomerges" 2
 done
 
 for queue in /sys/*/*/queue
