@@ -11,9 +11,6 @@ write() {
 	then
 		return 1
 	fi
-
-	# Show the success in installations
-	echo "- $1 → $2"
 }
 
 # Variables

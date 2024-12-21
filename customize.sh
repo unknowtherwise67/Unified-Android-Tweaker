@@ -3,7 +3,7 @@ echo "- Time of execution: $(date)"
 
 # Premission
 ui_print ""
-ui_print "- Setting Premission..."
+ui_print "- Installing Files and Setting Premission..."
 set_perm_recursive $MODPATH 0 0 0755 0644
 set_perm_recursive $MODPATH/system 0 0 0755 0644
 set_perm_recursive $MODPATH/system/bin 0 0 0755 0644
@@ -19,13 +19,13 @@ set_perm_recursive $MODPATH/system/vendor/odm 0 0 0755 0644
 set_perm_recursive $MODPATH/system/vendor/odm/etc 0 0 0755 0644
 set_perm_recursive $MODPATH/system/vendor/bin/modules 0 0 0755 0644
 set_perm_recursive $MODPATH/system/vendor/etc/thermal 0 0 0755 0644
-ui_print "- Setting Premission Completed."
+ui_print "- Installing Files and Setting Premission Completed."
 
 # Scripts Executes
 ui_print ""
 ui_print "- It will take some time."
-ui_print "- Please wait until is completed."
-ui_print "- Executing Scripts..."
+ui_print "- Please wait and be patience until is completed."
+ui_print "- Executing Root Module Files..."
 
 # Kernel Tweaks
 ui_print ""
@@ -80,6 +80,7 @@ else
     sed -i "s|PRIO=0|PRIO=$PROP|g" $MODPATH/service.sh
   else
     ui_print "- Modifying Swap Priority to 0..."
+    ui_print "- To 0..."
   fi
 fi
 
