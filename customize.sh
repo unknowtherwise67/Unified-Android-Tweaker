@@ -1,6 +1,11 @@
 # Log the date and time
 echo "- Time of execution: $(date)"
 
+# Notes
+ui_print ""
+ui_print "- It will take some time."
+ui_print "- Please wait and be patience until is completed."
+
 # Premission
 ui_print ""
 ui_print "- Installing Files and Setting Premission..."
@@ -20,12 +25,6 @@ set_perm_recursive $MODPATH/system/vendor/odm/etc 0 0 0755 0644
 set_perm_recursive $MODPATH/system/vendor/bin/modules 0 0 0755 0644
 set_perm_recursive $MODPATH/system/vendor/etc/thermal 0 0 0755 0644
 ui_print "- Installing Files and Setting Premission Completed."
-
-# Scripts Executes
-ui_print ""
-ui_print "- It will take some time."
-ui_print "- Please wait and be patience until is completed."
-ui_print "- Executing Root Module Files..."
 
 # Kernel Tweaks
 ui_print ""
