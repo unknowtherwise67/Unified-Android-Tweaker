@@ -29,7 +29,7 @@ Feature:
 ## CAUTIONS AND TROUBLESHOOTS
 - Do not use other, similar Root Module that is not legit or verified by developer.
 - Do not install with any tweaks or mods relative modules as it can cause conflicts.
-- If you had any problems after installed the module, try these methods (or its not even work then there could a lot of reasons:
+- If you had any problems after installed the module, try these methods (or its not even work then there could a lot of reasons):
 - Uninstall, Reboot/Restart and Reinstall the Root Module
 - (Use this method In case the Device is in Bootlooping - mean infinite OS logo loading period, longer than expected) Shutdown and Boot, during the Device is booting, press and hold combination buttons (Depends on Device) until force Reboot/Restart the device itself, then do this at least 2 time, in this way, Root (Magisk, KSU, etc) will disable all installed Root Module and other features like Zygisk, etc.
 
