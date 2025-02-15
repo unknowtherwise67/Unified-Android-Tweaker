@@ -1,6 +1,6 @@
 ## INTRODUCTIONS
 # Unified-Android-Tweakers
-
+An Android All-In-One, Universal, Customized Mods and Tweaks Root Module. Install, Reboot and Forget.
 Feature:
 - Fine-tune Android System/User/Kernel Settings, Tunables and Parameters.
 - Configurable ZRAM Swap Virtual Memory - Improve System Multitasking and prevent System Memory crashes (Does not improve Device Hardware Performance).
@@ -19,7 +19,7 @@ Feature:
 - UNLOCKED BOOTLOADER and Installed ROOT (Magisk - Version 20 and Above, KernelSU, etc).
 - Zygisk or similar supports if its better (Optional).
 - Knowledges of technologies and experiences.
-- Should work but only on any Android devices.
+- Should work and only on any Android devices.
 
 ## INSTALLATIONS
 1. Install in Magisk, KernelSU, etc.
