@@ -1,6 +1,6 @@
 ## INTRODUCTIONS
 # Unified-Android-Tweakers
--An Android All-In-One, Universal, Customized Mods and Tweaks Root Module. Install, Reboot and Forget.
+- An Android All-In-One, Universal, Customized Mods and Tweaks Root Module. Install, Reboot and Forget.
 - Feature:
 - Fine-tune Android System/User/Kernel Settings, Tunables and Parameters.
 - Configurable ZRAM Swap Virtual Memory - Improve System Multitasking and prevent System Memory crashes (Does not improve Device Hardware Performance).
