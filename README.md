@@ -31,10 +31,10 @@
 - Do not install with any tweaks or mods relative modules as it can cause conflicts.
 - If you had any problems after installed the module, try these methods (or its not even work then there could a lot of reasons):
 - Uninstall, Reboot/Restart and Reinstall the Root Module
-- Shutdown and Boot, during the Device is booting, press and hold combination buttons (Depends on Device) until force Reboot/Restart the device itself, then do this at least 2 time, in this way, Root (Magisk, KSU, etc) will disable all installed Root Module and other features like Zygisk, etc (Use this method In case the Device is in Bootlooping).
+- Shutdown and Boot, during the Device is booting, press and hold combination buttons (Depends on Device) until it force Reboot/Restart the device itself, then do this at least 2-3 time, in this way, Root (Magisk, KSU, etc) will disable all installed Root Module and other features like Zygisk, etc (Use this method In case the Device is in Bootlooping).
 
 ## NOTES
-- I only accept reported issues with LOGCAT files and other simliar if is better, otherwise will be ignored and/or closed.
+- I only accept reported issues with LOGCAT files and other similar if is better, otherwise will be ignored and/or closed.
 - I will try to keep module up-to-date as possible and you can support if you want, but yet I'm doing all this just for free, not like I'm being paid.
 - I DO NOT and NEVER publish repositories and releases to any other websites such as Androidacy.
 - If you do like my work, buy me a coffee or donate, I'll thank you later. :D
