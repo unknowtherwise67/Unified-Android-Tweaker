@@ -1010,6 +1010,23 @@ write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 10
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 11
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 12
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 13
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 14
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 15
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 16
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 17
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 18
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 19
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 20
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 21
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 22
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 23
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 24
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 25
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 26
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 27
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 28
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 29
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 30
 
 write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 1
 write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 2
@@ -1024,6 +1041,23 @@ write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 10
 write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 11
 write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 12
 write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 13
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 14
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 15
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 16
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 17
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 18
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 19
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 20
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 21
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 22
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 23
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 24
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 25
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 26
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 27
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 28
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 29
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 30
 
 for queue in /sys/*/*/queue
 do
