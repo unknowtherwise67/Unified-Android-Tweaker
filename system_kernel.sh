@@ -1088,15 +1088,6 @@ done
 
 for queue in /sys/*/*/queue
 do
-	write "$queue/iostats" 1
-	write "$queue/add_random" 1
-	write "$queue/rotational" 1
-	write "$queue/rq_affinity" 2
-	write "$queue/nomerges" 2
-done
-
-for queue in /sys/*/*/queue
-do
 	write "$queue/iosched/back_seek_penalty" 10
 	write "$queue/iosched/slice_async_rq" 10
 	write "$queue/iosched/writes_starved" 10
