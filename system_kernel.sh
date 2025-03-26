@@ -11,6 +11,9 @@ write() {
 	then
 		return 1
 	fi
+
+	# Log the success
+	echo "$1 → $2"
 }
 
 # Variables
@@ -970,19 +973,6 @@ write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 0
 write /sys/module/adreno_idler/parameters/adreno_idler_active Y
 write /sys/devices/platform/13040000.mali/power_policy always_on
 write /sys/class/kgsl/kgsl-3d0/power_policy always_on
-
-write /sys/devices/system/cpu/cpu0/online 1
-write /sys/devices/system/cpu/cpu1/online 1
-write /sys/devices/system/cpu/cpu2/online 1
-write /sys/devices/system/cpu/cpu3/online 1
-write /sys/devices/system/cpu/cpu4/online 1
-write /sys/devices/system/cpu/cpu5/online 1
-write /sys/devices/system/cpu/cpu6/online 1
-write /sys/devices/system/cpu/cpu7/online 1
-write /sys/devices/system/cpu/cpu8/online 1
-write /sys/devices/system/cpu/cpu9/online 1
-write /sys/devices/system/cpu/cpu10/online 1
-write /sys/devices/system/cpu/cpu11/online 1
 
 write /sys/module/cpu_boost/parameters/input_boost_freq 0:1000000
 write /sys/module/cpu_boost/parameters/input_boost_freq 1:1000000

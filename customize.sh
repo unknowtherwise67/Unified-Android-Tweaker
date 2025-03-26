@@ -29,14 +29,15 @@ ui_print "- Installing Files and Setting Premission Completed."
 # Kernel Tweaks
 ui_print ""
 ui_print "- Fine-Tunning Android System/User/Kernel Settings, Tunables and Parameters..."
-sh $MODPATH/device_settings.sh
+sh $MODPATH/system_cpu_cores.sh
 sh $MODPATH/system_governors.sh
+sh $MODPATH/system_settings.sh
 sh $MODPATH/system_kernel.sh
 ui_print "- Completed."
 
 # ZRAM/Swap Virtual Memory
 ui_print ""
-ZRAM=$MODPATH/virtual_memory.sh
+ZRAM=$MODPATH/system_virtual_memory.sh
 if [ ! -f $ZRAM ]; then
   touch $ZRAM
 fi
@@ -44,7 +45,7 @@ fi
 PROP=`grep_prop zram.resize $ZRAM`
 ZRAM=/block/zram0
 if [ "$PROP" == 0 ]; then
-  ui_print "- ZRAM/Swap Virtual Memory will be Disabled."
+  ui_print "- System ZRAM/Swap Virtual Memory will be DISABLED."
   LMK=false
 else
   FILE=/sys$ZRAM/disksize

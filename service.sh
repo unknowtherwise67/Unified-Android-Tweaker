@@ -39,13 +39,19 @@ until [ "`getprop sys.boot_completed`" == 1 ]; do
   sleep 1
 done
 sleep 2
-sh $MODPATH/device_settings.sh
+sh $MODPATH/system_cpu_cores.sh
 
 until [ "`getprop sys.boot_completed`" == 1 ]; do
   sleep 1
 done
 sleep 3
 sh $MODPATH/system_governors.sh
+
+until [ "`getprop sys.boot_completed`" == 1 ]; do
+  sleep 1
+done
+sleep 3
+sh $MODPATH/system_settings.sh
 
 until [ "`getprop sys.boot_completed`" == 1 ]; do
   sleep 1

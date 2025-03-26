@@ -11,6 +11,9 @@ write() {
 	then
 		return 1
 	fi
+
+	# Log the success
+	echo "$1 → $2"
 }
 
 # Variables
