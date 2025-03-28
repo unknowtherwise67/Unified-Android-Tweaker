@@ -803,37 +803,37 @@ do
 	write "$governor/ignore_nice_load" 1
 	write "$governor/input_boost" 1
 	write "$governor/iowait_boost_enable" 1
-	write "$governor/down_differential" 3
-	write "$governor/down_differential_multi_core" 3
-	write "$governor/target_load_shift" 3
-	write "$governor/freq_step" 3
-	write "$governor/sched_upmigrate_min_nice" 10
+	write "$governor/down_differential" 5
+	write "$governor/down_differential_multi_core" 5
+	write "$governor/target_load_shift" 5
+	write "$governor/freq_step" 5
+	write "$governor/sched_upmigrate_min_nice" 5
 	write "$governor/hispeed_load" 50
-	write "$governor/go_hispeed_load" 50
 	write "$governor/up_threshold" 50
 	write "$governor/target_loads" 50
-	write "$governor/single_enter_load" 50
-	write "$governor/single_exit_load" 50
+	write "$governor/go_hispeed_load" 50
 	write "$governor/up_threshold_multi_core" 50
 	write "$governor/up_threshold_any_cpu_load" 50
-	write "$governor/multi_enter_load" 100
-	write "$governor/multi_exit_load" 100
-	write "$governor/boost_ms" 100
-	write "$governor/input_boost_ms" 100
+	write "$governor/single_enter_load" 500
+	write "$governor/single_exit_load" 500
+	write "$governor/multi_enter_load" 1000
+	write "$governor/multi_exit_load" 1000
+	write "$governor/boost_ms" 1000
+	write "$governor/input_boost_ms" 1000
 	write "$governor/target_load_thresh" 1024
-	write "$governor/timer_rate" 1000
-	write "$governor/up_rate_limit_us" 1000
-	write "$governor/down_rate_limit_us" 1000
-	write "$governor/single_enter_time" 1000
-	write "$governor/single_exit_time" 1000
-	write "$governor/multi_enter_time" 1000
-	write "$governor/multi_exit_time" 1000
-	write "$governor/boostpulse_duration" 1000
-	write "$governor/min_sample_time" 1000
-	write "$governor/timer_slack" 1000
-	write "$governor/sampling_rate" 1000
-	write "$governor/sampling_rate_min" 1000
-	write "$governor/above_hispeed_delay" 10000
+	write "$governor/timer_rate" 10000
+	write "$governor/up_rate_limit_us" 10000
+	write "$governor/down_rate_limit_us" 10000
+	write "$governor/single_enter_time" 10000
+	write "$governor/single_exit_time" 10000
+	write "$governor/multi_enter_time" 10000
+	write "$governor/multi_exit_time" 10000
+	write "$governor/boostpulse_duration" 10000
+	write "$governor/min_sample_time" 10000
+	write "$governor/timer_slack" 10000
+	write "$governor/sampling_rate" 10000
+	write "$governor/sampling_rate_min" 10000
+	write "$governor/above_hispeed_delay" 100000
 	write "$governor/sched_freq_inc_notify" 100000
 	write "$governor/sched_freq_dec_notify" 100000
 	write "$governor/up_throttle_nsec" 1000000
@@ -873,37 +873,37 @@ do
 	write "$governor/ignore_nice_load" 1
 	write "$governor/input_boost" 1
 	write "$governor/iowait_boost_enable" 1
-	write "$governor/down_differential" 3
-	write "$governor/down_differential_multi_core" 3
-	write "$governor/target_load_shift" 3
-	write "$governor/freq_step" 3
-	write "$governor/sched_upmigrate_min_nice" 10
+	write "$governor/down_differential" 5
+	write "$governor/down_differential_multi_core" 5
+	write "$governor/target_load_shift" 5
+	write "$governor/freq_step" 5
+	write "$governor/sched_upmigrate_min_nice" 5
 	write "$governor/hispeed_load" 50
-	write "$governor/go_hispeed_load" 50
 	write "$governor/up_threshold" 50
 	write "$governor/target_loads" 50
-	write "$governor/single_enter_load" 50
-	write "$governor/single_exit_load" 50
+	write "$governor/go_hispeed_load" 50
 	write "$governor/up_threshold_multi_core" 50
 	write "$governor/up_threshold_any_cpu_load" 50
-	write "$governor/multi_enter_load" 100
-	write "$governor/multi_exit_load" 100
-	write "$governor/boost_ms" 100
-	write "$governor/input_boost_ms" 100
+	write "$governor/single_enter_load" 500
+	write "$governor/single_exit_load" 500
+	write "$governor/multi_enter_load" 1000
+	write "$governor/multi_exit_load" 1000
+	write "$governor/boost_ms" 1000
+	write "$governor/input_boost_ms" 1000
 	write "$governor/target_load_thresh" 1024
-	write "$governor/timer_rate" 1000
-	write "$governor/up_rate_limit_us" 1000
-	write "$governor/down_rate_limit_us" 1000
-	write "$governor/single_enter_time" 1000
-	write "$governor/single_exit_time" 1000
-	write "$governor/multi_enter_time" 1000
-	write "$governor/multi_exit_time" 1000
-	write "$governor/boostpulse_duration" 1000
-	write "$governor/min_sample_time" 1000
-	write "$governor/timer_slack" 1000
-	write "$governor/sampling_rate" 1000
-	write "$governor/sampling_rate_min" 1000
-	write "$governor/above_hispeed_delay" 10000
+	write "$governor/timer_rate" 10000
+	write "$governor/up_rate_limit_us" 10000
+	write "$governor/down_rate_limit_us" 10000
+	write "$governor/single_enter_time" 10000
+	write "$governor/single_exit_time" 10000
+	write "$governor/multi_enter_time" 10000
+	write "$governor/multi_exit_time" 10000
+	write "$governor/boostpulse_duration" 10000
+	write "$governor/min_sample_time" 10000
+	write "$governor/timer_slack" 10000
+	write "$governor/sampling_rate" 10000
+	write "$governor/sampling_rate_min" 10000
+	write "$governor/above_hispeed_delay" 100000
 	write "$governor/sched_freq_inc_notify" 100000
 	write "$governor/sched_freq_dec_notify" 100000
 	write "$governor/up_throttle_nsec" 1000000
@@ -987,37 +987,6 @@ write /sys/module/cpu_boost/parameters/input_boost_freq 9:1000000
 write /sys/module/cpu_boost/parameters/input_boost_freq 10:1000000
 write /sys/module/cpu_boost/parameters/input_boost_freq 11:1000000
 
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 1
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 2
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 3
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 4
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 5
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 6
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 7
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 8
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 9
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 10
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 11
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 12
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 13
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 14
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 15
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 16
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 17
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 18
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 19
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 20
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 21
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 22
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 23
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 24
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 25
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 26
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 27
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 28
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 29
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 30
-
 write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 1
 write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 2
 write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 3
@@ -1048,6 +1017,37 @@ write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 27
 write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 28
 write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 29
 write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 30
+
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 1
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 2
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 3
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 4
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 5
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 6
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 7
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 8
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 9
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 10
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 11
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 12
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 13
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 14
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 15
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 16
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 17
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 18
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 19
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 20
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 21
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 22
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 23
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 24
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 25
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 26
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 27
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 28
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 29
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 30
 
 for queue in /sys/*/*/queue
 do
