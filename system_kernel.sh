@@ -1086,15 +1086,15 @@ do
 	write "$queue/iosched/io_threshold" 1
 	write "$queue/iosched/slice_async" 1
 	write "$queue/iosched/fifo_batch" 1
-	write "$queue/iosched/slice_sync" 10
-	write "$queue/iosched/timeout_sync" 10
-	write "$queue/iosched/back_timeout" 10
-	write "$queue/iosched/fifo_expire_async" 10
-	write "$queue/iosched/fifo_expire_sync" 10
-	write "$queue/iosched/read_expire" 50
-	write "$queue/iosched/write_expire" 50
-	write "$queue/iosched/fore_timeout" 50
-	write "$queue/iosched/target_latency" 50
+	write "$queue/iosched/slice_sync" 1
+	write "$queue/iosched/timeout_sync" 1
+	write "$queue/iosched/back_timeout" 1
+	write "$queue/iosched/fifo_expire_async" 1
+	write "$queue/iosched/fifo_expire_sync" 1
+	write "$queue/iosched/read_expire" 10
+	write "$queue/iosched/write_expire" 10
+	write "$queue/iosched/fore_timeout" 10
+	write "$queue/iosched/target_latency" 10
 	write "$queue/iosched/aging_expire" 100
 	write "$queue/iosched/back_seek_max" 100
 	write "$queue/iosched/slice_sync_us" 100
