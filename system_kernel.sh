@@ -808,18 +808,18 @@ do
 	write "$governor/target_load_shift" 1
 	write "$governor/freq_step" 1
 	write "$governor/sched_upmigrate_min_nice" 1
-	write "$governor/hispeed_load" 10
-	write "$governor/up_threshold" 10
-	write "$governor/target_loads" 10
-	write "$governor/go_hispeed_load" 10
-	write "$governor/up_threshold_multi_core" 10
-	write "$governor/up_threshold_any_cpu_load" 10
-	write "$governor/single_enter_load" 10
-	write "$governor/single_exit_load" 10
-	write "$governor/multi_enter_load" 50
-	write "$governor/multi_exit_load" 50
-	write "$governor/boost_ms" 100
+	write "$governor/hispeed_load" 50
+	write "$governor/up_threshold" 50
+	write "$governor/target_loads" 50
+	write "$governor/go_hispeed_load" 50
+	write "$governor/up_threshold_multi_core" 50
+	write "$governor/up_threshold_any_cpu_load" 50
+	write "$governor/single_enter_load" 50
+	write "$governor/single_exit_load" 50
+	write "$governor/multi_enter_load" 100
+	write "$governor/multi_exit_load" 100
 	write "$governor/input_boost_ms" 100
+	write "$governor/boost_ms" 100
 	write "$governor/timer_rate" 100
 	write "$governor/up_rate_limit_us" 100
 	write "$governor/down_rate_limit_us" 100
@@ -878,18 +878,18 @@ do
 	write "$governor/target_load_shift" 1
 	write "$governor/freq_step" 1
 	write "$governor/sched_upmigrate_min_nice" 1
-	write "$governor/hispeed_load" 10
-	write "$governor/up_threshold" 10
-	write "$governor/target_loads" 10
-	write "$governor/go_hispeed_load" 10
-	write "$governor/up_threshold_multi_core" 10
-	write "$governor/up_threshold_any_cpu_load" 10
-	write "$governor/single_enter_load" 10
-	write "$governor/single_exit_load" 10
-	write "$governor/multi_enter_load" 50
-	write "$governor/multi_exit_load" 50
-	write "$governor/boost_ms" 100
+	write "$governor/hispeed_load" 50
+	write "$governor/up_threshold" 50
+	write "$governor/target_loads" 50
+	write "$governor/go_hispeed_load" 50
+	write "$governor/up_threshold_multi_core" 50
+	write "$governor/up_threshold_any_cpu_load" 50
+	write "$governor/single_enter_load" 50
+	write "$governor/single_exit_load" 50
+	write "$governor/multi_enter_load" 100
+	write "$governor/multi_exit_load" 100
 	write "$governor/input_boost_ms" 100
+	write "$governor/boost_ms" 100
 	write "$governor/timer_rate" 100
 	write "$governor/up_rate_limit_us" 100
 	write "$governor/down_rate_limit_us" 100
