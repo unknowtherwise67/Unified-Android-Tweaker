@@ -30,13 +30,13 @@ perfmgr="/proc/perfmgr/"
 # Sync Data
 sync
 
+settings put global development_settings_enabled 0
 wm disable-blur 0
 settings put global disable_window_blurs 0
 settings put system screen_brightness_mode 0
 settings put system peak_refresh_rate 0
 settings put system min_refresh_rate 0
 settings put system low_power_refresh_rate 0
-settings put global development_settings_enabled 0
 settings put global adb_enabled 0
 settings put global window_animation_scale 1.00
 settings put global transition_animation_scale 1.00
