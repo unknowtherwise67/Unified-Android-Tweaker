@@ -1081,40 +1081,40 @@ done
 
 for queue in /sys/*/*/queue
 do
-	write "$queue/iosched/slice_idle" 1
-	write "$queue/iosched/group_idle" 1
-	write "$queue/iosched/low_latency" 1
 	write "$queue/iosched/front_merges" 1
-	write "$queue/iosched/back_seek_penalty" 100
-	write "$queue/iosched/slice_async_rq" 100
-	write "$queue/iosched/writes_starved" 100
-	write "$queue/iosched/async_depth" 100
-	write "$queue/iosched/io_threshold" 1000
-	write "$queue/iosched/quantum" 1000
-	write "$queue/iosched/fifo_batch" 1000
-	write "$queue/iosched/slice_async" 1000
-	write "$queue/iosched/slice_sync" 1000
-	write "$queue/iosched/timeout_sync" 1000
-	write "$queue/iosched/back_timeout" 1000
-	write "$queue/iosched/slice_idle_us" 1000
-	write "$queue/iosched/group_idle_us" 1000
-	write "$queue/iosched/fifo_expire_async" 1000
-	write "$queue/iosched/fifo_expire_sync" 1000
-	write "$queue/iosched/target_latency" 1000
-	write "$queue/iosched/read_expire" 10000
-	write "$queue/iosched/write_expire" 10000
-	write "$queue/iosched/fore_timeout" 10000
-	write "$queue/iosched/prio_aging_expire" 10000
-	write "$queue/iosched/back_seek_max" 100000
-	write "$queue/iosched/aging_expire" 100000
-	write "$queue/iosched/slice_sync_us" 100000
-	write "$queue/iosched/slice_async_us" 100000
-	write "$queue/iosched/target_latency_us" 1000000
-	write "$queue/iosched/max_budget" 1000000
-	write "$queue/iosched/read_lat_nsec" 1000000
-	write "$queue/iosched/write_lat_nsec" 1000000
-	write "$queue/iosched/strict_guarantees" 0
+	write "$queue/iosched/back_seek_penalty" 1
+	write "$queue/iosched/slice_async_rq" 1
+	write "$queue/iosched/writes_starved" 1
+	write "$queue/iosched/async_depth" 1
+	write "$queue/iosched/io_threshold" 10
+	write "$queue/iosched/quantum" 10
+	write "$queue/iosched/fifo_batch" 10
+	write "$queue/iosched/slice_async" 10
+	write "$queue/iosched/slice_sync" 10
+	write "$queue/iosched/timeout_sync" 10
+	write "$queue/iosched/back_timeout" 10
+	write "$queue/iosched/fifo_expire_async" 10
+	write "$queue/iosched/fifo_expire_sync" 10
+	write "$queue/iosched/target_latency" 10
+	write "$queue/iosched/read_expire" 100
+	write "$queue/iosched/write_expire" 100
+	write "$queue/iosched/fore_timeout" 100
+	write "$queue/iosched/prio_aging_expire" 100
+	write "$queue/iosched/back_seek_max" 100
+	write "$queue/iosched/aging_expire" 100
+	write "$queue/iosched/slice_sync_us" 100
+	write "$queue/iosched/slice_async_us" 100
+	write "$queue/iosched/target_latency_us" 1000
+	write "$queue/iosched/max_budget" 1000
+	write "$queue/iosched/read_lat_nsec" 1000
+	write "$queue/iosched/write_lat_nsec" 1000
 	write "$queue/iosched/cpq_log" 0
+	write "$queue/iosched/slice_idle" 0
+	write "$queue/iosched/group_idle" 0
+	write "$queue/iosched/low_latency" 0
+	write "$queue/iosched/slice_idle_us" 0
+	write "$queue/iosched/group_idle_us" 0
+	write "$queue/iosched/strict_guarantees" 0
 done
 
 # Return to completed regardless of any writes that failed or succeed
