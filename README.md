@@ -29,6 +29,7 @@
 ## CAUTIONS AND TROUBLESHOOTS
 - Do not use other, similar Root Module that is not legit or verified by developer.
 - Do not install with any tweaks or mods relative modules as it can cause conflicts.
+- System slowing down and reduced? Magisk and maybe with Zygisk often having conflicts with Root Module that are often updated and rebooted too much. Try uninstall one of that or all Root Module and reinstall it again.
 - If you had any problems after installed the module, try these methods (or its not even work then there could a lot of reasons):
 - Uninstall, Reboot/Restart and Reinstall the Root Module
 - Shutdown and Boot, during the Device is booting, press and hold combination buttons (Depends on Device) until it force Reboot/Restart the device itself, then do this at least 2-3 time, in this way, Root (Magisk, KSU, etc) will disable all installed Root Module and other features like Zygisk, etc (Use this method In case the Device is in Bootlooping).
