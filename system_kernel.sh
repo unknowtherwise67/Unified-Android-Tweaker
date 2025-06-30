@@ -75,7 +75,6 @@ write /proc/sys/kernel/sched_min_task_util_for_boost 50
 write /proc/sys/kernel/sched_big_waker_task_load 50
 write /proc/sys/kernel/sched_small_wakee_task_load 50
 write /proc/sys/kernel/sched_walt_init_task_load_pct 50
-write /proc/sys/kernel/perf_cpu_time_max_percent 1
 write /proc/sys/kernel/sched_tunable_scaling 1
 write /proc/sys/kernel/sched_child_runs_first 1
 write /proc/sys/kernel/sched_autogroup_enabled 1
@@ -110,6 +109,7 @@ write /proc/sys/kernel/sched_assist_ux_uclamp_max_enable 1
 write /proc/sys/kernel/sched_spill_nr_run 1
 write /proc/sys/kernel/sched_little_cluster_coloc_fmin_khz 1
 write /proc/sys/kernel/sched_min_task_util_for_boost_colocation 1
+write /proc/sys/kernel/perf_cpu_time_max_percent 0
 
 write /sys/kernel/debug/sched_features GENTLE_FAIR_SLEEPERS
 write /sys/kernel/debug/sched_features HRTICK
@@ -550,6 +550,7 @@ write /dev/cpuset/audio-app/cpus 0-11
 write /proc/sys/vm/stat_interval 1
 write /proc/sys/vm/dirty_background_ratio 5
 write /proc/sys/vm/dirty_ratio 10
+write /proc/sys/vm/page-cluster 10
 write /proc/sys/vm/swappiness 100
 write /proc/sys/vm/overcommit_ratio 100
 write /proc/sys/vm/vfs_cache_pressure 100
@@ -560,6 +561,7 @@ write /proc/sys/vm/extra_free_kbytes 1000
 write /proc/sys/vm/user_reserve_kbytes 1000
 write /proc/sys/vm/admin_reserve_kbytes 1000
 write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0,0
+write /proc/sys/vm/drop_caches 0
 write /proc/sys/vm/laptop_mode 0
 write /proc/sys/vm/overcommit_free_kbytes 0
 write /proc/sys/vm/oom_kill_allocating_task 0

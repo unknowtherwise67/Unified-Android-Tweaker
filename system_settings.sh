@@ -71,7 +71,3 @@ stop thermal
 setprop ctl.stop mpdecision;stop mpdecision
 write /sys/module/msm_thermal/core_control/enabled 0
 write /sys/module/msm_thermal/vdd_restriction/enabled 0
-
-# Others
-write /proc/sys/vm/drop_caches 0
-write /proc/sys/vm/page-cluster 0
