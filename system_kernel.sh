@@ -550,7 +550,6 @@ write /dev/cpuset/audio-app/cpus 0-11
 write /proc/sys/vm/stat_interval 1
 write /proc/sys/vm/dirty_background_ratio 5
 write /proc/sys/vm/dirty_ratio 10
-write /proc/sys/vm/page-cluster 10
 write /proc/sys/vm/swappiness 100
 write /proc/sys/vm/overcommit_ratio 100
 write /proc/sys/vm/vfs_cache_pressure 100
@@ -561,7 +560,6 @@ write /proc/sys/vm/extra_free_kbytes 1000
 write /proc/sys/vm/user_reserve_kbytes 1000
 write /proc/sys/vm/admin_reserve_kbytes 1000
 write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0,0
-write /proc/sys/vm/drop_caches 0
 write /proc/sys/vm/laptop_mode 0
 write /proc/sys/vm/overcommit_free_kbytes 0
 write /proc/sys/vm/oom_kill_allocating_task 0
@@ -1045,29 +1043,8 @@ write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 30
 
 for queue in /sys/*/*/queue
 do
-	write "$queue/read_ahead_kb" 4
-	write "$queue/read_ahead_kb" 6
-	write "$queue/read_ahead_kb" 8
-	write "$queue/read_ahead_kb" 16
-	write "$queue/read_ahead_kb" 32
-	write "$queue/read_ahead_kb" 64
-	write "$queue/read_ahead_kb" 128
-	write "$queue/read_ahead_kb" 256
-	write "$queue/read_ahead_kb" 512
-	write "$queue/read_ahead_kb" 1024
-	write "$queue/read_ahead_kb" 2048
 	write "$queue/read_ahead_kb" 4096
-	write "$queue/nr_requests" 4
-	write "$queue/nr_requests" 8
-	write "$queue/nr_requests" 16
-	write "$queue/nr_requests" 32
-	write "$queue/nr_requests" 64
 	write "$queue/nr_requests" 128
-	write "$queue/nr_requests" 256
-	write "$queue/nr_requests" 512
-	write "$queue/nr_requests" 1024
-	write "$queue/nr_requests" 2048
-	write "$queue/nr_requests" 4096
 done
 
 for queue in /sys/*/*/queue
