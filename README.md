@@ -32,6 +32,7 @@
 - If you had any problems after installed the module, try this methods (or its not even work then there could a lot of reasons): Shutdown and Boot, during the Device is booting, press and hold combination buttons (Depends on the device) until it force Reboot/Restart the device itself, then do this at least 2-3 time, in this way, Root (Magisk, KSU, etc) will auto disable all installed Root Module and other features like Zygisk, etc.
 
 ## NOTES
+- If you want Root Module not to modify any user system settings except others, unpack the Root Module and delete "system_settings.sh". Then save it and repack it before installations.
 - I only accept reported issues with LOGCAT files and other similar if is better, otherwise will be ignored and/or closed.
 - I will try to keep module up-to-date as possible and you can support if you want, but yet I'm doing all this just for free and I'm being paid for it.
 - I do not and never publish repositories and releases to any other websites such as Androidacy.
