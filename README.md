@@ -6,6 +6,7 @@
 - Configurable ZRAM Swap Virtual Memory - Improve System Multitasking and prevent System Memory crashes (Does not improve Device Hardware Performance).
 - Modify Thermal System - Allow full performance capability while maintain Device Hardwares safety.
 - Developed and Designed for User-Configurables.
+- Non-intrusive and systemless.
 - Open-Source complilance.
 
 ## DISCLAMERS
