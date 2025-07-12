@@ -3,15 +3,15 @@
 - An Android All-In-One, Universal, Customized Mods and Tweaks Root Module. Install, Reboot and Forget.
 - Feature:
 - Fine-tune Android System/User/Kernel Settings, Tunables and Parameters.
-- Configurable ZRAM Swap Virtual Memory - Improve System Multitasking and prevent System Memory crashes (Does not improve Device Hardware Performance).
-- Modify Thermal System - Allow full performance capability while maintain Device Hardwares safety.
-- Developed and Designed for User-Configurables.
+- Configurable ZRAM Swap Virtual Memory - Improve system multitasking and prevent system memory crashes (Need ZRAM Swap Virtual Memory to be enabled and does not improve device hardware performance).
+- Modify Thermal System - Allow full performance capability while maintain device hardwares safety.
+- Developed and designed for user-configurables.
 - Non-intrusive and systemless.
 - Open-Source complilance.
 
 ## DISCLAMERS
 - USE THE ROOT MODULE AT YOUR OWN RISKS.
-- DEVELOPERS ARE NOT TOOK RESPONSIBILITY FOR ANYTHING THAT HAPPENS ONLY IF IS YOUR FAULTS.
+- DEVELOPERS ARE NOT TOOK RESPONSIBILITY FOR WHAT HAPPENED ONLY IF IS YOUR FAULTS.
 
 ## REQUIREMENTS/COMPATIBILITY
 - ANDROID 6 and/or Above.
@@ -34,7 +34,7 @@
 
 ## NOTES
 - If you want Root Module not to modify any user system settings except others, unpack the Root Module and delete "system_settings.sh". Then save it and repack it before installations.
-- I only accept reported issues with LOGCAT files and other similar if is better, otherwise will be ignored and/or closed.
+- I only accept reported issues with logcats files and other similar if is better, otherwise will be ignored and/or closed.
 - I will try to keep module up-to-date as possible and you can support if you want, but yet I'm doing all this just for free and I'm being paid for it.
 - I do not and never publish repositories and releases to any other websites such as Androidacy.
 - If you do like my work, buy me a coffee or donate and I'll thank you later. :D

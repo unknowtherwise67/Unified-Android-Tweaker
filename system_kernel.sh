@@ -1105,5 +1105,5 @@ do
 	write "$queue/iosched/group_idle_us" 0
 done
 
-# Return to completed regardless of any writes that failed or succeed
+# Return to completed regardless of any writes that either failed or succeed
 exit 0

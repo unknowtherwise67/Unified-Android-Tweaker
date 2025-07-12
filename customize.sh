@@ -8,7 +8,7 @@ ui_print "- Please wait and be patience until is completed."
 
 # Premission
 ui_print ""
-ui_print "- Installing Files and Setting Premission..."
+ui_print "- Installing files and setting up premission..."
 set_perm_recursive $MODPATH 0 0 0755 0644
 set_perm_recursive $MODPATH/system 0 0 0755 0644
 set_perm_recursive $MODPATH/system/bin 0 0 0755 0644
@@ -24,11 +24,11 @@ set_perm_recursive $MODPATH/system/vendor/odm 0 0 0755 0644
 set_perm_recursive $MODPATH/system/vendor/odm/etc 0 0 0755 0644
 set_perm_recursive $MODPATH/system/vendor/bin/modules 0 0 0755 0644
 set_perm_recursive $MODPATH/system/vendor/etc/thermal 0 0 0755 0644
-ui_print "- Installing Files and Setting Premission Completed."
+ui_print "- Installing files and setting up premission completed."
 
 # Kernel Tweaks
 ui_print ""
-ui_print "- Fine-Tunning Android System/User/Kernel Settings, Tunables and Parameters..."
+ui_print "- Fine-tunning Android System/User/Kernel settings, tunables and other parameters..."
 sh $MODPATH/system_cpu_cores.sh
 sh $MODPATH/system_governors.sh
 sh $MODPATH/system_settings.sh
@@ -104,10 +104,9 @@ else
 fi
 
 ui_print "- Scripts executions completed, Root Module is installed."
-ui_print "- It's may recommended to REBOOT the Device."
+ui_print "- Please REBOOT/RESTART the Device to take effects."
 ui_print ""
 ui_print "- ADDITIONAL NOTES:"
 ui_print "- INSTALL AND USE THIS ROOT MODULE AT YOUR OWN RISKS."
-ui_print "- DEVELOPERS ARE DO NOT TOOK RESPONSIBILITY FOR ANYHING THAT HAPPENS ONLY IF IS YOUR FAULTS."
-ui_print "- README, Sources Codes, Credits, known/reported issues are on GitHub."
+ui_print "- DEVELOPERS ARE NOT TOOK RESPONSIBILITY FOR WHAT HAPPENED ONLY IF IS YOUR FAULTS."
 ui_print ""
