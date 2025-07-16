@@ -547,17 +547,17 @@ write /dev/cpuset/audio-app/cpus 0-11
 
 # Memory
 write /proc/sys/vm/stat_interval 1
-write /proc/sys/vm/dirty_background_ratio 5
-write /proc/sys/vm/dirty_ratio 10
 write /proc/sys/vm/swappiness 100
+write /proc/sys/vm/dirty_ratio 100
+write /proc/sys/vm/dirty_background_ratio 100
 write /proc/sys/vm/overcommit_ratio 100
 write /proc/sys/vm/vfs_cache_pressure 100
-write /proc/sys/vm/dirty_expire_centisecs 1000
-write /proc/sys/vm/dirty_writeback_centisecs 1000
 write /proc/sys/vm/min_free_kbytes 1000
 write /proc/sys/vm/extra_free_kbytes 1000
 write /proc/sys/vm/user_reserve_kbytes 1000
 write /proc/sys/vm/admin_reserve_kbytes 1000
+write /proc/sys/vm/dirty_expire_centisecs 10000
+write /proc/sys/vm/dirty_writeback_centisecs 10000
 write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0,0
 write /proc/sys/vm/laptop_mode 0
 write /proc/sys/vm/overcommit_free_kbytes 0
