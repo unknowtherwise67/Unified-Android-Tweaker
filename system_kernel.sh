@@ -911,29 +911,6 @@ do
 	write "$governor/up_threshold_any_cpu_freq" 1000000
 done
 
-write /sys/module/cpu_boost/parameters/input_boost_ms 1
-write /sys/module/cpu_boost/parameters/input_boost_enabled 1
-write /sys/module/cpu_boost/parameters/sched_boost_on_input 1
-write /sys/module/cpu_boost/parameters/dynamic_stune_boost_ms 1
-write /sys/module/cpu_boost/parameters/powerkey_input_boost_ms 1
-write /sys/module/cpu_input_boost/parameters/input_boost_duration 1
-write /sys/module/cpu_boost/parameters/sched_boost_on_powerkey_input 1
-write /sys/module/cpu_boost/parameters/dynamic_stune_boost 10
-
-write /proc/cpufreq/cpufreq_power_mode 1
-write /proc/cpufreq/cpufreq_stress_test 1
-write /proc/cpufreq/cpufreq_sched_disable 1
-write /proc/cpufreq/cpufreq_cci_mode 1
-write /sys/devices/system/cpu/perf/enable 1
-write /sys/devices/system/cpu/cpuidle/use_deepest_state 1
-
-write /sys/kernel/hmp/boost 1
-write /sys/kernel/hmp/down_compensation_enabled 1
-write /sys/kernel/hmp/family_boost 1
-write /sys/kernel/hmp/semiboost 1
-write /sys/kernel/hmp/up_threshold 100
-write /sys/kernel/hmp/down_threshold 100
-
 write /sys/kernel/gpu/boost 1
 write /proc/mali/always_on 1
 write /proc/mali/dvfs_enable 1
