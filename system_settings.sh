@@ -75,5 +75,5 @@ write /sys/module/msm_thermal/vdd_restriction/enabled 0
 # Others
 write /sys/block/zram0/initstate 1
 write /proc/sys/kernel/perf_cpu_time_max_percent 1
-write /proc/sys/vm/page-cluster 3
+write /proc/sys/vm/page-cluster 100
 write /proc/sys/vm/drop_caches 0
