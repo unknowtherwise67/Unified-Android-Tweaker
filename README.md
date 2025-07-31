@@ -27,10 +27,9 @@
 5. Have fun. :)
 
 ## CAUTIONS
-- Do not install with any tweaks or mods relative root modules as it can cause conflicts.
+- Don't install with any tweaks or mods relative root modules as it can cause conflicts.
 
 ## TROUBLESHOOTS - IF PROBLEMS OCCURED:
-- Remove any other Root Module that may unecessary or causing problems like BusyBox or ADB NDKs or similar.
 - Remove Thermal Modification by unpack, remove "system" folder and repack and reinstall.
 - Turn off the device, keep holding power button until it bootup twice and all Root Module will be automatically removed by Root (Magisk, KernelSU, etc).
 
