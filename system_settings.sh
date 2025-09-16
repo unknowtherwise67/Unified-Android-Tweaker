@@ -48,7 +48,6 @@ settings put global animator_duration_scale 1.00
 settings put system screen_brightness_mode 0
 settings put system intelligent_sleep_mode 0
 settings put global app_restriction_enabled false
-settings put system status_bar_show_battery_percent 2
 settings put global dynamic_power_savings_disable_threshold 10
 settings put global accessibility_reduce_transparency 0
 settings put global enhanced_processing 0
@@ -76,10 +75,6 @@ settings put secure adaptive_sleep 0
 settings put global settings_enable_monitor_phantom_procs disable
 
 # Others
-write /sys/block/zram0/initstate 1
-write /proc/sys/kernel/perf_cpu_time_max_percent 1
-write /proc/sys/vm/page-cluster 100
-write /proc/sys/vm/drop_caches 0
 setprop persist.sys.fflag.override.settings_enable_monitor_phantom_procs disable
 dumpsys deviceidle disable
 stop thermal

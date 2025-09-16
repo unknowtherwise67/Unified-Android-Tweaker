@@ -75,6 +75,7 @@ write /proc/sys/kernel/sched_min_task_util_for_boost 50
 write /proc/sys/kernel/sched_big_waker_task_load 50
 write /proc/sys/kernel/sched_small_wakee_task_load 50
 write /proc/sys/kernel/sched_walt_init_task_load_pct 50
+write /proc/sys/kernel/perf_cpu_time_max_percent 1
 write /proc/sys/kernel/sched_tunable_scaling 1
 write /proc/sys/kernel/sched_child_runs_first 1
 write /proc/sys/kernel/sched_autogroup_enabled 1
@@ -547,8 +548,10 @@ write /dev/cpuset/audio-app/cpus 0-11
 
 # Memory
 write /proc/sys/vm/stat_interval 1
+write /sys/block/zram0/initstate 1
 write /proc/sys/vm/swappiness 100
 write /proc/sys/vm/dirty_ratio 100
+write /proc/sys/vm/page-cluster 100
 write /proc/sys/vm/dirty_background_ratio 100
 write /proc/sys/vm/overcommit_ratio 100
 write /proc/sys/vm/vfs_cache_pressure 100
@@ -559,6 +562,7 @@ write /proc/sys/vm/admin_reserve_kbytes 1000
 write /proc/sys/vm/dirty_expire_centisecs 10000
 write /proc/sys/vm/dirty_writeback_centisecs 10000
 write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0,0
+write /proc/sys/vm/drop_caches 0
 write /proc/sys/vm/laptop_mode 0
 write /proc/sys/vm/overcommit_free_kbytes 0
 write /proc/sys/vm/oom_kill_allocating_task 0
@@ -1046,15 +1050,6 @@ done
 
 for queue in /sys/*/*/queue
 do
-	write "$queue/iostats" 1
-	write "$queue/add_random" 1
-	write "$queue/rotational" 1
-	write "$queue/rq_affinity" 2
-	write "$queue/nomerges" 2
-done
-
-for queue in /sys/*/*/queue
-do
 	write "$queue/iosched/front_merges" 1
 	write "$queue/iosched/back_seek_penalty" 100
 	write "$queue/iosched/slice_async_rq" 100
@@ -1091,5 +1086,5 @@ do
 	write "$queue/iosched/group_idle_us" 0
 done
 
-# Return to completed regardless of any writes that either failed or succeed
+# Return to completed regardless of any writes that failed or succeed
 exit 0
