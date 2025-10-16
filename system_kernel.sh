@@ -946,19 +946,6 @@ write /sys/module/adreno_idler/parameters/adreno_idler_active Y
 write /sys/devices/platform/13040000.mali/power_policy always_on
 write /sys/class/kgsl/kgsl-3d0/power_policy always_on
 
-write /sys/module/cpu_boost/parameters/input_boost_freq 0:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 1:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 2:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 3:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 4:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 5:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 6:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 7:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 8:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 9:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 10:1000000
-write /sys/module/cpu_boost/parameters/input_boost_freq 11:1000000
-
 write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 1
 write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 2
 write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 3

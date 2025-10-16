@@ -50,7 +50,7 @@ settings put system intelligent_sleep_mode 0
 settings put global app_restriction_enabled false
 settings put global dynamic_power_savings_disable_threshold 10
 settings put global accessibility_reduce_transparency 0
-settings put global enhanced_processing 0
+settings put global enhanced_processing 1
 settings put global development_settings_enabled 0
 settings put global adb_enabled 0
 settings put global wifi_scan_always_enabled 0
