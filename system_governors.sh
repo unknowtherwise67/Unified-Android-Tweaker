@@ -75,7 +75,7 @@ done
 for queue in /sys/block/*/queue
 do
 	available_schedulers="$(cat "$queue/scheduler")"
-	for sched in mq-deadline kyber deadline fiops bfq cfq noop none
+	for sched in
 	do
 		if [[ "$available_schedulers" == *"$sched"* ]]
 		then
