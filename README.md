@@ -30,11 +30,11 @@
 - Don't install with any tweaks or mods relative root modules as it can cause conflicts.
 
 ## TROUBLESHOOTS - IF PROBLEMS OCCURED:
---- By modify and remove:
+### By modify and remove:
 - Remove Thermal Modification by unpack, remove "system" folder and repack and reinstall.
---- Hardware Buttons Methods:
+### Hardware Buttons Methods:
 - Turn off the device, keep holding power button until it bootup twice and all Root Module will be automatically removed by Root (Magisk, KernelSU, etc).
---- By ADB and Fastboot Commands:
+### By ADB and Fastboot Commands:
 1. Get the stock "boot.img" that right for your Android devices with it's Custom ROM OS.
 2. Reboot to Fastboot/Bootloader Mode and do "fastboot flash boot <the boot.img> to "Boot" partition, or use Recovery Mode that allow to install it.
 3. Reboot and to Setting, enable Developers Option, USB Debugging and Rooted Debugging.
