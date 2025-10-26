@@ -75,7 +75,7 @@ done
 for queue in /sys/block/*/queue
 do
 	available_schedulers="$(cat "$queue/scheduler")"
-	for sched in
+	for sched in mq-deadline deadline kyber bfq cfq noop none
 	do
 		if [[ "$available_schedulers" == *"$sched"* ]]
 		then
@@ -89,7 +89,7 @@ done
 for tcp in /proc/sys/net/*
 do
 	available_tcps="$(cat "$tcp/tcp_available_congestion_control")"
-	for tcp_ctrl in
+	for tcp_ctrl in bbr2 bbr westwood cubic reno bic
 	do
 		if [[ "$available_tcps" == *"$tcp_ctrl"* ]]
 		then
