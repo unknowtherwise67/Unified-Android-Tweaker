@@ -4,7 +4,7 @@
 - Feature:
 - Fine-tune Android System/User/Kernel Settings, Tunables and Parameters.
 - Configurable ZRAM Swap Virtual Memory - Improve system multitasking and prevent system memory crashes (Need ZRAM Swap Virtual Memory to be enabled and does not improve device hardware performance).
-- Modify Thermal System - Allow full performance capability while maintain device hardwares safety.
+- Modify Thermal System - Allow full performance capability while maintain device hardwares safety (System-Thermal-Mods).
 - Developed and designed for user-configurables.
 - Non-intrusive and systemless.
 - Open-Source complilance.
@@ -39,7 +39,7 @@
 2. Reboot to Fastboot/Bootloader Mode and do "fastboot flash boot <the boot.img> to "Boot" partition, or use Recovery Mode that allow to install it.
 3. Reboot and to Setting, enable Developers Option, USB Debugging and Rooted Debugging.
 4. Open and use Linux Terminal or any shell command with ADB capability.
-5. Type and enter "adb root" and "shell"
+5. Type and enter "adb root" and "adb shell"
 6. Type and enter "cd /data/adb"
 7. Type and enter "ls" (Not Is)
 8. Type and enter "rm -r <enter_the_module_folder_if_it's_there> to execute the removal of that designated folders, including items in it. (Be caution with this).

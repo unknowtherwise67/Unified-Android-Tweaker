@@ -59,6 +59,7 @@ write /proc/sys/kernel/sched_rt_runtime_us 1000000
 write /proc/sys/kernel/sched_coloc_busy_hyst_max_ms 1000
 write /proc/sys/kernel/sched_freq_aggregate_threshold 1000
 write /proc/sys/kernel/sched_many_wakeup_threshold 1000
+write /proc/sys/kernel/sched_stune_task_threshold 1000
 write /proc/sys/kernel/sched_util_clamp_max 1024
 write /proc/sys/kernel/sched_util_clamp_min 1024
 write /proc/sys/kernel/sched_util_clamp_min_rt_default 1024
@@ -68,13 +69,13 @@ write /proc/sys/kernel/sched_group_upmigrate 50
 write /proc/sys/kernel/sched_group_downmigrate 50
 write /proc/sys/kernel/sched_coloc_busy_hysteresis_enable_cpus 50
 write /proc/sys/kernel/sched_asym_cap_sibling_freq_match_pct 50
+write /proc/sys/kernel/sched_walt_init_task_load_pct 50
 write /proc/sys/kernel/sched_init_task_load 50
 write /proc/sys/kernel/sched_spill_load 50
 write /proc/sys/kernel/sched_min_task_util_for_colocation 50
 write /proc/sys/kernel/sched_min_task_util_for_boost 50
 write /proc/sys/kernel/sched_big_waker_task_load 50
 write /proc/sys/kernel/sched_small_wakee_task_load 50
-write /proc/sys/kernel/sched_walt_init_task_load_pct 50
 write /proc/sys/kernel/perf_cpu_time_max_percent 1
 write /proc/sys/kernel/sched_tunable_scaling 1
 write /proc/sys/kernel/sched_child_runs_first 1
@@ -90,6 +91,8 @@ write /proc/sys/kernel/sched_prefer_spread 1
 write /proc/sys/kernel/sched_dynamic_ravg_window_enable 1
 write /proc/sys/kernel/sched_conservative_pl 1
 write /proc/sys/kernel/sched_walt_rotate_big_tasks 1
+write /proc/sys/kernel/sched_big_task_rotation 1
+write /proc/sys/kernel/sched_isolation_hint 1
 write /proc/sys/kernel/sched_user_hint 1
 write /proc/sys/kernel/sched_sync_hint_enable 1
 write /proc/sys/kernel/sched_prefer_sync_wakee_to_waker 1
@@ -244,6 +247,23 @@ write /dev/stune/l-background/cpu.uclamp.latency_sensitive 1
 write /dev/stune/display/cpu.uclamp.latency_sensitive 1
 write /dev/stune/oiface_fg/cpu.uclamp.latency_sensitive 1
 write /dev/stune/sf/cpu.uclamp.latency_sensitive 1
+
+write /dev/stune/schedtune.capacity_min 0
+write /dev/stune/background/schedtune.capacity_min 0
+write /dev/stune/foreground/schedtune.capacity_min 0
+write /dev/stune/camera-daemon/schedtune.capacity_min 0
+write /dev/stune/system-background/schedtune.capacity_min 0
+write /dev/stune/nnapi-hal/schedtune.capacity_min 0
+write /dev/stune/application/schedtune.capacity_min 0
+write /dev/stune/kernel/schedtune.capacity_min 0
+write /dev/stune/restricted/schedtune.capacity_min 0
+write /dev/stune/top-app/schedtune.capacity_min 0
+write /dev/stune/audio-app/schedtune.capacity_min 0
+write /dev/stune/h-background/schedtune.capacity_min 0
+write /dev/stune/l-background/schedtune.capacity_min 0
+write /dev/stune/display/schedtune.capacity_min 0
+write /dev/stune/oiface_fg/schedtune.capacity_min 0
+write /dev/stune/sf/schedtune.capacity_min 0
 
 write /dev/stune/schedtune.sched_boost_no_override 0
 write /dev/stune/background/schedtune.sched_boost_no_override 0
@@ -1010,8 +1030,29 @@ write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 30
 
 for queue in /sys/*/*/queue
 do
+	write "$queue/read_ahead_kb" 4
+	write "$queue/read_ahead_kb" 6
+	write "$queue/read_ahead_kb" 8
+	write "$queue/read_ahead_kb" 16
+	write "$queue/read_ahead_kb" 32
+	write "$queue/read_ahead_kb" 64
 	write "$queue/read_ahead_kb" 128
+	write "$queue/read_ahead_kb" 256
+	write "$queue/read_ahead_kb" 512
+	write "$queue/read_ahead_kb" 1024
+	write "$queue/read_ahead_kb" 2048
+	write "$queue/read_ahead_kb" 4096
+	write "$queue/nr_requests" 4
+	write "$queue/nr_requests" 8
+	write "$queue/nr_requests" 16
+	write "$queue/nr_requests" 32
+	write "$queue/nr_requests" 64
 	write "$queue/nr_requests" 128
+	write "$queue/nr_requests" 256
+	write "$queue/nr_requests" 512
+	write "$queue/nr_requests" 1024
+	write "$queue/nr_requests" 2048
+	write "$queue/nr_requests" 4096
 done
 
 for queue in /sys/*/*/queue

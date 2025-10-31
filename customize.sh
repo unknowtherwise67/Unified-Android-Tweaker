@@ -8,23 +8,9 @@ ui_print "- Please wait and be patience until is completed."
 
 # Premission
 ui_print ""
-ui_print "- Installing files and setting up premission..."
+ui_print "- Preparing..."
 set_perm_recursive $MODPATH 0 0 0755 0644
-set_perm_recursive $MODPATH/system 0 0 0755 0644
-set_perm_recursive $MODPATH/system/bin 0 0 0755 0644
-set_perm_recursive $MODPATH/system/etc 0 0 0755 0644
-set_perm_recursive $MODPATH/system/odm 0 0 0755 0644
-set_perm_recursive $MODPATH/system/odm/etc 0 0 0755 0644
-set_perm_recursive $MODPATH/system/bin/modules 0 0 0755 0644
-set_perm_recursive $MODPATH/system/etc/thermal 0 0 0755 0644
-set_perm_recursive $MODPATH/system/vendor 0 0 0755 0644
-set_perm_recursive $MODPATH/system/vendor/bin 0 0 0755 0644
-set_perm_recursive $MODPATH/system/vendor/etc 0 0 0755 0644
-set_perm_recursive $MODPATH/system/vendor/odm 0 0 0755 0644
-set_perm_recursive $MODPATH/system/vendor/odm/etc 0 0 0755 0644
-set_perm_recursive $MODPATH/system/vendor/bin/modules 0 0 0755 0644
-set_perm_recursive $MODPATH/system/vendor/etc/thermal 0 0 0755 0644
-ui_print "- Installing files and setting up premission completed."
+ui_print "- Executing..."
 
 # Kernel Tweaks
 ui_print ""
@@ -104,7 +90,7 @@ else
 fi
 
 ui_print "- Scripts executions completed, Root Module is installed."
-ui_print "- Please REBOOT/RESTART the Device to take effects."
+ui_print "- Please REBOOT/RESTART the Device for effects."
 ui_print ""
 ui_print "- ADDITIONAL NOTES:"
 ui_print "- INSTALL AND USE THIS ROOT MODULE AT YOUR OWN RISKS."

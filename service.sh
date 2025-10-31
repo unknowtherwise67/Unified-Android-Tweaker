@@ -38,19 +38,7 @@ MODDIR=${0%/*}
 until [ "`getprop sys.boot_completed`" == 1 ]; do
   sleep 1
 done
-sleep 2
-sh $MODPATH/system_cpu_cores.sh
-
-until [ "`getprop sys.boot_completed`" == 1 ]; do
-  sleep 1
-done
-sleep 3
-sh $MODPATH/system_governors.sh
-
-until [ "`getprop sys.boot_completed`" == 1 ]; do
-  sleep 1
-done
-sleep 4
+sleep 120
 sh $MODPATH/system_settings.sh
 
 until [ "`getprop sys.boot_completed`" == 1 ]; do
@@ -64,7 +52,19 @@ fstrim -v /system
 until [ "`getprop sys.boot_completed`" == 1 ]; do
   sleep 1
 done
-sleep 60
+sleep 5
+sh $MODPATH/system_cpu_cores.sh
+
+until [ "`getprop sys.boot_completed`" == 1 ]; do
+  sleep 1
+done
+sleep 5
+sh $MODPATH/system_governors.sh
+
+until [ "`getprop sys.boot_completed`" == 1 ]; do
+  sleep 1
+done
+sleep 5
 sh $MODPATH/system_kernel.sh
 
 # ZRAM Swap Virtual Memory Functions
@@ -84,7 +84,7 @@ fi
 }
 lmk_config() {
 stop_log
-sleep 120
+sleep 5
 DEF=`device_config get lmkd_native swap_free_low_percentage`
 DEF2=`getprop persist.device_config.lmkd_native.swap_free_low_percentage`
 if [ "$DEF" != null ] || [ "$DEF2" ]; then
