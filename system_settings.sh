@@ -81,3 +81,6 @@ stop thermal
 setprop ctl.stop mpdecision;stop mpdecision
 write /sys/module/msm_thermal/core_control/enabled 0
 write /sys/module/msm_thermal/vdd_restriction/enabled 0
+write /sys/power/state mem
+write /sys/power/mem_sleep s2idle
+write /sys/power/wake_lock global_lock
