@@ -3,7 +3,7 @@
 - An Android All-In-One, Universal, Customized Mods and Tweaks Root Module. Install, Reboot and Forget.
 - Feature:
 - Fine-tune Android System/User/Kernel Settings, Tunables and Parameters.
-- Configurable ZRAM Swap Virtual Memory - Improve system multitasking and prevent system memory crashes (Need ZRAM Swap Virtual Memory to be enabled and does not improve device hardware performance).
+- Configurable ZRAM Swap Virtual Memory (Improve system performance and system multitaskings in some cases).
 - Modify Thermal System - Allow full performance capability while maintain device hardwares safety (System-Thermal-Mods).
 - Developed and designed for user-configurables.
 - Non-intrusive and systemless.
