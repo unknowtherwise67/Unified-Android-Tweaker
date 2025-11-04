@@ -9,6 +9,7 @@ write() {
 	# Skip unwritable value/parameters and write new value/parameters
 	if ! echo "$2" > "$1" 2> /dev/null
 	then
+		echo "Failed to Write: $1 → $2"
 		return 1
 	fi
 
@@ -570,7 +571,6 @@ write /dev/cpuset/audio-app/cpus 0-11
 write /proc/sys/vm/stat_interval 1
 write /sys/block/zram0/initstate 1
 write /proc/sys/vm/swappiness 100
-write /proc/sys/vm/page-cluster 100
 write /proc/sys/vm/vfs_cache_pressure 100
 write /proc/sys/vm/watermark_scale_factor 100
 write /proc/sys/vm/dirty_background_ratio 100
@@ -585,6 +585,7 @@ write /proc/sys/vm/dirty_writeback_centisecs 10000
 write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0,0
 write /proc/sys/vm/drop_caches 0
 write /proc/sys/vm/laptop_mode 0
+write /proc/sys/vm/page-cluster 0
 write /proc/sys/vm/watermark_boost_factor 0
 write /proc/sys/vm/overcommit_free_kbytes 0
 write /proc/sys/vm/oom_kill_allocating_task 0
@@ -779,6 +780,7 @@ write /proc/sys/net/ipv4/tcp_mtu_probing 1
 write /proc/sys/net/ipv4/tcp_tw_recycle 1
 write /proc/sys/net/ipv4/tcp_no_metrics_save 1
 write /proc/sys/net/ipv4/tcp_window_scaling 1
+write /proc/sys/net/ipv4/tcp_syncookies 1
 write /proc/sys/net/ipv4/tcp_fastopen 3
 write /proc/sys/net/ipv4/tcp_keepalive_probes 10
 write /proc/sys/net/ipv4/tcp_keepalive_intvl 10
@@ -794,7 +796,6 @@ write "${tcp_v4}udp_mem" "100000 300000 500000"
 write "${tcp_v4}tcp_rmem" "50000 700000 1000000"
 write "${tcp_v4}tcp_wmem" "50000 700000 1000000"
 write /proc/sys/net/ipv4/tcp_slow_start_after_idle 0
-write /proc/sys/net/ipv4/tcp_syncookies 0
 
 # CPU/GPU/IO
 for governor in /sys/*/system/cpu/*/cpufreq/*
