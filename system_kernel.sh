@@ -57,26 +57,26 @@ write /proc/sys/kernel/sched_time_avg 1000000
 write /proc/sys/kernel/sched_task_unfilter_period 1000000
 write /proc/sys/kernel/sched_rt_period_us 1000000
 write /proc/sys/kernel/sched_rt_runtime_us 1000000
-write /proc/sys/kernel/sched_coloc_busy_hyst_max_ms 1000
-write /proc/sys/kernel/sched_freq_aggregate_threshold 1000
-write /proc/sys/kernel/sched_many_wakeup_threshold 1000
-write /proc/sys/kernel/sched_stune_task_threshold 1000
+write /proc/sys/kernel/sched_group_upmigrate 1000000
+write /proc/sys/kernel/sched_group_downmigrate 1000000
+write /proc/sys/kernel/sched_upmigrate 1000000
+write /proc/sys/kernel/sched_downmigrate 1000000
+write /proc/sys/kernel/sched_coloc_busy_hyst_max_ms 1000000
+write /proc/sys/kernel/sched_freq_aggregate_threshold 1000000
+write /proc/sys/kernel/sched_many_wakeup_threshold 1000000
 write /proc/sys/kernel/sched_util_clamp_max 1024
 write /proc/sys/kernel/sched_util_clamp_min 1024
 write /proc/sys/kernel/sched_util_clamp_min_rt_default 1024
-write /proc/sys/kernel/sched_upmigrate 50
-write /proc/sys/kernel/sched_downmigrate 50
-write /proc/sys/kernel/sched_group_upmigrate 50
-write /proc/sys/kernel/sched_group_downmigrate 50
-write /proc/sys/kernel/sched_coloc_busy_hysteresis_enable_cpus 50
-write /proc/sys/kernel/sched_asym_cap_sibling_freq_match_pct 50
-write /proc/sys/kernel/sched_walt_init_task_load_pct 50
-write /proc/sys/kernel/sched_init_task_load 50
-write /proc/sys/kernel/sched_spill_load 50
-write /proc/sys/kernel/sched_min_task_util_for_colocation 50
-write /proc/sys/kernel/sched_min_task_util_for_boost 50
-write /proc/sys/kernel/sched_big_waker_task_load 50
-write /proc/sys/kernel/sched_small_wakee_task_load 50
+write /proc/sys/kernel/sched_coloc_busy_hysteresis_enable_cpus 1024
+write /proc/sys/kernel/sched_asym_cap_sibling_freq_match_pct 1024
+write /proc/sys/kernel/sched_walt_init_task_load_pct 1024
+write /proc/sys/kernel/sched_init_task_load 1024
+write /proc/sys/kernel/sched_spill_load 1024
+write /proc/sys/kernel/sched_min_task_util_for_colocation 1024
+write /proc/sys/kernel/sched_min_task_util_for_boost 1024
+write /proc/sys/kernel/sched_big_waker_task_load 1024
+write /proc/sys/kernel/sched_small_wakee_task_load 1024
+write /proc/sys/kernel/sched_stune_task_threshold 100
 write /proc/sys/kernel/perf_cpu_time_max_percent 1
 write /proc/sys/kernel/sched_tunable_scaling 1
 write /proc/sys/kernel/sched_child_runs_first 1
@@ -570,6 +570,7 @@ write /dev/cpuset/audio-app/cpus 0-11
 # Memory
 write /proc/sys/vm/stat_interval 1
 write /sys/block/zram0/initstate 1
+write /proc/sys/vm/page-cluster 100
 write /proc/sys/vm/swappiness 100
 write /proc/sys/vm/vfs_cache_pressure 100
 write /proc/sys/vm/watermark_scale_factor 100
@@ -585,7 +586,6 @@ write /proc/sys/vm/dirty_writeback_centisecs 10000
 write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0,0
 write /proc/sys/vm/drop_caches 0
 write /proc/sys/vm/laptop_mode 0
-write /proc/sys/vm/page-cluster 0
 write /proc/sys/vm/watermark_boost_factor 0
 write /proc/sys/vm/overcommit_free_kbytes 0
 write /proc/sys/vm/oom_kill_allocating_task 0
@@ -630,10 +630,10 @@ write /sys/module/system/cpu/sched_mc_power_savings 0
 write /sys/devices/platform/soc/1d84000.ufshc/clkscale_enable 0
 write /sys/devices/platform/soc/1d84000.ufshc/hibern8_on_idle_enable 0
 write /sys/devices/platform/soc/1d84000.ufshc/clkgate_enable 0
-write /sys/module/pm2/parameters/idle_sleep_mode Y
-write /sys/module/lpm_levels/parameters/lpm_prediction Y
-write /sys/module/lpm_levels/parameters/lpm_ipi_prediction Y
-write /sys/module/lpm_levels/parameters/sleep_disabled Y
+write /sys/module/pm2/parameters/idle_sleep_mode N
+write /sys/module/lpm_levels/parameters/lpm_prediction N
+write /sys/module/lpm_levels/parameters/lpm_ipi_prediction N
+write /sys/module/lpm_levels/parameters/sleep_disabled N
 write /sys/module/battery_saver/parameters/enabled N
 write /sys/module/workqueue/parameters/power_efficient N
 write /sys/module/mmc_core/parameters/removable N
@@ -641,20 +641,6 @@ write /sys/module/mmc_core/parameters/use_spi_crc N
 write /sys/module/mmc_core/parameters/crc N
 write /sys/module/exynos_acme/parameters/enable_suspend_freqs N
 write /proc/sys/kernel/printk_devkmsg off
-Modify CPUStune
-
-write /proc/perfmgr/tchbst/user/usrtch enable 1
-write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_enable 1
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_prefer_idle 1
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_boost 1
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_boost 1
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_boost 1
-write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_up_loading 10
-write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_down_loading 10
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_uclamp_min 1024
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_uclamp_min 1024
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_uclamp_min 1024
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_uclamp_min 1024
 
 write /sys/kernel/gbe/gbe_enable1 1
 write /sys/kernel/gbe/gbe_enable2 1
@@ -674,10 +660,6 @@ write /sys/module/ged/parameters/enable_game_self_frc_detect 1
 write /sys/module/ged/parameters/ged_boost_enable 1
 write /sys/module/ged/parameters/gpu_dvfs_enable 1
 write /sys/kernel/gbe/gbe2_max_boost_cnt 1
-write /sys/kernel/gbe/gbe2_loading_th 10
-write /sys/module/ged/parameters/gpu_idle 10
-write /sys/kernel/ged/hal/timer_base_dvfs_margin 15
-write /sys/kernel/ged/hal/dvfs_margin_value 15
 write /sys/module/ged/parameters/cpu_boost_policy 100
 write /sys/module/ged/parameters/ged_smart_boost 100
 write /sys/module/ged/parameters/gpu_debug_enable 0
@@ -687,6 +669,19 @@ write /sys/module/ged/parameters/ged_log_trace_enable 0
 write /sys/module/ged/parameters/ged_monitor_3D_fence_debug 0
 write /sys/module/ged/parameters/ged_monitor_3D_fence_disable 0
 write /sys/module/ged/parameters/ged_monitor_3D_fence_systrace 0
+
+write /proc/perfmgr/tchbst/user/usrtch enable 1
+write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_enable 1
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_prefer_idle 1
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_boost 1
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_boost 1
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_boost 1
+write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_up_loading 10
+write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_down_loading 10
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_uclamp_min 1024
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_uclamp_min 1024
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_uclamp_min 1024
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_uclamp_min 1024
 
 write /proc/ppm/enabled 1
 write /proc/ppm/policy_status 0 0
@@ -965,7 +960,7 @@ write /sys/class/kgsl/kgsl-3d0/bus_split 0
 write /sys/class/kgsl/kgsl-3d0/throttling 0
 write /sys/class/kgsl/kgsl-3d0/max_pwrlevel 0
 write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 0
-write /sys/module/adreno_idler/parameters/adreno_idler_active Y
+write /sys/module/adreno_idler/parameters/adreno_idler_active N
 write /sys/devices/platform/13040000.mali/power_policy always_on
 write /sys/class/kgsl/kgsl-3d0/power_policy always_on
 

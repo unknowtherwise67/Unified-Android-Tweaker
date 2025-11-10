@@ -31,14 +31,18 @@ perfmgr="/proc/perfmgr/"
 # Sync Data
 sync
 
+# System Blurs Effects
+wm disable-blur 0
+settings put global disable_window_blurs 0
+
+# System Screen Rotations
+settings put system accelerometer_rotation
+settings put system user_rotation
+
 # System Screen Refresh Rate
 settings put system peak_refresh_rate 0
 settings put system min_refresh_rate 0
 settings put system low_power_refresh_rate 0
-
-# System Blurs Effects
-wm disable-blur 0
-settings put global disable_window_blurs 0
 
 # System Animations
 settings put global window_animation_scale 1.00
@@ -78,10 +82,5 @@ settings put global settings_enable_monitor_phantom_procs disable
 # Others
 setprop persist.sys.fflag.override.settings_enable_monitor_phantom_procs disable
 dumpsys deviceidle disable
-stop thermal
-setprop ctl.stop mpdecision;stop mpdecision
 write /sys/module/msm_thermal/core_control/enabled 0
 write /sys/module/msm_thermal/vdd_restriction/enabled 0
-write /sys/power/state mem
-write /sys/power/mem_sleep s2idle
-write /sys/power/wake_lock global_lock
