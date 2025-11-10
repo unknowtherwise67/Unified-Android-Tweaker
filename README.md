@@ -9,8 +9,8 @@
 - Open-Source complilance.
 
 # System-Thermal-Mods
-- System Thermal Modification root module, force OS system to kernel-based thermal and power management system instead.
-- Note that it may not work on some device with Android Custom ROM, MEDIATEK or other similar platforms of devices/hardwares.
+- System Thermal Modification root module: force System to use OS Kernel-Based Thermal Managements System while maintain device hardware safety.
+- Note that it may not work on some devices, and those with Android Custom ROM, MEDIATEK or other similar platforms of devices/hardwares.
 
 ## REQUIREMENTS/COMPATIBILITY
 - Android 7 and/or Above.
@@ -59,8 +59,8 @@
 ## Credits
 - [tytydrago](https://github.com/tytydraco): KTweak.
 - [reiryuki](https://github.com/reiryuki): ZRAM Swap Configurator.
-- [topjohnwu](https://github.com/topjohnwu): Magisk ROOT, Zygisk, Module Plaform, SuperUser and MagiskBOOT.
-- [tiann](https://github.com/tiann): KernelSU ROOT.
+- [topjohnwu](https://github.com/topjohnwu): MagiskROOT, Zygisk, Root Module Platforms, SuperUser and MagiskBOOT.
+- [tiann](https://github.com/tiann): KernelSU ROOT and other features from Magisk.
 - [osm0sis](https://github.com/osm0sis): Installable ZIPs and other stuffs.
 - And to some unknows, Chinese guys or whoever it is for the "thermal-power" source codes and files.
 
