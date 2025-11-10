@@ -10,12 +10,10 @@
 
 # System-Thermal-Mods
 - System Thermal Modification root module: force System to use OS Kernel-Based Thermal Managements System while maintain device hardware safety.
-- Note that it may not work on some devices, and those with Android Custom ROM, MEDIATEK or other similar platforms of devices/hardwares.
 
 ## REQUIREMENTS/COMPATIBILITY
 - Android 7 and/or Above.
 - Linux Kernel 3 and/or Above.
-- Non-weak, capable midrange platforms (Qualcomm Snapdragon is recommended).
 - UNLOCKED BOOTLOADER and Installed ROOT (Magisk - Version 20 and Above, KernelSU, etc).
 - Zygisk or similar supports if its better (Optional).
 - Knowledges of technologies and experiences.
