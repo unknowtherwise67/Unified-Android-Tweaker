@@ -8,7 +8,7 @@
 - Non-intrusive and systemless.
 - Open-Source complilance.
 
-# System-Thermal-Modification
+# System-Thermal-Modifications
 - Force System to use OS Kernel-Based Thermal Managements System while maintain device hardware safety.
 
 ## REQUIREMENTS/COMPATIBILITY
@@ -17,7 +17,7 @@
 - UNLOCKED BOOTLOADER and Installed ROOT (Magisk - Version 20 and Above, KernelSU, etc).
 - Zygisk or similar supports if its better (Optional).
 - Knowledges of technologies and experiences.
-- Should work and only on any Android platforms/devices.
+- Should work and only on any Android platforms/devices (Emulators/Virtual may be possible but functionals is not guaranteed).
 
 ## DISCLAMERS
 - USE THE ROOT MODULE AT YOUR OWN RISKS.
