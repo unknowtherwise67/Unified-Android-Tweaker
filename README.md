@@ -8,8 +8,8 @@
 - Non-intrusive and systemless.
 - Open-Source complilance.
 
-# System-Thermal-Mods
-- System Thermal Modification root module: force System to use OS Kernel-Based Thermal Managements System while maintain device hardware safety.
+# System-Thermal-Modification
+- Force System to use OS Kernel-Based Thermal Managements System while maintain device hardware safety.
 
 ## REQUIREMENTS/COMPATIBILITY
 - Android 7 and/or Above.
