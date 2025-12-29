@@ -60,6 +60,6 @@
 - [topjohnwu](https://github.com/topjohnwu): MagiskROOT, Zygisk, Root Module Platforms, SuperUser and MagiskBOOT.
 - [tiann](https://github.com/tiann): KernelSU ROOT and other features from Magisk.
 - [osm0sis](https://github.com/osm0sis): Installable ZIPs and other stuffs.
-- And to some unknows, Chinese guys or whoever it is for the "thermal-power" source codes and files.
+- And to some unknows Chinese guys or whoever it is for the "thermal-power" source codes and files.
 
 - Since 8/30/2024
