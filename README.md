@@ -5,7 +5,7 @@
 - Fine-tune Android System/User/Kernel Settings, Tunables and Parameters.
 - Configurable ZRAM Swap Virtual Memory (Improve system performance and system multitaskings in some cases).
 - Developed and designed for user-configurables.
-- Non-intrusive and systemless.
+- Non-intrusive and systemless (Except system_settings).
 - Open-Source complilance.
 
 # System-Thermal-Modifications
@@ -24,7 +24,7 @@
 - DEVELOPERS ARE NOT TOOK RESPONSIBILITY FOR WHAT HAPPENED ONLY IF IS YOUR FAULTS.
 
 ## INSTALLATIONS
-1. Install in Magisk, KernelSU, etc.
+1. Install in any Root like Magisk, KernelSU, etc.
 2. Reboot.
 5. Have fun. :)
 
@@ -47,12 +47,11 @@
 9. Reboot to Fastboot/Bootloader or Recovery Mode and reflash the Root Tool then reboot and see the result.
 
 ## NOTES
-- If you want Root Module not to modify any user system settings except others, unpack the Root Module and delete "system_settings.sh". Then save it and repack it before installations.
-- I only accept reported issues with logcats files and other similar if is better, otherwise will be ignored and/or closed.
-- I will try to keep module up-to-date as possible and you can support if you want, but yet I'm doing all this just for free and I'm being paid for it.
-- I do not and never publish repositories and releases to any other websites such as Androidacy.
+- If you want the Root Module not to modify any user system settings except others, unpack the Root Module and delete "system_settings.sh". Then save it and repack it before installations.
+- I will try to keep module up-to-date as possible and you can support if you want.
+- I do not and never publish repositories and releases to any other websites, only one in GitHub is legit.
 - If you do like my work, buy me a coffee or donate and I'll thank you later. :D
-- You are free to fork the repository, but please MAKE SURE to add CREDITS or get rekt and don't forget to extract any archives that may necessary.
+- You are free to fork the repository, but please MAKE SURE to add CREDITS or get rekt and don't forget to extract any archives that may necessary if you going to do things.
 
 ## Credits
 - [tytydrago](https://github.com/tytydraco): KTweak.
