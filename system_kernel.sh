@@ -576,6 +576,7 @@ write /proc/sys/vm/min_free_kbytes 1000
 write /proc/sys/vm/extra_free_kbytes 1000
 write /proc/sys/vm/user_reserve_kbytes 1000
 write /proc/sys/vm/admin_reserve_kbytes 1000
+write /proc/sys/vm/overcommit_free_kbytes 1000
 write /proc/sys/vm/dirty_expire_centisecs 10000
 write /proc/sys/vm/dirty_writeback_centisecs 10000
 write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0,0
@@ -584,7 +585,6 @@ write /proc/sys/vm/laptop_mode 0
 write /proc/sys/vm/page-cluster 0
 write /proc/sys/vm/overcommit_memory 0
 write /proc/sys/vm/watermark_boost_factor 0
-write /proc/sys/vm/overcommit_free_kbytes 0
 write /proc/sys/vm/oom_kill_allocating_task 0
 write /sys/module/lowmemorykiller/parameters/oom_reaper 0
 write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
