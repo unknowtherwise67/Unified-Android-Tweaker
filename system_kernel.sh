@@ -9,12 +9,8 @@ write() {
 	# Skip unwritable value/parameters and write new value/parameters
 	if ! echo "$2" > "$1" 2> /dev/null
 	then
-		echo "Failed to Write: $1 → $2"
 		return 1
 	fi
-
-	# Log the success
-	echo "$1 → $2"
 }
 
 # Variables
@@ -570,9 +566,8 @@ write /dev/cpuset/audio-app/cpus 0-11
 # Memory
 write /proc/sys/vm/stat_interval 1
 write /sys/block/zram0/initstate 1
-write /proc/sys/vm/page-cluster 100
+write /proc/sys/vm/vfs_cache_pressure 1
 write /proc/sys/vm/swappiness 100
-write /proc/sys/vm/vfs_cache_pressure 100
 write /proc/sys/vm/watermark_scale_factor 100
 write /proc/sys/vm/dirty_background_ratio 100
 write /proc/sys/vm/dirty_ratio 100
@@ -586,6 +581,8 @@ write /proc/sys/vm/dirty_writeback_centisecs 10000
 write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0,0
 write /proc/sys/vm/drop_caches 0
 write /proc/sys/vm/laptop_mode 0
+write /proc/sys/vm/page-cluster 0
+write /proc/sys/vm/overcommit_memory 0
 write /proc/sys/vm/watermark_boost_factor 0
 write /proc/sys/vm/overcommit_free_kbytes 0
 write /proc/sys/vm/oom_kill_allocating_task 0
@@ -958,7 +955,9 @@ write /sys/module/adreno_idler/parameters/adreno_idler_idleworkload 10000
 write /sys/class/simple_gpu_algorithm/parameters/simple_ramp_threshold 10000
 write /sys/class/kgsl/kgsl-3d0/bus_split 0
 write /sys/class/kgsl/kgsl-3d0/throttling 0
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 0
 write /sys/class/kgsl/kgsl-3d0/max_pwrlevel 0
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 0
 write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 0
 write /sys/module/adreno_idler/parameters/adreno_idler_active N
 write /sys/devices/platform/13040000.mali/power_policy always_on
@@ -1029,8 +1028,38 @@ write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 30
 for queue in /sys/*/*/queue
 do
 	write "$queue/iostats" 1
-	write "$queue/read_ahead_kb" 128
+	write "$queue/add_random" 1
+	write "$queue/rq_affinity" 2
+	write "$queue/nomerges" 2
+	write "$queue/rotational" 0
+done
+
+for queue in /sys/*/*/queue
+do
+	write "$queue/nr_requests" 4
+	write "$queue/nr_requests" 6
+	write "$queue/nr_requests" 8
+	write "$queue/nr_requests" 16
+	write "$queue/nr_requests" 32
+	write "$queue/nr_requests" 64
 	write "$queue/nr_requests" 128
+	write "$queue/nr_requests" 256
+	write "$queue/nr_requests" 512
+	write "$queue/nr_requests" 1024
+	write "$queue/nr_requests" 2048
+	write "$queue/nr_requests" 4096
+	write "$queue/read_ahead_kb" 4
+	write "$queue/read_ahead_kb" 6
+	write "$queue/read_ahead_kb" 8
+	write "$queue/read_ahead_kb" 16
+	write "$queue/read_ahead_kb" 32
+	write "$queue/read_ahead_kb" 64
+	write "$queue/read_ahead_kb" 128
+	write "$queue/read_ahead_kb" 256
+	write "$queue/read_ahead_kb" 512
+	write "$queue/read_ahead_kb" 1024
+	write "$queue/read_ahead_kb" 2048
+	write "$queue/read_ahead_kb" 4096
 done
 
 for queue in /sys/*/*/queue

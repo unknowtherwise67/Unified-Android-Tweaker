@@ -9,12 +9,8 @@ write() {
 	# Skip unwritable value/parameters and write new value/parameters
 	if ! echo "$2" > "$1" 2> /dev/null
 	then
-		echo "Failed to Write: $1 → $2"
 		return 1
 	fi
-
-	# Log the success
-	echo "$1 → $2"
 }
 
 # Variables
