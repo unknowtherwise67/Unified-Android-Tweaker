@@ -567,11 +567,10 @@ write /dev/cpuset/audio-app/cpus 0-11
 write /proc/sys/vm/stat_interval 1
 write /sys/block/zram0/initstate 1
 write /proc/sys/vm/vfs_cache_pressure 1
+write /proc/sys/vm/watermark_scale_factor 1
 write /proc/sys/vm/swappiness 100
-write /proc/sys/vm/watermark_scale_factor 100
 write /proc/sys/vm/dirty_background_ratio 100
 write /proc/sys/vm/dirty_ratio 100
-write /proc/sys/vm/overcommit_ratio 100
 write /proc/sys/vm/min_free_kbytes 1000
 write /proc/sys/vm/extra_free_kbytes 1000
 write /proc/sys/vm/user_reserve_kbytes 1000
@@ -583,6 +582,7 @@ write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0,0
 write /proc/sys/vm/drop_caches 0
 write /proc/sys/vm/laptop_mode 0
 write /proc/sys/vm/page-cluster 0
+write /proc/sys/vm/overcommit_ratio 0
 write /proc/sys/vm/overcommit_memory 0
 write /proc/sys/vm/watermark_boost_factor 0
 write /proc/sys/vm/oom_kill_allocating_task 0
