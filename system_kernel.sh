@@ -153,7 +153,8 @@ write /dev/stune/h-background/schedtune.boost 10
 write /dev/stune/l-background/schedtune.boost 10
 write /dev/stune/display/schedtune.boost 10
 write /dev/stune/oiface_fg/schedtune.boost 10
-write /dev/stune/sf/schedtune.boost 10
+write /dev/stune/dex2oat/schedtune.boost 10
+write /dev/stune/foreground_window/schedtune.boost 10
 
 write /dev/stune/schedtune.colocate 1
 write /dev/stune/background/schedtune.colocate 1
@@ -172,6 +173,8 @@ write /dev/stune/l-background/schedtune.colocate 1
 write /dev/stune/display/schedtune.colocate 1
 write /dev/stune/oiface_fg/schedtune.colocate 1
 write /dev/stune/sf/schedtune.colocate 1
+write /dev/stune/dex2oat/schedtune.colocate 1
+write /dev/stune/foreground_window/schedtune.colocate 1
 
 write /dev/stune/schedtune.sched_boost_enabled 1
 write /dev/stune/background/schedtune.sched_boost_enabled 1
@@ -190,6 +193,8 @@ write /dev/stune/l-background/schedtune.sched_boost_enabled 1
 write /dev/stune/display/schedtune.sched_boost_enabled 1
 write /dev/stune/oiface_fg/schedtune.sched_boost_enabled 1
 write /dev/stune/sf/schedtune.sched_boost_enabled 1
+write /dev/stune/dex2oat/schedtune.sched_boost_enabled 1
+write /dev/stune/foreground_window/schedtune.sched_boost_enabled 1
 
 write /dev/stune/schedtune.prefer_high_cap 1
 write /dev/stune/background/schedtune.prefer_high_cap 1
@@ -208,6 +213,8 @@ write /dev/stune/l-background/schedtune.prefer_high_cap 1
 write /dev/stune/display/schedtune.prefer_high_cap 1
 write /dev/stune/oiface_fg/schedtune.prefer_high_cap 1
 write /dev/stune/sf/schedtune.prefer_high_cap 1
+write /dev/stune/dex2oat/schedtune.prefer_high_cap 1
+write /dev/stune/foreground_window/schedtune.prefer_high_cap 1
 
 write /dev/stune/schedtune.prefer_idle 1
 write /dev/stune/background/schedtune.prefer_idle 1
@@ -226,6 +233,8 @@ write /dev/stune/l-background/schedtune.prefer_idle 1
 write /dev/stune/display/schedtune.prefer_idle 1
 write /dev/stune/oiface_fg/schedtune.prefer_idle 1
 write /dev/stune/sf/schedtune.prefer_idle 1
+write /dev/stune/dex2oat/schedtune.prefer_idle 1
+write /dev/stune/foreground_window/schedtune.prefer_idle 1
 
 write /dev/cpuctl/cpu.uclamp.latency_sensitive 1
 write /dev/cpuctl/background/cpu.uclamp.latency_sensitive 1
@@ -244,6 +253,8 @@ write /dev/cpuctl/l-background/cpu.uclamp.latency_sensitive 1
 write /dev/cpuctl/display/cpu.uclamp.latency_sensitive 1
 write /dev/cpuctl/oiface_fg/cpu.uclamp.latency_sensitive 1
 write /dev/cpuctl/sf/cpu.uclamp.latency_sensitive 1
+write /dev/stune/dex2oat/cpu.uclamp.latency_sensitive 1
+write /dev/stune/foreground_window/cpu.uclamp.latency_sensitive 1
 
 write /dev/stune/cpu.uclamp.latency_sensitive 1
 write /dev/stune/background/cpu.uclamp.latency_sensitive 1
@@ -262,23 +273,8 @@ write /dev/stune/l-background/cpu.uclamp.latency_sensitive 1
 write /dev/stune/display/cpu.uclamp.latency_sensitive 1
 write /dev/stune/oiface_fg/cpu.uclamp.latency_sensitive 1
 write /dev/stune/sf/cpu.uclamp.latency_sensitive 1
-
-write /dev/stune/schedtune.capacity_min 0
-write /dev/stune/background/schedtune.capacity_min 0
-write /dev/stune/foreground/schedtune.capacity_min 0
-write /dev/stune/camera-daemon/schedtune.capacity_min 0
-write /dev/stune/system-background/schedtune.capacity_min 0
-write /dev/stune/nnapi-hal/schedtune.capacity_min 0
-write /dev/stune/application/schedtune.capacity_min 0
-write /dev/stune/kernel/schedtune.capacity_min 0
-write /dev/stune/restricted/schedtune.capacity_min 0
-write /dev/stune/top-app/schedtune.capacity_min 0
-write /dev/stune/audio-app/schedtune.capacity_min 0
-write /dev/stune/h-background/schedtune.capacity_min 0
-write /dev/stune/l-background/schedtune.capacity_min 0
-write /dev/stune/display/schedtune.capacity_min 0
-write /dev/stune/oiface_fg/schedtune.capacity_min 0
-write /dev/stune/sf/schedtune.capacity_min 0
+write /dev/stune/dex2oat/cpu.uclamp.latency_sensitive 1
+write /dev/stune/foreground_window/cpu.uclamp.latency_sensitive 1
 
 write /dev/stune/schedtune.sched_boost_no_override 0
 write /dev/stune/background/schedtune.sched_boost_no_override 0
@@ -296,6 +292,27 @@ write /dev/stune/l-background/schedtune.sched_boost_no_override 0
 write /dev/stune/display/schedtune.sched_boost_no_override 0
 write /dev/stune/oiface_fg/schedtune.sched_boost_no_override 0
 write /dev/stune/sf/schedtune.sched_boost_no_override 0
+write /dev/stune/dex2oat/schedtune.sched_boost_no_override 0
+write /dev/stune/foreground_window/schedtune.sched_boost_no_override 0
+
+write /dev/stune/schedtune.cpucapacity_min max
+write /dev/stune/background/schedtune.cpucapacity_min max
+write /dev/stune/foreground/schedtune.cpucapacity_min max
+write /dev/stune/camera-daemon/schedtune.cpucapacity_min max
+write /dev/stune/system-background/schedtune.cpucapacity_min max
+write /dev/stune/nnapi-hal/schedtune.cpucapacity_min max
+write /dev/stune/application/schedtune.cpucapacity_min max
+write /dev/stune/kernel/schedtune.cpucapacity_min max
+write /dev/stune/restricted/schedtune.cpucapacity_min max
+write /dev/stune/top-app/schedtune.cpucapacity_min max
+write /dev/stune/audio-app/schedtune.cpucapacity_min max
+write /dev/stune/h-background/schedtune.cpucapacity_min max
+write /dev/stune/l-background/schedtune.cpucapacity_min max
+write /dev/stune/display/schedtune.cpucapacity_min max
+write /dev/stune/oiface_fg/schedtune.cpucapacity_min max
+write /dev/stune/sf/schedtune.cpucapacity_min max
+write /dev/stune/dex2oat/schedtune.cpucapacity_min max
+write /dev/stune/foreground_window/schedtune.cpucapacity_min max
 
 write /dev/stune/background/schedtune.uclamp.max max
 write /dev/stune/foreground/schedtune.uclamp.max max
@@ -313,57 +330,164 @@ write /dev/stune/l-background/schedtune.uclamp.max max
 write /dev/stune/display/schedtune.uclamp.max max
 write /dev/stune/oiface_fg/schedtune.uclamp.max max
 write /dev/stune/sf/schedtune.uclamp.max max
+write /dev/stune/dex2oat/schedtune.uclamp.max max
+write /dev/stune/foreground_window/schedtune.uclamp.max max
 
-write /dev/stune/background/schedtune.uclamp.max.effective 1024
-write /dev/stune/foreground/schedtune.uclamp.max.effective 1024
-write /dev/stune/camera-daemon/schedtune.uclamp.max.effective 1024
-write /dev/stune/system-background/schedtune.uclamp.max.effective 1024
-write /dev/stune/nnapi-hal/schedtune.uclamp.max.effective 1024
-write /dev/stune/rt/schedtune.uclamp.max.effective 1024
-write /dev/stune/application/schedtune.uclamp.max.effective 1024
-write /dev/stune/kernel/schedtune.uclamp.max.effective 1024
-write /dev/stune/restricted/schedtune.uclamp.max.effective 1024
-write /dev/stune/top-app/schedtune.uclamp.max max.effective 1024
-write /dev/stune/audio-app/schedtune.uclamp.max.effective 1024
-write /dev/stune/h-background/schedtune.uclamp.max.effective 1024
-write /dev/stune/l-background/schedtune.uclamp.max.effective 1024
-write /dev/stune/display/schedtune.uclamp.max.effective 1024
-write /dev/stune/oiface_fg/schedtune.uclamp.max.effective 1024
-write /dev/stune/sf/schedtune.uclamp.max.effective 1024
+write /dev/stune/background/schedtune.uclamp.max.effective max
+write /dev/stune/foreground/schedtune.uclamp.max.effective max
+write /dev/stune/camera-daemon/schedtune.uclamp.max.effective max
+write /dev/stune/system-background/schedtune.uclamp.max.effective max
+write /dev/stune/nnapi-hal/schedtune.uclamp.max.effective max
+write /dev/stune/rt/schedtune.uclamp.max.effective max
+write /dev/stune/application/schedtune.uclamp.max.effective max
+write /dev/stune/kernel/schedtune.uclamp.max.effective max
+write /dev/stune/restricted/schedtune.uclamp.max.effective max
+write /dev/stune/top-app/schedtune.uclamp.max max.effective max
+write /dev/stune/audio-app/schedtune.uclamp.max.effective max
+write /dev/stune/h-background/schedtune.uclamp.max.effective max
+write /dev/stune/l-background/schedtune.uclamp.max.effective max
+write /dev/stune/display/schedtune.uclamp.max.effective max
+write /dev/stune/oiface_fg/schedtune.uclamp.max.effective max
+write /dev/stune/sf/schedtune.uclamp.max.effective max
+write /dev/stune/dex2oat/schedtune.uclamp.max.effective max
+write /dev/stune/foreground_window/schedtune.uclamp.max.effective max
 
-write /dev/stune/background/schedtune.uclamp.min 1024
-write /dev/stune/foreground/schedtune.uclamp.min 1024
-write /dev/stune/camera-daemon/schedtune.uclamp.min 1024
-write /dev/stune/system-background/schedtune.uclamp.min 1024
-write /dev/stune/nnapi-hal/schedtune.uclamp.min 1024
-write /dev/stune/rt/schedtune.uclamp.min 1024
-write /dev/stune/application/schedtune.uclamp.min 1024
-write /dev/stune/kernel/schedtune.uclamp.min 1024
-write /dev/stune/restricted/schedtune.uclamp.min 1024
-write /dev/stune/top-app/schedtune.uclamp.min 1024
-write /dev/stune/audio-app/schedtune.uclamp.min 1024
-write /dev/stune/h-background/schedtune.uclamp.min 1024
-write /dev/stune/l-background/schedtune.uclamp.min 1024
-write /dev/stune/display/schedtune.uclamp.min 1024
-write /dev/stune/oiface_fg/schedtune.uclamp.min 1024
-write /dev/stune/sf/schedtune.uclamp.min 1024
+write /dev/stune/background/schedtune.uclamp.min max
+write /dev/stune/foreground/schedtune.uclamp.min max
+write /dev/stune/camera-daemon/schedtune.uclamp.min max
+write /dev/stune/system-background/schedtune.uclamp.min max
+write /dev/stune/nnapi-hal/schedtune.uclamp.min max
+write /dev/stune/rt/schedtune.uclamp.min max
+write /dev/stune/application/schedtune.uclamp.min max
+write /dev/stune/kernel/schedtune.uclamp.min max
+write /dev/stune/restricted/schedtune.uclamp.min max
+write /dev/stune/top-app/schedtune.uclamp.min max
+write /dev/stune/audio-app/schedtune.uclamp.min max
+write /dev/stune/h-background/schedtune.uclamp.min max
+write /dev/stune/l-background/schedtune.uclamp.min max
+write /dev/stune/display/schedtune.uclamp.min max
+write /dev/stune/oiface_fg/schedtune.uclamp.min max
+write /dev/stune/sf/schedtune.uclamp.min max
+write /dev/stune/dex2oat/schedtune.uclamp.min max
+write /dev/stune/foreground_window/schedtune.uclamp.min max
 
-write /dev/stune/background/schedtune.uclamp.min.effective 1024
-write /dev/stune/foreground/schedtune.uclamp.min.effective 1024
-write /dev/stune/camera-daemon/schedtune.uclamp.min.effective 1024
-write /dev/stune/system-background/schedtune.uclamp.min.effective 1024
-write /dev/stune/nnapi-hal/schedtune.uclamp.min.effective 1024
-write /dev/stune/rt/schedtune.uclamp.min.effective 1024
-write /dev/stune/application/schedtune.uclamp.min.effective 1024
-write /dev/stune/kernel/schedtune.uclamp.min.effective 1024
-write /dev/stune/restricted/schedtune.uclamp.min.effective 1024
-write /dev/stune/top-app/schedtune.uclamp.min.effective 1024
-write /dev/stune/audio-app/schedtune.uclamp.min.effective 1024
-write /dev/stune/h-background/schedtune.uclamp.min.effective 1024
-write /dev/stune/l-background/schedtune.uclamp.min.effective 1024
-write /dev/stune/display/schedtune.uclamp.min.effective 1024
-write /dev/stune/oiface_fg/schedtune.uclamp.min.effective 1024
-write /dev/stune/sf/schedtune.uclamp.min.effective 1024
+write /dev/stune/background/schedtune.uclamp.min.effective max
+write /dev/stune/foreground/schedtune.uclamp.min.effective max
+write /dev/stune/camera-daemon/schedtune.uclamp.min.effective max
+write /dev/stune/system-background/schedtune.uclamp.min.effective max
+write /dev/stune/nnapi-hal/schedtune.uclamp.min.effective max
+write /dev/stune/rt/schedtune.uclamp.min.effective max
+write /dev/stune/application/schedtune.uclamp.min.effective max
+write /dev/stune/kernel/schedtune.uclamp.min.effective max
+write /dev/stune/restricted/schedtune.uclamp.min.effective max
+write /dev/stune/top-app/schedtune.uclamp.min.effective max
+write /dev/stune/audio-app/schedtune.uclamp.min.effective max
+write /dev/stune/h-background/schedtune.uclamp.min.effective max
+write /dev/stune/l-background/schedtune.uclamp.min.effective max
+write /dev/stune/display/schedtune.uclamp.min.effective max
+write /dev/stune/oiface_fg/schedtune.uclamp.min.effective max
+write /dev/stune/sf/schedtune.uclamp.min.effective max
+write /dev/stune/dex2oat/schedtune.uclamp.min.effective max
+write /dev/stune/foreground_window/schedtune.uclamp.min.effective max
+
+write /dev/cpuctl/cpu.cpucapacity_min max
+write /dev/cpuctl/background/cpu.cpucapacity_min max
+write /dev/cpuctl/foreground/cpu.cpucapacity_min max
+write /dev/cpuctl/camera-daemon/cpu.cpucapacity_min max
+write /dev/cpuctl/system-background/cpu.cpucapacity_min max
+write /dev/cpuctl/nnapi-hal/cpu.cpucapacity_min max
+write /dev/cpuctl/application/cpu.cpucapacity_min max
+write /dev/cpuctl/kernel/cpu.cpucapacity_min max
+write /dev/cpuctl/restricted/cpu.cpucapacity_min max
+write /dev/cpuctl/top-app/cpu.cpucapacity_min max
+write /dev/cpuctl/audio-app/cpu.cpucapacity_min max
+write /dev/cpuctl/h-background/cpu.cpucapacity_min max
+write /dev/cpuctl/l-background/cpu.cpucapacity_min max
+write /dev/cpuctl/display/cpu.cpucapacity_min max
+write /dev/cpuctl/oiface_fg/cpu.cpucapacity_min max
+write /dev/cpuctl/sf/cpu.cpucapacity_min max
+write /dev/cpuctl/dex2oat/cpu.cpucapacity_min max
+write /dev/cpuctl/foreground_window/cpu.cpucapacity_min max
+
+write /dev/cpuctl/background/cpu.uclamp.max max
+write /dev/cpuctl/foreground/cpu.uclamp.max max
+write /dev/cpuctl/camera-daemon/cpu.uclamp.max max
+write /dev/cpuctl/system-background/cpu.uclamp.max max
+write /dev/cpuctl/nnapi-hal/cpu.uclamp.max max
+write /dev/cpuctl/rt/cpu.uclamp.max max
+write /dev/cpuctl/application/cpu.uclamp.max max
+write /dev/cpuctl/kernel/cpu.uclamp.max max
+write /dev/cpuctl/restricted/cpu.uclamp.max max
+write /dev/cpuctl/top-app/cpu.uclamp.max max
+write /dev/cpuctl/audio-app/cpu.uclamp.max max
+write /dev/cpuctl/h-background/cpu.uclamp.max max
+write /dev/cpuctl/l-background/cpu.uclamp.max max
+write /dev/cpuctl/display/cpu.uclamp.max max
+write /dev/cpuctl/oiface_fg/cpu.uclamp.max max
+write /dev/cpuctl/sf/cpu.uclamp.max max
+write /dev/cpuctl/dex2oat/cpu.uclamp.max max
+write /dev/cpuctl/foreground_window/cpu.uclamp.max max
+
+write /dev/cpuctl/background/cpu.uclamp.max.effective max
+write /dev/cpuctl/foreground/cpu.uclamp.max.effective max
+write /dev/cpuctl/camera-daemon/cpu.uclamp.max.effective max
+write /dev/cpuctl/system-background/cpu.uclamp.max.effective max
+write /dev/cpuctl/nnapi-hal/cpu.uclamp.max.effective max
+write /dev/cpuctl/rt/cpu.uclamp.max.effective max
+write /dev/cpuctl/application/cpu.uclamp.max.effective max
+write /dev/cpuctl/kernel/cpu.uclamp.max.effective max
+write /dev/cpuctl/restricted/cpu.uclamp.max.effective max
+write /dev/cpuctl/top-app/cpu.uclamp.max max.effective max
+write /dev/cpuctl/audio-app/cpu.uclamp.max.effective max
+write /dev/cpuctl/h-background/cpu.uclamp.max.effective max
+write /dev/cpuctl/l-background/cpu.uclamp.max.effective max
+write /dev/cpuctl/display/cpu.uclamp.max.effective max
+write /dev/cpuctl/oiface_fg/cpu.uclamp.max.effective max
+write /dev/cpuctl/sf/cpu.uclamp.max.effective max
+write /dev/cpuctl/dex2oat/cpu.uclamp.max.effective max
+write /dev/cpuctl/foreground_window/cpu.uclamp.max.effective max
+
+write /dev/cpuctl/background/cpu.uclamp.min max
+write /dev/cpuctl/foreground/cpu.uclamp.min max
+write /dev/cpuctl/camera-daemon/cpu.uclamp.min max
+write /dev/cpuctl/system-background/cpu.uclamp.min max
+write /dev/cpuctl/nnapi-hal/cpu.uclamp.min max
+write /dev/cpuctl/rt/cpu.uclamp.min max
+write /dev/cpuctl/application/cpu.uclamp.min max
+write /dev/cpuctl/kernel/cpu.uclamp.min max
+write /dev/cpuctl/restricted/cpu.uclamp.min max
+write /dev/cpuctl/top-app/cpu.uclamp.min max
+write /dev/cpuctl/audio-app/cpu.uclamp.min max
+write /dev/cpuctl/h-background/cpu.uclamp.min max
+write /dev/cpuctl/l-background/cpu.uclamp.min max
+write /dev/cpuctl/display/cpu.uclamp.min max
+write /dev/cpuctl/oiface_fg/cpu.uclamp.min max
+write /dev/cpuctl/sf/cpu.uclamp.min max
+write /dev/cpuctl/dex2oat/cpu.uclamp.min max
+write /dev/cpuctl/foreground_window/cpu.uclamp.min max
+
+write /dev/cpuctl/background/cpu.uclamp.min.effective max
+write /dev/cpuctl/foreground/cpu.uclamp.min.effective max
+write /dev/cpuctl/camera-daemon/cpu.uclamp.min.effective max
+write /dev/cpuctl/system-background/cpu.uclamp.min.effective max
+write /dev/cpuctl/nnapi-hal/cpu.uclamp.min.effective max
+write /dev/cpuctl/rt/cpu.uclamp.min.effective max
+write /dev/cpuctl/application/cpu.uclamp.min.effective max
+write /dev/cpuctl/kernel/cpu.uclamp.min.effective max
+write /dev/cpuctl/restricted/cpu.uclamp.min.effective max
+write /dev/cpuctl/top-app/cpu.uclamp.min.effective max
+write /dev/cpuctl/audio-app/cpu.uclamp.min.effective max
+write /dev/cpuctl/h-background/cpu.uclamp.min.effective max
+write /dev/cpuctl/l-background/cpu.uclamp.min.effective max
+write /dev/cpuctl/display/cpu.uclamp.min.effective max
+write /dev/cpuctl/oiface_fg/cpu.uclamp.min.effective max
+write /dev/cpuctl/sf/cpu.uclamp.min.effective max
+write /dev/cpuctl/dex2oat/cpu.uclamp.min.effective max
+write /dev/cpuctl/foreground_window/cpu.uclamp.min.effective max
+
+write /proc/sys/kernel/sched_util_clamp_min 1024
+write /proc/sys/kernel/sched_util_clamp_max 1024
+write /proc/sys/kernel/sched_util_clamp_min_rt_default 1024
 
 write /dev/cpuset/cpus 0-1
 write /dev/cpuset/cpus 0-2
@@ -580,6 +704,30 @@ write /dev/cpuset/audio-app/cpus 0-8
 write /dev/cpuset/audio-app/cpus 0-9
 write /dev/cpuset/audio-app/cpus 0-10
 write /dev/cpuset/audio-app/cpus 0-11
+
+write /dev/cpuset/dex2oat/cpus 0-1
+write /dev/cpuset/dex2oat/cpus 0-2
+write /dev/cpuset/dex2oat/cpus 0-3
+write /dev/cpuset/dex2oat/cpus 0-4
+write /dev/cpuset/dex2oat/cpus 0-5
+write /dev/cpuset/dex2oat/cpus 0-6
+write /dev/cpuset/dex2oat/cpus 0-7
+write /dev/cpuset/dex2oat/cpus 0-8
+write /dev/cpuset/dex2oat/cpus 0-9
+write /dev/cpuset/dex2oat/cpus 0-10
+write /dev/cpuset/dex2oat/cpus 0-11
+
+write /dev/cpuset/foreground_window/cpus 0-1
+write /dev/cpuset/foreground_window/cpus 0-2
+write /dev/cpuset/foreground_window/cpus 0-3
+write /dev/cpuset/foreground_window/cpus 0-4
+write /dev/cpuset/foreground_window/cpus 0-5
+write /dev/cpuset/foreground_window/cpus 0-6
+write /dev/cpuset/foreground_window/cpus 0-7
+write /dev/cpuset/foreground_window/cpus 0-8
+write /dev/cpuset/foreground_window/cpus 0-9
+write /dev/cpuset/foreground_window/cpus 0-10
+write /dev/cpuset/foreground_window/cpus 0-11
 
 # Memory
 write /proc/sys/vm/stat_interval 1
