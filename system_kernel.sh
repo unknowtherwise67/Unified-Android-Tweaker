@@ -28,14 +28,14 @@ perfmgr="/proc/perfmgr/"
 sync
 
 # Schedulers
-write /proc/sys/kernel/sched_latency_ns 1000000
-write /proc/sys/kernel/sched_migration_cost_ns 1000000
-write /proc/sys/kernel/sched_min_granularity_ns 1000000
-write /proc/sys/kernel/sched_wakeup_granularity_ns 1000000
-write /proc/sys/kernel/sched_coloc_busy_hyst_ns 1000000
-write /proc/sys/kernel/sched_short_burst_ns 1000000
-write /proc/sys/kernel/sched_short_sleep_ns 1000000
-write /proc/sys/kernel/sched_shares_window_ns 1000000
+write /proc/sys/kernel/sched_latency_ns 1000000000
+write /proc/sys/kernel/sched_migration_cost_ns 1000000000
+write /proc/sys/kernel/sched_min_granularity_ns 1000000000
+write /proc/sys/kernel/sched_wakeup_granularity_ns 1000000000
+write /proc/sys/kernel/sched_coloc_busy_hyst_ns 1000000000
+write /proc/sys/kernel/sched_short_burst_ns 1000000000
+write /proc/sys/kernel/sched_short_sleep_ns 1000000000
+write /proc/sys/kernel/sched_shares_window_ns 1000000000
 write /proc/sys/kernel/sched_nr_migrate 1000000
 write /proc/sys/kernel/sched_r r_timeslice_us 1000000
 write /proc/sys/kernel/sched_deadline_period_max_us 1000000
@@ -226,6 +226,24 @@ write /dev/stune/l-background/schedtune.prefer_idle 1
 write /dev/stune/display/schedtune.prefer_idle 1
 write /dev/stune/oiface_fg/schedtune.prefer_idle 1
 write /dev/stune/sf/schedtune.prefer_idle 1
+
+write /dev/cpuctl/cpu.uclamp.latency_sensitive 1
+write /dev/cpuctl/background/cpu.uclamp.latency_sensitive 1
+write /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive 1
+write /dev/cpuctl/rt/cpu.uclamp.latency_sensitive 1
+write /dev/cpuctl/application/cpu.uclamp.latency_sensitive 1
+write /dev/cpuctl/kernel/cpu.uclamp.latency_sensitive 1
+write /dev/cpuctl/restricted/cpu.uclamp.latency_sensitive 1
+write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 1
+write /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive 1
+write /dev/cpuctl/system-background/cpu.uclamp.latency_sensitive 1
+write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 1
+write /dev/cpuctl/audio/cpu.uclamp.latency_sensitive 1
+write /dev/cpuctl/h-background/cpu.uclamp.latency_sensitive 1
+write /dev/cpuctl/l-background/cpu.uclamp.latency_sensitive 1
+write /dev/cpuctl/display/cpu.uclamp.latency_sensitive 1
+write /dev/cpuctl/oiface_fg/cpu.uclamp.latency_sensitive 1
+write /dev/cpuctl/sf/cpu.uclamp.latency_sensitive 1
 
 write /dev/stune/cpu.uclamp.latency_sensitive 1
 write /dev/stune/background/cpu.uclamp.latency_sensitive 1
@@ -567,10 +585,10 @@ write /dev/cpuset/audio-app/cpus 0-11
 write /proc/sys/vm/stat_interval 1
 write /sys/block/zram0/initstate 1
 write /proc/sys/vm/vfs_cache_pressure 1
-write /proc/sys/vm/watermark_scale_factor 1
+write /proc/sys/vm/dirty_ratio 1
+write /proc/sys/vm/dirty_background_ratio 1
 write /proc/sys/vm/swappiness 100
-write /proc/sys/vm/dirty_background_ratio 100
-write /proc/sys/vm/dirty_ratio 100
+write /proc/sys/vm/watermark_scale_factor 100
 write /proc/sys/vm/min_free_kbytes 1000
 write /proc/sys/vm/extra_free_kbytes 1000
 write /proc/sys/vm/user_reserve_kbytes 1000
