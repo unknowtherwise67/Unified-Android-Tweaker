@@ -276,24 +276,24 @@ write /dev/stune/sf/cpu.uclamp.latency_sensitive 1
 write /dev/stune/dex2oat/cpu.uclamp.latency_sensitive 1
 write /dev/stune/foreground_window/cpu.uclamp.latency_sensitive 1
 
-write /dev/stune/schedtune.sched_boost_no_override 0
-write /dev/stune/background/schedtune.sched_boost_no_override 0
-write /dev/stune/foreground/schedtune.sched_boost_no_override 0
-write /dev/stune/camera-daemon/schedtune.sched_boost_no_override 0
-write /dev/stune/system-background/schedtune.sched_boost_no_override 0
-write /dev/stune/nnapi-hal/schedtune.sched_boost_no_override 0
-write /dev/stune/application/schedtune.sched_boost_no_override 0
-write /dev/stune/kernel/schedtune.sched_boost_no_override 0
-write /dev/stune/restricted/schedtune.sched_boost_no_override 0
-write /dev/stune/top-app/schedtune.sched_boost_no_override 0
-write /dev/stune/audio-app/schedtune.sched_boost_no_override 0
-write /dev/stune/h-background/schedtune.sched_boost_no_override 0
-write /dev/stune/l-background/schedtune.sched_boost_no_override 0
-write /dev/stune/display/schedtune.sched_boost_no_override 0
-write /dev/stune/oiface_fg/schedtune.sched_boost_no_override 0
-write /dev/stune/sf/schedtune.sched_boost_no_override 0
-write /dev/stune/dex2oat/schedtune.sched_boost_no_override 0
-write /dev/stune/foreground_window/schedtune.sched_boost_no_override 0
+write /dev/stune/schedtune.sched_boost_no_override 1
+write /dev/stune/background/schedtune.sched_boost_no_override 1
+write /dev/stune/foreground/schedtune.sched_boost_no_override 1
+write /dev/stune/camera-daemon/schedtune.sched_boost_no_override 1
+write /dev/stune/system-background/schedtune.sched_boost_no_override 1
+write /dev/stune/nnapi-hal/schedtune.sched_boost_no_override 1
+write /dev/stune/application/schedtune.sched_boost_no_override 1
+write /dev/stune/kernel/schedtune.sched_boost_no_override 1
+write /dev/stune/restricted/schedtune.sched_boost_no_override 1
+write /dev/stune/top-app/schedtune.sched_boost_no_override 1
+write /dev/stune/audio-app/schedtune.sched_boost_no_override 1
+write /dev/stune/h-background/schedtune.sched_boost_no_override 1
+write /dev/stune/l-background/schedtune.sched_boost_no_override 1
+write /dev/stune/display/schedtune.sched_boost_no_override 1
+write /dev/stune/oiface_fg/schedtune.sched_boost_no_override 1
+write /dev/stune/sf/schedtune.sched_boost_no_override 1
+write /dev/stune/dex2oat/schedtune.sched_boost_no_override 1
+write /dev/stune/foreground_window/schedtune.sched_boost_no_override 1
 
 write /dev/stune/schedtune.cpucapacity_min max
 write /dev/stune/background/schedtune.cpucapacity_min max
@@ -1203,7 +1203,7 @@ done
 for queue in /sys/*/*/queue
 do
 	write "$queue/nr_requests" 128
-	write "$queue/read_ahead_kb" 128
+	write "$queue/read_ahead_kb" 4096
 done
 
 for queue in /sys/*/*/queue
