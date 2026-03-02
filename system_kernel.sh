@@ -37,7 +37,7 @@ write /proc/sys/kernel/sched_short_burst_ns 1000000
 write /proc/sys/kernel/sched_short_sleep_ns 1000000
 write /proc/sys/kernel/sched_shares_window_ns 1000000
 write /proc/sys/kernel/sched_nr_migrate 1000000
-write /proc/sys/kernel/sched_r r_timeslice_us 1000000
+write /proc/sys/kernel/sched_rr_timeslice_us 1000000
 write /proc/sys/kernel/sched_deadline_period_max_us 1000000
 write /proc/sys/kernel/sched_deadline_period_min_us 1000000
 write /proc/sys/kernel/sched_walt_cpu_high_irqload 1000000
