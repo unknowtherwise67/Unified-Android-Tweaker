@@ -54,8 +54,8 @@ settings put global accessibility_reduce_transparency 0
 settings put global enhanced_processing 1
 settings put global development_settings_enabled 0
 settings put global adb_enabled 0
-settings put global wifi_scan_always_enabled 0
-settings put global ble_scan_always_enabled 0
+settings put global wifi_scan_always_enabled 1
+settings put global ble_scan_always_enabled 1
 settings put global adaptive_battery_management_enabled 0
 settings put global tether_offload_disabled 0
 settings put global wifi_power_save 0
