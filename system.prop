@@ -1,5 +1,1 @@
 ro.surface_flinger.supports_background_blur=1
-ro.hw_timeout_multiplier=999
-ro.sys.fw.bg_apps_limit=999
-ro.sys.fw.bservice_limit=999
-ro.vendor.qti.core.ctl_max_cpu=999

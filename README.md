@@ -1,5 +1,5 @@
-## INTRODUCTIONS
-# Unified-Android-Tweaker
+## INTRODUCTIONS:
+# Unified-Android-Tweaker:
 - An Android All-In-One, Universal, Customized Mods and Tweaks Root Module. Install, Reboot and Forget.
 - Feature:
 - Fine-tune Android System/User/Kernel Settings, Tunables and Parameters.
@@ -8,27 +8,27 @@
 - Non-intrusive and systemless (Except system_settings).
 - Open-Source complilance.
 
-# System-Thermal-Modifications
+# System-Thermal-Modifications:
 - Force System to use OS Kernel-Based Thermal Managements System while maintain device hardware safety.
 
-## REQUIREMENTS/COMPATIBILITY
+## REQUIREMENTS/COMPATIBILITY:
 - Android 7 and/or Above.
 - Linux Kernel 3 and/or Above.
 - UNLOCKED BOOTLOADER and Installed ROOT (Magisk - Version 20 and Above, KernelSU, etc).
 - Zygisk or similar supports if its better (Optional).
 - Knowledges of technologies and experiences.
-- Should work and only on any Android platforms/devices (Emulators/Virtual may be possible but functionals is not guaranteed).
+- Should work and only on any Android platforms/devices (Emulators/Virtual may possible but functionals is not guaranteed).
 
-## DISCLAMERS
+## DISCLAMERS:
 - USE THE ROOT MODULE AT YOUR OWN RISKS.
 - DEVELOPERS ARE NOT TOOK RESPONSIBILITY FOR WHAT HAPPENED ONLY IF IS YOUR FAULTS.
 
-## INSTALLATIONS
+## INSTALLATIONS:
 1. Install in any Root like Magisk, KernelSU, etc.
 2. Reboot.
 5. Have fun. :)
 
-## CAUTIONS
+## CAUTIONS:
 - Don't install with any tweaks or mods relative root modules as it can cause conflicts.
 
 ## TROUBLESHOOTS - IF PROBLEMS OCCURED:
@@ -46,19 +46,17 @@
 8. Type and enter "rm -r <enter_the_module_folder_if_it's_there> to execute the removal of that designated folders, including items in it. (Be caution with this).
 9. Reboot to Fastboot/Bootloader or Recovery Mode and reflash the Root Tool then reboot and see the result.
 
-## NOTES
-- If you want the Root Module not to modify any user system settings except others, unpack the Root Module and delete "system_settings.sh". Then save it and repack it before installations.
-- I will try to keep module up-to-date as possible and you can support if you want.
-- I do not and never publish repositories and releases to any other websites, only one in GitHub is legit.
+## NOTES:
 - If you do like my work, buy me a coffee or donate and I'll thank you later. :D
+- I will try to keep module up-to-date as possible and you can support if you want.
 - You are free to fork the repository, but please MAKE SURE to add CREDITS or get rekt and don't forget to extract any archives that may necessary if you going to do things.
 
-## Credits
+## Credits:
 - [tytydrago](https://github.com/tytydraco): KTweak.
 - [reiryuki](https://github.com/reiryuki): ZRAM Swap Configurator.
 - [topjohnwu](https://github.com/topjohnwu): MagiskROOT, Zygisk, Root Module Platforms, SuperUser and MagiskBOOT.
 - [tiann](https://github.com/tiann): KernelSU ROOT and other features from Magisk.
 - [osm0sis](https://github.com/osm0sis): Installable ZIPs and other stuffs.
-- And to some unknows Chinese guys or whoever it is for the "thermal-power" source codes and files.
+- And to some unknows Chinese users/persons or whoever it is for the "thermal" source codes and files.
 
 - Since 8/30/2024
