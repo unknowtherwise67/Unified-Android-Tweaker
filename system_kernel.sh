@@ -1198,12 +1198,8 @@ do
 	write "$queue/rq_affinity" 2
 	write "$queue/nomerges" 2
 	write "$queue/rotational" 0
-done
-
-for queue in /sys/*/*/queue
-do
 	write "$queue/nr_requests" 128
-	write "$queue/read_ahead_kb" 4096
+	write "$queue/read_ahead_kb" 128
 done
 
 for queue in /sys/*/*/queue
