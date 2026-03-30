@@ -1,1 +1,2 @@
 ro.surface_flinger.supports_background_blur=1
+persist.sys.fflag.override.settings_enable_monitor_phantom_procs=disable
