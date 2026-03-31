@@ -81,3 +81,6 @@ settings put secure adaptive_sleep 0
 dumpsys deviceidle disable
 write /sys/module/msm_thermal/core_control/enabled 0
 write /sys/module/msm_thermal/vdd_restriction/enabled 0
+
+# Return to completed regardless of any writes that either failed or succeed
+exit 0

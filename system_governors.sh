@@ -95,3 +95,6 @@ do
 		fi
 	done
 done
+
+# Return to completed regardless of any writes that either failed or succeed
+exit 0
