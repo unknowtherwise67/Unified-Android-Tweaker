@@ -42,7 +42,8 @@ write /sys/devices/system/cpu/cpu10/online 1
 write /sys/devices/system/cpu/cpu11/online 1
 
 # CPU Clocks/Frequencies
-# This is Optional. If you want to change it you will have to do it by yourself.
+# This is optional
+# If you want to change it you will have to do it by yourself.
 # Since mobile hardware CPU and GPU clocks and frequencies are vary different.
 # Most APUs and CPUs clocks and frequencies clusters are divided into 2, 3 or more.
 # Available clocks and frequencies can be found in this paths - /sys/devices/system/cpu/cpu*/cpufreq/ or /sys/devices/system/cpu/cpufreq/policy*.
@@ -60,6 +61,7 @@ write /sys/devices/system/cpu/cpu10/cpufreq/scaling_max_freq
 write /sys/devices/system/cpu/cpu11/cpufreq/scaling_max_freq
 
 # GPU Clocks/Frequencies
+# This is optional
 # Available clocks and frequencies can be found in this paths - /sys/class/kgsl/kgsl-3d0/devfreq/.
 write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
 
