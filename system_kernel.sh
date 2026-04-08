@@ -839,11 +839,11 @@ write /sys/module/ged/parameters/is_GED_KPI_enabled 1
 write /sys/module/ged/parameters/boost_amp 1
 write /sys/module/ged/parameters/enable_game_self_frc_detect 1
 write /sys/module/ged/parameters/ged_boost_enable 1
-write /sys/module/ged/parameters/gpu_dvfs_enable 1
 write /sys/kernel/gbe/gbe2_max_boost_cnt 1
 write /sys/module/ged/parameters/cpu_boost_policy 100
 write /sys/module/ged/parameters/ged_smart_boost 100
 write /sys/module/ged/parameters/gpu_debug_enable 0
+write /sys/module/ged/parameters/gpu_dvfs_enable 0
 write /sys/module/ged/parameters/ged_force_mdp_enable 0
 write /sys/module/ged/parameters/ged_log_perf_trace_enable 0
 write /sys/module/ged/parameters/ged_log_trace_enable 0
@@ -864,7 +864,7 @@ write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_uclamp_min 1024
 write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_uclamp_min 1024
 write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_uclamp_min 1024
 
-write /proc/ppm/enabled 1
+write /proc/ppm/enabled 0
 write /proc/ppm/policy_status 0 0
 write /proc/ppm/policy_status 1 0
 write /proc/ppm/policy_status 2 0
@@ -976,62 +976,62 @@ write /proc/sys/net/ipv4/tcp_slow_start_after_idle 0
 # CPU/GPU/IO
 for governor in /sys/*/system/cpu/*/cpufreq/*
 do
-	write "$governor/boost" 0
-	write "$governor/pl" 0
-	write "$governor/fastlane" 0
-	write "$governor/fast_ramp_down" 0
-	write "$governor/boostpulse" 0
-	write "$governor/use_sched_load" 0
-	write "$governor/use_migration_notif" 0
-	write "$governor/enable_prediction" 0
-	write "$governor/sampling_early_factor" 0
-	write "$governor/sampling_down_factor" 0
-	write "$governor/sampling_interim_factor" 0
-	write "$governor/powersave_bias" 0
-	write "$governor/ignore_hispeed_on_notif" 0
-	write "$governor/param_index" 0
-	write "$governor/sampling_down_factor" 0
-	write "$governor/enforced_mode" 0
-	write "$governor/io_is_busy" 0
-	write "$governor/align_windows" 0
-	write "$governor/ignore_nice_load" 0
-	write "$governor/input_boost" 0
-	write "$governor/iowait_boost_enable" 0
-	write "$governor/down_differential" 0
-	write "$governor/down_differential_multi_core" 0
-	write "$governor/target_load_shift" 0
-	write "$governor/freq_step" 0
-	write "$governor/sched_upmigrate_min_nice" 0
-	write "$governor/hispeed_load" 0
-	write "$governor/go_hispeed_load" 0
-	write "$governor/up_threshold" 0
-	write "$governor/target_loads" 0
-	write "$governor/single_enter_load" 0
-	write "$governor/single_exit_load" 0
-	write "$governor/up_threshold_multi_core" 0
-	write "$governor/up_threshold_any_cpu_load" 0
-	write "$governor/multi_enter_load" 0
-	write "$governor/multi_exit_load" 0
-	write "$governor/boost_ms" 0
-	write "$governor/input_boost_ms" 0
-	write "$governor/target_load_thresh" 0
-	write "$governor/timer_rate" 0
-	write "$governor/up_rate_limit_us" 0
-	write "$governor/down_rate_limit_us" 0
-	write "$governor/single_enter_time" 0
-	write "$governor/single_exit_time" 0
-	write "$governor/multi_enter_time" 0
-	write "$governor/multi_exit_time" 0
-	write "$governor/boostpulse_duration" 0
-	write "$governor/min_sample_time" 0
-	write "$governor/timer_slack" 0
-	write "$governor/sampling_rate" 0
-	write "$governor/sampling_rate_min" 0
-	write "$governor/above_hispeed_delay" 0
-	write "$governor/sched_freq_inc_notify" 0
-	write "$governor/sched_freq_dec_notify" 0
-	write "$governor/up_throttle_nsec" 0
-	write "$governor/down_throttle_nsec" 0
+	write "$governor/boost" 1
+	write "$governor/pl" 1
+	write "$governor/fastlane" 1
+	write "$governor/fast_ramp_down" 1
+	write "$governor/boostpulse" 1
+	write "$governor/use_sched_load" 1
+	write "$governor/use_migration_notif" 1
+	write "$governor/enable_prediction" 1
+	write "$governor/sampling_early_factor" 1
+	write "$governor/sampling_down_factor" 1
+	write "$governor/sampling_interim_factor" 1
+	write "$governor/powersave_bias" 1
+	write "$governor/ignore_hispeed_on_notif" 1
+	write "$governor/param_index" 1
+	write "$governor/sampling_down_factor" 1
+	write "$governor/enforced_mode" 1
+	write "$governor/io_is_busy" 1
+	write "$governor/align_windows" 1
+	write "$governor/ignore_nice_load" 1
+	write "$governor/input_boost" 1
+	write "$governor/iowait_boost_enable" 1
+	write "$governor/down_differential" 1
+	write "$governor/down_differential_multi_core" 1
+	write "$governor/target_load_shift" 1
+	write "$governor/freq_step" 1
+	write "$governor/sched_upmigrate_min_nice" 50
+	write "$governor/hispeed_load" 50
+	write "$governor/go_hispeed_load" 50
+	write "$governor/up_threshold" 50
+	write "$governor/target_loads" 50
+	write "$governor/single_enter_load" 50
+	write "$governor/single_exit_load" 50
+	write "$governor/up_threshold_multi_core" 50
+	write "$governor/up_threshold_any_cpu_load" 50
+	write "$governor/multi_enter_load" 100
+	write "$governor/multi_exit_load" 100
+	write "$governor/boost_ms" 100
+	write "$governor/input_boost_ms" 100
+	write "$governor/target_load_thresh" 1000
+	write "$governor/timer_rate" 10000
+	write "$governor/up_rate_limit_us" 10000
+	write "$governor/down_rate_limit_us" 10000
+	write "$governor/single_enter_time" 10000
+	write "$governor/single_exit_time" 10000
+	write "$governor/multi_enter_time" 10000
+	write "$governor/multi_exit_time" 10000
+	write "$governor/boostpulse_duration" 10000
+	write "$governor/min_sample_time" 10000
+	write "$governor/timer_slack" 10000
+	write "$governor/sampling_rate" 10000
+	write "$governor/sampling_rate_min" 10000
+	write "$governor/above_hispeed_delay" 10000
+	write "$governor/sched_freq_inc_notify" 10000
+	write "$governor/sched_freq_dec_notify" 10000
+	write "$governor/up_throttle_nsec" 1000000
+	write "$governor/down_throttle_nsec" 1000000
 	write "$governor/hispeed_freq" 0
 	write "$governor/optimal_freq" 0
 	write "$governor/sync_freq" 0
@@ -1046,62 +1046,62 @@ done
 
 for governor in /sys/*/system/cpu/cpufreq/*
 do
-	write "$governor/boost" 0
-	write "$governor/pl" 0
-	write "$governor/fastlane" 0
-	write "$governor/fast_ramp_down" 0
-	write "$governor/boostpulse" 0
-	write "$governor/use_sched_load" 0
-	write "$governor/use_migration_notif" 0
-	write "$governor/enable_prediction" 0
-	write "$governor/sampling_early_factor" 0
-	write "$governor/sampling_down_factor" 0
-	write "$governor/sampling_interim_factor" 0
-	write "$governor/powersave_bias" 0
-	write "$governor/ignore_hispeed_on_notif" 0
-	write "$governor/param_index" 0
-	write "$governor/sampling_down_factor" 0
-	write "$governor/enforced_mode" 0
-	write "$governor/io_is_busy" 0
-	write "$governor/align_windows" 0
-	write "$governor/ignore_nice_load" 0
-	write "$governor/input_boost" 0
-	write "$governor/iowait_boost_enable" 0
-	write "$governor/down_differential" 0
-	write "$governor/down_differential_multi_core" 0
-	write "$governor/target_load_shift" 0
-	write "$governor/freq_step" 0
-	write "$governor/sched_upmigrate_min_nice" 0
-	write "$governor/hispeed_load" 0
-	write "$governor/go_hispeed_load" 0
-	write "$governor/up_threshold" 0
-	write "$governor/target_loads" 0
-	write "$governor/single_enter_load" 0
-	write "$governor/single_exit_load" 0
-	write "$governor/up_threshold_multi_core" 0
-	write "$governor/up_threshold_any_cpu_load" 0
-	write "$governor/multi_enter_load" 0
-	write "$governor/multi_exit_load" 0
-	write "$governor/boost_ms" 0
-	write "$governor/input_boost_ms" 0
-	write "$governor/target_load_thresh" 0
-	write "$governor/timer_rate" 0
-	write "$governor/up_rate_limit_us" 0
-	write "$governor/down_rate_limit_us" 0
-	write "$governor/single_enter_time" 0
-	write "$governor/single_exit_time" 0
-	write "$governor/multi_enter_time" 0
-	write "$governor/multi_exit_time" 0
-	write "$governor/boostpulse_duration" 0
-	write "$governor/min_sample_time" 0
-	write "$governor/timer_slack" 0
-	write "$governor/sampling_rate" 0
-	write "$governor/sampling_rate_min" 0
-	write "$governor/above_hispeed_delay" 0
-	write "$governor/sched_freq_inc_notify" 0
-	write "$governor/sched_freq_dec_notify" 0
-	write "$governor/up_throttle_nsec" 0
-	write "$governor/down_throttle_nsec" 0
+	write "$governor/boost" 1
+	write "$governor/pl" 1
+	write "$governor/fastlane" 1
+	write "$governor/fast_ramp_down" 1
+	write "$governor/boostpulse" 1
+	write "$governor/use_sched_load" 1
+	write "$governor/use_migration_notif" 1
+	write "$governor/enable_prediction" 1
+	write "$governor/sampling_early_factor" 1
+	write "$governor/sampling_down_factor" 1
+	write "$governor/sampling_interim_factor" 1
+	write "$governor/powersave_bias" 1
+	write "$governor/ignore_hispeed_on_notif" 1
+	write "$governor/param_index" 1
+	write "$governor/sampling_down_factor" 1
+	write "$governor/enforced_mode" 1
+	write "$governor/io_is_busy" 1
+	write "$governor/align_windows" 1
+	write "$governor/ignore_nice_load" 1
+	write "$governor/input_boost" 1
+	write "$governor/iowait_boost_enable" 1
+	write "$governor/down_differential" 1
+	write "$governor/down_differential_multi_core" 1
+	write "$governor/target_load_shift" 1
+	write "$governor/freq_step" 1
+	write "$governor/sched_upmigrate_min_nice" 50
+	write "$governor/hispeed_load" 50
+	write "$governor/go_hispeed_load" 50
+	write "$governor/up_threshold" 50
+	write "$governor/target_loads" 50
+	write "$governor/single_enter_load" 50
+	write "$governor/single_exit_load" 50
+	write "$governor/up_threshold_multi_core" 50
+	write "$governor/up_threshold_any_cpu_load" 50
+	write "$governor/multi_enter_load" 100
+	write "$governor/multi_exit_load" 100
+	write "$governor/boost_ms" 100
+	write "$governor/input_boost_ms" 100
+	write "$governor/target_load_thresh" 1000
+	write "$governor/timer_rate" 10000
+	write "$governor/up_rate_limit_us" 10000
+	write "$governor/down_rate_limit_us" 10000
+	write "$governor/single_enter_time" 10000
+	write "$governor/single_exit_time" 10000
+	write "$governor/multi_enter_time" 10000
+	write "$governor/multi_exit_time" 10000
+	write "$governor/boostpulse_duration" 10000
+	write "$governor/min_sample_time" 10000
+	write "$governor/timer_slack" 10000
+	write "$governor/sampling_rate" 10000
+	write "$governor/sampling_rate_min" 10000
+	write "$governor/above_hispeed_delay" 10000
+	write "$governor/sched_freq_inc_notify" 10000
+	write "$governor/sched_freq_dec_notify" 10000
+	write "$governor/up_throttle_nsec" 1000000
+	write "$governor/down_throttle_nsec" 1000000
 	write "$governor/hispeed_freq" 0
 	write "$governor/optimal_freq" 0
 	write "$governor/sync_freq" 0
@@ -1112,6 +1112,22 @@ do
 	write "$governor/step_up_early_hispeed" 0
 	write "$governor/step_up_interim_hispeed" 0
 	write "$governor/up_threshold_any_cpu_freq" 0
+done
+
+for cpuidle in /sys/*/system/cpu/*/cpuidle
+do
+	write "$cpuidle/state0/disable" 1
+	write "$cpuidle/state1/disable" 1
+	write "$cpuidle/state2/disable" 1
+	write "$cpuidle/state3/disable" 1
+	write "$cpuidle/state4/disable" 1
+	write "$cpuidle/state5/disable" 1
+	write "$cpuidle/state6/disable" 1
+	write "$cpuidle/state7/disable" 1
+	write "$cpuidle/state8/disable" 1
+	write "$cpuidle/state9/disable" 1
+	write "$cpuidle/state10/disable" 1
+	write "$cpuidle/state11/disable" 1
 done
 
 write /sys/kernel/gpu/boost 1
