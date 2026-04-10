@@ -47,24 +47,20 @@ write /sys/devices/system/cpu/cpu11/online 1
 # Since mobile hardware CPU and GPU clocks and frequencies are vary different.
 # Most APUs and CPUs clocks and frequencies clusters are divided into 2, 3 or more depend on hardware configurations from OEMs/Manufactuers.
 # Available Clocks/Frequencies can be located in this paths - /sys/devices/system/cpu/cpu*/cpufreq/ or /sys/devices/system/cpu/cpufreq/policy*.
-write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 
-write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 
-write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 
-write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 
-write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 
-write /sys/devices/system/cpu/cpu5/cpufreq/scaling_max_freq 
-write /sys/devices/system/cpu/cpu6/cpufreq/scaling_max_freq 
-write /sys/devices/system/cpu/cpu7/cpufreq/scaling_max_freq 
-write /sys/devices/system/cpu/cpu8/cpufreq/scaling_max_freq 
-write /sys/devices/system/cpu/cpu9/cpufreq/scaling_max_freq 
-write /sys/devices/system/cpu/cpu10/cpufreq/scaling_max_freq 
-write /sys/devices/system/cpu/cpu11/cpufreq/scaling_max_freq 
+write /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq 
+write /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq 
+write /sys/devices/system/cpu/cpufreq/policy7/scaling_max_freq 
+
+write /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq 
+write /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq 
+write /sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq 
 
 # GPU Clocks/Frequencies
 # This is Optional.
 # Available Clocks/Frequencies can be located in this paths - /sys/class/kgsl/kgsl-3d0/devfreq/.
-# Note that not all GPU Clocks/Frequencies modification may are not supported due to hardware sources codes limitations from OEMs/Manufactuers.
+# Note that GPU Clocks/Frequencies modification may not supported due to hardware sources codes limitations from OEMs/Manufactuers.
 write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 
+write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 
 
 # Return to completed regardless of any writes that either failed or succeed
 exit 0

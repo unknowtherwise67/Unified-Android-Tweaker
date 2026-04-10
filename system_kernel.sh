@@ -1114,22 +1114,6 @@ do
 	write "$governor/up_threshold_any_cpu_freq" 0
 done
 
-for cpuidle in /sys/*/system/cpu/*/cpuidle
-do
-	write "$cpuidle/state0/disable" 1
-	write "$cpuidle/state1/disable" 1
-	write "$cpuidle/state2/disable" 1
-	write "$cpuidle/state3/disable" 1
-	write "$cpuidle/state4/disable" 1
-	write "$cpuidle/state5/disable" 1
-	write "$cpuidle/state6/disable" 1
-	write "$cpuidle/state7/disable" 1
-	write "$cpuidle/state8/disable" 1
-	write "$cpuidle/state9/disable" 1
-	write "$cpuidle/state10/disable" 1
-	write "$cpuidle/state11/disable" 1
-done
-
 write /sys/kernel/gpu/boost 1
 write /proc/mali/always_on 1
 write /proc/mali/dvfs_enable 1

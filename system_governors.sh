@@ -28,10 +28,36 @@ perfmgr="/proc/perfmgr/"
 sync
 
 # CPU
-for cpu in /sys/devices/system/cpu/*/cpufreq
+for cpu in /sys/devices/system/cpu/cpufreq/policy0
 do
 	available_governors="$(cat "$cpu/scaling_available_governors")"
-	for governor in
+	for governor in 
+	do
+		if [[ "$available_governors" == *"$governor"* ]]
+		then
+			write "$cpu/scaling_governor" "$governor"
+			break
+		fi
+	done
+done
+
+for cpu in /sys/devices/system/cpu/cpufreq/policy4
+do
+	available_governors="$(cat "$cpu/scaling_available_governors")"
+	for governor in 
+	do
+		if [[ "$available_governors" == *"$governor"* ]]
+		then
+			write "$cpu/scaling_governor" "$governor"
+			break
+		fi
+	done
+done
+
+for cpu in /sys/devices/system/cpu/cpufreq/policy7
+do
+	available_governors="$(cat "$cpu/scaling_available_governors")"
+	for governor in 
 	do
 		if [[ "$available_governors" == *"$governor"* ]]
 		then
@@ -42,10 +68,10 @@ do
 done
 
 # GPU
-for gpu in /sys/kernel/kgsl/*/devfreq
+for gpu in /sys/kernel/kgsl/kgsl-3d0/devfreq
 do
 	available_governors="$(cat "$gpu/available_governors")"
-	for governor in
+	for governor in 
 	do
 		if [[ "$available_governors" == *"$governor"* ]]
 		then
@@ -58,7 +84,7 @@ done
 for gpu in /sys/kernel/gpu
 do
 	available_governors="$(cat "$gpu/gpu_available_governor")"
-	for governor in
+	for governor in 
 	do
 		if [[ "$available_governors" == *"$governor"* ]]
 		then
