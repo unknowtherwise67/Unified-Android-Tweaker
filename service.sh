@@ -38,7 +38,7 @@ MODDIR=${0%/*}
 until [ "`getprop sys.boot_completed`" == 1 ]; do
   sleep 1
 done
-sleep 60
+sleep 180
 sh $MODPATH/system_settings.sh
 
 until [ "`getprop sys.boot_completed`" == 1 ]; do
