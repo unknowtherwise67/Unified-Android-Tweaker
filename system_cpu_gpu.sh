@@ -58,7 +58,7 @@ write /sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq
 # GPU Clocks/Frequencies
 # This is Optional.
 # Available Clocks/Frequencies can be located in this paths - /sys/class/kgsl/kgsl-3d0/devfreq/.
-# Note that GPU Clocks/Frequencies modification may not supported due to hardware sources codes limitations from OEMs/Manufactuers.
+# GPU Clocks/Frequencies modification may not supported due to hardware sources codes limitations from OEMs/Manufactuers.
 write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 
 write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 
 
