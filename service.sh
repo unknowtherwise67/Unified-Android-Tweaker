@@ -57,7 +57,7 @@ until [ "`getprop sys.boot_completed`" == 1 ]; do
   sleep 1
 done
 sleep 5
-sh $MODPATH/system_cpu_gpu.sh
+sh $MODPATH/system_cpu_gpu_power.sh
 
 # ZRAM Swap Virtual Memory Functions
 MODPATH=${0%/*}
