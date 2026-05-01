@@ -18,10 +18,7 @@ until [ "`getprop sys.boot_completed`" == 1 ]; do
 done
 ZRAM=/block/zram0
 swapoff /dev$ZRAM
-DEF=`cat /sys$ZRAM/disksize`
-DEF=`cat /sys$ZRAM/comp_algorithm`
-DEF=`cat /proc/sys/vm/swappiness`
-DEF=`getprop ro.lmk.swap_free_low_percentage`
+DISKSIZEDEF=`cat /sys$ZRAM/disksize`
 DISKSIZE=
 #%MemTotalStr=`cat /proc/meminfo | grep MemTotal`
 #%MemTotal=${MemTotalStr:16:8}
@@ -29,15 +26,15 @@ DISKSIZE=
 #%DISKSIZE=$VALUE\K
 swapoff /dev$ZRAM
 echo 1 > /sys$ZRAM/reset
+ALGODEF=`cat /sys$ZRAM/comp_algorithm`
 ALGO=
-if [ "$ALGO" ]; then
-  echo "$ALGO" > /sys$ZRAM/comp_algorithm
-fi
+[ "$ALGO" ] && echo "$ALGO" > /sys$ZRAM/comp_algorithm
 #oecho "$DISKSIZE" > /sys$ZRAM/disksize
 #omkswap /dev$ZRAM
 PRIO=
 #o/system/bin/swapon /dev$ZRAM -p "$PRIO"\
 #o|| /vendor/bin/swapon /dev$ZRAM -p "$PRIO"\
+#o|| /system/vendor/bin/swapon /dev$ZRAM -p "$PRIO"\
 #o|| swapon /dev$ZRAM
 
 # Device/Kernel Settings/Parameters Configuration

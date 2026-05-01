@@ -1023,41 +1023,41 @@ do
 	write "$governor/ignore_nice_load" 1
 	write "$governor/input_boost" 1
 	write "$governor/iowait_boost_enable" 1
-	write "$governor/down_differential" 1
-	write "$governor/down_differential_multi_core" 1
-	write "$governor/target_load_shift" 1
-	write "$governor/freq_step" 1
-	write "$governor/sched_upmigrate_min_nice" 50
-	write "$governor/hispeed_load" 50
-	write "$governor/go_hispeed_load" 50
-	write "$governor/up_threshold" 50
-	write "$governor/target_loads" 50
-	write "$governor/single_enter_load" 50
-	write "$governor/single_exit_load" 50
-	write "$governor/up_threshold_multi_core" 50
-	write "$governor/up_threshold_any_cpu_load" 50
-	write "$governor/multi_enter_load" 100
-	write "$governor/multi_exit_load" 100
-	write "$governor/boost_ms" 100
-	write "$governor/input_boost_ms" 100
-	write "$governor/target_load_thresh" 1000
-	write "$governor/timer_rate" 10000
-	write "$governor/up_rate_limit_us" 10000
-	write "$governor/down_rate_limit_us" 10000
-	write "$governor/single_enter_time" 10000
-	write "$governor/single_exit_time" 10000
-	write "$governor/multi_enter_time" 10000
-	write "$governor/multi_exit_time" 10000
-	write "$governor/boostpulse_duration" 10000
-	write "$governor/min_sample_time" 10000
-	write "$governor/timer_slack" 10000
-	write "$governor/sampling_rate" 10000
-	write "$governor/sampling_rate_min" 10000
-	write "$governor/above_hispeed_delay" 10000
-	write "$governor/sched_freq_inc_notify" 10000
-	write "$governor/sched_freq_dec_notify" 10000
-	write "$governor/up_throttle_nsec" 1000000
-	write "$governor/down_throttle_nsec" 1000000
+	write "$governor/down_differential" 10
+	write "$governor/down_differential_multi_core" 10
+	write "$governor/target_load_shift" 10
+	write "$governor/freq_step" 10
+	write "$governor/sched_upmigrate_min_nice" 100
+	write "$governor/hispeed_load" 100
+	write "$governor/go_hispeed_load" 100
+	write "$governor/up_threshold" 100
+	write "$governor/target_loads" 100
+	write "$governor/single_enter_load" 100
+	write "$governor/single_exit_load" 100
+	write "$governor/up_threshold_multi_core" 100
+	write "$governor/up_threshold_any_cpu_load" 100
+	write "$governor/multi_enter_load" 1000
+	write "$governor/multi_exit_load" 1000
+	write "$governor/boost_ms" 1000
+	write "$governor/input_boost_ms" 1000
+	write "$governor/target_load_thresh" 10000
+	write "$governor/timer_rate" 100000
+	write "$governor/up_rate_limit_us" 100000
+	write "$governor/down_rate_limit_us" 100000
+	write "$governor/single_enter_time" 100000
+	write "$governor/single_exit_time" 100000
+	write "$governor/multi_enter_time" 100000
+	write "$governor/multi_exit_time" 100000
+	write "$governor/boostpulse_duration" 100000
+	write "$governor/min_sample_time" 100000
+	write "$governor/timer_slack" 100000
+	write "$governor/sampling_rate" 100000
+	write "$governor/sampling_rate_min" 100000
+	write "$governor/above_hispeed_delay" 100000
+	write "$governor/sched_freq_inc_notify" 100000
+	write "$governor/sched_freq_dec_notify" 100000
+	write "$governor/up_throttle_nsec" 1000000000
+	write "$governor/down_throttle_nsec" 1000000000
 	write "$governor/hispeed_freq" 0
 	write "$governor/optimal_freq" 0
 	write "$governor/sync_freq" 0
@@ -1093,41 +1093,41 @@ do
 	write "$governor/ignore_nice_load" 1
 	write "$governor/input_boost" 1
 	write "$governor/iowait_boost_enable" 1
-	write "$governor/down_differential" 1
-	write "$governor/down_differential_multi_core" 1
-	write "$governor/target_load_shift" 1
-	write "$governor/freq_step" 1
-	write "$governor/sched_upmigrate_min_nice" 50
-	write "$governor/hispeed_load" 50
-	write "$governor/go_hispeed_load" 50
-	write "$governor/up_threshold" 50
-	write "$governor/target_loads" 50
-	write "$governor/single_enter_load" 50
-	write "$governor/single_exit_load" 50
-	write "$governor/up_threshold_multi_core" 50
-	write "$governor/up_threshold_any_cpu_load" 50
-	write "$governor/multi_enter_load" 100
-	write "$governor/multi_exit_load" 100
-	write "$governor/boost_ms" 100
-	write "$governor/input_boost_ms" 100
-	write "$governor/target_load_thresh" 1000
-	write "$governor/timer_rate" 10000
-	write "$governor/up_rate_limit_us" 10000
-	write "$governor/down_rate_limit_us" 10000
-	write "$governor/single_enter_time" 10000
-	write "$governor/single_exit_time" 10000
-	write "$governor/multi_enter_time" 10000
-	write "$governor/multi_exit_time" 10000
-	write "$governor/boostpulse_duration" 10000
-	write "$governor/min_sample_time" 10000
-	write "$governor/timer_slack" 10000
-	write "$governor/sampling_rate" 10000
-	write "$governor/sampling_rate_min" 10000
-	write "$governor/above_hispeed_delay" 10000
-	write "$governor/sched_freq_inc_notify" 10000
-	write "$governor/sched_freq_dec_notify" 10000
-	write "$governor/up_throttle_nsec" 1000000
-	write "$governor/down_throttle_nsec" 1000000
+	write "$governor/down_differential" 10
+	write "$governor/down_differential_multi_core" 10
+	write "$governor/target_load_shift" 10
+	write "$governor/freq_step" 10
+	write "$governor/sched_upmigrate_min_nice" 100
+	write "$governor/hispeed_load" 100
+	write "$governor/go_hispeed_load" 100
+	write "$governor/up_threshold" 100
+	write "$governor/target_loads" 100
+	write "$governor/single_enter_load" 100
+	write "$governor/single_exit_load" 100
+	write "$governor/up_threshold_multi_core" 100
+	write "$governor/up_threshold_any_cpu_load" 100
+	write "$governor/multi_enter_load" 1000
+	write "$governor/multi_exit_load" 1000
+	write "$governor/boost_ms" 1000
+	write "$governor/input_boost_ms" 1000
+	write "$governor/target_load_thresh" 10000
+	write "$governor/timer_rate" 100000
+	write "$governor/up_rate_limit_us" 100000
+	write "$governor/down_rate_limit_us" 100000
+	write "$governor/single_enter_time" 100000
+	write "$governor/single_exit_time" 100000
+	write "$governor/multi_enter_time" 100000
+	write "$governor/multi_exit_time" 100000
+	write "$governor/boostpulse_duration" 100000
+	write "$governor/min_sample_time" 100000
+	write "$governor/timer_slack" 100000
+	write "$governor/sampling_rate" 100000
+	write "$governor/sampling_rate_min" 100000
+	write "$governor/above_hispeed_delay" 100000
+	write "$governor/sched_freq_inc_notify" 100000
+	write "$governor/sched_freq_dec_notify" 100000
+	write "$governor/up_throttle_nsec" 1000000000
+	write "$governor/down_throttle_nsec" 1000000000
 	write "$governor/hispeed_freq" 0
 	write "$governor/optimal_freq" 0
 	write "$governor/sync_freq" 0
@@ -1275,13 +1275,13 @@ do
 	write "$queue/iosched/max_budget" 1000000
 	write "$queue/iosched/read_lat_nsec" 1000000
 	write "$queue/iosched/write_lat_nsec" 1000000
-	write "$queue/iosched/strict_guarantees" 0
-	write "$queue/iosched/cpq_log" 0
-	write "$queue/iosched/slice_idle" 0
-	write "$queue/iosched/group_idle" 0
-	write "$queue/iosched/low_latency" 0
-	write "$queue/iosched/slice_idle_us" 0
-	write "$queue/iosched/group_idle_us" 0
+	write "$queue/iosched/strict_guarantees" 1
+	write "$queue/iosched/cpq_log" 1
+	write "$queue/iosched/slice_idle" 1
+	write "$queue/iosched/group_idle" 1
+	write "$queue/iosched/low_latency" 1
+	write "$queue/iosched/slice_idle_us" 1
+	write "$queue/iosched/group_idle_us" 1
 done
 
 # Return to completed regardless of any writes that either failed or succeed

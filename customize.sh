@@ -27,7 +27,6 @@ ZRAM=$MODPATH/system_virtual_memory.sh
 if [ ! -f $ZRAM ]; then
   touch $ZRAM
 fi
-
 PROP=`grep_prop zram.resize $ZRAM`
 ZRAM=/block/zram0
 if [ "$PROP" == 0 ]; then
@@ -69,7 +68,6 @@ else
     ui_print "- To 0..."
   fi
 fi
-
 PROP=`grep_prop zram.sflp $ZRAM`
 if [ "$PROP" ]; then
   if [ "$PROP" -gt 100 ]; then
@@ -89,6 +87,7 @@ else
   ui_print ""
 fi
 
+# Completions
 ui_print "- Scripts executions completed, Root Module is installed."
 ui_print "- Please REBOOT/RESTART the Device for effects."
 ui_print ""
