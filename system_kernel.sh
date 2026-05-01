@@ -127,8 +127,8 @@ write /sys/kernel/debug/sched/sched_big_waker_task_load 1024
 write /sys/kernel/debug/sched/sched_small_wakee_task_load 1024
 write /sys/kernel/debug/sched/sched_stune_task_threshold 100
 write /sys/kernel/debug/sched/sched_pelt_multiplier 4
-write /sys/kernel/debug/sched/sched_schedstats 1
 write /sys/kernel/debug/sched/perf_cpu_time_max_percent 1
+write /sys/kernel/debug/sched/sched_schedstats 1
 write /sys/kernel/debug/sched/sched_tunable_scaling 0
 write /sys/kernel/debug/sched/sched_child_runs_first 0
 write /sys/kernel/debug/sched/sched_autogroup_enabled 0

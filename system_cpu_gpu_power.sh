@@ -58,7 +58,7 @@ write /sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq
 # GPU Clocks/Frequencies
 # This is Optional.
 # Available Clocks/Frequencies can be located in this paths - /sys/class/kgsl/kgsl-3d0/devfreq/.
-# GPU Clocks/Frequencies modification may not supported due to hardware sources codes limitations from OEMs/Manufactuers.
+# GPU Clocks/Frequencies modification may not work and/or supported due to hardware sources codes limitations from OEMs/Manufactuers.
 write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 
 write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 
 
@@ -66,9 +66,8 @@ write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
 # This is Optional.
 # On newer Android Device, this method may no longer work or available to use.
 # Be sure to set the value correctly - For example: 1500000 = 1500 mAh = Around 5 and 6 Watt.
-# Please get correct information about the device's max wattage of charging.
+# Get correct information about the device's max charging current value (Wattage or mAh).
 # Otherwise just don't touch this parameters if you don't know about this and let it be.
-# Wrong value and it will not work and may lead to risk of electrical damages to the device.
 chmod 666 /sys/class/power_supply/battery/constant_charge_current_max
 write /sys/class/power_supply/battery/constant_charge_current_max 
 chmod 444 /sys/class/power_supply/battery/constant_charge_current_max 

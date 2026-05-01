@@ -1,20 +1,28 @@
-# ZRAM Swap Virtual Memory
+# Disable ADB Root for Security Purpose
 MODPATH=${0%/*}
 MODDIR=${0%/*}
-ZRAM=/block/zram0
-
-swapoff /dev$ZRAM
-
 until [ "`getprop sys.boot_completed`" == 1 ]; do
   sleep 1
 done
+resetprop -n -p init.svc.adb_root ""
+adbroot="$(getprop service.adb.root)"
+if [ -n "$adbroot" ]; then
+    resetprop -n -p service.adb.root ""
+fi
 
+# ZRAM Swap Virtual Memory
+MODPATH=${0%/*}
+MODDIR=${0%/*}
+until [ "`getprop sys.boot_completed`" == 1 ]; do
+  sleep 1
+done
+ZRAM=/block/zram0
+swapoff /dev$ZRAM
 DEF=`cat /sys$ZRAM/disksize`
 DEF=`cat /sys$ZRAM/comp_algorithm`
 DEF=`cat /proc/sys/vm/swappiness`
 DEF=`getprop ro.lmk.swap_free_low_percentage`
-
-DISKSIZE=1G
+DISKSIZE=
 #%MemTotalStr=`cat /proc/meminfo | grep MemTotal`
 #%MemTotal=${MemTotalStr:16:8}
 #%let VALUE="$MemTotal * VAR / 100"
@@ -27,7 +35,7 @@ if [ "$ALGO" ]; then
 fi
 #oecho "$DISKSIZE" > /sys$ZRAM/disksize
 #omkswap /dev$ZRAM
-PRIO=0
+PRIO=
 #o/system/bin/swapon /dev$ZRAM -p "$PRIO"\
 #o|| /vendor/bin/swapon /dev$ZRAM -p "$PRIO"\
 #o|| swapon /dev$ZRAM
@@ -58,38 +66,6 @@ until [ "`getprop sys.boot_completed`" == 1 ]; do
 done
 sleep 5
 sh $MODPATH/system_cpu_gpu_power.sh
-
-# ZRAM Swap Virtual Memory Functions
-MODPATH=${0%/*}
-MODDIR=${0%/*}
-lmk_prop() {
-resetprop -n ro.lmk.swap_free_low_percentage "$SFLP"
-resetprop lmkd.reinit 1
-}
-stop_log() {
-SIZE=`du $LOGFILE | sed "s|$LOGFILE||g"`
-if [ "$LOG" != stopped ] && [ "$SIZE" -gt 25 ]; then
-  exec 2>/dev/null
-  set +x
-  LOG=stopped
-fi
-}
-lmk_config() {
-stop_log
-sleep 5
-DEF=`device_config get lmkd_native swap_free_low_percentage`
-DEF2=`getprop persist.device_config.lmkd_native.swap_free_low_percentage`
-if [ "$DEF" != null ] || [ "$DEF2" ]; then
-  device_config delete lmkd_native swap_free_low_percentage
-  resetprop -p --delete persist.device_config.lmkd_native.swap_free_low_percentage
-  resetprop lmkd.reinit 1
-fi
-lmk_config
-}
-
-SFLP=0
-lmk_prop
-lmk_config
 
 # Exit after completions
 exit 0
