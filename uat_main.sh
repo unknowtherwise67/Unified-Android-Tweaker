@@ -1394,35 +1394,10 @@ do
 	write "$queue/iostats" 1
 	write "$queue/rq_affinity" 2
 	write "$queue/nomerges" 2
+	write "$queue/read_ahead_kb" 128
+	write "$queue/nr_requests" 128
 	write "$queue/add_random" 0
 	write "$queue/rotational" 0
-done
-
-for queue in /sys/*/*/queue
-do
-	write "$queue/read_ahead_kb" 4
-	write "$queue/read_ahead_kb" 6
-	write "$queue/read_ahead_kb" 8
-	write "$queue/read_ahead_kb" 16
-	write "$queue/read_ahead_kb" 32
-	write "$queue/read_ahead_kb" 64
-	write "$queue/read_ahead_kb" 128
-	write "$queue/read_ahead_kb" 256
-	write "$queue/read_ahead_kb" 512
-	write "$queue/read_ahead_kb" 1024
-	write "$queue/read_ahead_kb" 2048
-	write "$queue/read_ahead_kb" 4096
-	write "$queue/nr_requests" 4
-	write "$queue/nr_requests" 8
-	write "$queue/nr_requests" 16
-	write "$queue/nr_requests" 32
-	write "$queue/nr_requests" 64
-	write "$queue/nr_requests" 128
-	write "$queue/nr_requests" 256
-	write "$queue/nr_requests" 512
-	write "$queue/nr_requests" 1024
-	write "$queue/nr_requests" 2048
-	write "$queue/nr_requests" 4096
 done
 
 for queue in /sys/*/*/queue
