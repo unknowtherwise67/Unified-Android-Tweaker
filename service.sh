@@ -44,25 +44,7 @@ until [ "`getprop sys.boot_completed`" == 1 ]; do
   sleep 1
 done
 sleep 60
-sh $MODPATH/system_settings.sh
-
-until [ "`getprop sys.boot_completed`" == 1 ]; do
-  sleep 1
-done
-sleep 5
-sh $MODPATH/system_governors.sh
-
-until [ "`getprop sys.boot_completed`" == 1 ]; do
-  sleep 1
-done
-sleep 5
-sh $MODPATH/system_kernel.sh
-
-until [ "`getprop sys.boot_completed`" == 1 ]; do
-  sleep 1
-done
-sleep 5
-sh $MODPATH/system_cpu_gpu_power.sh
+sh $MODPATH/uat_main.sh
 
 # Exit after completions
 exit 0

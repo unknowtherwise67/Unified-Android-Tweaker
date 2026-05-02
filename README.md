@@ -20,7 +20,7 @@
 - Should work and only on any Android platforms/devices (Emulators/Virtual may possible but functionals is not guaranteed).
 
 ## DISCLAMERS:
-- USE THE ROOT MODULE AT YOUR OWN RISKS.
+- MAKE USE OF THE ROOT MODULE AT YOUR OWN RISKS.
 - DEVELOPERS ARE NOT TOOK RESPONSIBILITY FOR WHAT HAPPENED ONLY IF IS YOUR FAULTS.
 
 ## INSTALLATIONS:
@@ -29,12 +29,11 @@
 5. Have fun. :)
 
 ## CAUTIONS:
-- Don't install with any tweaks or mods relative root modules as it can cause conflicts.
+- Don't install with any tweaks or mods relative root modules as it can cause the conflicts or even worse.
 
 ## TROUBLESHOOTS - IF PROBLEMS OCCURED:
-- Uninstall the Root Module within the given time before it boot service (120 seconds).
 ### Hardware Buttons Methods:
-- Turn off the device, keep holding power button until it bootup twice and all Root Module will be automatically removed by Root (Magisk, KernelSU, etc).
+- Turn off the device, keep holding power button until it bootup - show the device's logo twice and all Root Module will be automatically removed/disabled by Root (Magisk, KernelSU, etc).
 ### By ADB and Fastboot Commands:
 1. Get the stock "boot.img" from Android Firmware of your device are currently using it.
 2. Reboot to Fastboot/Bootloader Mode and do "fastboot flash boot <the boot.img> to "Boot" partition, or use Recovery Mode that allow to install it.

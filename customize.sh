@@ -15,10 +15,7 @@ ui_print "- Executing..."
 # Kernel Tweaks
 ui_print ""
 ui_print "- Fine-tunning Android System/User/Kernel settings, tunables and other parameters..."
-sh $MODPATH/system_settings.sh
-sh $MODPATH/system_governors.sh
-sh $MODPATH/system_kernel.sh
-sh $MODPATH/system_cpu_gpu_power.sh
+sh $MODPATH/uat_main.sh
 ui_print "- Completed."
 
 # ZRAM/Swap Virtual Memory
@@ -88,10 +85,10 @@ else
 fi
 
 # Completions
-ui_print "- Scripts executions completed, Root Module is installed."
+ui_print "- Scripts executions completed - Root Module is installed."
 ui_print "- Please REBOOT/RESTART the Device for effects."
 ui_print ""
 ui_print "- ADDITIONAL NOTES:"
-ui_print "- INSTALL AND USE THIS ROOT MODULE AT YOUR OWN RISKS."
+ui_print "- MAKE USE OF THE ROOT MODULE AT YOUR OWN RISKS."
 ui_print "- DEVELOPERS ARE NOT TOOK RESPONSIBILITY FOR WHAT HAPPENED ONLY IF IS YOUR FAULTS."
 ui_print ""
