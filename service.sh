@@ -43,8 +43,23 @@ MODDIR=${0%/*}
 until [ "`getprop sys.boot_completed`" == 1 ]; do
   sleep 1
 done
-sleep 60
-sh $MODPATH/uat_main.sh
+sleep 180
+sh $MODPATH/system_settings.sh
 
-# Exit after completions
-exit 0
+until [ "`getprop sys.boot_completed`" == 1 ]; do
+  sleep 1
+done
+sleep 5
+sh $MODPATH/system_governors.sh
+
+until [ "`getprop sys.boot_completed`" == 1 ]; do
+  sleep 1
+done
+sleep 5
+sh $MODPATH/system_kernel.sh
+
+until [ "`getprop sys.boot_completed`" == 1 ]; do
+  sleep 1
+done
+sleep 5
+sh $MODPATH/system_cpu_gpu_power.sh
