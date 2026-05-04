@@ -6,11 +6,10 @@ ui_print ""
 ui_print "- It will take some time."
 ui_print "- Please wait and be patience until is completed."
 
-# Premission
+# Installations
 ui_print ""
 ui_print "- Preparing..."
-set_perm_recursive $MODPATH 0 0 0755 0644
-ui_print "- Executing..."
+ui_print "- Installing..."
 
 # Kernel Tweaks
 ui_print ""
