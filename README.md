@@ -38,11 +38,11 @@
 1. Get the stock "boot.img" from Android Firmware of your device are currently using it.
 2. Reboot to Fastboot/Bootloader Mode and do "fastboot flash boot <the boot.img> to "Boot" partition, or use Recovery Mode that allow to install it.
 3. Reboot and to Setting, enable Developers Option, USB Debugging and Rooted Debugging.
-4. Open and use Linux Terminal or any shell command with ADB capability.
-5. Type and enter "adb root" and "adb shell"
-6. Type and enter "cd /data/adb"
-7. Type and enter "ls" (Not Is)
-8. Type and enter "rm -r <enter_the_module_folder_if_it's_there> to execute the removal command of that designated folders, including any items in it.
+4. Open and use ADB/Fastboot Command/Terminal or any shell command apps with ADB capability.
+5. Enter "adb root" and "adb shell"
+6. Enter "cd /data/adb"
+7. Enter "ls"
+8. Enter "rm -r <enter_the_module_folder_if_it's_there> to execute the removal command of that designated folders, including any items in it.
 9. Reboot to Fastboot/Bootloader or Recovery Mode and reflash the Root Tool then reboot and see the result.
 
 ## NOTES:
