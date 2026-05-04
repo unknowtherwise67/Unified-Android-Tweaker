@@ -37,15 +37,15 @@ else
   ui_print "- Modifying $FILE..."
   sed -i 's|#o||g' $MODPATH/service.sh
   if echo "$PROP" | grep -q %; then
-    ui_print "- To $PROP of Physical RAM Size..."
+    ui_print "- To $PROP of ZRAM/Swap Virtual Memory..."
     PROP=`echo "$PROP" | sed 's|%||g'`
     sed -i "s|VAR|$PROP|g" $MODPATH/service.sh
     sed -i 's|#%||g' $MODPATH/service.sh
   elif [ "$PROP" ]; then
-    ui_print "- To $PROP of Physical RAM Size..."
+    ui_print "- To $PROP of ZRAM/Swap Virtual Memory..."
     sed -i "s|DISKSIZE=1G|DISKSIZE=$PROP|g" $MODPATH/service.sh
   else
-    ui_print "- To 1GBs of Physical RAM Size..."
+    ui_print "- To 1GBs of ZRAM/Swap Virtual Memory..."
   fi
   PROP=`grep_prop zram.algo $ZRAM`
   if [ "$PROP" ]; then
@@ -55,7 +55,7 @@ else
       ui_print "- To $PROP..."
       sed -i "s|ALGO=|ALGO=$PROP|g" $MODPATH/service.sh
     else
-      ui_print "! $PROP is Unsupported"
+      ui_print "! $PROP is Unsupported."
       ui_print "  in $FILE"
     fi
   fi
@@ -84,10 +84,10 @@ else
   ui_print "- Modifying swap_free_low_percentage..."
   ui_print "- To 0..."
   ui_print "- Completed."
-  ui_print ""
 fi
 
 # Completions
+ui_print ""
 ui_print "- Scripts executions completed - Root Module is installed."
 ui_print "- Please REBOOT/RESTART the Device for effects."
 ui_print ""

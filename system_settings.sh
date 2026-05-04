@@ -31,10 +31,6 @@ sync
 wm disable-blur 0
 settings put global disable_window_blurs 0
 
-# System Screen Rotations
-settings put system accelerometer_rotation
-settings put system user_rotation
-
 # System Screen Refresh Rate
 settings put system peak_refresh_rate 0
 settings put system min_refresh_rate 0
