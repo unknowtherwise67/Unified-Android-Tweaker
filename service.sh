@@ -1,9 +1,7 @@
 # Disable ADB Root for Security Purpose
 MODPATH=${0%/*}
 MODDIR=${0%/*}
-until [ "`getprop sys.boot_completed`" == 1 ]; do
-  sleep 1
-done
+sleep 60
 resetprop -n -p init.svc.adb_root ""
 adbroot="$(getprop service.adb.root)"
 if [ -n "$adbroot" ]; then
@@ -13,9 +11,7 @@ fi
 # ZRAM Swap Virtual Memory
 MODPATH=${0%/*}
 MODDIR=${0%/*}
-until [ "`getprop sys.boot_completed`" == 1 ]; do
-  sleep 1
-done
+sleep 1
 ZRAM=/block/zram0
 swapoff /dev$ZRAM
 DISKSIZEDEF=`cat /sys$ZRAM/disksize`
@@ -40,22 +36,14 @@ PRIO=
 # Device/Kernel Settings/Parameters Configuration
 MODPATH=${0%/*}
 MODDIR=${0%/*}
-until [ "`getprop sys.boot_completed`" == 1 ]; do
-  sleep 1
-done
+sleep 60
 sh $MODPATH/system_settings.sh
 
-until [ "`getprop sys.boot_completed`" == 1 ]; do
-  sleep 1
-done
+sleep 1
 sh $MODPATH/system_governors.sh
 
-until [ "`getprop sys.boot_completed`" == 1 ]; do
-  sleep 1
-done
+sleep 1
 sh $MODPATH/system_kernel.sh
 
-until [ "`getprop sys.boot_completed`" == 1 ]; do
-  sleep 1
-done
+sleep 1
 sh $MODPATH/system_cpu_gpu_power.sh
