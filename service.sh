@@ -1,7 +1,7 @@
 # Disable ADB Root for Security Purpose
 MODPATH=${0%/*}
 MODDIR=${0%/*}
-sleep 60
+sleep 180
 resetprop -n -p init.svc.adb_root ""
 adbroot="$(getprop service.adb.root)"
 if [ -n "$adbroot" ]; then
@@ -36,13 +36,13 @@ PRIO=
 # Device/Kernel Settings/Parameters Configuration
 MODPATH=${0%/*}
 MODDIR=${0%/*}
-sleep 60
+sleep 1
 sh $MODPATH/system_settings.sh
 
 sleep 1
 sh $MODPATH/system_governors.sh
 
-sleep 1
+sleep 5
 sh $MODPATH/system_kernel.sh
 
 sleep 1
