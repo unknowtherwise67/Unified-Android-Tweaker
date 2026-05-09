@@ -21,7 +21,7 @@
 
 ## DISCLAMERS:
 - MAKE USE OF THE ROOT MODULE AT YOUR OWN RISKS.
-- DEVELOPERS ARE NOT TOOK RESPONSIBILITY FOR WHAT HAPPENED ONLY IF IS YOUR FAULTS.
+- DEVELOPERS ARE DOES NOT TOOK RESPONSIBILITY FOR WHAT HAPPENED ONLY IF IS YOUR FAULTS.
 
 ## INSTALLATIONS:
 1. Install in any Root like Magisk, KernelSU, etc.
@@ -29,7 +29,8 @@
 5. Have fun. :)
 
 ## CAUTIONS:
-- Don't install with any tweaks or mods relative root modules as it can cause the conflicts or even worse.
+- Don't install with any tweaks root modules as it can cause the conflicts.
+- Advise you should check other root modules if they are causing problems/issues before try pointing out both of my root module.
 
 ## TROUBLESHOOTS - IF PROBLEMS OCCURED:
 ### Hardware Buttons Methods:

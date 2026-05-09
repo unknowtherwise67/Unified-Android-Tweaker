@@ -168,311 +168,6 @@ do
 	write "$governor/up_threshold_any_cpu_freq" 0
 done
 
-write /dev/cpuset/cpus 0-1
-write /dev/cpuset/cpus 0-2
-write /dev/cpuset/cpus 0-3
-write /dev/cpuset/cpus 0-4
-write /dev/cpuset/cpus 0-5
-write /dev/cpuset/cpus 0-6
-write /dev/cpuset/cpus 0-7
-write /dev/cpuset/cpus 0-8
-write /dev/cpuset/cpus 0-9
-write /dev/cpuset/cpus 0-10
-write /dev/cpuset/cpus 0-11
-
-write /dev/cpuset/background/cpus 0-1
-write /dev/cpuset/background/cpus 0-2
-write /dev/cpuset/background/cpus 0-3
-write /dev/cpuset/background/cpus 0-4
-write /dev/cpuset/background/cpus 0-5
-write /dev/cpuset/background/cpus 0-6
-write /dev/cpuset/background/cpus 0-7
-write /dev/cpuset/background/cpus 0-8
-write /dev/cpuset/background/cpus 0-9
-write /dev/cpuset/background/cpus 0-10
-write /dev/cpuset/background/cpus 0-11
-
-write /dev/cpuset/foreground/cpus 0-1
-write /dev/cpuset/foreground/cpus 0-2
-write /dev/cpuset/foreground/cpus 0-3
-write /dev/cpuset/foreground/cpus 0-4
-write /dev/cpuset/foreground/cpus 0-5
-write /dev/cpuset/foreground/cpus 0-6
-write /dev/cpuset/foreground/cpus 0-7
-write /dev/cpuset/foreground/cpus 0-8
-write /dev/cpuset/foreground/cpus 0-9
-write /dev/cpuset/foreground/cpus 0-10
-write /dev/cpuset/foreground/cpus 0-11
-
-write /dev/cpuset/rt/cpus 0-1
-write /dev/cpuset/rt/cpus 0-2
-write /dev/cpuset/rt/cpus 0-3
-write /dev/cpuset/rt/cpus 0-4
-write /dev/cpuset/rt/cpus 0-5
-write /dev/cpuset/rt/cpus 0-6
-write /dev/cpuset/rt/cpus 0-7
-write /dev/cpuset/rt/cpus 0-8
-write /dev/cpuset/rt/cpus 0-9
-write /dev/cpuset/rt/cpus 0-10
-write /dev/cpuset/rt/cpus 0-11
-
-write /dev/cpuset/top-app/cpus 0-1
-write /dev/cpuset/top-app/cpus 0-2
-write /dev/cpuset/top-app/cpus 0-3
-write /dev/cpuset/top-app/cpus 0-4
-write /dev/cpuset/top-app/cpus 0-5
-write /dev/cpuset/top-app/cpus 0-6
-write /dev/cpuset/top-app/cpus 0-7
-write /dev/cpuset/top-app/cpus 0-8
-write /dev/cpuset/top-app/cpus 0-9
-write /dev/cpuset/top-app/cpus 0-10
-write /dev/cpuset/top-app/cpus 0-11
-
-write /dev/cpuset/nnapi-hal 0-1
-write /dev/cpuset/nnapi-hal 0-2
-write /dev/cpuset/nnapi-hal 0-3
-write /dev/cpuset/nnapi-hal 0-4
-write /dev/cpuset/nnapi-hal 0-5
-write /dev/cpuset/nnapi-hal 0-6
-write /dev/cpuset/nnapi-hal 0-7
-write /dev/cpuset/nnapi-hal 0-8
-write /dev/cpuset/nnapi-hal 0-9
-write /dev/cpuset/nnapi-hal 0-10
-write /dev/cpuset/nnapi-hal 0-11
-
-write /dev/cpuset/application/cpus 0-1
-write /dev/cpuset/application/cpus 0-2
-write /dev/cpuset/application/cpus 0-3
-write /dev/cpuset/application/cpus 0-4
-write /dev/cpuset/application/cpus 0-5
-write /dev/cpuset/application/cpus 0-6
-write /dev/cpuset/application/cpus 0-7
-write /dev/cpuset/application/cpus 0-8
-write /dev/cpuset/application/cpus 0-9
-write /dev/cpuset/application/cpus 0-10
-write /dev/cpuset/application/cpus 0-11
-
-write /dev/cpuset/system/cpus 0-1
-write /dev/cpuset/system/cpus 0-2
-write /dev/cpuset/system/cpus 0-3
-write /dev/cpuset/system/cpus 0-4
-write /dev/cpuset/system/cpus 0-5
-write /dev/cpuset/system/cpus 0-6
-write /dev/cpuset/system/cpus 0-7
-write /dev/cpuset/system/cpus 0-8
-write /dev/cpuset/system/cpus 0-9
-write /dev/cpuset/system/cpus 0-10
-write /dev/cpuset/system/cpus 0-11
-
-write /dev/cpuset/system-background/cpus 0-1
-write /dev/cpuset/system-background/cpus 0-2
-write /dev/cpuset/system-background/cpus 0-3
-write /dev/cpuset/system-background/cpus 0-4
-write /dev/cpuset/system-background/cpus 0-5
-write /dev/cpuset/system-background/cpus 0-6
-write /dev/cpuset/system-background/cpus 0-7
-write /dev/cpuset/system-background/cpus 0-8
-write /dev/cpuset/system-background/cpus 0-9
-write /dev/cpuset/system-background/cpus 0-10
-write /dev/cpuset/system-background/cpus 0-11
-
-write /dev/cpuset/kernel/cpus 0-1
-write /dev/cpuset/kernel/cpus 0-2
-write /dev/cpuset/kernel/cpus 0-3
-write /dev/cpuset/kernel/cpus 0-4
-write /dev/cpuset/kernel/cpus 0-5
-write /dev/cpuset/kernel/cpus 0-6
-write /dev/cpuset/kernel/cpus 0-7
-write /dev/cpuset/kernel/cpus 0-8
-write /dev/cpuset/kernel/cpus 0-9
-write /dev/cpuset/kernel/cpus 0-10
-write /dev/cpuset/kernel/cpus 0-11
-
-write /dev/cpuset/camera-daemon/cpus 0-1
-write /dev/cpuset/camera-daemon/cpus 0-2
-write /dev/cpuset/camera-daemon/cpus 0-3
-write /dev/cpuset/camera-daemon/cpus 0-4
-write /dev/cpuset/camera-daemon/cpus 0-5
-write /dev/cpuset/camera-daemon/cpus 0-6
-write /dev/cpuset/camera-daemon/cpus 0-7
-write /dev/cpuset/camera-daemon/cpus 0-8
-write /dev/cpuset/camera-daemon/cpus 0-9
-write /dev/cpuset/camera-daemon/cpus 0-10
-write /dev/cpuset/camera-daemon/cpus 0-11
-
-write /dev/cpuset/restricted/cpus 0-1
-write /dev/cpuset/restricted/cpus 0-2
-write /dev/cpuset/restricted/cpus 0-3
-write /dev/cpuset/restricted/cpus 0-4
-write /dev/cpuset/restricted/cpus 0-5
-write /dev/cpuset/restricted/cpus 0-6
-write /dev/cpuset/restricted/cpus 0-7
-write /dev/cpuset/restricted/cpus 0-8
-write /dev/cpuset/restricted/cpus 0-9
-write /dev/cpuset/restricted/cpus 0-10
-write /dev/cpuset/restricted/cpus 0-11
-
-write /dev/cpuset/sf/cpus 0-1
-write /dev/cpuset/sf/cpus 0-2
-write /dev/cpuset/sf/cpus 0-3
-write /dev/cpuset/sf/cpus 0-4
-write /dev/cpuset/sf/cpus 0-5
-write /dev/cpuset/sf/cpus 0-6
-write /dev/cpuset/sf/cpus 0-7
-write /dev/cpuset/sf/cpus 0-8
-write /dev/cpuset/sf/cpus 0-9
-write /dev/cpuset/sf/cpus 0-10
-write /dev/cpuset/sf/cpus 0-11
-
-write /dev/cpuset/oiface_fg/cpus 0-1
-write /dev/cpuset/oiface_fg/cpus 0-2
-write /dev/cpuset/oiface_fg/cpus 0-3
-write /dev/cpuset/oiface_fg/cpus 0-4
-write /dev/cpuset/oiface_fg/cpus 0-5
-write /dev/cpuset/oiface_fg/cpus 0-6
-write /dev/cpuset/oiface_fg/cpus 0-7
-write /dev/cpuset/oiface_fg/cpus 0-8
-write /dev/cpuset/oiface_fg/cpus 0-9
-write /dev/cpuset/oiface_fg/cpus 0-10
-write /dev/cpuset/oiface_fg/cpus 0-11
-
-write /dev/cpuset/display/cpus 0-1
-write /dev/cpuset/display/cpus 0-2
-write /dev/cpuset/display/cpus 0-3
-write /dev/cpuset/display/cpus 0-4
-write /dev/cpuset/display/cpus 0-5
-write /dev/cpuset/display/cpus 0-6
-write /dev/cpuset/display/cpus 0-7
-write /dev/cpuset/display/cpus 0-8
-write /dev/cpuset/display/cpus 0-9
-write /dev/cpuset/display/cpus 0-10
-write /dev/cpuset/display/cpus 0-11
-
-write /dev/cpuset/l-background/cpus 0-1
-write /dev/cpuset/l-background/cpus 0-2
-write /dev/cpuset/l-background/cpus 0-3
-write /dev/cpuset/l-background/cpus 0-4
-write /dev/cpuset/l-background/cpus 0-5
-write /dev/cpuset/l-background/cpus 0-6
-write /dev/cpuset/l-background/cpus 0-7
-write /dev/cpuset/l-background/cpus 0-8
-write /dev/cpuset/l-background/cpus 0-9
-write /dev/cpuset/l-background/cpus 0-10
-write /dev/cpuset/l-background/cpus 0-11
-
-write /dev/cpuset/h-background/cpus 0-1
-write /dev/cpuset/h-background/cpus 0-2
-write /dev/cpuset/h-background/cpus 0-3
-write /dev/cpuset/h-background/cpus 0-4
-write /dev/cpuset/h-background/cpus 0-5
-write /dev/cpuset/h-background/cpus 0-6
-write /dev/cpuset/h-background/cpus 0-7
-write /dev/cpuset/h-background/cpus 0-8
-write /dev/cpuset/h-background/cpus 0-9
-write /dev/cpuset/h-background/cpus 0-10
-write /dev/cpuset/h-background/cpus 0-11
-
-write /dev/cpuset/audio-app/cpus 0-1
-write /dev/cpuset/audio-app/cpus 0-2
-write /dev/cpuset/audio-app/cpus 0-3
-write /dev/cpuset/audio-app/cpus 0-4
-write /dev/cpuset/audio-app/cpus 0-5
-write /dev/cpuset/audio-app/cpus 0-6
-write /dev/cpuset/audio-app/cpus 0-7
-write /dev/cpuset/audio-app/cpus 0-8
-write /dev/cpuset/audio-app/cpus 0-9
-write /dev/cpuset/audio-app/cpus 0-10
-write /dev/cpuset/audio-app/cpus 0-11
-
-write /dev/cpuset/dex2oat/cpus 0-1
-write /dev/cpuset/dex2oat/cpus 0-2
-write /dev/cpuset/dex2oat/cpus 0-3
-write /dev/cpuset/dex2oat/cpus 0-4
-write /dev/cpuset/dex2oat/cpus 0-5
-write /dev/cpuset/dex2oat/cpus 0-6
-write /dev/cpuset/dex2oat/cpus 0-7
-write /dev/cpuset/dex2oat/cpus 0-8
-write /dev/cpuset/dex2oat/cpus 0-9
-write /dev/cpuset/dex2oat/cpus 0-10
-write /dev/cpuset/dex2oat/cpus 0-11
-
-write /dev/cpuset/foreground_window/cpus 0-1
-write /dev/cpuset/foreground_window/cpus 0-2
-write /dev/cpuset/foreground_window/cpus 0-3
-write /dev/cpuset/foreground_window/cpus 0-4
-write /dev/cpuset/foreground_window/cpus 0-5
-write /dev/cpuset/foreground_window/cpus 0-6
-write /dev/cpuset/foreground_window/cpus 0-7
-write /dev/cpuset/foreground_window/cpus 0-8
-write /dev/cpuset/foreground_window/cpus 0-9
-write /dev/cpuset/foreground_window/cpus 0-10
-write /dev/cpuset/foreground_window/cpus 0-11
-
-write /sys/devices/system/cpu/cpu0/core_ctl/min_cpus 4
-write /sys/devices/system/cpu/cpu1/core_ctl/min_cpus 4
-write /sys/devices/system/cpu/cpu2/core_ctl/min_cpus 4
-write /sys/devices/system/cpu/cpu3/core_ctl/min_cpus 4
-write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 4
-write /sys/devices/system/cpu/cpu5/core_ctl/min_cpus 4
-write /sys/devices/system/cpu/cpu6/core_ctl/min_cpus 4
-write /sys/devices/system/cpu/cpu7/core_ctl/min_cpus 4
-write /sys/devices/system/cpu/cpu8/core_ctl/min_cpus 4
-write /sys/devices/system/cpu/cpu9/core_ctl/min_cpus 4
-write /sys/devices/system/cpu/cpu10/core_ctl/min_cpus 4
-write /sys/devices/system/cpu/cpu11/core_ctl/min_cpus 4
-
-write /sys/devices/system/cpu/cpu0/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu1/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu2/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu3/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu4/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu5/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu6/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu7/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu8/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu9/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu10/core_ctl/task_thres 100
-write /sys/devices/system/cpu/cpu11/core_ctl/task_thres 100
-
-write /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms 0
-write /sys/devices/system/cpu/cpu1/core_ctl/offline_delay_ms 0
-write /sys/devices/system/cpu/cpu2/core_ctl/offline_delay_ms 0
-write /sys/devices/system/cpu/cpu3/core_ctl/offline_delay_ms 0
-write /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms 0
-write /sys/devices/system/cpu/cpu5/core_ctl/offline_delay_ms 0
-write /sys/devices/system/cpu/cpu6/core_ctl/offline_delay_ms 0
-write /sys/devices/system/cpu/cpu7/core_ctl/offline_delay_ms 0
-write /sys/devices/system/cpu/cpu8/core_ctl/offline_delay_ms 0
-write /sys/devices/system/cpu/cpu9/core_ctl/offline_delay_ms 0
-write /sys/devices/system/cpu/cpu10/core_ctl/offline_delay_ms 0
-write /sys/devices/system/cpu/cpu11/core_ctl/offline_delay_ms 0
-
-write /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres 0
-write /sys/devices/system/cpu/cpu1/core_ctl/busy_down_thres 0
-write /sys/devices/system/cpu/cpu2/core_ctl/busy_down_thres 0
-write /sys/devices/system/cpu/cpu3/core_ctl/busy_down_thres 0
-write /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres 0
-write /sys/devices/system/cpu/cpu5/core_ctl/busy_down_thres 0
-write /sys/devices/system/cpu/cpu6/core_ctl/busy_down_thres 0
-write /sys/devices/system/cpu/cpu7/core_ctl/busy_down_thres 0
-write /sys/devices/system/cpu/cpu8/core_ctl/busy_down_thres 0
-write /sys/devices/system/cpu/cpu9/core_ctl/busy_down_thres 0
-write /sys/devices/system/cpu/cpu10/core_ctl/busy_down_thres 0
-write /sys/devices/system/cpu/cpu11/core_ctl/busy_down_thres 0
-
-write /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres 0
-write /sys/devices/system/cpu/cpu1/core_ctl/busy_up_thres 0
-write /sys/devices/system/cpu/cpu2/core_ctl/busy_up_thres 0
-write /sys/devices/system/cpu/cpu3/core_ctl/busy_up_thres 0
-write /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres 0
-write /sys/devices/system/cpu/cpu5/core_ctl/busy_up_thres 0
-write /sys/devices/system/cpu/cpu6/core_ctl/busy_up_thres 0
-write /sys/devices/system/cpu/cpu7/core_ctl/busy_up_thres 0
-write /sys/devices/system/cpu/cpu8/core_ctl/busy_up_thres 0
-write /sys/devices/system/cpu/cpu9/core_ctl/busy_up_thres 0
-write /sys/devices/system/cpu/cpu10/core_ctl/busy_up_thres 0
-write /sys/devices/system/cpu/cpu11/core_ctl/busy_up_thres 0
-
 write /sys/kernel/gpu/boost 1
 write /proc/mali/always_on 1
 write /proc/mali/dvfs_enable 1
@@ -510,6 +205,15 @@ for queue in /sys/*/*/queue
 do
 	write "$queue/read_ahead_kb" 128
 	write "$queue/nr_requests" 128
+done
+
+for queue in /sys/*/*/queue
+do
+	write "$queue/iostats" 1
+	write "$queue/rq_affinity" 2
+	write "$queue/nomerges" 2
+	write "$queue/add_random" 0
+	write "$queue/rotational" 0
 done
 
 for queue in /sys/*/*/queue
@@ -771,6 +475,139 @@ write /sys/kernel/debug/sched_features NO_EAS_USE_NEED_IDLE
 write /sys/kernel/debug/sched_features NO_ENERGY_AWARE
 write /sys/kernel/debug/sched_features NO_SCHED_HMP
 write /sys/kernel/debug/sched_features NO_SCHED_MTK_EAS
+
+# Others parameters
+write /sys/kernel/rcu_normal 1
+write /sys/fs/selinux/enforce 1
+write /sys/kernel/rcu_expedited 1
+write /proc/sys/fs/leases-enable 1
+write /sys/kernel/fp_boost/enabled 1
+write /sys/kernel/mi_reclaim/enable 1
+write /proc/sys/fs/dir-notify-enable 1
+write /proc/sys/dev/tty/ldisc_autoload 1
+write /sys/class/sec/switch/afc_disable 1
+write /proc/touchpanel/oplus_tp_direction 1
+write /proc/touchpanel/game_switch_enable 1
+write /proc/sys/kernel/slide_boost_enabled 1
+write /sys/kernel/dyn_fsync/Dyn_fsync_active 1
+write /proc/sys/kernel/launcher_boost_enabled 1
+write /sys/devices/system/cpu/sched/hint_enable 1
+write /sys/module/fast_charge/force_fast_charge 1
+write /sys/kernel/fast_charge/force_fast_charge 1
+write /sys/module/sync/parameters/fsync_enabled 1
+write /sys/class/mmc_host/mmc0/clk_scaling/enable 1
+write /sys/class/mmc_host/mmc1/clk_scaling/enable 1
+write /sys/module/lpm_levels/parameters/bias_hyst 1
+write /sys/kernel/tracing/events/sched/sched_boost_cpu 1
+write /sys/class/power_supply/battery/charging_enabled 1
+write /proc/sys/fs/lease-break-time 10
+write /proc/sys/kernel/random/read_wakeup_threshold 128
+write /proc/sys/kernel/random/write_wakeup_threshold 128
+write /sys/kernel/oppo_display/LCM_CABC 0
+write /proc/touchpanel/oplus_tp_limit_enable 0
+write /proc/touchpanel/oplus_tp_limit_enable 0
+write /sys/kernel/debug/msm_vidc/fw_low_power_mode 0
+write /sys/module/mmc_core/parameters/use_spi_crc 0
+write /sys/module/system/cpu/sched_mc_power_savings 0
+write /sys/devices/platform/soc/1d84000.ufshc/clkscale_enable 0
+write /sys/devices/platform/soc/1d84000.ufshc/hibern8_on_idle_enable 0
+write /sys/devices/platform/soc/1d84000.ufshc/clkgate_enable 0
+write /sys/module/pm2/parameters/idle_sleep_mode N
+write /sys/module/lpm_levels/parameters/lpm_prediction N
+write /sys/module/lpm_levels/parameters/lpm_ipi_prediction N
+write /sys/module/lpm_levels/parameters/sleep_disabled N
+write /sys/module/battery_saver/parameters/enabled N
+write /sys/module/workqueue/parameters/power_efficient N
+write /sys/module/mmc_core/parameters/removable N
+write /sys/module/mmc_core/parameters/use_spi_crc N
+write /sys/module/mmc_core/parameters/crc N
+write /sys/module/exynos_acme/parameters/enable_suspend_freqs N
+write /proc/sys/kernel/printk_devkmsg off
+
+write /sys/kernel/gbe/gbe_enable1 1
+write /sys/kernel/gbe/gbe_enable2 1
+write /sys/kernel/ged/hal/dcs_mode 1
+write /sys/module/ged/parameters/gx_game_mode 1
+write /sys/module/ged/parameters/boost_amp 1
+write /sys/module/ged/parameters/boost_extra 1
+write /sys/module/ged/parameters/boost_gpu_enable 1
+write /sys/module/ged/parameters/enable_cpu_boost 1
+write /sys/module/ged/parameters/enable_gpu_boost 1
+write /sys/module/ged/parameters/gx_frc_mode 1
+write /sys/module/ged/parameters/gx_boost_on 1
+write /sys/module/ged/parameters/gx_force_cpu_boost 1
+write /sys/module/ged/parameters/is_GED_KPI_enabled 1
+write /sys/module/ged/parameters/boost_amp 1
+write /sys/module/ged/parameters/enable_game_self_frc_detect 1
+write /sys/module/ged/parameters/ged_boost_enable 1
+write /sys/kernel/gbe/gbe2_max_boost_cnt 1
+write /sys/module/ged/parameters/cpu_boost_policy 100
+write /sys/module/ged/parameters/ged_smart_boost 100
+write /sys/module/ged/parameters/gpu_debug_enable 0
+write /sys/module/ged/parameters/gpu_dvfs_enable 0
+write /sys/module/ged/parameters/ged_force_mdp_enable 0
+write /sys/module/ged/parameters/ged_log_perf_trace_enable 0
+write /sys/module/ged/parameters/ged_log_trace_enable 0
+write /sys/module/ged/parameters/ged_monitor_3D_fence_debug 0
+write /sys/module/ged/parameters/ged_monitor_3D_fence_disable 0
+write /sys/module/ged/parameters/ged_monitor_3D_fence_systrace 0
+
+write /proc/perfmgr/tchbst/user/usrtch enable 1
+write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_enable 1
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_prefer_idle 1
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_boost 1
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_boost 1
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_boost 1
+write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_up_loading 10
+write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_down_loading 10
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_uclamp_min 1024
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_uclamp_min 1024
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_uclamp_min 1024
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_uclamp_min 1024
+
+write /proc/ppm/enabled 0
+write /proc/ppm/policy_status 0 0
+write /proc/ppm/policy_status 1 0
+write /proc/ppm/policy_status 2 0
+write /proc/ppm/policy_status 3 0
+write /proc/ppm/policy_status 4 0
+write /proc/ppm/policy_status 5 0
+write /proc/ppm/policy_status 6 0
+write /proc/ppm/policy_status 7 0
+write /proc/ppm/policy_status 8 0
+write /proc/ppm/policy_status 9 0
+write /proc/ppm/policy_status 10 0
+write /proc/ppm/policy_status 11 0
+
+# TCP
+write /proc/sys/net/ipv4/tcp_ecn 1
+write /proc/sys/net/ipv4/tcp_sack 1
+write /proc/sys/net/ipv4/tcp_fack 1
+write /proc/sys/net/ipv4/route/flush 1
+write /proc/sys/net/ipv4/tcp_rfc1337 1
+write /proc/sys/net/ipv4/tcp_tw_reuse 1
+write /proc/sys/net/ipv4/ip_no_pmtu_disc 1
+write /proc/sys/net/ipv4/tcp_timestamps 1
+write /proc/sys/net/ipv4/tcp_mtu_probing 1
+write /proc/sys/net/ipv4/tcp_tw_recycle 1
+write /proc/sys/net/ipv4/tcp_no_metrics_save 1
+write /proc/sys/net/ipv4/tcp_window_scaling 1
+write /proc/sys/net/ipv4/tcp_syncookies 1
+write /proc/sys/net/ipv4/tcp_fastopen 3
+write /proc/sys/net/ipv4/tcp_keepalive_probes 10
+write /proc/sys/net/ipv4/tcp_keepalive_intvl 10
+write /proc/sys/net/ipv4/tcp_fin_timeout 10
+write /proc/sys/net/core/netdev_max_backlog 10000
+write /proc/sys/net/core/optmem_max 30000
+write /proc/sys/net/core/rmem_default 500000
+write /proc/sys/net/core/wmem_default 500000
+write /proc/sys/net/core/rmem_max 1000000
+write /proc/sys/net/core/wmem_max 1000000
+write "${tcp_v4}tcp_mem" "100000 300000 500000"
+write "${tcp_v4}udp_mem" "100000 300000 500000"
+write "${tcp_v4}tcp_rmem" "50000 700000 1000000"
+write "${tcp_v4}tcp_wmem" "50000 700000 1000000"
+write /proc/sys/net/ipv4/tcp_slow_start_after_idle 0
 
 # Schedtune Idles/Boosts/CPUs-Set
 write /proc/sys/kernel/sched_cfs_boost 1
@@ -1144,135 +981,307 @@ write /proc/sys/kernel/sched_util_clamp_min 1024
 write /proc/sys/kernel/sched_util_clamp_max 1024
 write /proc/sys/kernel/sched_util_clamp_min_rt_default 1024
 
-# Others parameters
-write /sys/kernel/rcu_normal 1
-write /sys/fs/selinux/enforce 1
-write /sys/kernel/rcu_expedited 1
-write /proc/sys/fs/leases-enable 1
-write /sys/kernel/fp_boost/enabled 1
-write /sys/kernel/mi_reclaim/enable 1
-write /proc/sys/fs/dir-notify-enable 1
-write /proc/sys/dev/tty/ldisc_autoload 1
-write /sys/class/sec/switch/afc_disable 1
-write /proc/touchpanel/oplus_tp_direction 1
-write /proc/touchpanel/game_switch_enable 1
-write /proc/sys/kernel/slide_boost_enabled 1
-write /sys/kernel/dyn_fsync/Dyn_fsync_active 1
-write /proc/sys/kernel/launcher_boost_enabled 1
-write /sys/devices/system/cpu/sched/hint_enable 1
-write /sys/module/fast_charge/force_fast_charge 1
-write /sys/kernel/fast_charge/force_fast_charge 1
-write /sys/module/sync/parameters/fsync_enabled 1
-write /sys/class/mmc_host/mmc0/clk_scaling/enable 1
-write /sys/class/mmc_host/mmc1/clk_scaling/enable 1
-write /sys/module/lpm_levels/parameters/bias_hyst 1
-write /sys/kernel/tracing/events/sched/sched_boost_cpu 1
-write /sys/class/power_supply/battery/charging_enabled 1
-write /proc/sys/fs/lease-break-time 10
-write /proc/sys/kernel/random/read_wakeup_threshold 128
-write /proc/sys/kernel/random/write_wakeup_threshold 128
-write /sys/kernel/oppo_display/LCM_CABC 0
-write /proc/touchpanel/oplus_tp_limit_enable 0
-write /proc/touchpanel/oplus_tp_limit_enable 0
-write /sys/kernel/debug/msm_vidc/fw_low_power_mode 0
-write /sys/module/mmc_core/parameters/use_spi_crc 0
-write /sys/module/system/cpu/sched_mc_power_savings 0
-write /sys/devices/platform/soc/1d84000.ufshc/clkscale_enable 0
-write /sys/devices/platform/soc/1d84000.ufshc/hibern8_on_idle_enable 0
-write /sys/devices/platform/soc/1d84000.ufshc/clkgate_enable 0
-write /sys/module/pm2/parameters/idle_sleep_mode N
-write /sys/module/lpm_levels/parameters/lpm_prediction N
-write /sys/module/lpm_levels/parameters/lpm_ipi_prediction N
-write /sys/module/lpm_levels/parameters/sleep_disabled N
-write /sys/module/battery_saver/parameters/enabled N
-write /sys/module/workqueue/parameters/power_efficient N
-write /sys/module/mmc_core/parameters/removable N
-write /sys/module/mmc_core/parameters/use_spi_crc N
-write /sys/module/mmc_core/parameters/crc N
-write /sys/module/exynos_acme/parameters/enable_suspend_freqs N
-write /proc/sys/kernel/printk_devkmsg off
+write /dev/cpuset/cpus 0-1
+write /dev/cpuset/cpus 0-2
+write /dev/cpuset/cpus 0-3
+write /dev/cpuset/cpus 0-4
+write /dev/cpuset/cpus 0-5
+write /dev/cpuset/cpus 0-6
+write /dev/cpuset/cpus 0-7
+write /dev/cpuset/cpus 0-8
+write /dev/cpuset/cpus 0-9
+write /dev/cpuset/cpus 0-10
+write /dev/cpuset/cpus 0-11
 
-write /sys/kernel/gbe/gbe_enable1 1
-write /sys/kernel/gbe/gbe_enable2 1
-write /sys/kernel/ged/hal/dcs_mode 1
-write /sys/module/ged/parameters/gx_game_mode 1
-write /sys/module/ged/parameters/boost_amp 1
-write /sys/module/ged/parameters/boost_extra 1
-write /sys/module/ged/parameters/boost_gpu_enable 1
-write /sys/module/ged/parameters/enable_cpu_boost 1
-write /sys/module/ged/parameters/enable_gpu_boost 1
-write /sys/module/ged/parameters/gx_frc_mode 1
-write /sys/module/ged/parameters/gx_boost_on 1
-write /sys/module/ged/parameters/gx_force_cpu_boost 1
-write /sys/module/ged/parameters/is_GED_KPI_enabled 1
-write /sys/module/ged/parameters/boost_amp 1
-write /sys/module/ged/parameters/enable_game_self_frc_detect 1
-write /sys/module/ged/parameters/ged_boost_enable 1
-write /sys/kernel/gbe/gbe2_max_boost_cnt 1
-write /sys/module/ged/parameters/cpu_boost_policy 100
-write /sys/module/ged/parameters/ged_smart_boost 100
-write /sys/module/ged/parameters/gpu_debug_enable 0
-write /sys/module/ged/parameters/gpu_dvfs_enable 0
-write /sys/module/ged/parameters/ged_force_mdp_enable 0
-write /sys/module/ged/parameters/ged_log_perf_trace_enable 0
-write /sys/module/ged/parameters/ged_log_trace_enable 0
-write /sys/module/ged/parameters/ged_monitor_3D_fence_debug 0
-write /sys/module/ged/parameters/ged_monitor_3D_fence_disable 0
-write /sys/module/ged/parameters/ged_monitor_3D_fence_systrace 0
+write /dev/cpuset/background/cpus 0-1
+write /dev/cpuset/background/cpus 0-2
+write /dev/cpuset/background/cpus 0-3
+write /dev/cpuset/background/cpus 0-4
+write /dev/cpuset/background/cpus 0-5
+write /dev/cpuset/background/cpus 0-6
+write /dev/cpuset/background/cpus 0-7
+write /dev/cpuset/background/cpus 0-8
+write /dev/cpuset/background/cpus 0-9
+write /dev/cpuset/background/cpus 0-10
+write /dev/cpuset/background/cpus 0-11
 
-write /proc/perfmgr/tchbst/user/usrtch enable 1
-write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_enable 1
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_prefer_idle 1
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_boost 1
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_boost 1
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_boost 1
-write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_up_loading 10
-write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_down_loading 10
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_uclamp_min 1024
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_uclamp_min 1024
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_uclamp_min 1024
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_uclamp_min 1024
+write /dev/cpuset/foreground/cpus 0-1
+write /dev/cpuset/foreground/cpus 0-2
+write /dev/cpuset/foreground/cpus 0-3
+write /dev/cpuset/foreground/cpus 0-4
+write /dev/cpuset/foreground/cpus 0-5
+write /dev/cpuset/foreground/cpus 0-6
+write /dev/cpuset/foreground/cpus 0-7
+write /dev/cpuset/foreground/cpus 0-8
+write /dev/cpuset/foreground/cpus 0-9
+write /dev/cpuset/foreground/cpus 0-10
+write /dev/cpuset/foreground/cpus 0-11
 
-write /proc/ppm/enabled 0
-write /proc/ppm/policy_status 0 0
-write /proc/ppm/policy_status 1 0
-write /proc/ppm/policy_status 2 0
-write /proc/ppm/policy_status 3 0
-write /proc/ppm/policy_status 4 0
-write /proc/ppm/policy_status 5 0
-write /proc/ppm/policy_status 6 0
-write /proc/ppm/policy_status 7 0
-write /proc/ppm/policy_status 8 0
-write /proc/ppm/policy_status 9 0
-write /proc/ppm/policy_status 10 0
-write /proc/ppm/policy_status 11 0
+write /dev/cpuset/rt/cpus 0-1
+write /dev/cpuset/rt/cpus 0-2
+write /dev/cpuset/rt/cpus 0-3
+write /dev/cpuset/rt/cpus 0-4
+write /dev/cpuset/rt/cpus 0-5
+write /dev/cpuset/rt/cpus 0-6
+write /dev/cpuset/rt/cpus 0-7
+write /dev/cpuset/rt/cpus 0-8
+write /dev/cpuset/rt/cpus 0-9
+write /dev/cpuset/rt/cpus 0-10
+write /dev/cpuset/rt/cpus 0-11
 
-# TCP
-write /proc/sys/net/ipv4/tcp_ecn 1
-write /proc/sys/net/ipv4/tcp_sack 1
-write /proc/sys/net/ipv4/tcp_fack 1
-write /proc/sys/net/ipv4/route/flush 1
-write /proc/sys/net/ipv4/tcp_rfc1337 1
-write /proc/sys/net/ipv4/tcp_tw_reuse 1
-write /proc/sys/net/ipv4/ip_no_pmtu_disc 1
-write /proc/sys/net/ipv4/tcp_timestamps 1
-write /proc/sys/net/ipv4/tcp_mtu_probing 1
-write /proc/sys/net/ipv4/tcp_tw_recycle 1
-write /proc/sys/net/ipv4/tcp_no_metrics_save 1
-write /proc/sys/net/ipv4/tcp_window_scaling 1
-write /proc/sys/net/ipv4/tcp_syncookies 1
-write /proc/sys/net/ipv4/tcp_fastopen 3
-write /proc/sys/net/ipv4/tcp_keepalive_probes 10
-write /proc/sys/net/ipv4/tcp_keepalive_intvl 10
-write /proc/sys/net/ipv4/tcp_fin_timeout 10
-write /proc/sys/net/core/netdev_max_backlog 10000
-write /proc/sys/net/core/optmem_max 30000
-write /proc/sys/net/core/rmem_default 500000
-write /proc/sys/net/core/wmem_default 500000
-write /proc/sys/net/core/rmem_max 1000000
-write /proc/sys/net/core/wmem_max 1000000
-write "${tcp_v4}tcp_mem" "100000 300000 500000"
-write "${tcp_v4}udp_mem" "100000 300000 500000"
-write "${tcp_v4}tcp_rmem" "50000 700000 1000000"
-write "${tcp_v4}tcp_wmem" "50000 700000 1000000"
-write /proc/sys/net/ipv4/tcp_slow_start_after_idle 0
+write /dev/cpuset/top-app/cpus 0-1
+write /dev/cpuset/top-app/cpus 0-2
+write /dev/cpuset/top-app/cpus 0-3
+write /dev/cpuset/top-app/cpus 0-4
+write /dev/cpuset/top-app/cpus 0-5
+write /dev/cpuset/top-app/cpus 0-6
+write /dev/cpuset/top-app/cpus 0-7
+write /dev/cpuset/top-app/cpus 0-8
+write /dev/cpuset/top-app/cpus 0-9
+write /dev/cpuset/top-app/cpus 0-10
+write /dev/cpuset/top-app/cpus 0-11
+
+write /dev/cpuset/nnapi-hal 0-1
+write /dev/cpuset/nnapi-hal 0-2
+write /dev/cpuset/nnapi-hal 0-3
+write /dev/cpuset/nnapi-hal 0-4
+write /dev/cpuset/nnapi-hal 0-5
+write /dev/cpuset/nnapi-hal 0-6
+write /dev/cpuset/nnapi-hal 0-7
+write /dev/cpuset/nnapi-hal 0-8
+write /dev/cpuset/nnapi-hal 0-9
+write /dev/cpuset/nnapi-hal 0-10
+write /dev/cpuset/nnapi-hal 0-11
+
+write /dev/cpuset/application/cpus 0-1
+write /dev/cpuset/application/cpus 0-2
+write /dev/cpuset/application/cpus 0-3
+write /dev/cpuset/application/cpus 0-4
+write /dev/cpuset/application/cpus 0-5
+write /dev/cpuset/application/cpus 0-6
+write /dev/cpuset/application/cpus 0-7
+write /dev/cpuset/application/cpus 0-8
+write /dev/cpuset/application/cpus 0-9
+write /dev/cpuset/application/cpus 0-10
+write /dev/cpuset/application/cpus 0-11
+
+write /dev/cpuset/system/cpus 0-1
+write /dev/cpuset/system/cpus 0-2
+write /dev/cpuset/system/cpus 0-3
+write /dev/cpuset/system/cpus 0-4
+write /dev/cpuset/system/cpus 0-5
+write /dev/cpuset/system/cpus 0-6
+write /dev/cpuset/system/cpus 0-7
+write /dev/cpuset/system/cpus 0-8
+write /dev/cpuset/system/cpus 0-9
+write /dev/cpuset/system/cpus 0-10
+write /dev/cpuset/system/cpus 0-11
+
+write /dev/cpuset/system-background/cpus 0-1
+write /dev/cpuset/system-background/cpus 0-2
+write /dev/cpuset/system-background/cpus 0-3
+write /dev/cpuset/system-background/cpus 0-4
+write /dev/cpuset/system-background/cpus 0-5
+write /dev/cpuset/system-background/cpus 0-6
+write /dev/cpuset/system-background/cpus 0-7
+write /dev/cpuset/system-background/cpus 0-8
+write /dev/cpuset/system-background/cpus 0-9
+write /dev/cpuset/system-background/cpus 0-10
+write /dev/cpuset/system-background/cpus 0-11
+
+write /dev/cpuset/kernel/cpus 0-1
+write /dev/cpuset/kernel/cpus 0-2
+write /dev/cpuset/kernel/cpus 0-3
+write /dev/cpuset/kernel/cpus 0-4
+write /dev/cpuset/kernel/cpus 0-5
+write /dev/cpuset/kernel/cpus 0-6
+write /dev/cpuset/kernel/cpus 0-7
+write /dev/cpuset/kernel/cpus 0-8
+write /dev/cpuset/kernel/cpus 0-9
+write /dev/cpuset/kernel/cpus 0-10
+write /dev/cpuset/kernel/cpus 0-11
+
+write /dev/cpuset/camera-daemon/cpus 0-1
+write /dev/cpuset/camera-daemon/cpus 0-2
+write /dev/cpuset/camera-daemon/cpus 0-3
+write /dev/cpuset/camera-daemon/cpus 0-4
+write /dev/cpuset/camera-daemon/cpus 0-5
+write /dev/cpuset/camera-daemon/cpus 0-6
+write /dev/cpuset/camera-daemon/cpus 0-7
+write /dev/cpuset/camera-daemon/cpus 0-8
+write /dev/cpuset/camera-daemon/cpus 0-9
+write /dev/cpuset/camera-daemon/cpus 0-10
+write /dev/cpuset/camera-daemon/cpus 0-11
+
+write /dev/cpuset/restricted/cpus 0-1
+write /dev/cpuset/restricted/cpus 0-2
+write /dev/cpuset/restricted/cpus 0-3
+write /dev/cpuset/restricted/cpus 0-4
+write /dev/cpuset/restricted/cpus 0-5
+write /dev/cpuset/restricted/cpus 0-6
+write /dev/cpuset/restricted/cpus 0-7
+write /dev/cpuset/restricted/cpus 0-8
+write /dev/cpuset/restricted/cpus 0-9
+write /dev/cpuset/restricted/cpus 0-10
+write /dev/cpuset/restricted/cpus 0-11
+
+write /dev/cpuset/sf/cpus 0-1
+write /dev/cpuset/sf/cpus 0-2
+write /dev/cpuset/sf/cpus 0-3
+write /dev/cpuset/sf/cpus 0-4
+write /dev/cpuset/sf/cpus 0-5
+write /dev/cpuset/sf/cpus 0-6
+write /dev/cpuset/sf/cpus 0-7
+write /dev/cpuset/sf/cpus 0-8
+write /dev/cpuset/sf/cpus 0-9
+write /dev/cpuset/sf/cpus 0-10
+write /dev/cpuset/sf/cpus 0-11
+
+write /dev/cpuset/oiface_fg/cpus 0-1
+write /dev/cpuset/oiface_fg/cpus 0-2
+write /dev/cpuset/oiface_fg/cpus 0-3
+write /dev/cpuset/oiface_fg/cpus 0-4
+write /dev/cpuset/oiface_fg/cpus 0-5
+write /dev/cpuset/oiface_fg/cpus 0-6
+write /dev/cpuset/oiface_fg/cpus 0-7
+write /dev/cpuset/oiface_fg/cpus 0-8
+write /dev/cpuset/oiface_fg/cpus 0-9
+write /dev/cpuset/oiface_fg/cpus 0-10
+write /dev/cpuset/oiface_fg/cpus 0-11
+
+write /dev/cpuset/display/cpus 0-1
+write /dev/cpuset/display/cpus 0-2
+write /dev/cpuset/display/cpus 0-3
+write /dev/cpuset/display/cpus 0-4
+write /dev/cpuset/display/cpus 0-5
+write /dev/cpuset/display/cpus 0-6
+write /dev/cpuset/display/cpus 0-7
+write /dev/cpuset/display/cpus 0-8
+write /dev/cpuset/display/cpus 0-9
+write /dev/cpuset/display/cpus 0-10
+write /dev/cpuset/display/cpus 0-11
+
+write /dev/cpuset/l-background/cpus 0-1
+write /dev/cpuset/l-background/cpus 0-2
+write /dev/cpuset/l-background/cpus 0-3
+write /dev/cpuset/l-background/cpus 0-4
+write /dev/cpuset/l-background/cpus 0-5
+write /dev/cpuset/l-background/cpus 0-6
+write /dev/cpuset/l-background/cpus 0-7
+write /dev/cpuset/l-background/cpus 0-8
+write /dev/cpuset/l-background/cpus 0-9
+write /dev/cpuset/l-background/cpus 0-10
+write /dev/cpuset/l-background/cpus 0-11
+
+write /dev/cpuset/h-background/cpus 0-1
+write /dev/cpuset/h-background/cpus 0-2
+write /dev/cpuset/h-background/cpus 0-3
+write /dev/cpuset/h-background/cpus 0-4
+write /dev/cpuset/h-background/cpus 0-5
+write /dev/cpuset/h-background/cpus 0-6
+write /dev/cpuset/h-background/cpus 0-7
+write /dev/cpuset/h-background/cpus 0-8
+write /dev/cpuset/h-background/cpus 0-9
+write /dev/cpuset/h-background/cpus 0-10
+write /dev/cpuset/h-background/cpus 0-11
+
+write /dev/cpuset/audio-app/cpus 0-1
+write /dev/cpuset/audio-app/cpus 0-2
+write /dev/cpuset/audio-app/cpus 0-3
+write /dev/cpuset/audio-app/cpus 0-4
+write /dev/cpuset/audio-app/cpus 0-5
+write /dev/cpuset/audio-app/cpus 0-6
+write /dev/cpuset/audio-app/cpus 0-7
+write /dev/cpuset/audio-app/cpus 0-8
+write /dev/cpuset/audio-app/cpus 0-9
+write /dev/cpuset/audio-app/cpus 0-10
+write /dev/cpuset/audio-app/cpus 0-11
+
+write /dev/cpuset/dex2oat/cpus 0-1
+write /dev/cpuset/dex2oat/cpus 0-2
+write /dev/cpuset/dex2oat/cpus 0-3
+write /dev/cpuset/dex2oat/cpus 0-4
+write /dev/cpuset/dex2oat/cpus 0-5
+write /dev/cpuset/dex2oat/cpus 0-6
+write /dev/cpuset/dex2oat/cpus 0-7
+write /dev/cpuset/dex2oat/cpus 0-8
+write /dev/cpuset/dex2oat/cpus 0-9
+write /dev/cpuset/dex2oat/cpus 0-10
+write /dev/cpuset/dex2oat/cpus 0-11
+
+write /dev/cpuset/foreground_window/cpus 0-1
+write /dev/cpuset/foreground_window/cpus 0-2
+write /dev/cpuset/foreground_window/cpus 0-3
+write /dev/cpuset/foreground_window/cpus 0-4
+write /dev/cpuset/foreground_window/cpus 0-5
+write /dev/cpuset/foreground_window/cpus 0-6
+write /dev/cpuset/foreground_window/cpus 0-7
+write /dev/cpuset/foreground_window/cpus 0-8
+write /dev/cpuset/foreground_window/cpus 0-9
+write /dev/cpuset/foreground_window/cpus 0-10
+write /dev/cpuset/foreground_window/cpus 0-11
+
+write /sys/devices/system/cpu/cpu0/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu1/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu2/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu3/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu5/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu6/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu7/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu8/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu9/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu10/core_ctl/min_cpus 4
+write /sys/devices/system/cpu/cpu11/core_ctl/min_cpus 4
+
+write /sys/devices/system/cpu/cpu0/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu1/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu2/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu3/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu4/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu5/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu6/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu7/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu8/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu9/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu10/core_ctl/task_thres 100
+write /sys/devices/system/cpu/cpu11/core_ctl/task_thres 100
+
+write /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu1/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu2/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu3/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu5/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu6/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu7/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu8/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu9/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu10/core_ctl/offline_delay_ms 0
+write /sys/devices/system/cpu/cpu11/core_ctl/offline_delay_ms 0
+
+write /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu1/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu2/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu3/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu5/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu6/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu7/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu8/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu9/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu10/core_ctl/busy_down_thres 0
+write /sys/devices/system/cpu/cpu11/core_ctl/busy_down_thres 0
+
+write /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu1/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu2/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu3/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu5/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu6/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu7/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu8/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu9/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu10/core_ctl/busy_up_thres 0
+write /sys/devices/system/cpu/cpu11/core_ctl/busy_up_thres 0
