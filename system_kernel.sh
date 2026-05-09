@@ -508,15 +508,6 @@ write /sys/class/kgsl/kgsl-3d0/power_policy always_on
 
 for queue in /sys/*/*/queue
 do
-	write "$queue/iostats" 1
-	write "$queue/rq_affinity" 2
-	write "$queue/nomerges" 2
-	write "$queue/add_random" 0
-	write "$queue/rotational" 0
-done
-
-for queue in /sys/*/*/queue
-do
 	write "$queue/read_ahead_kb" 128
 	write "$queue/nr_requests" 128
 done
