@@ -33,6 +33,7 @@ sync
 # Since mobile hardware CPU and GPU clocks and frequencies are vary different.
 # Most APUs and CPUs clocks and frequencies clusters are divided into 2, 3 or more depend on hardware configurations from OEMs/Manufactuers.
 # Available Clocks/Frequencies can be located in this paths - /sys/devices/system/cpu/cpu*/cpufreq/ or /sys/devices/system/cpu/cpufreq/policy*.
+# Note that CPU Clocks/Frequencies modification may not work and/or supported due to hardware sources codes limitations from OEMs/Manufactuers.
 write /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq 
 write /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq 
 write /sys/devices/system/cpu/cpufreq/policy7/scaling_max_freq 
@@ -44,16 +45,16 @@ write /sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq
 # GPU Clocks/Frequencies
 # This is Optional.
 # Available Clocks/Frequencies can be located in this paths - /sys/class/kgsl/kgsl-3d0/devfreq/.
-# GPU Clocks/Frequencies modification may not work and/or supported due to hardware sources codes limitations from OEMs/Manufactuers.
+# Note that GPU Clocks/Frequencies modification may not work and/or supported due to hardware sources codes limitations from OEMs/Manufactuers.
 write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 
 write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 
 
 # Device Charging Power
 # This is Optional.
-# On newer Android Device, this method may no longer work or available to use.
 # Be sure to set the value correctly - For example: 1500000 = 1500 mAh = Around 5 and 6 Watt.
+# Note that this modification may not/no longer work and/or supported, including newer Android Devices, due to hardware sources codes limitations from OEMs/Manufactuers.
 # Get correct information about the device's max charging current value (Wattage or mAh).
-# Otherwise just don't touch this parameters if you don't know about this and let it be.
+# Otherwise, don't touch this parameters if you don't know about this.
 chmod 666 /sys/class/power_supply/battery/constant_charge_current_max
 write /sys/class/power_supply/battery/constant_charge_current_max 
 chmod 444 /sys/class/power_supply/battery/constant_charge_current_max 

@@ -28,7 +28,7 @@ perfmgr="/proc/perfmgr/"
 sync
 
 # CPU
-for cpu in /sys/devices/system/cpu/cpufreq/policy0
+for cpu in /sys/*/system/cpu/*/cpufreq/*
 do
 	available_governors="$(cat "$cpu/scaling_available_governors")"
 	for governor in 
@@ -41,20 +41,7 @@ do
 	done
 done
 
-for cpu in /sys/devices/system/cpu/cpufreq/policy4
-do
-	available_governors="$(cat "$cpu/scaling_available_governors")"
-	for governor in 
-	do
-		if [[ "$available_governors" == *"$governor"* ]]
-		then
-			write "$cpu/scaling_governor" "$governor"
-			break
-		fi
-	done
-done
-
-for cpu in /sys/devices/system/cpu/cpufreq/policy7
+for cpu in /sys/*/system/cpu/cpufreq/policy*
 do
 	available_governors="$(cat "$cpu/scaling_available_governors")"
 	for governor in 
