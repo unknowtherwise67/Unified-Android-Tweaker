@@ -54,6 +54,7 @@ settings put global wifi_scan_always_enabled 0
 settings put global ble_scan_always_enabled 0
 settings put global wifi_scan_throttle_enabled 0
 settings put global wifi_power_save 0
+settings put global tether_offload_disabled 0
 settings put global network_restricted_mode 0
 settings put global network_scoring_ui_enabled 0
 settings put global network_recommendations_enabled 0
@@ -72,10 +73,6 @@ settings put secure bluetooh_a2dp_uhqa_support 1
 settings put secure screensaver_activate_on_sleep 0
 settings put secure screensaver_enabled 0
 settings put secure adaptive_sleep 0
-
-# System/Hardware Offload
-settings put global tether_offload_disabled 0
-settings put global bluetooth_a2dp_offload_disabled 0
 
 # Others
 dumpsys deviceidle disable

@@ -168,15 +168,6 @@ do
 	write "$governor/up_threshold_any_cpu_freq" 0
 done
 
-write /sys/kernel/gpu/boost 1
-write /proc/mali/always_on 1
-write /proc/mali/dvfs_enable 1
-write /sys/class/kgsl/kgsl-3d0/tmu 1
-write /sys/class/kgsl/kgsl-3d0/popp 1
-write /sys/class/kgsl/kgsl-3d0/pwrnap 1
-write /sys/class/kgsl/kgsl-3d0/force_bus_on 1
-write /sys/class/kgsl/kgsl-3d0/force_clk_on 1
-write /sys/class/kgsl/kgsl-3d0/force_rail_on 1
 write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 1
 write /sys/kernel/debug/sde_rotator0/clk_always_on 1
 write /sys/module/mali/parameters/mali_touch_boost_level 1
@@ -193,10 +184,6 @@ write /sys/module/adreno_idler/parameters/adreno_idler_idleworkload 10000
 write /sys/class/simple_gpu_algorithm/parameters/simple_ramp_threshold 10000
 write /sys/class/kgsl/kgsl-3d0/bus_split 0
 write /sys/class/kgsl/kgsl-3d0/throttling 0
-write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 0
-write /sys/class/kgsl/kgsl-3d0/max_pwrlevel 0
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 0
-write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 0
 write /sys/module/adreno_idler/parameters/adreno_idler_active N
 write /sys/devices/platform/13040000.mali/power_policy always_on
 write /sys/class/kgsl/kgsl-3d0/power_policy always_on
@@ -541,7 +528,6 @@ write /sys/kernel/gbe/gbe2_max_boost_cnt 1
 write /sys/module/ged/parameters/cpu_boost_policy 100
 write /sys/module/ged/parameters/ged_smart_boost 100
 write /sys/module/ged/parameters/gpu_debug_enable 0
-write /sys/module/ged/parameters/gpu_dvfs_enable 0
 write /sys/module/ged/parameters/ged_force_mdp_enable 0
 write /sys/module/ged/parameters/ged_log_perf_trace_enable 0
 write /sys/module/ged/parameters/ged_log_trace_enable 0
@@ -575,36 +561,6 @@ write /proc/ppm/policy_status 8 0
 write /proc/ppm/policy_status 9 0
 write /proc/ppm/policy_status 10 0
 write /proc/ppm/policy_status 11 0
-
-# TCP
-write /proc/sys/net/ipv4/tcp_ecn 1
-write /proc/sys/net/ipv4/tcp_sack 1
-write /proc/sys/net/ipv4/tcp_fack 1
-write /proc/sys/net/ipv4/route/flush 1
-write /proc/sys/net/ipv4/tcp_rfc1337 1
-write /proc/sys/net/ipv4/tcp_tw_reuse 1
-write /proc/sys/net/ipv4/ip_no_pmtu_disc 1
-write /proc/sys/net/ipv4/tcp_timestamps 1
-write /proc/sys/net/ipv4/tcp_mtu_probing 1
-write /proc/sys/net/ipv4/tcp_tw_recycle 1
-write /proc/sys/net/ipv4/tcp_no_metrics_save 1
-write /proc/sys/net/ipv4/tcp_window_scaling 1
-write /proc/sys/net/ipv4/tcp_syncookies 1
-write /proc/sys/net/ipv4/tcp_fastopen 3
-write /proc/sys/net/ipv4/tcp_keepalive_probes 10
-write /proc/sys/net/ipv4/tcp_keepalive_intvl 10
-write /proc/sys/net/ipv4/tcp_fin_timeout 10
-write /proc/sys/net/core/netdev_max_backlog 10000
-write /proc/sys/net/core/optmem_max 30000
-write /proc/sys/net/core/rmem_default 500000
-write /proc/sys/net/core/wmem_default 500000
-write /proc/sys/net/core/rmem_max 1000000
-write /proc/sys/net/core/wmem_max 1000000
-write "${tcp_v4}tcp_mem" "100000 300000 500000"
-write "${tcp_v4}udp_mem" "100000 300000 500000"
-write "${tcp_v4}tcp_rmem" "50000 700000 1000000"
-write "${tcp_v4}tcp_wmem" "50000 700000 1000000"
-write /proc/sys/net/ipv4/tcp_slow_start_after_idle 0
 
 # Schedtune Idles/Boosts/CPUs-Set
 write /proc/sys/kernel/sched_cfs_boost 1
