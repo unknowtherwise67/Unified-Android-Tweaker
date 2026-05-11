@@ -42,7 +42,7 @@ sh $MODPATH/system_settings.sh
 sleep 1
 sh $MODPATH/system_governors.sh
 
-sleep 5
+sleep 1
 sh $MODPATH/system_kernel.sh
 
 sleep 1
