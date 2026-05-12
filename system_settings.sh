@@ -50,8 +50,8 @@ settings put global adb_enabled 0
 settings put global enhanced_processing 1
 settings put global sem_enhanced_cpu_responsiveness 1
 settings put global dynamic_power_savings_disable_threshold 1
-settings put global wifi_scan_always_enabled 0
-settings put global ble_scan_always_enabled 0
+settings put global wifi_scan_always_enabled 1
+settings put global ble_scan_always_enabled 1
 settings put global wifi_scan_throttle_enabled 0
 settings put global wifi_power_save 0
 settings put global tether_offload_disabled 0
