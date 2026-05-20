@@ -168,6 +168,16 @@ do
 	write "$governor/up_threshold_any_cpu_freq" 0
 done
 
+write /sys/kernel/gpu/boost 1
+write /proc/mali/always_on 1
+write /proc/mali/dvfs_enable 1
+write /sys/module/ged/parameters/gpu_dvfs_enable 1
+write /sys/class/kgsl/kgsl-3d0/tmu 1
+write /sys/class/kgsl/kgsl-3d0/popp 1
+write /sys/class/kgsl/kgsl-3d0/pwrnap 1
+write /sys/class/kgsl/kgsl-3d0/force_bus_on 1
+write /sys/class/kgsl/kgsl-3d0/force_clk_on 1
+write /sys/class/kgsl/kgsl-3d0/force_rail_on 1
 write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 1
 write /sys/kernel/debug/sde_rotator0/clk_always_on 1
 write /sys/module/mali/parameters/mali_touch_boost_level 1
@@ -184,9 +194,75 @@ write /sys/module/adreno_idler/parameters/adreno_idler_idleworkload 10000
 write /sys/class/simple_gpu_algorithm/parameters/simple_ramp_threshold 10000
 write /sys/class/kgsl/kgsl-3d0/bus_split 0
 write /sys/class/kgsl/kgsl-3d0/throttling 0
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 0
+write /sys/class/kgsl/kgsl-3d0/max_pwrlevel 0
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 0
+write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 0
 write /sys/module/adreno_idler/parameters/adreno_idler_active N
 write /sys/devices/platform/13040000.mali/power_policy always_on
 write /sys/class/kgsl/kgsl-3d0/power_policy always_on
+
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 1
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 2
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 3
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 4
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 5
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 6
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 7
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 8
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 9
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 10
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 11
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 12
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 13
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 14
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 15
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 16
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 17
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 18
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 19
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 20
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 21
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 22
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 23
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 24
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 25
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 26
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 27
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 28
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 29
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 30
+
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 1
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 2
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 3
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 4
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 5
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 6
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 7
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 8
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 9
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 10
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 11
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 12
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 13
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 14
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 15
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 16
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 17
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 18
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 19
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 20
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 21
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 22
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 23
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 24
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 25
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 26
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 27
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 28
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 29
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 30
 
 for queue in /sys/*/*/queue
 do
@@ -488,7 +564,6 @@ write /proc/sys/fs/lease-break-time 10
 write /proc/sys/kernel/random/read_wakeup_threshold 256
 write /proc/sys/kernel/random/write_wakeup_threshold 256
 write /sys/kernel/oppo_display/LCM_CABC 0
-write /proc/touchpanel/oplus_tp_limit_enable 0
 write /proc/touchpanel/oplus_tp_limit_enable 0
 write /sys/kernel/debug/msm_vidc/fw_low_power_mode 0
 write /sys/module/mmc_core/parameters/use_spi_crc 0

@@ -11,9 +11,10 @@ fi
 # ZRAM Swap Virtual Memory
 MODPATH=${0%/*}
 MODDIR=${0%/*}
-sleep 1
+sleep 10
 ZRAM=/block/zram0
 swapoff /dev$ZRAM
+sleep 10
 DISKSIZEDEF=`cat /sys$ZRAM/disksize`
 DISKSIZE=
 #%MemTotalStr=`cat /proc/meminfo | grep MemTotal`
@@ -36,14 +37,14 @@ PRIO=
 # Device/Kernel Settings/Parameters Configuration
 MODPATH=${0%/*}
 MODDIR=${0%/*}
-sleep 1
+sleep 10
 sh $MODPATH/system_settings.sh
 
-sleep 1
+sleep 10
 sh $MODPATH/system_governors.sh
 
-sleep 1
+sleep 10
 sh $MODPATH/system_kernel.sh
 
-sleep 1
+sleep 10
 sh $MODPATH/system_cpu_gpu_power.sh
