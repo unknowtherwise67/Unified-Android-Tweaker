@@ -22,17 +22,15 @@ DISKSIZE=
 #%let VALUE="$MemTotal * VAR / 100"
 #%DISKSIZE=$VALUE\K
 swapoff /dev$ZRAM
-sleep 1
 echo 1 > /sys$ZRAM/reset
 sleep 1
 ALGODEF=`cat /sys$ZRAM/comp_algorithm`
 ALGO=
 [ "$ALGO" ] && echo "$ALGO" > /sys$ZRAM/comp_algorithm
-sleep 1
 #oecho "$DISKSIZE" > /sys$ZRAM/disksize
 #omkswap /dev$ZRAM
-PRIO=
 sleep 1
+PRIO=
 #o/system/bin/swapon /dev$ZRAM -p "$PRIO"\
 #o|| /vendor/bin/swapon /dev$ZRAM -p "$PRIO"\
 #o|| /system/vendor/bin/swapon /dev$ZRAM -p "$PRIO"\
@@ -43,12 +41,6 @@ MODPATH=${0%/*}
 MODDIR=${0%/*}
 sleep 1
 sh $MODPATH/system_settings.sh
-
-sleep 1
 sh $MODPATH/system_governors.sh
-
-sleep 1
 sh $MODPATH/system_kernel.sh
-
-sleep 1
 sh $MODPATH/system_cpu_gpu_power.sh
