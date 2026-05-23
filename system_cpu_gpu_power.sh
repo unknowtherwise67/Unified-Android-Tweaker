@@ -29,10 +29,9 @@ sync
 
 # CPU Clocks/Frequencies
 # This is Optional.
-# If you want to change it you will have to do it by yourself.
-# Since mobile hardware CPU and GPU clocks and frequencies are vary different.
 # Most APUs and CPUs clocks and frequencies clusters are divided into 2, 3 or more depend on hardware configurations from OEMs/Manufactuers.
 # Available Clocks/Frequencies can be located in this paths - /sys/devices/system/cpu/cpu*/cpufreq/ or /sys/devices/system/cpu/cpufreq/policy*.
+# System Kernel will and should correct the value itseft if wrong value is detected.
 # Note that CPU Clocks/Frequencies modification may not work and/or supported due to hardware sources codes limitations from OEMs/Manufactuers.
 write /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq 
 write /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq 
@@ -45,6 +44,7 @@ write /sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq
 # GPU Clocks/Frequencies
 # This is Optional.
 # Available Clocks/Frequencies can be located in this paths - /sys/class/kgsl/kgsl-3d0/devfreq/.
+# System Kernel will and should correct the value itseft if wrong value is detected.
 # Note that GPU Clocks/Frequencies modification may not work and/or supported due to hardware sources codes limitations from OEMs/Manufactuers.
 write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 
 write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 

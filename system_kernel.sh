@@ -322,6 +322,7 @@ write /sys/block/zram0/initstate 1
 write /proc/sys/vm/stat_interval 1
 write /proc/sys/vm/dirty_ratio 10
 write /proc/sys/vm/dirty_background_ratio 5
+write /proc/sys/vm/overcommit_ratio 100
 write /proc/sys/vm/vfs_cache_pressure 100
 write /proc/sys/vm/swappiness 100
 write /proc/sys/vm/watermark_scale_factor 100

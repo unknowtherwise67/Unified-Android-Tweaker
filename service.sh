@@ -1,7 +1,10 @@
 # Disable ADB Root for Security Purpose
 MODPATH=${0%/*}
 MODDIR=${0%/*}
-sleep 60
+until [ "`getprop sys.boot_completed`" == 1 ]; do
+  sleep 1
+done
+sleep 1
 resetprop -n -p init.svc.adb_root ""
 adbroot="$(getprop service.adb.root)"
 if [ -n "$adbroot" ]; then
@@ -11,9 +14,15 @@ fi
 # ZRAM Swap Virtual Memory
 MODPATH=${0%/*}
 MODDIR=${0%/*}
+until [ "`getprop sys.boot_completed`" == 1 ]; do
+  sleep 1
+done
 sleep 1
 ZRAM=/block/zram0
 swapoff /dev$ZRAM
+until [ "`getprop sys.boot_completed`" == 1 ]; do
+  sleep 1
+done
 sleep 1
 DISKSIZEDEF=`cat /sys$ZRAM/disksize`
 DISKSIZE=
@@ -23,12 +32,18 @@ DISKSIZE=
 #%DISKSIZE=$VALUE\K
 swapoff /dev$ZRAM
 echo 1 > /sys$ZRAM/reset
+until [ "`getprop sys.boot_completed`" == 1 ]; do
+  sleep 1
+done
 sleep 1
 ALGODEF=`cat /sys$ZRAM/comp_algorithm`
 ALGO=
 [ "$ALGO" ] && echo "$ALGO" > /sys$ZRAM/comp_algorithm
 #oecho "$DISKSIZE" > /sys$ZRAM/disksize
 #omkswap /dev$ZRAM
+until [ "`getprop sys.boot_completed`" == 1 ]; do
+  sleep 1
+done
 sleep 1
 PRIO=
 #o/system/bin/swapon /dev$ZRAM -p "$PRIO"\
@@ -39,8 +54,23 @@ PRIO=
 # Device/Kernel Settings/Parameters Configuration
 MODPATH=${0%/*}
 MODDIR=${0%/*}
+until [ "`getprop sys.boot_completed`" == 1 ]; do
+  sleep 1
+done
 sleep 1
 sh $MODPATH/system_settings.sh
+until [ "`getprop sys.boot_completed`" == 1 ]; do
+  sleep 1
+done
+sleep 1
 sh $MODPATH/system_governors.sh
+until [ "`getprop sys.boot_completed`" == 1 ]; do
+  sleep 1
+done
+sleep 1
 sh $MODPATH/system_kernel.sh
+until [ "`getprop sys.boot_completed`" == 1 ]; do
+  sleep 1
+done
+sleep 1
 sh $MODPATH/system_cpu_gpu_power.sh
