@@ -12,7 +12,7 @@
 - Force System to use OS Kernel-Based Thermal Managements System while maintain device hardware safety.
 
 ## REQUIREMENTS/COMPATIBILITY:
-- Android 7 and/or Above.
+- Android 6 and/or Above.
 - Linux Kernel 3 and/or Above.
 - UNLOCKED BOOTLOADER and Installed ROOT (Magisk - Version 20 and Above, KernelSU, etc).
 - Zygisk or similar supports if its better (Optional).

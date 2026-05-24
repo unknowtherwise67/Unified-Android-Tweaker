@@ -27,7 +27,9 @@ perfmgr="/proc/perfmgr/"
 # Sync Data
 sync
 
-# NOTE THAT ALL OF THIS IS COMPLETELY OPTIONAL.
+# NOTE:
+# THIS PARAMETERS IS COMPLETELY OPTIONAL.
+# DON'T TOUCH/MODIFY THE PARAMETERS IF YOU DON'T KNOW ABOUT IT.
 # For CPU/GPU Clocks/Frequencies Speed Modification:
 # Most APUs and CPUs clocks and frequencies speed clusters are divided into 2, 3 or more depend on hardware configurations from OEMs/Manufactuers.
 # Available Clocks/Frequencies can be located in this paths - /sys/devices/system/cpu/cpu*/cpufreq/ or /sys/devices/system/cpu/cpufreq/policy*.
@@ -38,7 +40,6 @@ sync
 # Be sure to set the value correctly - For example: 1500000 = 1500 mAh = Around 5 and 6 Watt.
 # Note that this modification may not/no longer work and/or supported, including newer Android Devices, due to hardware sources codes limitations from OEMs/Manufactuers.
 # Get correct information about the device's max charging current value (Wattage or mAh).
-# Otherwise, don't touch this parameters if you don't know about this.
 write /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq 
 write /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq 
 write /sys/devices/system/cpu/cpufreq/policy7/scaling_max_freq 
