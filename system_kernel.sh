@@ -308,13 +308,13 @@ do
 	write "$queue/iosched/max_budget" 1000000
 	write "$queue/iosched/read_lat_nsec" 1000000
 	write "$queue/iosched/write_lat_nsec" 1000000
-	write "$queue/iosched/strict_guarantees" 1
-	write "$queue/iosched/cpq_log" 1
-	write "$queue/iosched/slice_idle" 1
-	write "$queue/iosched/group_idle" 1
-	write "$queue/iosched/low_latency" 1
-	write "$queue/iosched/slice_idle_us" 1
-	write "$queue/iosched/group_idle_us" 1
+	write "$queue/iosched/strict_guarantees" 0
+	write "$queue/iosched/cpq_log" 0
+	write "$queue/iosched/slice_idle" 0
+	write "$queue/iosched/group_idle" 0
+	write "$queue/iosched/low_latency" 0
+	write "$queue/iosched/slice_idle_us" 0
+	write "$queue/iosched/group_idle_us" 0
 done
 
 # Memory
@@ -386,8 +386,8 @@ write /proc/sys/kernel/sched_big_waker_task_load 100
 write /proc/sys/kernel/sched_small_wakee_task_load 100
 write /proc/sys/kernel/sched_stune_task_threshold 100
 write /proc/sys/kernel/sched_pelt_multiplier 4
-write /proc/sys/kernel/sched_schedstats 0
-write /proc/sys/kernel/perf_cpu_time_max_percent 0
+write /proc/sys/kernel/sched_schedstats 1
+write /proc/sys/kernel/perf_cpu_time_max_percent 1
 write /proc/sys/kernel/sched_energy_aware 0
 write /proc/sys/kernel/sched_tunable_scaling 0
 write /proc/sys/kernel/sched_child_runs_first 0
@@ -469,8 +469,8 @@ write /sys/kernel/debug/sched/sched_big_waker_task_load 100
 write /sys/kernel/debug/sched/sched_small_wakee_task_load 100
 write /sys/kernel/debug/sched/sched_stune_task_threshold 100
 write /sys/kernel/debug/sched/sched_pelt_multiplier 4
-write /sys/kernel/debug/sched/sched_schedstats 0
-write /sys/kernel/debug/sched/perf_cpu_time_max_percent 0
+write /sys/kernel/debug/sched/sched_schedstats 1
+write /sys/kernel/debug/sched/perf_cpu_time_max_percent 1
 write /sys/kernel/debug/sched/sched_energy_aware 0
 write /sys/kernel/debug/sched/sched_tunable_scaling 0
 write /sys/kernel/debug/sched/sched_child_runs_first 0

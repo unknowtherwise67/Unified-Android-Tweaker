@@ -31,16 +31,16 @@ sync
 # THIS PARAMETERS IS COMPLETELY OPTIONAL.
 # DON'T TOUCH/MODIFY THE PARAMETERS IF YOU DON'T KNOW ABOUT IT.
 # For CPU/GPU Clocks/Frequencies Speed Modification:
-# Most APUs and CPUs clocks and frequencies speed clusters are divided into 2, 3 or more depend on hardware configurations from OEMs/Manufactuers.
-# Available Clocks/Frequencies can be located in this paths - /sys/devices/system/cpu/cpu*/cpufreq/ or /sys/devices/system/cpu/cpufreq/policy*.
-# Available Clocks/Frequencies can be located in this paths - /sys/class/kgsl/kgsl-3d0/devfreq/.
+# Most APUs and CPUs clocks and frequencies speed clusters are divided into 2, 3 or more depends on hardware configurations from OEMs/Manufactuers.
+# Available CPU Clocks/Frequencies can be located in this paths - /sys/devices/system/cpu/cpu*/cpufreq/ or /sys/devices/system/cpu/cpufreq/policy*.
+# Available GPU Clocks/Frequencies can be located in this paths - /sys/class/kgsl/kgsl-3d0/devfreq/.
 # System Kernel will and should correct the value itseft if wrong value is detected and only work on CPU Clocks/Frequencies Speed.
 # Note that CPU/GPU Clocks/Frequencies Speed modification may not work and/or supported due to hardware sources codes limitations from OEMs/Manufactuers.
 # For Device Charging Power Modification:
 # Be sure to set the value correctly - For example: 1500000 = 1500 mAh = Around 5 and 6 Watt.
 # Note that this modification may not/no longer work and/or supported, including newer Android Devices, due to hardware sources codes limitations from OEMs/Manufactuers.
 # Get correct information about the device's max charging current value (Wattage or mAh).
-write /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq 
+write /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq  
 write /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq 
 write /sys/devices/system/cpu/cpufreq/policy7/scaling_max_freq 
 
