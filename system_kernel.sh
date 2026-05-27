@@ -320,12 +320,13 @@ done
 # Memory
 write /sys/block/zram0/initstate 1
 write /proc/sys/vm/stat_interval 1
+write /proc/sys/vm/overcommit_memory 1
 write /proc/sys/vm/dirty_background_ratio 5
 write /proc/sys/vm/dirty_ratio 10
+write /proc/sys/vm/watermark_scale_factor 10
 write /proc/sys/vm/overcommit_ratio 100
 write /proc/sys/vm/vfs_cache_pressure 100
 write /proc/sys/vm/swappiness 100
-write /proc/sys/vm/watermark_scale_factor 100
 write /proc/sys/vm/min_free_kbytes 1000
 write /proc/sys/vm/extra_free_kbytes 1000
 write /proc/sys/vm/user_reserve_kbytes 1000
@@ -385,9 +386,9 @@ write /proc/sys/kernel/sched_spill_load 100
 write /proc/sys/kernel/sched_big_waker_task_load 100
 write /proc/sys/kernel/sched_small_wakee_task_load 100
 write /proc/sys/kernel/sched_stune_task_threshold 100
+write /proc/sys/kernel/perf_cpu_time_max_percent 50
 write /proc/sys/kernel/sched_pelt_multiplier 4
 write /proc/sys/kernel/sched_schedstats 1
-write /proc/sys/kernel/perf_cpu_time_max_percent 1
 write /proc/sys/kernel/sched_energy_aware 0
 write /proc/sys/kernel/sched_tunable_scaling 0
 write /proc/sys/kernel/sched_child_runs_first 0
@@ -468,9 +469,9 @@ write /sys/kernel/debug/sched/sched_spill_load 100
 write /sys/kernel/debug/sched/sched_big_waker_task_load 100
 write /sys/kernel/debug/sched/sched_small_wakee_task_load 100
 write /sys/kernel/debug/sched/sched_stune_task_threshold 100
+write /sys/kernel/debug/sched/perf_cpu_time_max_percent 50
 write /sys/kernel/debug/sched/sched_pelt_multiplier 4
 write /sys/kernel/debug/sched/sched_schedstats 1
-write /sys/kernel/debug/sched/perf_cpu_time_max_percent 1
 write /sys/kernel/debug/sched/sched_energy_aware 0
 write /sys/kernel/debug/sched/sched_tunable_scaling 0
 write /sys/kernel/debug/sched/sched_child_runs_first 0
