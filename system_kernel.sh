@@ -320,8 +320,8 @@ done
 # Memory
 write /sys/block/zram0/initstate 1
 write /proc/sys/vm/stat_interval 1
-write /proc/sys/vm/dirty_ratio 10
 write /proc/sys/vm/dirty_background_ratio 5
+write /proc/sys/vm/dirty_ratio 10
 write /proc/sys/vm/overcommit_ratio 100
 write /proc/sys/vm/vfs_cache_pressure 100
 write /proc/sys/vm/swappiness 100
@@ -1091,6 +1091,11 @@ write /proc/sys/kernel/sched_util_clamp_min 1024
 write /proc/sys/kernel/sched_util_clamp_max 1024
 write /proc/sys/kernel/sched_util_clamp_min_rt_default 1024
 
+write /dev/cpuset/system/cpus 0-1
+write /dev/cpuset/kernel/cpus 0-1
+write /dev/cpuset/restricted/cpus 0-1
+write /dev/cpuset/system-background/cpus 0-1
+
 write /dev/cpuset/cpus 0-1
 write /dev/cpuset/cpus 0-2
 write /dev/cpuset/cpus 0-3
@@ -1176,40 +1181,9 @@ write /dev/cpuset/application/cpus 0-10
 write /dev/cpuset/application/cpus 0-11
 
 write /dev/cpuset/system/cpus 0-1
-write /dev/cpuset/system/cpus 0-2
-write /dev/cpuset/system/cpus 0-3
-write /dev/cpuset/system/cpus 0-4
-write /dev/cpuset/system/cpus 0-5
-write /dev/cpuset/system/cpus 0-6
-write /dev/cpuset/system/cpus 0-7
-write /dev/cpuset/system/cpus 0-8
-write /dev/cpuset/system/cpus 0-9
-write /dev/cpuset/system/cpus 0-10
-write /dev/cpuset/system/cpus 0-11
-
-write /dev/cpuset/system-background/cpus 0-1
-write /dev/cpuset/system-background/cpus 0-2
-write /dev/cpuset/system-background/cpus 0-3
-write /dev/cpuset/system-background/cpus 0-4
-write /dev/cpuset/system-background/cpus 0-5
-write /dev/cpuset/system-background/cpus 0-6
-write /dev/cpuset/system-background/cpus 0-7
-write /dev/cpuset/system-background/cpus 0-8
-write /dev/cpuset/system-background/cpus 0-9
-write /dev/cpuset/system-background/cpus 0-10
-write /dev/cpuset/system-background/cpus 0-11
-
 write /dev/cpuset/kernel/cpus 0-1
-write /dev/cpuset/kernel/cpus 0-2
-write /dev/cpuset/kernel/cpus 0-3
-write /dev/cpuset/kernel/cpus 0-4
-write /dev/cpuset/kernel/cpus 0-5
-write /dev/cpuset/kernel/cpus 0-6
-write /dev/cpuset/kernel/cpus 0-7
-write /dev/cpuset/kernel/cpus 0-8
-write /dev/cpuset/kernel/cpus 0-9
-write /dev/cpuset/kernel/cpus 0-10
-write /dev/cpuset/kernel/cpus 0-11
+write /dev/cpuset/restricted/cpus 0-1
+write /dev/cpuset/system-background/cpus 0-1
 
 write /dev/cpuset/camera-daemon/cpus 0-1
 write /dev/cpuset/camera-daemon/cpus 0-2
@@ -1222,18 +1196,6 @@ write /dev/cpuset/camera-daemon/cpus 0-8
 write /dev/cpuset/camera-daemon/cpus 0-9
 write /dev/cpuset/camera-daemon/cpus 0-10
 write /dev/cpuset/camera-daemon/cpus 0-11
-
-write /dev/cpuset/restricted/cpus 0-1
-write /dev/cpuset/restricted/cpus 0-2
-write /dev/cpuset/restricted/cpus 0-3
-write /dev/cpuset/restricted/cpus 0-4
-write /dev/cpuset/restricted/cpus 0-5
-write /dev/cpuset/restricted/cpus 0-6
-write /dev/cpuset/restricted/cpus 0-7
-write /dev/cpuset/restricted/cpus 0-8
-write /dev/cpuset/restricted/cpus 0-9
-write /dev/cpuset/restricted/cpus 0-10
-write /dev/cpuset/restricted/cpus 0-11
 
 write /dev/cpuset/sf/cpus 0-1
 write /dev/cpuset/sf/cpus 0-2
