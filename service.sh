@@ -4,7 +4,7 @@ MODDIR=${0%/*}
 until [ "`getprop sys.boot_completed`" == 1 ]; do
   sleep 1
 done
-sleep 1
+sleep 60
 resetprop -n -p init.svc.adb_root ""
 adbroot="$(getprop service.adb.root)"
 if [ -n "$adbroot" ]; then
