@@ -279,44 +279,6 @@ do
 	write "$queue/rotational" 0
 done
 
-for queue in /sys/*/*/queue
-do
-	write "$queue/iosched/front_merges" 100
-	write "$queue/iosched/back_seek_penalty" 100
-	write "$queue/iosched/slice_async_rq" 100
-	write "$queue/iosched/writes_starved" 100
-	write "$queue/iosched/async_depth" 100
-	write "$queue/iosched/io_threshold" 1000
-	write "$queue/iosched/quantum" 1000
-	write "$queue/iosched/fifo_batch" 1000
-	write "$queue/iosched/slice_async" 1000
-	write "$queue/iosched/slice_sync" 1000
-	write "$queue/iosched/timeout_sync" 1000
-	write "$queue/iosched/back_timeout" 1000
-	write "$queue/iosched/fifo_expire_async" 1000
-	write "$queue/iosched/fifo_expire_sync" 1000
-	write "$queue/iosched/target_latency" 1000
-	write "$queue/iosched/read_expire" 10000
-	write "$queue/iosched/write_expire" 10000
-	write "$queue/iosched/fore_timeout" 10000
-	write "$queue/iosched/prio_aging_expire" 10000
-	write "$queue/iosched/back_seek_max" 100000
-	write "$queue/iosched/aging_expire" 100000
-	write "$queue/iosched/slice_sync_us" 100000
-	write "$queue/iosched/slice_async_us" 100000
-	write "$queue/iosched/target_latency_us" 1000000
-	write "$queue/iosched/max_budget" 1000000
-	write "$queue/iosched/read_lat_nsec" 1000000
-	write "$queue/iosched/write_lat_nsec" 1000000
-	write "$queue/iosched/strict_guarantees" 0
-	write "$queue/iosched/cpq_log" 0
-	write "$queue/iosched/slice_idle" 0
-	write "$queue/iosched/group_idle" 0
-	write "$queue/iosched/low_latency" 0
-	write "$queue/iosched/slice_idle_us" 0
-	write "$queue/iosched/group_idle_us" 0
-done
-
 # Memory
 write /sys/block/zram0/initstate 1
 write /proc/sys/vm/stat_interval 1
@@ -1104,30 +1066,6 @@ write /dev/cpuset/cpus 0-9
 write /dev/cpuset/cpus 0-10
 write /dev/cpuset/cpus 0-11
 
-write /dev/cpuset/foreground/cpus 0-1
-write /dev/cpuset/foreground/cpus 0-2
-write /dev/cpuset/foreground/cpus 0-3
-write /dev/cpuset/foreground/cpus 0-4
-write /dev/cpuset/foreground/cpus 0-5
-write /dev/cpuset/foreground/cpus 0-6
-write /dev/cpuset/foreground/cpus 0-7
-write /dev/cpuset/foreground/cpus 0-8
-write /dev/cpuset/foreground/cpus 0-9
-write /dev/cpuset/foreground/cpus 0-10
-write /dev/cpuset/foreground/cpus 0-11
-
-write /dev/cpuset/rt/cpus 0-1
-write /dev/cpuset/rt/cpus 0-2
-write /dev/cpuset/rt/cpus 0-3
-write /dev/cpuset/rt/cpus 0-4
-write /dev/cpuset/rt/cpus 0-5
-write /dev/cpuset/rt/cpus 0-6
-write /dev/cpuset/rt/cpus 0-7
-write /dev/cpuset/rt/cpus 0-8
-write /dev/cpuset/rt/cpus 0-9
-write /dev/cpuset/rt/cpus 0-10
-write /dev/cpuset/rt/cpus 0-11
-
 write /dev/cpuset/top-app/cpus 0-1
 write /dev/cpuset/top-app/cpus 0-2
 write /dev/cpuset/top-app/cpus 0-3
@@ -1139,18 +1077,6 @@ write /dev/cpuset/top-app/cpus 0-8
 write /dev/cpuset/top-app/cpus 0-9
 write /dev/cpuset/top-app/cpus 0-10
 write /dev/cpuset/top-app/cpus 0-11
-
-write /dev/cpuset/nnapi-hal 0-1
-write /dev/cpuset/nnapi-hal 0-2
-write /dev/cpuset/nnapi-hal 0-3
-write /dev/cpuset/nnapi-hal 0-4
-write /dev/cpuset/nnapi-hal 0-5
-write /dev/cpuset/nnapi-hal 0-6
-write /dev/cpuset/nnapi-hal 0-7
-write /dev/cpuset/nnapi-hal 0-8
-write /dev/cpuset/nnapi-hal 0-9
-write /dev/cpuset/nnapi-hal 0-10
-write /dev/cpuset/nnapi-hal 0-11
 
 write /dev/cpuset/application/cpus 0-1
 write /dev/cpuset/application/cpus 0-2
@@ -1164,17 +1090,53 @@ write /dev/cpuset/application/cpus 0-9
 write /dev/cpuset/application/cpus 0-10
 write /dev/cpuset/application/cpus 0-11
 
-write /dev/cpuset/system/cpus 0-1
-write /dev/cpuset/system/cpus 0-2
-write /dev/cpuset/system/cpus 0-3
-write /dev/cpuset/system/cpus 0-4
-write /dev/cpuset/system/cpus 0-5
-write /dev/cpuset/system/cpus 0-6
-write /dev/cpuset/system/cpus 0-7
-write /dev/cpuset/system/cpus 0-8
-write /dev/cpuset/system/cpus 0-9
-write /dev/cpuset/system/cpus 0-10
-write /dev/cpuset/system/cpus 0-11
+write /dev/cpuset/foreground_window/cpus 0-1
+write /dev/cpuset/foreground_window/cpus 0-2
+write /dev/cpuset/foreground_window/cpus 0-3
+write /dev/cpuset/foreground_window/cpus 0-4
+write /dev/cpuset/foreground_window/cpus 0-5
+write /dev/cpuset/foreground_window/cpus 0-6
+write /dev/cpuset/foreground_window/cpus 0-7
+write /dev/cpuset/foreground_window/cpus 0-8
+write /dev/cpuset/foreground_window/cpus 0-9
+write /dev/cpuset/foreground_window/cpus 0-10
+write /dev/cpuset/foreground_window/cpus 0-11
+
+write /dev/cpuset/background/cpus 0-1
+write /dev/cpuset/background/cpus 0-2
+write /dev/cpuset/background/cpus 0-3
+write /dev/cpuset/background/cpus 0-4
+write /dev/cpuset/background/cpus 0-5
+write /dev/cpuset/background/cpus 0-6
+write /dev/cpuset/background/cpus 0-7
+write /dev/cpuset/background/cpus 0-8
+write /dev/cpuset/background/cpus 0-9
+write /dev/cpuset/background/cpus 0-10
+write /dev/cpuset/background/cpus 0-11
+
+write /dev/cpuset/system-background/cpus 0-1
+write /dev/cpuset/system-background/cpus 0-2
+write /dev/cpuset/system-background/cpus 0-3
+write /dev/cpuset/system-background/cpus 0-4
+write /dev/cpuset/system-background/cpus 0-5
+write /dev/cpuset/system-background/cpus 0-6
+write /dev/cpuset/system-background/cpus 0-7
+write /dev/cpuset/system-background/cpus 0-8
+write /dev/cpuset/system-background/cpus 0-9
+write /dev/cpuset/system-background/cpus 0-10
+write /dev/cpuset/system-background/cpus 0-11
+
+write /dev/cpuset/restricted/cpus 0-1
+write /dev/cpuset/restricted/cpus 0-2
+write /dev/cpuset/restricted/cpus 0-3
+write /dev/cpuset/restricted/cpus 0-4
+write /dev/cpuset/restricted/cpus 0-5
+write /dev/cpuset/restricted/cpus 0-6
+write /dev/cpuset/restricted/cpus 0-7
+write /dev/cpuset/restricted/cpus 0-8
+write /dev/cpuset/restricted/cpus 0-9
+write /dev/cpuset/restricted/cpus 0-10
+write /dev/cpuset/restricted/cpus 0-11
 
 write /dev/cpuset/kernel/cpus 0-1
 write /dev/cpuset/kernel/cpus 0-2
@@ -1188,6 +1150,66 @@ write /dev/cpuset/kernel/cpus 0-9
 write /dev/cpuset/kernel/cpus 0-10
 write /dev/cpuset/kernel/cpus 0-11
 
+write /dev/cpuset/h-background/cpus 0-1
+write /dev/cpuset/h-background/cpus 0-2
+write /dev/cpuset/h-background/cpus 0-3
+write /dev/cpuset/h-background/cpus 0-4
+write /dev/cpuset/h-background/cpus 0-5
+write /dev/cpuset/h-background/cpus 0-6
+write /dev/cpuset/h-background/cpus 0-7
+write /dev/cpuset/h-background/cpus 0-8
+write /dev/cpuset/h-background/cpus 0-9
+write /dev/cpuset/h-background/cpus 0-10
+write /dev/cpuset/h-background/cpus 0-11
+
+write /dev/cpuset/l-background/cpus 0-1
+write /dev/cpuset/l-background/cpus 0-2
+write /dev/cpuset/l-background/cpus 0-3
+write /dev/cpuset/l-background/cpus 0-4
+write /dev/cpuset/l-background/cpus 0-5
+write /dev/cpuset/l-background/cpus 0-6
+write /dev/cpuset/l-background/cpus 0-7
+write /dev/cpuset/l-background/cpus 0-8
+write /dev/cpuset/l-background/cpus 0-9
+write /dev/cpuset/l-background/cpus 0-10
+write /dev/cpuset/l-background/cpus 0-11
+
+write /dev/cpuset/rt/cpus 0-1
+write /dev/cpuset/rt/cpus 0-2
+write /dev/cpuset/rt/cpus 0-3
+write /dev/cpuset/rt/cpus 0-4
+write /dev/cpuset/rt/cpus 0-5
+write /dev/cpuset/rt/cpus 0-6
+write /dev/cpuset/rt/cpus 0-7
+write /dev/cpuset/rt/cpus 0-8
+write /dev/cpuset/rt/cpus 0-9
+write /dev/cpuset/rt/cpus 0-10
+write /dev/cpuset/rt/cpus 0-11
+
+write /dev/cpuset/nnapi-hal 0-1
+write /dev/cpuset/nnapi-hal 0-2
+write /dev/cpuset/nnapi-hal 0-3
+write /dev/cpuset/nnapi-hal 0-4
+write /dev/cpuset/nnapi-hal 0-5
+write /dev/cpuset/nnapi-hal 0-6
+write /dev/cpuset/nnapi-hal 0-7
+write /dev/cpuset/nnapi-hal 0-8
+write /dev/cpuset/nnapi-hal 0-9
+write /dev/cpuset/nnapi-hal 0-10
+write /dev/cpuset/nnapi-hal 0-11
+
+write /dev/cpuset/system/cpus 0-1
+write /dev/cpuset/system/cpus 0-2
+write /dev/cpuset/system/cpus 0-3
+write /dev/cpuset/system/cpus 0-4
+write /dev/cpuset/system/cpus 0-5
+write /dev/cpuset/system/cpus 0-6
+write /dev/cpuset/system/cpus 0-7
+write /dev/cpuset/system/cpus 0-8
+write /dev/cpuset/system/cpus 0-9
+write /dev/cpuset/system/cpus 0-10
+write /dev/cpuset/system/cpus 0-11
+
 write /dev/cpuset/camera-daemon/cpus 0-1
 write /dev/cpuset/camera-daemon/cpus 0-2
 write /dev/cpuset/camera-daemon/cpus 0-3
@@ -1199,18 +1221,6 @@ write /dev/cpuset/camera-daemon/cpus 0-8
 write /dev/cpuset/camera-daemon/cpus 0-9
 write /dev/cpuset/camera-daemon/cpus 0-10
 write /dev/cpuset/camera-daemon/cpus 0-11
-
-write /dev/cpuset/restricted/cpus 0-1
-write /dev/cpuset/restricted/cpus 0-2
-write /dev/cpuset/restricted/cpus 0-3
-write /dev/cpuset/restricted/cpus 0-4
-write /dev/cpuset/restricted/cpus 0-5
-write /dev/cpuset/restricted/cpus 0-6
-write /dev/cpuset/restricted/cpus 0-7
-write /dev/cpuset/restricted/cpus 0-8
-write /dev/cpuset/restricted/cpus 0-9
-write /dev/cpuset/restricted/cpus 0-10
-write /dev/cpuset/restricted/cpus 0-11
 
 write /dev/cpuset/sf/cpus 0-1
 write /dev/cpuset/sf/cpus 0-2
@@ -1271,23 +1281,6 @@ write /dev/cpuset/dex2oat/cpus 0-8
 write /dev/cpuset/dex2oat/cpus 0-9
 write /dev/cpuset/dex2oat/cpus 0-10
 write /dev/cpuset/dex2oat/cpus 0-11
-
-write /dev/cpuset/foreground_window/cpus 0-1
-write /dev/cpuset/foreground_window/cpus 0-2
-write /dev/cpuset/foreground_window/cpus 0-3
-write /dev/cpuset/foreground_window/cpus 0-4
-write /dev/cpuset/foreground_window/cpus 0-5
-write /dev/cpuset/foreground_window/cpus 0-6
-write /dev/cpuset/foreground_window/cpus 0-7
-write /dev/cpuset/foreground_window/cpus 0-8
-write /dev/cpuset/foreground_window/cpus 0-9
-write /dev/cpuset/foreground_window/cpus 0-10
-write /dev/cpuset/foreground_window/cpus 0-11
-
-write /dev/cpuset/background/cpus 0-1
-write /dev/cpuset/l-background/cpus 0-1
-write /dev/cpuset/h-background/cpus 0-1
-write /dev/cpuset/system-background/cpus 0-1
 
 write /sys/devices/system/cpu/cpu0/core_ctl/min_cpus 4
 write /sys/devices/system/cpu/cpu1/core_ctl/min_cpus 4
