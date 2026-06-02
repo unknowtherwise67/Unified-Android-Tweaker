@@ -266,17 +266,20 @@ write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 30
 
 for queue in /sys/*/*/queue
 do
-	write "$queue/read_ahead_kb" 128
-	write "$queue/nr_requests" 128
-done
-
-for queue in /sys/*/*/queue
-do
 	write "$queue/iostats" 1
 	write "$queue/rq_affinity" 2
 	write "$queue/nomerges" 2
 	write "$queue/add_random" 0
 	write "$queue/rotational" 0
+	write "$queue/nr_requests" 128
+	write "$queue/read_ahead_kb" 128
+	write "$queue/iosched/strict_guarantees" 0
+	write "$queue/iosched/cpq_log" 0
+	write "$queue/iosched/slice_idle" 0
+	write "$queue/iosched/group_idle" 0
+	write "$queue/iosched/low_latency" 0
+	write "$queue/iosched/slice_idle_us" 0
+	write "$queue/iosched/group_idle_us" 0
 done
 
 # Memory
