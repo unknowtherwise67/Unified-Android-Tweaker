@@ -81,15 +81,41 @@ do
 	done
 done
 
+for gpu in /sys/kernel/gpu
+do
+	available_governors="$(cat "$gpu/available_governors")"
+	for governor in 
+	do
+		if [[ "$available_governors" == *"$governor"* ]]
+		then
+			write "$gpu/gpu_governor" "$governor"
+			break
+		fi
+	done
+done
+
 # I/O SCHEDULERS
 for queue in /sys/block/*/queue
 do
 	available_schedulers="$(cat "$queue/scheduler")"
-	for sched in mq-deadline deadline kyber bfq cfq noop none
+	for sched in none noop mq-deadline deadline kyber bfq cfq
 	do
 		if [[ "$available_schedulers" == *"$sched"* ]]
 		then
 			write "$queue/scheduler" "$sched"
+			break
+		fi
+	done
+done
+
+for nand_flash in /sys/*/devfreq/1d84000.ufshc
+do
+	available_governors="$(cat "$nand_flash/available_governors")"
+	for governor in 
+	do
+		if [[ "$available_governors" == *"$governor"* ]]
+		then
+			write "$nand_flash/governor" "$governor"
 			break
 		fi
 	done
