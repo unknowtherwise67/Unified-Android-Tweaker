@@ -1,3 +1,15 @@
+# Apply-on-boot section.
+# You can configure it below the "done" word.
+# If you want to increase time before apply-on-boot are in effect.
+# Don't modify the other as they already good as it.
+MODPATH=${0%/*}
+MODDIR=${0%/*}
+until [ "`getprop sys.boot_completed`" == 1 ]; do
+  sleep 1
+done
+sleep 1
+# All Mods/Tweaks/Others parameters will be applied after configured times are elapsed.
+
 # Disable ADB Root for Security Purpose
 MODPATH=${0%/*}
 MODDIR=${0%/*}
