@@ -27,58 +27,26 @@ perfmgr="/proc/perfmgr/"
 # Sync Data
 sync
 
-# System Blurs Effects
+# System Settings
 wm disable-blur 0
 settings put global disable_window_blurs 0
 
-# System Screen Rotations
-settings put system accelerometer_rotation
-settings put system user_rotation
-
-# System Screen Refresh Rate
 settings put system peak_refresh_rate 0
 settings put system min_refresh_rate 0
 settings put system low_power_refresh_rate 0
 
-# System Animations
 settings put global window_animation_scale 1.00
 settings put global transition_animation_scale 1.00
 settings put global animator_duration_scale 1.00
 
-# System Settings
-settings put system screen_brightness_mode 0
-settings put system intelligent_sleep_mode 0
-
 settings put global development_settings_enabled 0
 settings put global adb_enabled 0
-settings put global enhanced_processing 1
+
 settings put global wifi_scan_always_enabled 1
 settings put global ble_scan_always_enabled 1
-settings put global wifi_scan_throttle_enabled 0
-settings put global wifi_power_save 0
-settings put global network_restricted_mode 0
-settings put global network_scoring_ui_enabled 0
-settings put global network_recommendations_enabled 1
-settings put global sem_enhanced_cpu_responsiveness 1
-settings put global dynamic_power_savings_disable_threshold 1
-settings put global adaptive_battery_management_enabled 0
-settings put global accessibility_reduce_transparency 0
-settings put global cached_apps_freezer disabled 0
-settings put global dynamic_power_savings_enabled 0
-settings put global automatic_power_save_mode 0
-settings put global app_standby_enabled 0
 
 settings put global app_restriction_enabled false
 settings put global settings_enable_monitor_phantom_procs disable
-
-settings put secure location_mode 3
-settings put secure bluetooth_a2dp_bt_uhq_state 1
-settings put secure bluetooh_a2dp_uhqa_support 1
-settings put secure tap_duration_threshold 0.0
-settings put secure touch_blocking_period 0.0
-settings put secure screensaver_activate_on_sleep 0
-settings put secure screensaver_enabled 0
-settings put secure adaptive_sleep 0
 
 # Others
 dumpsys deviceidle disable
