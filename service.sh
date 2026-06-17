@@ -1,3 +1,17 @@
+# SELinux
+MODPATH=${0%/*}
+MODDIR=${0%/*}
+sh $MODPATH/system_selinux.sh
+chmod 640 /sys/fs/selinux/enforce
+if [ -x "\$(command -v resetprop)" ]
+then
+	resetprop -n ro.boot.selinux enforcing
+fi
+if [ -x "\$(command -v resetprop)" ] && [ -n "\$(resetprop ro.build.selinux)" ]
+then
+	resetprop --delete ro.build.selinux
+fi
+
 # Apply-on-boot section.
 # You can configure it below the "done" word.
 # If you want to increase time before apply-on-boot are in effect.
