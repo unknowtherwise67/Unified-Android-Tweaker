@@ -27,24 +27,23 @@ perfmgr="/proc/perfmgr/"
 # Sync Data
 sync
 
-# System Settings
+# System Blurs Effects
 wm disable-blur 0
 settings put global disable_window_blurs 0
 
+# System Screen Refresh Rate
 settings put system peak_refresh_rate 0
 settings put system min_refresh_rate 0
 settings put system low_power_refresh_rate 0
 
+# System Animation Scales
 settings put global window_animation_scale 1.00
 settings put global transition_animation_scale 1.00
 settings put global animator_duration_scale 1.00
 
+# System Settings
 settings put global development_settings_enabled 0
 settings put global adb_enabled 0
-
-settings put global wifi_scan_always_enabled 1
-settings put global ble_scan_always_enabled 1
-
 settings put global app_restriction_enabled false
 settings put global settings_enable_monitor_phantom_procs disable
 
