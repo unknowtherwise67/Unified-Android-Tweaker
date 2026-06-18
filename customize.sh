@@ -1,11 +1,6 @@
 # Log the date and time
 echo "- Time of execution: $(date)"
 
-# Notes
-ui_print ""
-ui_print "- It will take some time."
-ui_print "- Please wait and be patience until is completed."
-
 # Installations
 ui_print ""
 ui_print "- Preparing..."
