@@ -666,6 +666,10 @@ write /proc/ppm/policy_status 9 0
 write /proc/ppm/policy_status 10 0
 write /proc/ppm/policy_status 11 0
 
+write /sys/module/msm_thermal/core_control/enabled 0
+write /sys/module/msm_thermal/vdd_restriction/enabled 0
+write /sys/module/msm_thermal/parameters/enabled N
+
 # Schedtune Idles/Boosts/CPUs-Set
 write /dev/stune/schedtune.boost 10
 write /dev/stune/foreground/schedtune.boost 10

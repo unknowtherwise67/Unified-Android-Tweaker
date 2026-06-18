@@ -40,7 +40,7 @@ sync
 # Be sure to set the value correctly - For example: 1500000 = 1500 mAh = Around 5 and 6 Watt.
 # Note that this modification may not/no longer work and/or supported, including newer Android Devices, due to hardware sources codes limitations from OEMs/Manufactuers.
 # Get correct information about the device's max charging current value (Wattage or mAh).
-write /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq  
+write /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq 
 write /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq 
 write /sys/devices/system/cpu/cpufreq/policy7/scaling_max_freq 
 
@@ -48,9 +48,15 @@ write /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
 write /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq 
 write /sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq 
 
+write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 
+write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 
+write /sys/devices/system/cpu/cpu7/cpufreq/scaling_max_freq 
+
+write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 
+write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 
+write /sys/devices/system/cpu/cpu7/cpufreq/scaling_min_freq 
+
 write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 
 write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
 
-chmod 666 /sys/class/power_supply/battery/constant_charge_current_max
-write /sys/class/power_supply/battery/constant_charge_current_max 
-chmod 444 /sys/class/power_supply/battery/constant_charge_current_max
+write /sys/class/power_supply/battery/constant_charge_current_max

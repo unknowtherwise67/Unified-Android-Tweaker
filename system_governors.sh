@@ -28,7 +28,7 @@ perfmgr="/proc/perfmgr/"
 sync
 
 # CPU
-for cpu in /sys/*/system/cpu/*/cpufreq/*
+for cpu in /sys/*/system/cpu/cpu*/cpufreq/*
 do
 	available_governors="$(cat "$cpu/scaling_available_governors")"
 	for governor in 
@@ -55,20 +55,7 @@ do
 done
 
 # GPU
-for gpu in /sys/kernel/kgsl/kgsl-3d0/devfreq
-do
-	available_governors="$(cat "$gpu/available_governors")"
-	for governor in 
-	do
-		if [[ "$available_governors" == *"$governor"* ]]
-		then
-			write "$gpu/governor" "$governor"
-			break
-		fi
-	done
-done
-
-for gpu in /sys/kernel/gpu
+for gpu in /sys/*/kgsl/kgsl-3d0/devfreq
 do
 	available_governors="$(cat "$gpu/gpu_available_governor")"
 	for governor in 
@@ -81,21 +68,8 @@ do
 	done
 done
 
-for gpu in /sys/kernel/gpu
-do
-	available_governors="$(cat "$gpu/available_governors")"
-	for governor in 
-	do
-		if [[ "$available_governors" == *"$governor"* ]]
-		then
-			write "$gpu/gpu_governor" "$governor"
-			break
-		fi
-	done
-done
-
 # I/O SCHEDULERS
-for queue in /sys/block/*/queue
+for queue in /sys/*/*/queue
 do
 	available_schedulers="$(cat "$queue/scheduler")"
 	for sched in none noop mq-deadline deadline kyber bfq cfq
@@ -111,7 +85,7 @@ done
 for nand_flash in /sys/*/devfreq/1d84000.ufshc
 do
 	available_governors="$(cat "$nand_flash/available_governors")"
-	for governor in 
+	for governor in performance
 	do
 		if [[ "$available_governors" == *"$governor"* ]]
 		then

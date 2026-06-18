@@ -9,11 +9,13 @@ ui_print "- Installing..."
 # Kernel Tweaks
 ui_print ""
 ui_print "- Fine-tunning Android System/User/Kernel settings, tunables and other parameters..."
+sh $MODPATH/system_files_chmods-1.sh
 sh $MODPATH/system_selinux.sh
 sh $MODPATH/system_settings.sh
 sh $MODPATH/system_governors.sh
 sh $MODPATH/system_kernel.sh
 sh $MODPATH/system_cpu_gpu_power.sh
+sh $MODPATH/system_files_chmods-2.sh
 ui_print "- Completed."
 
 # ZRAM/Swap Virtual Memory
