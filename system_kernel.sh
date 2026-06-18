@@ -82,20 +82,20 @@ do
 	write "$governor/sched_freq_inc_notify" 50000
 	write "$governor/multi_exit_time" 100000
 	write "$governor/min_sample_time" 100000
+	write "$governor/hispeed_freq" 1000000
+	write "$governor/optimal_freq" 1000000
+	write "$governor/sync_freq" 1000000
+	write "$governor/rtg_boost_freq" 1000000
+	write "$governor/adaptive_high_freq" 1000000
+	write "$governor/adaptive_low_freq" 1000000
+	write "$governor/max_freq_hysteresis" 1000000
+	write "$governor/step_up_early_hispeed" 1000000
+	write "$governor/step_up_interim_hispeed" 1000000
+	write "$governor/up_threshold_any_cpu_freq" 1000000
 	write "$governor/boostpulse_duration" 200000
 	write "$governor/sched_freq_dec_notify" 500000
 	write "$governor/up_throttle_nsec" 10000000
 	write "$governor/down_throttle_nsec" 10000000
-	write "$governor/hispeed_freq" 0
-	write "$governor/optimal_freq" 0
-	write "$governor/sync_freq" 0
-	write "$governor/rtg_boost_freq" 0
-	write "$governor/adaptive_high_freq" 0
-	write "$governor/adaptive_low_freq" 0
-	write "$governor/max_freq_hysteresis" 0
-	write "$governor/step_up_early_hispeed" 0
-	write "$governor/step_up_interim_hispeed" 0
-	write "$governor/up_threshold_any_cpu_freq" 0
 done
 
 for governor in /sys/*/system/cpu/cpufreq/*
@@ -152,20 +152,20 @@ do
 	write "$governor/sched_freq_inc_notify" 50000
 	write "$governor/multi_exit_time" 100000
 	write "$governor/min_sample_time" 100000
+	write "$governor/hispeed_freq" 1000000
+	write "$governor/optimal_freq" 1000000
+	write "$governor/sync_freq" 1000000
+	write "$governor/rtg_boost_freq" 1000000
+	write "$governor/adaptive_high_freq" 1000000
+	write "$governor/adaptive_low_freq" 1000000
+	write "$governor/max_freq_hysteresis" 1000000
+	write "$governor/step_up_early_hispeed" 1000000
+	write "$governor/step_up_interim_hispeed" 1000000
+	write "$governor/up_threshold_any_cpu_freq" 1000000
 	write "$governor/boostpulse_duration" 200000
 	write "$governor/sched_freq_dec_notify" 500000
 	write "$governor/up_throttle_nsec" 10000000
 	write "$governor/down_throttle_nsec" 10000000
-	write "$governor/hispeed_freq" 0
-	write "$governor/optimal_freq" 0
-	write "$governor/sync_freq" 0
-	write "$governor/rtg_boost_freq" 0
-	write "$governor/adaptive_high_freq" 0
-	write "$governor/adaptive_low_freq" 0
-	write "$governor/max_freq_hysteresis" 0
-	write "$governor/step_up_early_hispeed" 0
-	write "$governor/step_up_interim_hispeed" 0
-	write "$governor/up_threshold_any_cpu_freq" 0
 done
 
 write /sys/kernel/gpu/boost 1

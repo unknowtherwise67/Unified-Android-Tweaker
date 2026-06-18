@@ -1,3 +1,18 @@
+# Device and System SELinux
+# Don't mind about this section if you don't know about it and just leave it as it is.
+MODPATH=${0%/*}
+MODDIR=${0%/*}
+sh $MODPATH/system_selinux.sh
+chmod 640 /sys/fs/selinux/enforce
+if [ -x "\$(command -v resetprop)" ]
+then
+	resetprop -n ro.boot.selinux enforcing
+fi
+if [ -x "\$(command -v resetprop)" ] && [ -n "\$(resetprop ro.build.selinux)" ]
+then
+	resetprop --delete ro.build.selinux
+fi
+
 # Apply-on-boot section.
 # You can configure it below the "done" word.
 # If you want to increase time before apply-on-boot are in effect.
@@ -9,24 +24,6 @@ until [ "`getprop sys.boot_completed`" == 1 ]; do
 done
 sleep 1
 # All Mods/Tweaks/Others parameters will be applied after configured times are elapsed.
-
-# Device and System SELinux
-MODPATH=${0%/*}
-MODDIR=${0%/*}
-until [ "`getprop sys.boot_completed`" == 1 ]; do
-  sleep 1
-done
-sleep 1
-sh $MODPATH/system_selinux.sh
-chmod 640 /sys/fs/selinux/enforce
-if [ -x "\$(command -v resetprop)" ]
-then
-	resetprop -n ro.boot.selinux enforcing
-fi
-if [ -x "\$(command -v resetprop)" ] && [ -n "\$(resetprop ro.build.selinux)" ]
-then
-	resetprop --delete ro.build.selinux
-fi
 
 # Disable ADB Root for Security Purpose
 MODPATH=${0%/*}

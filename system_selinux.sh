@@ -26,7 +26,7 @@ perfmgr="/proc/perfmgr/"
 
 # SELinux
 # Change SELinux mode to Enforcing (1) or Permissive (0).
-# Edit it with your own risk, as setting it to 0 will disable SELinux security policies.
+# Modify it with your own risk, as setting it to 0 will disable SELinux security policies.
 # While it can solve some issues with Root and Root Modules of Android System.
 # It may not work on some Android devices, as some of them are SELinux hardened to Enforcing by default.
 write /sys/fs/selinux/enforce 
