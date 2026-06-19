@@ -70,6 +70,19 @@ chmod 444 /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 chmod 444 /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
 chmod 444 /sys/devices/system/cpu/cpufreq/policy7/scaling_governor
 
+chmod 444 /sys/devices/system/cpu/cpu0/online
+chmod 444 /sys/devices/system/cpu/cpu1/online
+chmod 444 /sys/devices/system/cpu/cpu2/online
+chmod 444 /sys/devices/system/cpu/cpu3/online
+chmod 444 /sys/devices/system/cpu/cpu4/online
+chmod 444 /sys/devices/system/cpu/cpu5/online
+chmod 444 /sys/devices/system/cpu/cpu6/online
+chmod 444 /sys/devices/system/cpu/cpu7/online
+chmod 444 /sys/devices/system/cpu/cpu8/online
+chmod 444 /sys/devices/system/cpu/cpu9/online
+chmod 444 /sys/devices/system/cpu/cpu10/online
+chmod 444 /sys/devices/system/cpu/cpu11/online
+
 chmod 444 /sys/class/kgsl/kgsl-3d0/devfreq/gpu_governor
 chmod 444 /sys/kernel/gpu/gpu_governor
 chmod 444 /sys/class/devfreq/1d84000.ufshc/governor

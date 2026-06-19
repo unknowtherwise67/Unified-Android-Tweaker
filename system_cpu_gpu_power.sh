@@ -59,4 +59,17 @@ write /sys/devices/system/cpu/cpu7/cpufreq/scaling_min_freq
 write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 
 write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
 
+write /sys/devices/system/cpu/cpu0/online 1
+write /sys/devices/system/cpu/cpu1/online 1
+write /sys/devices/system/cpu/cpu2/online 1
+write /sys/devices/system/cpu/cpu3/online 1
+write /sys/devices/system/cpu/cpu4/online 1
+write /sys/devices/system/cpu/cpu5/online 1
+write /sys/devices/system/cpu/cpu6/online 1
+write /sys/devices/system/cpu/cpu7/online 1
+write /sys/devices/system/cpu/cpu8/online 1
+write /sys/devices/system/cpu/cpu9/online 1
+write /sys/devices/system/cpu/cpu10/online 1
+write /sys/devices/system/cpu/cpu11/online 1
+
 write /sys/class/power_supply/battery/constant_charge_current_max
