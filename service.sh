@@ -7,7 +7,7 @@ MODDIR=${0%/*}
 until [ "`getprop sys.boot_completed`" == 1 ]; do
   sleep 1
 done
-sleep 60
+sleep 1
 # All Mods/Tweaks/Others parameters will be applied after configured times are elapsed.
 
 # System Files Permissions
