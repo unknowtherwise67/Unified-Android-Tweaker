@@ -6,7 +6,7 @@ ui_print ""
 ui_print "- Preparing..."
 ui_print "- Installing..."
 
-# Kernel Tweaks
+# Android System Kernel Modifications
 ui_print ""
 ui_print "- Fine-tunning Android System/User/Kernel settings, tunables and other parameters..."
 sh $MODPATH/system_files_chmods-1.sh
