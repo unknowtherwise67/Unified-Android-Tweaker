@@ -170,6 +170,8 @@ done
 
 write /sys/kernel/gpu/boost 1
 write /proc/mali/always_on 1
+write /proc/mali/dvfs_enable 1
+write /sys/module/ged/parameters/gpu_dvfs_enable 1
 write /sys/class/kgsl/kgsl-3d0/tmu 1
 write /sys/class/kgsl/kgsl-3d0/popp 1
 write /sys/class/kgsl/kgsl-3d0/pwrnap 1
@@ -196,8 +198,6 @@ write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 0
 write /sys/class/kgsl/kgsl-3d0/max_pwrlevel 0
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 0
 write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 0
-write /proc/mali/dvfs_enable 0
-write /sys/module/ged/parameters/gpu_dvfs_enable 0
 write /sys/module/adreno_idler/parameters/adreno_idler_active N
 write /sys/devices/platform/13040000.mali/power_policy always_on
 write /sys/class/kgsl/kgsl-3d0/power_policy always_on
