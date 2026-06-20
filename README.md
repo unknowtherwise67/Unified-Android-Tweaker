@@ -11,6 +11,9 @@
 # System-Thermal-Modifications:
 - Force System to use OS Kernel-Based Thermal Managements System while maintain device hardware safety.
 
+# System-SELinux-Modifications
+- Change Android System Built-in SELinux to either Enforcing or Permissive. Configurable and by user's choice. SELinux (in Linux ecosystems) are work like Exploit Protection and with Hardened Security. Note that modify it can come with risks of OS Security while it can help solve problems for other like Root Modules, Apps, Software, etc.
+
 ## REQUIREMENTS/COMPATIBILITY:
 - Android 6 and/or Above.
 - Linux Kernel 3 and/or Above.

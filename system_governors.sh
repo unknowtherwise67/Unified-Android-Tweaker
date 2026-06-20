@@ -135,7 +135,6 @@ write /sys/devices/system/cpu/cpu9/cpufreq/scaling_governor
 write /sys/devices/system/cpu/cpu10/cpufreq/scaling_governor 
 write /sys/devices/system/cpu/cpu11/cpufreq/scaling_governor 
 
-write /sys/class/kgsl/kgsl-3d0/devfreq/gpu_governor
 write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 write /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
 write /sys/devices/system/cpu/cpufreq/policy7/scaling_governor
