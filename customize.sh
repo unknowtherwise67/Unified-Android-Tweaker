@@ -1,7 +1,7 @@
 # Log the date and time
 echo "- Time of execution: $(date)"
 
-# Installations
+# Installations.
 ui_print ""
 ui_print "- Preparing..."
 ui_print "- Installing..."
@@ -84,7 +84,7 @@ fi
 
 # Completions
 ui_print ""
-ui_print "- Scripts executions completed - Root Module is installed."
+ui_print "- Scripts executions completed, Root Module is installed."
 ui_print "- Please REBOOT/RESTART the Device for effects."
 ui_print ""
 ui_print "- ADDITIONAL NOTES:"

@@ -1,23 +1,20 @@
-# Apply-on-boot section.
-# You can configure it below the "done" word.
-# If you want to increase time before apply-on-boot are in effect.
+# Apply-On-Boot section
+# You can configure it below the "done" word
+# If you want to increase time before apply-on-boot are in effect
 MODPATH=${0%/*}
 MODDIR=${0%/*}
 until [ "`getprop sys.boot_completed`" == 1 ]; do
   sleep 1
 done
 sleep 1
-# All Mods/Tweaks/Others parameters will be applied after configured times are elapsed.
+# All Mods/Tweaks/Others parameters will be modified/applied after configured times are elapsed
 
-# System Files Permissions
+# System Files Permissions.
 MODPATH=${0%/*}
 MODDIR=${0%/*}
 sh $MODPATH/system_files_chmods-1.sh
 
-# Device and System SELinux
-# Don't mind about this section if you don't know about it and just leave it as it is.
-
-# Making changes to ADB Root and SELinux to advoid Detections
+# Making changes to ADB Root and SELinux to advoid detections
 MODPATH=${0%/*}
 MODDIR=${0%/*}
 until [ "`getprop sys.boot_completed`" == 1 ]; do
@@ -42,7 +39,7 @@ if [ -n "$adbroot" ]; then
     resetprop -n -p service.adb.root ""
 fi
 
-# ZRAM Swap Virtual Memory
+# Android Device/Kernel ZRAM Swap Virtual Memory Modifications
 MODPATH=${0%/*}
 MODDIR=${0%/*}
 until [ "`getprop sys.boot_completed`" == 1 ]; do
@@ -82,7 +79,7 @@ PRIO=
 #o|| /system/vendor/bin/swapon /dev$ZRAM -p "$PRIO"\
 #o|| swapon /dev$ZRAM
 
-# Device/Kernel Settings/Parameters Configuration
+# Android Device/Kernel Settings/Parameters Modifications
 MODPATH=${0%/*}
 MODDIR=${0%/*}
 until [ "`getprop sys.boot_completed`" == 1 ]; do
