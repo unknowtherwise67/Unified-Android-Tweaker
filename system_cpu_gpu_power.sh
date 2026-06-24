@@ -1,4 +1,4 @@
-# Write to OS System/Device Data Files
+# Write to OS System/Device and Hardware Data Files
 write() {
 	[[ ! -f "$1" ]] && return 1
 	chmod +w "$1" 2> /dev/null
@@ -66,6 +66,6 @@ write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
 write /sys/devices/system/cpu/cpu7/cpufreq/scaling_min_freq 
 
 write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 
-write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
+write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 
 
-write /sys/class/power_supply/battery/constant_charge_current_max
+write /sys/class/power_supply/battery/constant_charge_current_max 

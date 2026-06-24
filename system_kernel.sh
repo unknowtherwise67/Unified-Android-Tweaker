@@ -1,4 +1,4 @@
-# Write to OS System/Device Data Files
+# Write to OS System/Device and Hardware Data Files
 write() {
 	[[ ! -f "$1" ]] && return 1
 	chmod +w "$1" 2> /dev/null
@@ -259,28 +259,10 @@ write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 28
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 29
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 30
 
-for queue in /sys/block/*/queue; do
-  device_name=$(basename "$(dirname "$queue")")
-  case "$device_name" in
-    dm*|loop*|ram*|zram*)
-	  write "$queue/read_ahead_kb" 128
-      write "$queue/nr_requests" 128
-	  ;;
-    mtdblock*|mmcblk*|sd*)
-      write "$queue/read_ahead_kb" 128
-	  write "$queue/read_ahead_kb" 256
-	  write "$queue/read_ahead_kb" 512
-	  write "$queue/read_ahead_kb" 1024
-	  write "$queue/read_ahead_kb" 2048
-	  write "$queue/read_ahead_kb" 4096
-	  write "$queue/nr_requests" 128
-	  write "$queue/nr_requests" 256
-	  write "$queue/nr_requests" 512
-	  write "$queue/nr_requests" 1024
-	  write "$queue/nr_requests" 2048
-	  write "$queue/nr_requests" 4096
-      ;;
-  esac
+for queue in /sys/*/*/queue
+do
+	write "$queue/nr_requests" 128
+	write "$queue/read_ahead_kb" 128
 done
 
 for queue in /sys/*/*/queue
