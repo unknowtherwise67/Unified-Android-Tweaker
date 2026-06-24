@@ -12,7 +12,7 @@
 - Force System to use OS Kernel-Based Thermal Managements System while maintain device hardware safety.
 
 # System-SELinux-Modifications:
-- Change Android System Built-in SELinux to either Enforcing or Permissive. Configurable and by user's choice. SELinux (in Linux ecosystems) are work like Exploit Protection and with Hardened Security. Note that modify it can come with risks of OS Security while it can help solve issues/problems for other like Root Modules, Apps and even Device's Firmwares and Softwares in some case.
+- Change Android System Built-in SELinux to either Enforcing or Permissive. Configurable and by user's choice. SELinux (in Linux ecosystems) are work like Exploit Protection and with Hardened Security. Note that modify it can come with risks of OS Security while it can help solve issues/problems for other like Root Modules, Apps and even device's firmwares/softwares at some case.
 
 ## REQUIREMENTS/COMPATIBILITY:
 - Android 6 and/or Above.
@@ -23,8 +23,8 @@
 - Should work and only on any Android platforms/devices (Emulators/Virtual may possible but functionals is not guaranteed).
 
 ## DISCLAMERS:
-- MAKE USE OF THE ROOT MODULE AT YOUR OWN RISKS.
-- DEVELOPERS ARE DOES NOT TOOK RESPONSIBILITY FOR WHAT HAPPENED ONLY IF IS YOUR FAULTS.
+- Make use of the Root Modules at your own risks
+- Developers are does not take resposibility only for what did you done.
 
 ## INSTALLATIONS:
 1. Install in any Root like Magisk, KernelSU, etc.
@@ -33,7 +33,7 @@
 
 ## CAUTIONS:
 - Don't install with any tweaks root modules as it can cause the conflicts.
-- Advise you should check other root modules if they are causing problems/issues before try pointing out both of my root module.
+- Advise you should check other root modules if they are causing problems/issues before try pointing out my Root Modules/Repos.
 
 ## TROUBLESHOOTS - IF PROBLEMS OCCURED:
 ### Hardware Buttons Methods:

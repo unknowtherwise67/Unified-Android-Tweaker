@@ -1,12 +1,7 @@
-# Write To Files Functions
+# Write to OS System/Device Data Files
 write() {
-	# Command to skip if the file/value/parameters is not-found/unwritable
 	[[ ! -f "$1" ]] && return 1
-
-	# Make file writable if is possible
 	chmod +w "$1" 2> /dev/null
-
-	# Skip unwritable value/parameters and write new value/parameters
 	if ! echo "$2" > "$1" 2> /dev/null
 	then
 		return 1

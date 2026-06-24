@@ -1,12 +1,7 @@
-# Write To Files Functions
+# Write to OS System/Device Data Files
 write() {
-	# Command to skip if the file/value/parameters is not-found/unwritable
 	[[ ! -f "$1" ]] && return 1
-
-	# Make file writable if is possible
 	chmod +w "$1" 2> /dev/null
-
-	# Skip unwritable value/parameters and write new value/parameters
 	if ! echo "$2" > "$1" 2> /dev/null
 	then
 		return 1
@@ -264,10 +259,28 @@ write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 28
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 29
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 30
 
-for queue in /sys/*/*/queue
-do
-	write "$queue/nr_requests" 128
-	write "$queue/read_ahead_kb" 128
+for queue in /sys/block/*/queue; do
+  device_name=$(basename "$(dirname "$queue")")
+  case "$device_name" in
+    dm*|loop*|ram*|zram*)
+	  write "$queue/read_ahead_kb" 128
+      write "$queue/nr_requests" 128
+	  ;;
+    mtdblock*|mmcblk*|sd*)
+      write "$queue/read_ahead_kb" 128
+	  write "$queue/read_ahead_kb" 256
+	  write "$queue/read_ahead_kb" 512
+	  write "$queue/read_ahead_kb" 1024
+	  write "$queue/read_ahead_kb" 2048
+	  write "$queue/read_ahead_kb" 4096
+	  write "$queue/nr_requests" 128
+	  write "$queue/nr_requests" 256
+	  write "$queue/nr_requests" 512
+	  write "$queue/nr_requests" 1024
+	  write "$queue/nr_requests" 2048
+	  write "$queue/nr_requests" 4096
+      ;;
+  esac
 done
 
 for queue in /sys/*/*/queue
@@ -618,6 +631,8 @@ write /sys/module/ged/parameters/ged_boost_enable 1
 write /sys/kernel/gbe/gbe2_max_boost_cnt 1
 write /sys/module/ged/parameters/cpu_boost_policy 100
 write /sys/module/ged/parameters/ged_smart_boost 100
+write /sys/module/ged/parameters/gx_tb_dvfs_margin 100
+write /sys/module/ged/parameters/gx_fb_dvfs_margin 100
 write /sys/module/ged/parameters/gpu_debug_enable 0
 write /sys/module/ged/parameters/ged_force_mdp_enable 0
 write /sys/module/ged/parameters/ged_log_perf_trace_enable 0
