@@ -8,7 +8,7 @@ if [ -f "$MODPATH/system_files_chmods-1.sh" ]; then
     sh "$MODPATH/system_files_chmods-1.sh"
 fi
 
-# Device and System SELinux Modifications
+# OS System SELinux and ADB Root Modifications
 if [ -f "$MODPATH/system_selinux.sh" ]; then
     sh "$MODPATH/system_selinux.sh"
 fi

@@ -25,7 +25,7 @@ if [ -f "$MODPATH/system_files_chmods-1.sh" ]; then
     sh "$MODPATH/system_files_chmods-1.sh"
 fi
 
-# Making changes to SELinux and ADB Root to advoid detections
+# OS System SELinux and ADB Root Modifications
 if [ -x "$(command -v resetprop)" ]; then
     resetprop -n ro.boot.selinux enforcing
     if [ -n "$(resetprop ro.build.selinux)" ]; then
