@@ -1,22 +1,30 @@
+#!/system/bin/sh
+# Initialize variables at once
+MODPATH="${0%/*}"
+MODDIR="${0%/*}"
+
 # System Files Permissions
-MODPATH=${0%/*}
-MODDIR=${0%/*}
-sh $MODPATH/system_files_chmods-1.sh
+if [ -f "$MODPATH/system_files_chmods-1.sh" ]; then
+    sh "$MODPATH/system_files_chmods-1.sh"
+fi
 
 # Device and System SELinux Modifications
-MODPATH=${0%/*}
-MODDIR=${0%/*}
-sh $MODPATH/system_selinux.sh
-if [ -x "\$(command -v resetprop)" ]
-then
-	resetprop -n ro.boot.selinux enforcing
+if [ -f "$MODPATH/system_selinux.sh" ]; then
+    sh "$MODPATH/system_selinux.sh"
 fi
-if [ -x "\$(command -v resetprop)" ] && [ -n "\$(resetprop ro.build.selinux)" ]
-then
-	resetprop --delete ro.build.selinux
+if [ -x "$(command -v resetprop)" ]; then
+    resetprop -n ro.boot.selinux enforcing
+    if [ -n "$(resetprop ro.build.selinux)" ]; then
+        resetprop --delete ro.build.selinux
+    fi
+fi
+resetprop -n -p init.svc.adb_root ""
+adbroot="$(getprop service.adb.root)"
+if [ -n "$adbroot" ]; then
+    resetprop -n -p service.adb.root ""
 fi
 
 # System Files Permissions
-MODPATH=${0%/*}
-MODDIR=${0%/*}
-sh $MODPATH/system_files_chmods-2.sh
+if [ -f "$MODPATH/system_files_chmods-2.sh" ]; then
+    sh "$MODPATH/system_files_chmods-2.sh"
+fi
