@@ -613,8 +613,8 @@ write /sys/module/ged/parameters/ged_boost_enable 1
 write /sys/kernel/gbe/gbe2_max_boost_cnt 1
 write /sys/module/ged/parameters/cpu_boost_policy 100
 write /sys/module/ged/parameters/ged_smart_boost 100
-write /sys/module/ged/parameters/gx_tb_dvfs_margin 100
-write /sys/module/ged/parameters/gx_fb_dvfs_margin 100
+write /sys/module/ged/parameters/gx_tb_dvfs_margin 0
+write /sys/module/ged/parameters/gx_fb_dvfs_margin 0
 write /sys/module/ged/parameters/gpu_debug_enable 0
 write /sys/module/ged/parameters/ged_force_mdp_enable 0
 write /sys/module/ged/parameters/ged_log_perf_trace_enable 0
