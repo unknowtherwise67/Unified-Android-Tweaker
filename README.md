@@ -12,7 +12,9 @@
 - Force System to use OS Kernel-Based Thermal Managements System while maintain device hardware safety.
 
 # System-SELinux-Modifications:
-- Change System SELinux parameters to either Enforced or Permissive mode, do it at your own risk as Permissive may can solve some issues but can introduce compromise to system security.
+- Change System SELinux parameters to either Enforced or Permissive mode, do it at your own risk.
+- SElinux Permissive may can help fixing device's hardware firmware and/or software and many apps/games
+- And same time can introduce compromises to device system security, which is what you should fully aware of.
 
 ## REQUIREMENTS/COMPATIBILITY:
 - Android 6 and/or Above.
