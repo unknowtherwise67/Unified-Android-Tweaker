@@ -3,7 +3,7 @@ echo "- Time of execution: $(date)"
 
 # Completions
 ui_print ""
-ui_print "- Root Module, files installation completed."
+ui_print "- Root Module and its files installation are completed."
 ui_print "- Please REBOOT/RESTART the Device for effects."
 ui_print ""
 ui_print "- ADDITIONAL NOTES:"

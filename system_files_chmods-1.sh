@@ -20,6 +20,8 @@ fs="/proc/sys/fs/"
 perfmgr="/proc/perfmgr/"
 
 # System Files Permissions
+chmod 666 /sys/fs/selinux/enforce
+
 chmod 666 /sys/devices/system/cpu/cpu0/online
 chmod 666 /sys/devices/system/cpu/cpu1/online
 chmod 666 /sys/devices/system/cpu/cpu2/online
