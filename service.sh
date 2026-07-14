@@ -22,23 +22,59 @@ if [ -f "$MODPATH/system_files_chmods-1.sh" ]; then
     sh "$MODPATH/system_files_chmods-1.sh"
 fi
 
-# OS System SELinux and ADB Root Modifications
+# OS System SELinux ResetProp Modifications
 sleep 1
 if [ -f "$MODPATH/system_selinux.sh" ]; then
     sh "$MODPATH/system_selinux.sh"
 fi
 sleep 1
-if [ -x "$(command -v resetprop)" ]; then
-    resetprop -n ro.boot.selinux enforcing
-    if [ -n "$(resetprop ro.build.selinux)" ]; then
-        resetprop --delete ro.build.selinux
-    fi
+if [ -f "$MODPATH/system_selinux.sh" ]; then
+    sh "$MODPATH/system_selinux.sh"
 fi
 sleep 1
-resetprop -n -p init.svc.adb_root ""
-adbroot="$(getprop service.adb.root)"
-if [ -n "$adbroot" ]; then
-    resetprop -n -p service.adb.root ""
+# Check if resetprop is available before proceeding
+if [ -x "$(command -v resetprop)" ]; then
+    # Helper function to change properties safely
+    # Usage: change_prop <property> <value>
+    change_prop() {
+        local prop="$1"
+        local val="$2"
+        # Only change if the current value is different
+        if [ "$(resetprop "$prop" 2>/dev/null)" != "$val" ]; then
+            # -n is required for read-only (ro.) properties so init doesn't reject it
+            case "$prop" in
+                ro.*|vendor.*) resetprop -n "$prop" "$val" ;;
+                *) resetprop "$prop" "$val" ;;
+            esac
+        fi
+    }
+    # Helper function to delete properties cleanly if they exist
+    # Usage: delete_prop <property>
+    delete_prop() {
+        local prop="$1"
+        if [ -n "$(resetprop "$prop" 2>/dev/null)" ]; then
+            resetprop --delete "$prop"
+        fi
+    }
+    change_prop ro.boot.selinux "enforcing"
+    change_prop ro.boot.veritymode "enforcing"
+    delete_prop ro.build.selinux 
+    change_prop init.svc.adb_root "stopped"
+    change_prop service.adb.root "0"
+    change_prop ro.adb.secure "1"
+    change_prop ro.build.tags "release-keys"
+    change_prop ro.build.type "user"
+    change_prop ro.debuggable "0"
+    change_prop ro.secure "1"
+    change_prop ro.boot.flash.locked "1"
+    change_prop ro.secureboot.lockstate "locked"
+    change_prop ro.boot.realme.lockstate "1"
+    change_prop ro.boot.vbmeta.device_state "locked"
+    change_prop vendor.boot.vbmeta.device_state "locked"
+    change_prop ro.boot.verifiedbootstate "green"
+    change_prop vendor.boot.verifiedbootstate "green"
+    change_prop ro.boot.warranty_bit "0"
+    change_prop ro.warranty_bit "0"
 fi
 
 # Android Device/Kernel ZRAM Swap Virtual Memory Modifications
@@ -85,7 +121,7 @@ if [ -f "$MODPATH/system_files_chmods-2.sh" ]; then
 fi
 
 # Do Apply-On-Pre/Post-Boot again in case the first attempt were unsuccessful.
-sleep 1
+sleep 5
 if [ -f "$MODPATH/system_files_chmods-1.sh" ]; then
     sh "$MODPATH/system_files_chmods-1.sh"
 fi
@@ -94,17 +130,53 @@ if [ -f "$MODPATH/system_selinux.sh" ]; then
     sh "$MODPATH/system_selinux.sh"
 fi
 sleep 1
-if [ -x "$(command -v resetprop)" ]; then
-    resetprop -n ro.boot.selinux enforcing
-    if [ -n "$(resetprop ro.build.selinux)" ]; then
-        resetprop --delete ro.build.selinux
-    fi
+if [ -f "$MODPATH/system_selinux.sh" ]; then
+    sh "$MODPATH/system_selinux.sh"
 fi
 sleep 1
-resetprop -n -p init.svc.adb_root ""
-adbroot="$(getprop service.adb.root)"
-if [ -n "$adbroot" ]; then
-    resetprop -n -p service.adb.root ""
+# Check if resetprop is available before proceeding
+if [ -x "$(command -v resetprop)" ]; then
+    # Helper function to change properties safely
+    # Usage: change_prop <property> <value>
+    change_prop() {
+        local prop="$1"
+        local val="$2"
+        # Only change if the current value is different
+        if [ "$(resetprop "$prop" 2>/dev/null)" != "$val" ]; then
+            # -n is required for read-only (ro.) properties so init doesn't reject it
+            case "$prop" in
+                ro.*|vendor.*) resetprop -n "$prop" "$val" ;;
+                *) resetprop "$prop" "$val" ;;
+            esac
+        fi
+    }
+    # Helper function to delete properties cleanly if they exist
+    # Usage: delete_prop <property>
+    delete_prop() {
+        local prop="$1"
+        if [ -n "$(resetprop "$prop" 2>/dev/null)" ]; then
+            resetprop --delete "$prop"
+        fi
+    }
+    change_prop ro.boot.selinux "enforcing"
+    change_prop ro.boot.veritymode "enforcing"
+    delete_prop ro.build.selinux 
+    change_prop init.svc.adb_root "stopped"
+    change_prop service.adb.root "0"
+    change_prop ro.adb.secure "1"
+    change_prop ro.build.tags "release-keys"
+    change_prop ro.build.type "user"
+    change_prop ro.debuggable "0"
+    change_prop ro.secure "1"
+    change_prop ro.boot.flash.locked "1"
+    change_prop ro.secureboot.lockstate "locked"
+    change_prop ro.boot.realme.lockstate "1"
+    change_prop ro.boot.vbmeta.device_state "locked"
+    change_prop vendor.boot.vbmeta.device_state "locked"
+    change_prop ro.boot.verifiedbootstate "green"
+    change_prop vendor.boot.verifiedbootstate "green"
+    change_prop ro.boot.warranty_bit "0"
+    change_prop ro.warranty_bit "0"
 fi
 sleep 1
 [ -f "$MODPATH/system_settings.sh" ] && sh "$MODPATH/system_settings.sh"
