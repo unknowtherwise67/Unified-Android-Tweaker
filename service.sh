@@ -10,10 +10,10 @@ done
 while [ -z "$(pm path android 2>/dev/null)" ]; do
     sleep 1
 done
-sleep 1
 if [ "$(getprop sys.init.perf_lsm)" = "basic" ] || [ "$(getprop init.svc.goldfish-logcat)" = "running" ]; then
     exit 0
 fi
+sleep 1
 # All Mods/Tweaks/Others parameters will be modified/applied after configured times are elapsed
 
 # System Files Permissions.
@@ -121,7 +121,7 @@ if [ -f "$MODPATH/system_files_chmods-2.sh" ]; then
 fi
 
 # Do Apply-On-Pre/Post-Boot again in case the first attempt were unsuccessful.
-sleep 5
+sleep 3
 if [ -f "$MODPATH/system_files_chmods-1.sh" ]; then
     sh "$MODPATH/system_files_chmods-1.sh"
 fi
