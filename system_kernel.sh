@@ -1173,6 +1173,54 @@ write /dev/cpuset/foreground_window/cpus 0-9
 write /dev/cpuset/foreground_window/cpus 0-10
 write /dev/cpuset/foreground_window/cpus 0-11
 
+write /dev/cpuset/background/cpus 0-1
+write /dev/cpuset/background/cpus 0-2
+write /dev/cpuset/background/cpus 0-3
+write /dev/cpuset/background/cpus 0-4
+write /dev/cpuset/background/cpus 0-5
+write /dev/cpuset/background/cpus 0-6
+write /dev/cpuset/background/cpus 0-7
+write /dev/cpuset/background/cpus 0-8
+write /dev/cpuset/background/cpus 0-9
+write /dev/cpuset/background/cpus 0-10
+write /dev/cpuset/background/cpus 0-11
+
+write /dev/cpuset/l-background/cpus 0-1
+write /dev/cpuset/l-background/cpus 0-2
+write /dev/cpuset/l-background/cpus 0-3
+write /dev/cpuset/l-background/cpus 0-4
+write /dev/cpuset/l-background/cpus 0-5
+write /dev/cpuset/l-background/cpus 0-6
+write /dev/cpuset/l-background/cpus 0-7
+write /dev/cpuset/l-background/cpus 0-8
+write /dev/cpuset/l-background/cpus 0-9
+write /dev/cpuset/l-background/cpus 0-10
+write /dev/cpuset/l-background/cpus 0-11
+
+write /dev/cpuset/h-background/cpus 0-1
+write /dev/cpuset/h-background/cpus 0-2
+write /dev/cpuset/h-background/cpus 0-3
+write /dev/cpuset/h-background/cpus 0-4
+write /dev/cpuset/h-background/cpus 0-5
+write /dev/cpuset/h-background/cpus 0-6
+write /dev/cpuset/h-background/cpus 0-7
+write /dev/cpuset/h-background/cpus 0-8
+write /dev/cpuset/h-background/cpus 0-9
+write /dev/cpuset/h-background/cpus 0-10
+write /dev/cpuset/h-background/cpus 0-11
+
+write /dev/cpuset/system-background/cpus 0-1
+write /dev/cpuset/system-background/cpus 0-2
+write /dev/cpuset/system-background/cpus 0-3
+write /dev/cpuset/system-background/cpus 0-4
+write /dev/cpuset/system-background/cpus 0-5
+write /dev/cpuset/system-background/cpus 0-6
+write /dev/cpuset/system-background/cpus 0-7
+write /dev/cpuset/system-background/cpus 0-8
+write /dev/cpuset/system-background/cpus 0-9
+write /dev/cpuset/system-background/cpus 0-10
+write /dev/cpuset/system-background/cpus 0-11
+
 write /dev/cpuset/restricted/cpus 0-1
 write /dev/cpuset/restricted/cpus 0-2
 write /dev/cpuset/restricted/cpus 0-3
@@ -1304,11 +1352,6 @@ write /dev/cpuset/dex2oat/cpus 0-8
 write /dev/cpuset/dex2oat/cpus 0-9
 write /dev/cpuset/dex2oat/cpus 0-10
 write /dev/cpuset/dex2oat/cpus 0-11
-
-write /dev/cpuset/background/cpus 0-1
-write /dev/cpuset/l-background/cpus 0-1
-write /dev/cpuset/h-background/cpus 0-1
-write /dev/cpuset/system-background/cpus 0-1
 
 write /sys/devices/system/cpu/cpu0/core_ctl/min_cpus 4
 write /sys/devices/system/cpu/cpu1/core_ctl/min_cpus 4
