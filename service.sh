@@ -13,7 +13,7 @@ done
 if [ "$(getprop sys.init.perf_lsm)" = "basic" ] || [ "$(getprop init.svc.goldfish-logcat)" = "running" ]; then
     exit 0
 fi
-sleep 1
+sleep 60
 # All Mods/Tweaks/Others parameters will be modified/applied after configured times are elapsed
 
 # System Files Permissions.
