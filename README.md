@@ -20,8 +20,8 @@
 - Should work and only on any Android platforms/devices (Emulators/Virtual may possible but functionals is not guaranteed).
 
 ## DISCLAMERS:
-- Make use of the Root Modules at your own risks
-- Developers are does not take resposibility only for what did you done.
+- Make use of the Root Modules at your own risks.
+- Developers are does not take responsibility for what did you done.
 
 ## INSTALLATIONS:
 1. Install in any Root like Magisk, KernelSU, etc.

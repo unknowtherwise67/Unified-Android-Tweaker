@@ -13,8 +13,8 @@ done
 if [ "$(getprop sys.init.perf_lsm)" = "basic" ] || [ "$(getprop init.svc.goldfish-logcat)" = "running" ]; then
     exit 0
 fi
-sleep 60
-# All Mods/Tweaks/Others parameters will be modified/applied after configured times are elapsed
+# All Mods/Tweaks/Others parameters will be modified/applied after this configured times parameters are elapsed
+sleep 1
 
 # System Files Permissions.
 sleep 1
@@ -22,34 +22,28 @@ if [ -f "$MODPATH/system_files_chmods-1.sh" ]; then
     sh "$MODPATH/system_files_chmods-1.sh"
 fi
 
-# OS System SELinux ResetProp Modifications
+# OS System ResetProp Modifications
 sleep 1
-if [ -f "$MODPATH/system_selinux.sh" ]; then
-    sh "$MODPATH/system_selinux.sh"
+if [ -x "\$(command -v resetprop)" ]
+then
+	resetprop -n ro.boot.selinux enforcing
+fi
+if [ -x "\$(command -v resetprop)" ] && [ -n "\$(resetprop ro.build.selinux)" ]
+then
+	resetprop --delete ro.build.selinux
 fi
 sleep 1
-if [ -f "$MODPATH/system_selinux.sh" ]; then
-    sh "$MODPATH/system_selinux.sh"
-fi
-sleep 1
-# Check if resetprop is available before proceeding
 if [ -x "$(command -v resetprop)" ]; then
-    # Helper function to change properties safely
-    # Usage: change_prop <property> <value>
     change_prop() {
         local prop="$1"
         local val="$2"
-        # Only change if the current value is different
         if [ "$(resetprop "$prop" 2>/dev/null)" != "$val" ]; then
-            # -n is required for read-only (ro.) properties so init doesn't reject it
             case "$prop" in
                 ro.*|vendor.*) resetprop -n "$prop" "$val" ;;
                 *) resetprop "$prop" "$val" ;;
             esac
         fi
     }
-    # Helper function to delete properties cleanly if they exist
-    # Usage: delete_prop <property>
     delete_prop() {
         local prop="$1"
         if [ -n "$(resetprop "$prop" 2>/dev/null)" ]; then
@@ -58,7 +52,6 @@ if [ -x "$(command -v resetprop)" ]; then
     }
     change_prop ro.boot.selinux "enforcing"
     change_prop ro.boot.veritymode "enforcing"
-    delete_prop ro.build.selinux 
     change_prop init.svc.adb_root "stopped"
     change_prop service.adb.root "0"
     change_prop ro.adb.secure "1"
@@ -126,32 +119,26 @@ if [ -f "$MODPATH/system_files_chmods-1.sh" ]; then
     sh "$MODPATH/system_files_chmods-1.sh"
 fi
 sleep 1
-if [ -f "$MODPATH/system_selinux.sh" ]; then
-    sh "$MODPATH/system_selinux.sh"
+if [ -x "\$(command -v resetprop)" ]
+then
+	resetprop -n ro.boot.selinux enforcing
+fi
+if [ -x "\$(command -v resetprop)" ] && [ -n "\$(resetprop ro.build.selinux)" ]
+then
+	resetprop --delete ro.build.selinux
 fi
 sleep 1
-if [ -f "$MODPATH/system_selinux.sh" ]; then
-    sh "$MODPATH/system_selinux.sh"
-fi
-sleep 1
-# Check if resetprop is available before proceeding
 if [ -x "$(command -v resetprop)" ]; then
-    # Helper function to change properties safely
-    # Usage: change_prop <property> <value>
     change_prop() {
         local prop="$1"
         local val="$2"
-        # Only change if the current value is different
         if [ "$(resetprop "$prop" 2>/dev/null)" != "$val" ]; then
-            # -n is required for read-only (ro.) properties so init doesn't reject it
             case "$prop" in
                 ro.*|vendor.*) resetprop -n "$prop" "$val" ;;
                 *) resetprop "$prop" "$val" ;;
             esac
         fi
     }
-    # Helper function to delete properties cleanly if they exist
-    # Usage: delete_prop <property>
     delete_prop() {
         local prop="$1"
         if [ -n "$(resetprop "$prop" 2>/dev/null)" ]; then
@@ -160,7 +147,6 @@ if [ -x "$(command -v resetprop)" ]; then
     }
     change_prop ro.boot.selinux "enforcing"
     change_prop ro.boot.veritymode "enforcing"
-    delete_prop ro.build.selinux 
     change_prop init.svc.adb_root "stopped"
     change_prop service.adb.root "0"
     change_prop ro.adb.secure "1"
