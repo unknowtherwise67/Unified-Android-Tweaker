@@ -24,15 +24,6 @@ fi
 
 # OS System ResetProp Modifications
 sleep 1
-if [ -x "\$(command -v resetprop)" ]
-then
-	resetprop -n ro.boot.selinux enforcing
-fi
-if [ -x "\$(command -v resetprop)" ] && [ -n "\$(resetprop ro.build.selinux)" ]
-then
-	resetprop --delete ro.build.selinux
-fi
-sleep 1
 if [ -x "$(command -v resetprop)" ]; then
     change_prop() {
         local prop="$1"
@@ -68,6 +59,7 @@ if [ -x "$(command -v resetprop)" ]; then
     change_prop vendor.boot.verifiedbootstate "green"
     change_prop ro.boot.warranty_bit "0"
     change_prop ro.warranty_bit "0"
+    delete_prop ro.build.selinux
 fi
 
 # Android Device/Kernel ZRAM Swap Virtual Memory Modifications
@@ -119,15 +111,6 @@ if [ -f "$MODPATH/system_files_chmods-1.sh" ]; then
     sh "$MODPATH/system_files_chmods-1.sh"
 fi
 sleep 1
-if [ -x "\$(command -v resetprop)" ]
-then
-	resetprop -n ro.boot.selinux enforcing
-fi
-if [ -x "\$(command -v resetprop)" ] && [ -n "\$(resetprop ro.build.selinux)" ]
-then
-	resetprop --delete ro.build.selinux
-fi
-sleep 1
 if [ -x "$(command -v resetprop)" ]; then
     change_prop() {
         local prop="$1"
@@ -163,6 +146,7 @@ if [ -x "$(command -v resetprop)" ]; then
     change_prop vendor.boot.verifiedbootstate "green"
     change_prop ro.boot.warranty_bit "0"
     change_prop ro.warranty_bit "0"
+    delete_prop ro.build.selinux
 fi
 sleep 1
 [ -f "$MODPATH/system_settings.sh" ] && sh "$MODPATH/system_settings.sh"
