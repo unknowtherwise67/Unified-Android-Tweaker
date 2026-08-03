@@ -93,5 +93,3 @@ chmod 444 /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
 chmod 444 /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
 
 chmod 444 /sys/class/power_supply/battery/constant_charge_current_max
-
-chmod 444 /sys/fs/selinux/enforce

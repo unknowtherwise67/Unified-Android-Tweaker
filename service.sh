@@ -13,7 +13,7 @@ done
 if [ "$(getprop sys.init.perf_lsm)" = "basic" ] || [ "$(getprop init.svc.goldfish-logcat)" = "running" ]; then
     exit 0
 fi
-# All Mods/Tweaks/Others parameters will be modified/applied after this configured times parameters are elapsed
+# All Mods/Tweaks/Others parameters will be modified/applied after this configured time parameter are elapsed
 sleep 1
 
 # System Files Permissions.
@@ -22,7 +22,7 @@ if [ -f "$MODPATH/system_files_chmods-1.sh" ]; then
     sh "$MODPATH/system_files_chmods-1.sh"
 fi
 
-# OS System ResetProp Modifications
+# OS System ResetProps
 sleep 1
 if [ -x "$(command -v resetprop)" ]; then
     change_prop() {
@@ -50,6 +50,7 @@ if [ -x "$(command -v resetprop)" ]; then
     change_prop ro.build.type "user"
     change_prop ro.debuggable "0"
     change_prop ro.secure "1"
+    change_prop sys.oem_unlock_allowed "0"
     change_prop ro.boot.flash.locked "1"
     change_prop ro.secureboot.lockstate "locked"
     change_prop ro.boot.realme.lockstate "1"
@@ -60,6 +61,22 @@ if [ -x "$(command -v resetprop)" ]; then
     change_prop ro.boot.warranty_bit "0"
     change_prop ro.warranty_bit "0"
     delete_prop ro.build.selinux
+fi
+sleep 1
+chmod 640 /sys/fs/selinux/enforce
+if [ -x "\$(command -v resetprop)" ]
+then
+	resetprop -n ro.boot.selinux enforcing
+fi
+if [ -x "\$(command -v resetprop)" ] && [ -n "\$(resetprop ro.build.selinux)" ]
+then
+	resetprop --delete ro.build.selinux
+fi
+sleep 1
+resetprop -n -p init.svc.adb_root ""
+adbroot="$(getprop service.adb.root)"
+if [ -n "$adbroot" ]; then
+    resetprop -n -p service.adb.root ""
 fi
 
 # Android Device/Kernel ZRAM Swap Virtual Memory Modifications
@@ -137,6 +154,7 @@ if [ -x "$(command -v resetprop)" ]; then
     change_prop ro.build.type "user"
     change_prop ro.debuggable "0"
     change_prop ro.secure "1"
+    change_prop sys.oem_unlock_allowed "0"
     change_prop ro.boot.flash.locked "1"
     change_prop ro.secureboot.lockstate "locked"
     change_prop ro.boot.realme.lockstate "1"
@@ -147,6 +165,22 @@ if [ -x "$(command -v resetprop)" ]; then
     change_prop ro.boot.warranty_bit "0"
     change_prop ro.warranty_bit "0"
     delete_prop ro.build.selinux
+fi
+sleep 1
+chmod 640 /sys/fs/selinux/enforce
+if [ -x "\$(command -v resetprop)" ]
+then
+	resetprop -n ro.boot.selinux enforcing
+fi
+if [ -x "\$(command -v resetprop)" ] && [ -n "\$(resetprop ro.build.selinux)" ]
+then
+	resetprop --delete ro.build.selinux
+fi
+sleep 1
+resetprop -n -p init.svc.adb_root ""
+adbroot="$(getprop service.adb.root)"
+if [ -n "$adbroot" ]; then
+    resetprop -n -p service.adb.root ""
 fi
 sleep 1
 [ -f "$MODPATH/system_settings.sh" ] && sh "$MODPATH/system_settings.sh"
