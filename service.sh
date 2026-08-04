@@ -16,6 +16,12 @@ fi
 # All Mods/Tweaks/Others parameters will be modified/applied after this configured time parameter are elapsed
 sleep 1
 
+# System Files Permissions.
+sleep 1
+if [ -f "$MODPATH/system_files_chmods-1.sh" ]; then
+    sh "$MODPATH/system_files_chmods-1.sh"
+fi
+
 # OS System ResetProps
 sleep 1
 if [ -x "$(command -v resetprop)" ]; then
@@ -110,8 +116,17 @@ sleep 1
 sleep 1
 [ -f "$MODPATH/system_cpu_gpu_power.sh" ] && sh "$MODPATH/system_cpu_gpu_power.sh"
 
+# System Files Permissions.
+sleep 1
+if [ -f "$MODPATH/system_files_chmods-2.sh" ]; then
+    sh "$MODPATH/system_files_chmods-2.sh"
+fi
+
 # Do Apply-On-Pre/Post-Boot again in case the first attempt were unsuccessful.
 sleep 3
+if [ -f "$MODPATH/system_files_chmods-1.sh" ]; then
+    sh "$MODPATH/system_files_chmods-1.sh"
+fi
 sleep 1
 if [ -x "$(command -v resetprop)" ]; then
     change_prop() {
@@ -175,3 +190,7 @@ sleep 1
 [ -f "$MODPATH/system_kernel.sh" ] && sh "$MODPATH/system_kernel.sh"
 sleep 1
 [ -f "$MODPATH/system_cpu_gpu_power.sh" ] && sh "$MODPATH/system_cpu_gpu_power.sh"
+sleep 1
+if [ -f "$MODPATH/system_files_chmods-2.sh" ]; then
+    sh "$MODPATH/system_files_chmods-2.sh"
+fi
