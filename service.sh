@@ -14,7 +14,7 @@ if [ "$(getprop sys.init.perf_lsm)" = "basic" ] || [ "$(getprop init.svc.goldfis
     exit 0
 fi
 # All Mods/Tweaks/Others parameters will be modified/applied after this configured time parameter are elapsed
-sleep 1
+sleep 60
 
 # System Files Permissions.
 sleep 1
