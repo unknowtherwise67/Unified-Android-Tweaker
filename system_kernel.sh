@@ -571,6 +571,7 @@ write /sys/class/mmc_host/mmc1/clk_scaling/enable 1
 write /sys/module/lpm_levels/parameters/bias_hyst 1
 write /sys/kernel/tracing/events/sched/sched_boost_cpu 1
 write /sys/class/power_supply/battery/charging_enabled 1
+write /proc/cpufreq/cpufreq_power_mode 3
 write /proc/sys/fs/lease-break-time 5
 write /proc/sys/kernel/random/read_wakeup_threshold 256
 write /proc/sys/kernel/random/write_wakeup_threshold 256
@@ -587,10 +588,10 @@ write /sys/module/lpm_levels/parameters/lpm_prediction N
 write /sys/module/lpm_levels/parameters/lpm_ipi_prediction N
 write /sys/module/lpm_levels/parameters/sleep_disabled N
 write /sys/module/battery_saver/parameters/enabled N
-write /sys/module/workqueue/parameters/power_efficient N
+write /sys/module/workqueue/parameters/power_efficient 0
 write /sys/module/mmc_core/parameters/removable N
-write /sys/module/mmc_core/parameters/use_spi_crc N
-write /sys/module/mmc_core/parameters/crc N
+write /sys/module/mmc_core/parameters/use_spi_crc 0
+write /sys/module/mmc_core/parameters/crc 0
 write /sys/module/exynos_acme/parameters/enable_suspend_freqs N
 write /proc/sys/kernel/printk_devkmsg off
 
@@ -607,13 +608,12 @@ write /sys/module/ged/parameters/gx_frc_mode 1
 write /sys/module/ged/parameters/gx_boost_on 1
 write /sys/module/ged/parameters/gx_force_cpu_boost 1
 write /sys/module/ged/parameters/is_GED_KPI_enabled 1
-write /sys/module/ged/parameters/boost_amp 1
 write /sys/module/ged/parameters/enable_game_self_frc_detect 1
 write /sys/module/ged/parameters/ged_boost_enable 1
 write /sys/kernel/gbe/gbe2_max_boost_cnt 1
 write /sys/module/ged/parameters/cpu_boost_policy 100
 write /sys/module/ged/parameters/ged_smart_boost 100
-write /sys/module/ged/parameters/gx_fb_dvfs_margin 0
+write /sys/module/ged/parameters/gx_fb_dvfs_margin 100
 write /sys/module/ged/parameters/gx_tb_dvfs_margin 0
 write /sys/module/ged/parameters/gpu_debug_enable 0
 write /sys/module/ged/parameters/ged_force_mdp_enable 0
@@ -631,16 +631,12 @@ write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_boost 1
 write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_boost 1
 write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_up_loading 30
 write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_down_loading 10
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_uclamp_min 100
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_uclamp_min 100
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_uclamp_min 100
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_uclamp_min 100
 write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_uclamp_min 1024
 write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_uclamp_min 1024
 write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_uclamp_min 1024
 write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_uclamp_min 1024
 
-write /proc/ppm/enabled 0
+write /proc/ppm/enabled 1
 write /proc/ppm/policy_status 0 0
 write /proc/ppm/policy_status 1 0
 write /proc/ppm/policy_status 2 0
