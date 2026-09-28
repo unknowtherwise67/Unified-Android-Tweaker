@@ -5,18 +5,26 @@ MODDIR="${0%/*}"
 
 # Timeout until Apply-On-Pre/Post-Boot actions
 while [ "$(getprop sys.boot_completed)" != "1" ]; do
-    sleep 1
+    sleep 60
 done
-while [ -z "$(pm path android 2>/dev/null)" ]; do
-    sleep 1
-done
-if [ "$(getprop sys.init.perf_lsm)" = "basic" ] || [ "$(getprop init.svc.goldfish-logcat)" = "running" ]; then
-    exit 0
-fi
 
 # System Files Permissions
+sleep 1
 if [ -f "$MODPATH/system_files_chmods-1.sh" ]; then
     sh "$MODPATH/system_files_chmods-1.sh"
+fi
+
+# Android Device/Kernel Settings/Parameters Modifications
+sleep 1
+[ -f "$MODPATH/system_settings.sh" ] && sh "$MODPATH/system_settings.sh"
+[ -f "$MODPATH/system_governors.sh" ] && sh "$MODPATH/system_governors.sh"
+[ -f "$MODPATH/system_kernel.sh" ] && sh "$MODPATH/system_kernel.sh"
+[ -f "$MODPATH/system_cpu_gpu_power.sh" ] && sh "$MODPATH/system_cpu_gpu_power.sh"
+
+# System Files Permissions
+sleep 1
+if [ -f "$MODPATH/system_files_chmods-2.sh" ]; then
+    sh "$MODPATH/system_files_chmods-2.sh"
 fi
 
 # Android Device/Kernel ZRAM Swap Virtual Memory Modifications
@@ -108,15 +116,4 @@ resetprop -n -p init.svc.adb_root ""
 adbroot="$(getprop service.adb.root)"
 if [ -n "$adbroot" ]; then
     resetprop -n -p service.adb.root ""
-fi
-
-# Android Device/Kernel Settings/Parameters Modifications
-[ -f "$MODPATH/system_settings.sh" ] && sh "$MODPATH/system_settings.sh"
-[ -f "$MODPATH/system_governors.sh" ] && sh "$MODPATH/system_governors.sh"
-[ -f "$MODPATH/system_kernel.sh" ] && sh "$MODPATH/system_kernel.sh"
-[ -f "$MODPATH/system_cpu_gpu_power.sh" ] && sh "$MODPATH/system_cpu_gpu_power.sh"
-
-# System Files Permissions
-if [ -f "$MODPATH/system_files_chmods-2.sh" ]; then
-    sh "$MODPATH/system_files_chmods-2.sh"
 fi
