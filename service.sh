@@ -9,20 +9,17 @@ while [ "$(getprop sys.boot_completed)" != "1" ]; do
 done
 
 # System Files Permissions
-sleep 1
 if [ -f "$MODPATH/system_files_chmods-1.sh" ]; then
     sh "$MODPATH/system_files_chmods-1.sh"
 fi
 
 # Android Device/Kernel Settings/Parameters Modifications
-sleep 1
 [ -f "$MODPATH/system_settings.sh" ] && sh "$MODPATH/system_settings.sh"
 [ -f "$MODPATH/system_governors.sh" ] && sh "$MODPATH/system_governors.sh"
 [ -f "$MODPATH/system_kernel.sh" ] && sh "$MODPATH/system_kernel.sh"
 [ -f "$MODPATH/system_cpu_gpu_power.sh" ] && sh "$MODPATH/system_cpu_gpu_power.sh"
 
 # System Files Permissions
-sleep 1
 if [ -f "$MODPATH/system_files_chmods-2.sh" ]; then
     sh "$MODPATH/system_files_chmods-2.sh"
 fi
@@ -41,7 +38,6 @@ if grep -q /dev$ZRAM /proc/swaps; then
       SWAPOFF=true
       break
     fi
-    sleep 1
   done
   if grep -q /dev$ZRAM /proc/swaps; then
     SWAPOFF=false
