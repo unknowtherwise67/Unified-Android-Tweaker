@@ -113,3 +113,13 @@ adbroot="$(getprop service.adb.root)"
 if [ -n "$adbroot" ]; then
     resetprop -n -p service.adb.root ""
 fi
+
+# Android Device/Kernel Settings/Parameters Modifications
+sleep 5
+settings put global airplane_mode_on 1
+am broadcast -a android.intent.action.AIRPLANE_MODE --ez state true
+
+# Android Device/Kernel Settings/Parameters Modifications
+sleep 5
+settings put global airplane_mode_on 0
+am broadcast -a android.intent.action.AIRPLANE_MODE --ez state false
