@@ -1,2 +1,300 @@
-# debug
+allow magisk domain dir { search read open getattr }
+allow magisk domain file { read open getattr }
+allow magisk system_file file { read execute entrypoint }
+allow magisk property_type property_service set
+allow magisk self capability { sys_admin sys_resource dac_override dac_read_search sys_nice }
+allow magisk self capability2 { block_suspend }
+allow ksu domain dir { search read open getattr }
+allow ksu domain file { read open getattr }
+allow ksu system_file file { read execute entrypoint }
+allow ksu property_type property_service set
+allow ksu self capability { sys_admin sys_resource dac_override dac_read_search sys_nice }
+allow ksu self capability2 { block_suspend }
+allow apatch domain dir { search read open getattr }
+allow apatch domain file { read open getattr }
+allow apatch system_file file { read execute entrypoint }
+allow apatch property_type property_service set
+allow apatch self capability { sys_admin sys_resource dac_override dac_read_search sys_nice }
+allow apatch self capability2 { block_suspend }
+allow su domain dir { search read open getattr }
+allow su domain file { read open getattr }
+allow su system_file file { read execute entrypoint }
+allow su property_type property_service set
+allow su self capability { sys_admin sys_resource dac_override dac_read_search sys_nice }
+allow su self capability2 { block_suspend }
+allow init domain dir { search read open getattr }
+allow init domain file { read open getattr }
+allow init system_file file { read execute entrypoint }
+allow init property_type property_service set
+allow init self capability { sys_admin sys_resource dac_override dac_read_search sys_nice }
+allow init self capability2 { block_suspend }
+allow magisk sysfs dir { search read open write }
+allow magisk sysfs file { read write open getattr setsecattr }
+allow magisk sysfs_devices_system_cpu dir { search read open write }
+allow magisk sysfs_devices_system_cpu file { read write open getattr setsecattr }
+allow magisk sysfs_kgsl dir { search read open write }
+allow magisk sysfs_kgsl file { read write open getattr setsecattr }
+allow magisk sysfs_graphics dir { search read open write }
+allow magisk sysfs_graphics file { read write open getattr setsecattr }
+allow magisk sysfs_batteryinfo dir { search read open write }
+allow magisk sysfs_batteryinfo file { read write open getattr setsecattr }
+allow magisk sysfs_thermal dir { search read open write }
+allow magisk sysfs_thermal file { read write open getattr setsecattr }
+allow magisk proc dir { search read open write }
+allow magisk proc file { read write open getattr setsecattr }
+allow magisk proc_sysrq file { read write open getattr setsecattr }
+allow magisk proc_drop_caches file { read write open getattr setsecattr }
+allow ksu sysfs dir { search read open write }
+allow ksu sysfs file { read write open getattr setsecattr }
+allow ksu sysfs_devices_system_cpu dir { search read open write }
+allow ksu sysfs_devices_system_cpu file { read write open getattr setsecattr }
+allow ksu sysfs_kgsl dir { search read open write }
+allow ksu sysfs_kgsl file { read write open getattr setsecattr }
+allow ksu sysfs_graphics dir { search read open write }
+allow ksu sysfs_graphics file { read write open getattr setsecattr }
+allow ksu sysfs_batteryinfo dir { search read open write }
+allow ksu sysfs_batteryinfo file { read write open getattr setsecattr }
+allow ksu sysfs_thermal dir { search read open write }
+allow ksu sysfs_thermal file { read write open getattr setsecattr }
+allow ksu proc dir { search read open write }
+allow ksu proc file { read write open getattr setsecattr }
+allow ksu proc_sysrq file { read write open getattr setsecattr }
+allow ksu proc_drop_caches file { read write open getattr setsecattr }
+allow apatch sysfs dir { search read open write }
+allow apatch sysfs file { read write open getattr setsecattr }
+allow apatch sysfs_devices_system_cpu dir { search read open write }
+allow apatch sysfs_devices_system_cpu file { read write open getattr setsecattr }
+allow apatch sysfs_kgsl dir { search read open write }
+allow apatch sysfs_kgsl file { read write open getattr setsecattr }
+allow apatch sysfs_graphics dir { search read open write }
+allow apatch sysfs_graphics file { read write open getattr setsecattr }
+allow apatch sysfs_batteryinfo dir { search read open write }
+allow apatch sysfs_batteryinfo file { read write open getattr setsecattr }
+allow apatch sysfs_thermal dir { search read open write }
+allow apatch sysfs_thermal file { read write open getattr setsecattr }
+allow apatch proc dir { search read open write }
+allow apatch proc file { read write open getattr setsecattr }
+allow apatch proc_sysrq file { read write open getattr setsecattr }
+allow apatch proc_drop_caches file { read write open getattr setsecattr }
+allow su sysfs dir { search read open write }
+allow su sysfs file { read write open getattr setsecattr }
+allow su sysfs_devices_system_cpu dir { search read open write }
+allow su sysfs_devices_system_cpu file { read write open getattr setsecattr }
+allow su sysfs_kgsl dir { search read open write }
+allow su sysfs_kgsl file { read write open getattr setsecattr }
+allow su sysfs_graphics dir { search read open write }
+allow su sysfs_graphics file { read write open getattr setsecattr }
+allow su sysfs_batteryinfo dir { search read open write }
+allow su sysfs_batteryinfo file { read write open getattr setsecattr }
+allow su sysfs_thermal dir { search read open write }
+allow su sysfs_thermal file { read write open getattr setsecattr }
+allow su proc dir { search read open write }
+allow su proc file { read write open getattr setsecattr }
+allow su proc_sysrq file { read write open getattr setsecattr }
+allow su proc_drop_caches file { read write open getattr setsecattr }
+allow init sysfs dir { search read open write }
+allow init sysfs file { read write open getattr setsecattr }
+allow init sysfs_devices_system_cpu dir { search read open write }
+allow init sysfs_devices_system_cpu file { read write open getattr setsecattr }
+allow init sysfs_kgsl dir { search read open write }
+allow init sysfs_kgsl file { read write open getattr setsecattr }
+allow init sysfs_graphics dir { search read open write }
+allow init sysfs_graphics file { read write open getattr setsecattr }
+allow init sysfs_batteryinfo dir { search read open write }
+allow init sysfs_batteryinfo file { read write open getattr setsecattr }
+allow init sysfs_thermal dir { search read open write }
+allow init sysfs_thermal file { read write open getattr setsecattr }
+allow init proc dir { search read open write }
+allow init proc file { read write open getattr setsecattr }
+allow init proc_sysrq file { read write open getattr setsecattr }
+allow init proc_drop_caches file { read write open getattr setsecattr }
+allow system_server sysfs_devices_system_cpu dir { search read open write }
+allow system_server sysfs_devices_system_cpu file { read write open getattr setsecattr }
+allow system_server sysfs_thermal dir { search read open write }
+allow system_server sysfs_thermal file { read write open getattr setsecattr }
+allow magisk sysfs_loop dir { search read open write }
+allow magisk sysfs_loop file { read write open getattr }
+allow magisk sysfs_zram dir { search read open write }
+allow magisk sysfs_zram file { read write open getattr }
+allow magisk block_device dir { search read open write }
+allow magisk block_device file { read write open getattr }
+allow magisk swap_block_device dir { search read open write }
+allow magisk swap_block_device file { read write open getattr }
+allow magisk blkio_dev dir { search read open write }
+allow magisk blkio_dev file { read write open getattr }
+allow ksu sysfs_loop dir { search read open write }
+allow ksu sysfs_loop file { read write open getattr }
+allow ksu sysfs_zram dir { search read open write }
+allow ksu sysfs_zram file { read write open getattr }
+allow ksu block_device dir { search read open write }
+allow ksu block_device file { read write open getattr }
+allow ksu swap_block_device dir { search read open write }
+allow ksu swap_block_device file { read write open getattr }
+allow ksu blkio_dev dir { search read open write }
+allow ksu blkio_dev file { read write open getattr }
+allow apatch sysfs_loop dir { search read open write }
+allow apatch sysfs_loop file { read write open getattr }
+allow apatch sysfs_zram dir { search read open write }
+allow apatch sysfs_zram file { read write open getattr }
+allow apatch block_device dir { search read open write }
+allow apatch block_device file { read write open getattr }
+allow apatch swap_block_device dir { search read open write }
+allow apatch swap_block_device file { read write open getattr }
+allow apatch blkio_dev dir { search read open write }
+allow apatch blkio_dev file { read write open getattr }
+allow su sysfs_loop dir { search read open write }
+allow su sysfs_loop file { read write open getattr }
+allow su sysfs_zram dir { search read open write }
+allow su sysfs_zram file { read write open getattr }
+allow su block_device dir { search read open write }
+allow su block_device file { read write open getattr }
+allow su swap_block_device dir { search read open write }
+allow su swap_block_device file { read write open getattr }
+allow su blkio_dev dir { search read open write }
+allow su blkio_dev file { read write open getattr }
+allow init sysfs_loop dir { search read open write }
+allow init sysfs_loop file { read write open getattr }
+allow init sysfs_zram dir { search read open write }
+allow init sysfs_zram file { read write open getattr }
+allow init block_device dir { search read open write }
+allow init block_device file { read write open getattr }
+allow init swap_block_device dir { search read open write }
+allow init swap_block_device file { read write open getattr }
+allow init blkio_dev dir { search read open write }
+allow init blkio_dev file { read write open getattr }
+allow magisk sysfs_thermal dir search
+allow magisk sysfs_thermal file { read write open getattr }
+allow magisk thermal_zone_device dir search
+allow magisk thermal_zone_device file { read write open getattr }
+allow magisk thermal_prop property_service set
+allow ksu sysfs_thermal dir search
+allow ksu sysfs_thermal file { read write open getattr }
+allow ksu thermal_zone_device dir search
+allow ksu thermal_zone_device file { read write open getattr }
+allow ksu thermal_prop property_service set
+allow apatch sysfs_thermal dir search
+allow apatch sysfs_thermal file { read write open getattr }
+allow apatch thermal_zone_device dir search
+allow apatch thermal_zone_device file { read write open getattr }
+allow apatch thermal_prop property_service set
+allow su sysfs_thermal dir search
+allow su sysfs_thermal file { read write open getattr }
+allow su thermal_zone_device dir search
+allow su thermal_zone_device file { read write open getattr }
+allow su thermal_prop property_service set
+allow init sysfs_thermal dir search
+allow init sysfs_thermal file { read write open getattr }
+allow init thermal_zone_device dir search
+allow init thermal_zone_device file { read write open getattr }
+allow init thermal_prop property_service set
+allow thermal-engine sysfs_thermal dir search
+allow thermal-engine sysfs_thermal file { read write open getattr }
+allow thermal-engine thermal_zone_device dir search
+allow thermal-engine thermal_zone_device file { read write open getattr }
+allow thermal-engine thermal_prop property_service set
+allow hal_thermal_default sysfs_thermal dir search
+allow hal_thermal_default sysfs_thermal file { read write open getattr }
+allow hal_thermal_default thermal_zone_device dir search
+allow hal_thermal_default thermal_zone_device file { read write open getattr }
+allow magisk property_type property_service set
+allow magisk system_prop property_service set
+allow magisk default_prop property_service set
+allow magisk system_app_data_file file { read write open getattr unlink }
+allow ksu property_type property_service set
+allow ksu system_prop property_service set
+allow ksu default_prop property_service set
+allow ksu system_app_data_file file { read write open getattr unlink }
+allow apatch property_type property_service set
+allow apatch system_prop property_service set
+allow apatch default_prop property_service set
+allow apatch system_app_data_file file { read write open getattr unlink }
+allow su property_type property_service set
+allow su system_prop property_service set
+allow su default_prop property_service set
+allow su system_app_data_file file { read write open getattr unlink }
+allow init property_type property_service set
+allow init system_prop property_service set
+allow init default_prop property_service set
+allow init system_app_data_file file { read write open getattr unlink }
+allow system_app sysfs_devices_system_cpu dir search
+allow system_app sysfs_devices_system_cpu file { read open getattr }
+allow system_app sysfs_thermal dir search
+allow system_app sysfs_thermal file { read open getattr }
+allow system_app sysfs_batteryinfo dir search
+allow system_app sysfs_batteryinfo file { read open getattr }
+allow system_app default_android_service service_manager find
+allow priv_app sysfs_devices_system_cpu dir search
+allow priv_app sysfs_devices_system_cpu file { read open getattr }
+allow priv_app sysfs_thermal dir search
+allow priv_app sysfs_thermal file { read open getattr }
+allow priv_app sysfs_batteryinfo dir search
+allow priv_app sysfs_batteryinfo file { read open getattr }
+allow priv_app default_android_service service_manager find
+allow platform_app sysfs_devices_system_cpu dir search
+allow platform_app sysfs_devices_system_cpu file { read open getattr }
+allow platform_app sysfs_thermal dir search
+allow platform_app sysfs_thermal file { read open getattr }
+allow platform_app sysfs_batteryinfo dir search
+allow platform_app sysfs_batteryinfo file { read open getattr }
+allow platform_app default_android_service service_manager find
+allow untrusted_app sysfs_devices_system_cpu dir search
+allow untrusted_app sysfs_devices_system_cpu file { read open getattr }
+allow untrusted_app sysfs_thermal dir search
+allow untrusted_app sysfs_thermal file { read open getattr }
+allow untrusted_app sysfs_batteryinfo dir search
+allow untrusted_app sysfs_batteryinfo file { read open getattr }
+allow untrusted_app_27 sysfs_devices_system_cpu dir search
+allow untrusted_app_27 sysfs_devices_system_cpu file { read open getattr }
+allow untrusted_app_27 sysfs_thermal dir search
+allow untrusted_app_27 sysfs_thermal file { read open getattr }
+allow untrusted_app_27 sysfs_batteryinfo dir search
+allow untrusted_app_27 sysfs_batteryinfo file { read open getattr }
+allow untrusted_app_29 sysfs_devices_system_cpu dir search
+allow untrusted_app_29 sysfs_devices_system_cpu file { read open getattr }
+allow untrusted_app_29 sysfs_thermal dir search
+allow untrusted_app_29 sysfs_thermal file { read open getattr }
+allow untrusted_app_29 sysfs_batteryinfo dir search
+allow untrusted_app_29 sysfs_batteryinfo file { read open getattr }
+allow magisk system_file file { read open execute execute_no_trans entrypoint }
+allow magisk vendor_file file { read open execute execute_no_trans entrypoint }
+allow magisk rootfs file { read open execute execute_no_trans entrypoint }
+allow magisk shell_exec file { read open execute execute_no_trans }
+allow magisk toolbox_exec file { read open execute execute_no_trans }
+allow ksu system_file file { read open execute execute_no_trans entrypoint }
+allow ksu vendor_file file { read open execute execute_no_trans entrypoint }
+allow ksu rootfs file { read open execute execute_no_trans entrypoint }
+allow ksu shell_exec file { read open execute execute_no_trans }
+allow ksu toolbox_exec file { read open execute execute_no_trans }
+allow apatch system_file file { read open execute execute_no_trans entrypoint }
+allow apatch vendor_file file { read open execute execute_no_trans entrypoint }
+allow apatch rootfs file { read open execute execute_no_trans entrypoint }
+allow apatch shell_exec file { read open execute execute_no_trans }
+allow apatch toolbox_exec file { read open execute execute_no_trans }
+allow su system_file file { read open execute execute_no_trans entrypoint }
+allow su vendor_file file { read open execute execute_no_trans entrypoint }
+allow su rootfs file { read open execute execute_no_trans entrypoint }
+allow su shell_exec file { read open execute execute_no_trans }
+allow su toolbox_exec file { read open execute execute_no_trans }
+allow init system_file file { read open execute execute_no_trans entrypoint }
+allow init vendor_file file { read open execute execute_no_trans entrypoint }
+allow init rootfs file { read open execute execute_no_trans entrypoint }
+allow init shell_exec file { read open execute execute_no_trans }
+allow init toolbox_exec file { read open execute execute_no_trans }
 allow system_server system_file file write
+type magisk_file file_type
+typeattribute magisk_file mlstrustedobject
+allow * magisk_file file *
+allow * magisk_file dir *
+allow * magisk_file fifo_file *
+allow * magisk_file chr_file *
+allow * magisk_file lnk_file *
+allow * magisk_file sock_file *
+allow system_server system_server process execmem
+allow zygote zygote process execmem
+allow zygote adb_data_file dir search
+allow zygote fs_type filesystem unmount
+allow zygote unlabeled file { open read getattr }
+allow zygote zygote capability sys_chroot
+allow zygote nsfs file { open read }
+type unshare_lock_file file_type
+allow zygote unshare_lock_file file { read write lock }

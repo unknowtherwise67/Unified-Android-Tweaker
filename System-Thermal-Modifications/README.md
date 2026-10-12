@@ -8,9 +8,6 @@
 - Non-intrusive and systemless (Except system_settings).
 - Open-Source complilance.
 
-# System-SELinux-Modifications:
-- Change/Modify the Android System SELinux behavior to either Enforced or Permissive.
-
 # System-Thermal-Modifications:
 - Force System to use OS Kernel-Based Thermal Managements System while maintain device hardware safety.
 
