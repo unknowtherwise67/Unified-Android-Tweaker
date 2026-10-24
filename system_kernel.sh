@@ -619,6 +619,7 @@ write /sys/module/ged/parameters/gx_force_cpu_boost 1
 write /sys/module/ged/parameters/is_GED_KPI_enabled 1
 write /sys/module/ged/parameters/enable_game_self_frc_detect 1
 write /sys/module/ged/parameters/ged_boost_enable 1
+write /sys/module/ged/parameters/gx_3D_benchmark_on 1
 write /sys/kernel/gbe/gbe2_max_boost_cnt 1
 write /sys/module/ged/parameters/cpu_boost_policy 100
 write /sys/module/ged/parameters/ged_smart_boost 100
