@@ -503,6 +503,7 @@ write /sys/kernel/debug/sched/sched_min_task_util_for_boost 0
 write /sys/kernel/debug/sched/sched_conservative_pl 0
 write /sys/kernel/debug/sched/sched_assist_ux_uclamp_max_enable 0
 write /sys/kernel/debug/sched/sched_little_cluster_coloc_fmin_khz 0
+write /sys/kernel/gbe/gbe2_max_boost_cnt 1
 
 write /sys/kernel/debug/sched_features NO_GENTLE_FAIR_SLEEPERS
 write /sys/kernel/debug/sched_features NO_HRTICK
@@ -620,11 +621,11 @@ write /sys/module/ged/parameters/is_GED_KPI_enabled 1
 write /sys/module/ged/parameters/enable_game_self_frc_detect 1
 write /sys/module/ged/parameters/ged_boost_enable 1
 write /sys/module/ged/parameters/gx_3D_benchmark_on 1
-write /sys/kernel/gbe/gbe2_max_boost_cnt 1
 write /sys/module/ged/parameters/cpu_boost_policy 100
 write /sys/module/ged/parameters/ged_smart_boost 100
 write /sys/module/ged/parameters/gx_fb_dvfs_margin 100
 write /sys/module/ged/parameters/gx_tb_dvfs_margin 0
+write /sys/module/ged/parameters/target_t_cpu_remained 0
 write /sys/module/ged/parameters/gpu_debug_enable 0
 write /sys/module/ged/parameters/ged_force_mdp_enable 0
 write /sys/module/ged/parameters/ged_log_perf_trace_enable 0
