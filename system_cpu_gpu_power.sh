@@ -68,8 +68,8 @@ write /sys/devices/system/cpu/cpu7/cpufreq/scaling_min_freq 1000
 write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 
 write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 
 
-chmod 666 /sys/module/ged/parameters/gpu_cust_upbound_freq 
-chmod 666 /sys/module/ged/parameters/gpu_cust_boost_freq 
-chmod 666 /sys/module/ged/parameters/gpu_bottom_freq 
+write /sys/module/ged/parameters/gpu_cust_upbound_freq 
+write /sys/module/ged/parameters/gpu_cust_boost_freq 
+write /sys/module/ged/parameters/gpu_bottom_freq 
 
 write /sys/class/power_supply/battery/constant_charge_current_max 

@@ -682,10 +682,10 @@ write /dev/stune/sf/schedtune.boost 10
 write /dev/stune/dex2oat/schedtune.boost 10
 write /dev/stune/foreground_window/schedtune.boost 10
 write /dev/stune/system/schedtune.boost 10
-write /dev/stune/background/schedtune.boost 0
-write /dev/stune/h-background/schedtune.boost 0
-write /dev/stune/l-background/schedtune.boost 0
-write /dev/stune/system-background/schedtune.boost 0
+write /dev/stune/background/schedtune.boost 10
+write /dev/stune/h-background/schedtune.boost 10
+write /dev/stune/l-background/schedtune.boost 10
+write /dev/stune/system-background/schedtune.boost 10
 
 write /dev/stune/sched_cfs_boost 10
 write /dev/stune/foreground/sched_cfs_boost 10
@@ -703,10 +703,10 @@ write /dev/stune/sf/sched_cfs_boost 10
 write /dev/stune/dex2oat/sched_cfs_boost 10
 write /dev/stune/foreground_window/sched_cfs_boost 10
 write /dev/stune/system/sched_cfs_boost 10
-write /dev/stune/background/sched_cfs_boost 0
-write /dev/stune/h-background/sched_cfs_boost 0
-write /dev/stune/l-background/sched_cfs_boost 0
-write /dev/stune/system-background/sched_cfs_boost 0
+write /dev/stune/background/sched_cfs_boost 10
+write /dev/stune/h-background/sched_cfs_boost 10
+write /dev/stune/l-background/sched_cfs_boost 10
+write /dev/stune/system-background/sched_cfs_boost 10
 
 write /dev/stune/schedtune.colocate 1
 write /dev/stune/foreground/schedtune.colocate 1
@@ -724,10 +724,10 @@ write /dev/stune/sf/schedtune.colocate 1
 write /dev/stune/dex2oat/schedtune.colocate 1
 write /dev/stune/foreground_window/schedtune.colocate 1
 write /dev/stune/system/schedtune.colocate 1
-write /dev/stune/background/schedtune.colocate 0
-write /dev/stune/h-background/schedtune.colocate 0
-write /dev/stune/l-background/schedtune.colocate 0
-write /dev/stune/system-background/schedtune.colocate 0
+write /dev/stune/background/schedtune.colocate 10
+write /dev/stune/h-background/schedtune.colocate 10
+write /dev/stune/l-background/schedtune.colocate 10
+write /dev/stune/system-background/schedtune.colocate 10
 
 write /dev/stune/schedtune.sched_boost_enabled 1
 write /dev/stune/foreground/schedtune.sched_boost_enabled 1
@@ -745,10 +745,10 @@ write /dev/stune/sf/schedtune.sched_boost_enabled 1
 write /dev/stune/dex2oat/schedtune.sched_boost_enabled 1
 write /dev/stune/foreground_window/schedtune.sched_boost_enabled 1
 write /dev/stune/system/schedtune.sched_boost_enabled 1
-write /dev/stune/background/schedtune.sched_boost_enabled 0
-write /dev/stune/h-background/schedtune.sched_boost_enabled 0
-write /dev/stune/l-background/schedtune.sched_boost_enabled 0
-write /dev/stune/system-background/schedtune.sched_boost_enabled 0
+write /dev/stune/background/schedtune.sched_boost_enabled 1
+write /dev/stune/h-background/schedtune.sched_boost_enabled 1
+write /dev/stune/l-background/schedtune.sched_boost_enabled 1
+write /dev/stune/system-background/schedtune.sched_boost_enabled 1
 
 write /dev/stune/schedtune.prefer_high_cap 1
 write /dev/stune/foreground/schedtune.prefer_high_cap 1
@@ -766,10 +766,10 @@ write /dev/stune/sf/schedtune.prefer_high_cap 1
 write /dev/stune/dex2oat/schedtune.prefer_high_cap 1
 write /dev/stune/foreground_window/schedtune.prefer_high_cap 1
 write /dev/stune/system/schedtune.prefer_high_cap 1
-write /dev/stune/background/schedtune.prefer_high_cap 0
-write /dev/stune/h-background/schedtune.prefer_high_cap 0
-write /dev/stune/l-background/schedtune.prefer_high_cap 0
-write /dev/stune/system-background/schedtune.prefer_high_cap 0
+write /dev/stune/background/schedtune.prefer_high_cap 1
+write /dev/stune/h-background/schedtune.prefer_high_cap 1
+write /dev/stune/l-background/schedtune.prefer_high_cap 1
+write /dev/stune/system-background/schedtune.prefer_high_cap 1
 
 write /dev/stune/schedtune.prefer_idle 1
 write /dev/stune/foreground/schedtune.prefer_idle 1
@@ -787,10 +787,10 @@ write /dev/stune/sf/schedtune.prefer_idle 1
 write /dev/stune/dex2oat/schedtune.prefer_idle 1
 write /dev/stune/foreground_window/schedtune.prefer_idle 1
 write /dev/stune/system/schedtune.prefer_idle 1
-write /dev/stune/background/schedtune.prefer_idle 0
-write /dev/stune/h-background/schedtune.prefer_idle 0
-write /dev/stune/l-background/schedtune.prefer_idle 0
-write /dev/stune/system-background/schedtune.prefer_idle 0
+write /dev/stune/background/schedtune.prefer_idle 1
+write /dev/stune/h-background/schedtune.prefer_idle 1
+write /dev/stune/l-background/schedtune.prefer_idle 1
+write /dev/stune/system-background/schedtune.prefer_idle 1
 
 write /dev/stune/cpu.uclamp.latency_sensitive 1
 write /dev/stune/foreground/cpu.uclamp.latency_sensitive 1
@@ -808,10 +808,10 @@ write /dev/stune/sf/cpu.uclamp.latency_sensitive 1
 write /dev/stune/dex2oat/cpu.uclamp.latency_sensitive 1
 write /dev/stune/foreground_window/cpu.uclamp.latency_sensitive 1
 write /dev/stune/system/cpu.uclamp.latency_sensitive 1
-write /dev/stune/background/cpu.uclamp.latency_sensitive 0
-write /dev/stune/h-background/cpu.uclamp.latency_sensitive 0
-write /dev/stune/l-background/cpu.uclamp.latency_sensitive 0
-write /dev/stune/system-background/cpu.uclamp.latency_sensitive 0
+write /dev/stune/background/cpu.uclamp.latency_sensitive 1
+write /dev/stune/h-background/cpu.uclamp.latency_sensitive 1
+write /dev/stune/l-background/cpu.uclamp.latency_sensitive 1
+write /dev/stune/system-background/cpu.uclamp.latency_sensitive 1
 
 write /dev/cpuctl/cpu.uclamp.latency_sensitive 1
 write /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive 1
@@ -829,10 +829,10 @@ write /dev/cpuctl/sf/cpu.uclamp.latency_sensitive 1
 write /dev/cpuctl/dex2oat/cpu.uclamp.latency_sensitive 1
 write /dev/cpuctl/foreground_window/cpu.uclamp.latency_sensitive 1
 write /dev/cpuctl/system/cpu.uclamp.latency_sensitive 1
-write /dev/cpuctl/background/cpu.uclamp.latency_sensitive 0
-write /dev/cpuctl/h-background/cpu.uclamp.latency_sensitive 0
-write /dev/cpuctl/l-background/cpu.uclamp.latency_sensitive 0
-write /dev/cpuctl/system-background/cpu.uclamp.latency_sensitive 0
+write /dev/cpuctl/background/cpu.uclamp.latency_sensitive 1
+write /dev/cpuctl/h-background/cpu.uclamp.latency_sensitive 1
+write /dev/cpuctl/l-background/cpu.uclamp.latency_sensitive 1
+write /dev/cpuctl/system-background/cpu.uclamp.latency_sensitive 1
 
 write /dev/stune/schedtune.sched_boost_no_override 1
 write /dev/stune/foreground/schedtune.sched_boost_no_override 1
@@ -850,10 +850,10 @@ write /dev/stune/sf/schedtune.sched_boost_no_override 1
 write /dev/stune/dex2oat/schedtune.sched_boost_no_override 1
 write /dev/stune/foreground_window/schedtune.sched_boost_no_override 1
 write /dev/stune/system/schedtune.sched_boost_no_override 1
-write /dev/stune/background/schedtune.sched_boost_no_override 0
-write /dev/stune/h-background/schedtune.sched_boost_no_override 0
-write /dev/stune/l-background/schedtune.sched_boost_no_override 0
-write /dev/stune/system-background/schedtune.sched_boost_no_override 0
+write /dev/stune/background/schedtune.sched_boost_no_override 1
+write /dev/stune/h-background/schedtune.sched_boost_no_override 1
+write /dev/stune/l-background/schedtune.sched_boost_no_override 1
+write /dev/stune/system-background/schedtune.sched_boost_no_override 1
 
 write /dev/stune/cgroup.sane_behavior 0
 write /dev/stune/foreground/cgroup.sane_behavior 0
@@ -913,10 +913,10 @@ write /dev/stune/sf/schedtune.capacity_min 100
 write /dev/stune/dex2oat/schedtune.capacity_min 100
 write /dev/stune/foreground_window/schedtune.capacity_min 100
 write /dev/stune/system/schedtune.capacity_min 100
-write /dev/stune/background/schedtune.capacity_min 0
-write /dev/stune/h-background/schedtune.capacity_min 0
-write /dev/stune/l-background/schedtune.capacity_min 0
-write /dev/stune/system-background/schedtune.capacity_min 0
+write /dev/stune/background/schedtune.capacity_min 100
+write /dev/stune/h-background/schedtune.capacity_min 100
+write /dev/stune/l-background/schedtune.capacity_min 100
+write /dev/stune/system-background/schedtune.capacity_min 100
 
 write /dev/stune/schedtune.cpucapacity_min 100
 write /dev/stune/foreground/schedtune.cpucapacity_min 100
@@ -934,10 +934,10 @@ write /dev/stune/sf/schedtune.cpucapacity_min 100
 write /dev/stune/dex2oat/schedtune.cpucapacity_min 100
 write /dev/stune/foreground_window/schedtune.cpucapacity_min 100
 write /dev/stune/system/schedtune.cpucapacity_min 100
-write /dev/stune/background/schedtune.cpucapacity_min 0
-write /dev/stune/h-background/schedtune.cpucapacity_min 0
-write /dev/stune/l-background/schedtune.cpucapacity_min 0
-write /dev/stune/system-background/schedtune.cpucapacity_min 0
+write /dev/stune/background/schedtune.cpucapacity_min 100
+write /dev/stune/h-background/schedtune.cpucapacity_min 100
+write /dev/stune/l-background/schedtune.cpucapacity_min 100
+write /dev/stune/system-background/schedtune.cpucapacity_min 100
 
 write /dev/stune/schedtune.uclamp.max 100
 write /dev/stune/foreground/schedtune.uclamp.max 100
@@ -955,10 +955,10 @@ write /dev/stune/sf/schedtune.uclamp.max 100
 write /dev/stune/dex2oat/schedtune.uclamp.max 100
 write /dev/stune/foreground_window/schedtune.uclamp.max 100
 write /dev/stune/system/schedtune.uclamp.max 100
-write /dev/stune/background/schedtune.uclamp.max 0
-write /dev/stune/h-background/schedtune.uclamp.max 0
-write /dev/stune/l-background/schedtune.uclamp.max 0
-write /dev/stune/system-background/schedtune.uclamp.max 0
+write /dev/stune/background/schedtune.uclamp.max 100
+write /dev/stune/h-background/schedtune.uclamp.max 100
+write /dev/stune/l-background/schedtune.uclamp.max 100
+write /dev/stune/system-background/schedtune.uclamp.max 100
 
 write /dev/stune/schedtune.uclamp.max.effective 100
 write /dev/stune/foreground/schedtune.uclamp.max.effective 100
@@ -976,10 +976,10 @@ write /dev/stune/sf/schedtune.uclamp.max.effective 100
 write /dev/stune/dex2oat/schedtune.uclamp.max.effective 100
 write /dev/stune/foreground_window/schedtune.uclamp.max.effective 100
 write /dev/stune/system/schedtune.uclamp.max.effective 100
-write /dev/stune/background/schedtune.uclamp.max.effective 0
-write /dev/stune/h-background/schedtune.uclamp.max.effective 0
-write /dev/stune/l-background/schedtune.uclamp.max.effective 0
-write /dev/stune/system-background/schedtune.uclamp.max.effective 0
+write /dev/stune/background/schedtune.uclamp.max.effective 100
+write /dev/stune/h-background/schedtune.uclamp.max.effective 100
+write /dev/stune/l-background/schedtune.uclamp.max.effective 100
+write /dev/stune/system-background/schedtune.uclamp.max.effective 100
 
 write /dev/stune/schedtune.uclamp.min 100
 write /dev/stune/foreground/schedtune.uclamp.min 100
@@ -997,10 +997,10 @@ write /dev/stune/sf/schedtune.uclamp.min 100
 write /dev/stune/dex2oat/schedtune.uclamp.min 100
 write /dev/stune/foreground_window/schedtune.uclamp.min 100
 write /dev/stune/system/schedtune.uclamp.min 100
-write /dev/stune/background/schedtune.uclamp.min 0
-write /dev/stune/h-background/schedtune.uclamp.min 0
-write /dev/stune/l-background/schedtune.uclamp.min 0
-write /dev/stune/system-background/schedtune.uclamp.min 0
+write /dev/stune/background/schedtune.uclamp.min 100
+write /dev/stune/h-background/schedtune.uclamp.min 100
+write /dev/stune/l-background/schedtune.uclamp.min 100
+write /dev/stune/system-background/schedtune.uclamp.min 100
 
 write /dev/stune/schedtune.uclamp.min.effective 100
 write /dev/stune/foreground/schedtune.uclamp.min.effective 100
@@ -1018,10 +1018,10 @@ write /dev/stune/sf/schedtune.uclamp.min.effective 100
 write /dev/stune/dex2oat/schedtune.uclamp.min.effective 100
 write /dev/stune/foreground_window/schedtune.uclamp.min.effective 100
 write /dev/stune/system/schedtune.uclamp.min.effective 100
-write /dev/stune/background/schedtune.uclamp.min.effective 0
-write /dev/stune/h-background/schedtune.uclamp.min.effective 0
-write /dev/stune/l-background/schedtune.uclamp.min.effective 0
-write /dev/stune/system-background/schedtune.uclamp.min.effective 0
+write /dev/stune/background/schedtune.uclamp.min.effective 100
+write /dev/stune/h-background/schedtune.uclamp.min.effective 100
+write /dev/stune/l-background/schedtune.uclamp.min.effective 100
+write /dev/stune/system-background/schedtune.uclamp.min.effective 100
 
 write /dev/cpuctl/cpu.cpucapacity_min 100
 write /dev/cpuctl/foreground/cpu.cpucapacity_min 100
@@ -1039,10 +1039,10 @@ write /dev/cpuctl/sf/cpu.cpucapacity_min 100
 write /dev/cpuctl/dex2oat/cpu.cpucapacity_min 100
 write /dev/cpuctl/foreground_window/cpu.cpucapacity_min 100
 write /dev/cpuctl/system/cpu.cpucapacity_min 100
-write /dev/cpuctl/background/cpu.cpucapacity_min 0
-write /dev/cpuctl/h-background/cpu.cpucapacity_min 0
-write /dev/cpuctl/l-background/cpu.cpucapacity_min 0
-write /dev/cpuctl/system-background/cpu.cpucapacity_min 0
+write /dev/cpuctl/background/cpu.cpucapacity_min 100
+write /dev/cpuctl/h-background/cpu.cpucapacity_min 100
+write /dev/cpuctl/l-background/cpu.cpucapacity_min 100
+write /dev/cpuctl/system-background/cpu.cpucapacity_min 100
 
 write /dev/cpuctl/cpu.uclamp.max 100
 write /dev/cpuctl/foreground/cpu.uclamp.max 100
@@ -1060,10 +1060,10 @@ write /dev/cpuctl/sf/cpu.uclamp.max 100
 write /dev/cpuctl/dex2oat/cpu.uclamp.max 100
 write /dev/cpuctl/foreground_window/cpu.uclamp.max 100
 write /dev/cpuctl/system/cpu.uclamp.max 100
-write /dev/cpuctl/background/cpu.uclamp.max 0
-write /dev/cpuctl/h-background/cpu.uclamp.max 0
-write /dev/cpuctl/l-background/cpu.uclamp.max 0
-write /dev/cpuctl/system-background/cpu.uclamp.max 0
+write /dev/cpuctl/background/cpu.uclamp.max 100
+write /dev/cpuctl/h-background/cpu.uclamp.max 100
+write /dev/cpuctl/l-background/cpu.uclamp.max 100
+write /dev/cpuctl/system-background/cpu.uclamp.max 100
 
 write /dev/cpuctl/cpu.uclamp.max.effective 100
 write /dev/cpuctl/foreground/cpu.uclamp.max.effective 100
@@ -1081,10 +1081,10 @@ write /dev/cpuctl/sf/cpu.uclamp.max.effective 100
 write /dev/cpuctl/dex2oat/cpu.uclamp.max.effective 100
 write /dev/cpuctl/foreground_window/cpu.uclamp.max.effective 100
 write /dev/cpuctl/system/cpu.uclamp.max.effective 100
-write /dev/cpuctl/background/cpu.uclamp.max.effective 0
-write /dev/cpuctl/h-background/cpu.uclamp.max.effective 0
-write /dev/cpuctl/l-background/cpu.uclamp.max.effective 0
-write /dev/cpuctl/system-background/cpu.uclamp.max.effective 0
+write /dev/cpuctl/background/cpu.uclamp.max.effective 100
+write /dev/cpuctl/h-background/cpu.uclamp.max.effective 100
+write /dev/cpuctl/l-background/cpu.uclamp.max.effective 100
+write /dev/cpuctl/system-background/cpu.uclamp.max.effective 100
 
 write /dev/cpuctl/cpu.uclamp.min 100
 write /dev/cpuctl/foreground/cpu.uclamp.min 100
@@ -1102,10 +1102,10 @@ write /dev/cpuctl/sf/cpu.uclamp.min 100
 write /dev/cpuctl/dex2oat/cpu.uclamp.min 100
 write /dev/cpuctl/foreground_window/cpu.uclamp.min 100
 write /dev/cpuctl/system/cpu.uclamp.min 100
-write /dev/cpuctl/background/cpu.uclamp.min 0
-write /dev/cpuctl/h-background/cpu.uclamp.min 0
-write /dev/cpuctl/l-background/cpu.uclamp.min 0
-write /dev/cpuctl/system-background/cpu.uclamp.min 0
+write /dev/cpuctl/background/cpu.uclamp.min 100
+write /dev/cpuctl/h-background/cpu.uclamp.min 100
+write /dev/cpuctl/l-background/cpu.uclamp.min 100
+write /dev/cpuctl/system-background/cpu.uclamp.min 100
 
 write /dev/cpuctl/cpu.uclamp.min.effective 100
 write /dev/cpuctl/foreground/cpu.uclamp.min.effective 100
@@ -1123,10 +1123,10 @@ write /dev/cpuctl/sf/cpu.uclamp.min.effective 100
 write /dev/cpuctl/dex2oat/cpu.uclamp.min.effective 100
 write /dev/cpuctl/foreground_window/cpu.uclamp.min.effective 100
 write /dev/cpuctl/system/cpu.uclamp.min.effective 100
-write /dev/cpuctl/background/cpu.uclamp.min.effective 0
-write /dev/cpuctl/h-background/cpu.uclamp.min.effective 0
-write /dev/cpuctl/l-background/cpu.uclamp.min.effective 0
-write /dev/cpuctl/system-background/cpu.uclamp.min.effective 0
+write /dev/cpuctl/background/cpu.uclamp.min.effective 100
+write /dev/cpuctl/h-background/cpu.uclamp.min.effective 100
+write /dev/cpuctl/l-background/cpu.uclamp.min.effective 100
+write /dev/cpuctl/system-background/cpu.uclamp.min.effective 100
 
 write /proc/sys/kernel/sched_util_clamp_min 1024
 write /proc/sys/kernel/sched_util_clamp_max 1024
@@ -1196,7 +1196,6 @@ write /sys/devices/system/cpu/cpu8/core_ctl/busy_up_thres 0
 write /sys/devices/system/cpu/cpu9/core_ctl/busy_up_thres 0
 write /sys/devices/system/cpu/cpu10/core_ctl/busy_up_thres 0
 write /sys/devices/system/cpu/cpu11/core_ctl/busy_up_thres 0
-
 
 write /dev/cpuset/cpus 0-1
 write /dev/cpuset/cpus 0-2
