@@ -44,12 +44,6 @@ if $SWAPOFF; then
 #o  || swapon /dev$ZRAM
 fi
 
-# Android Device/Kernel Settings/Parameters Modifications
-[ -f "$MODPATH/system_settings.sh" ] && sh "$MODPATH/system_settings.sh"
-[ -f "$MODPATH/system_governors.sh" ] && sh "$MODPATH/system_governors.sh"
-[ -f "$MODPATH/system_kernel.sh" ] && sh "$MODPATH/system_kernel.sh"
-[ -f "$MODPATH/system_cpu_gpu_power.sh" ] && sh "$MODPATH/system_cpu_gpu_power.sh"
-
 # OS System ResetProps
 if [ -x "$(command -v resetprop)" ]; then
     change_prop() {
@@ -103,3 +97,10 @@ adbroot="$(getprop service.adb.root)"
 if [ -n "$adbroot" ]; then
     resetprop -n -p service.adb.root ""
 fi
+
+# Android Device/Kernel Settings/Parameters Modifications
+sleep 60
+[ -f "$MODPATH/system_settings.sh" ] && sh "$MODPATH/system_settings.sh"
+[ -f "$MODPATH/system_governors.sh" ] && sh "$MODPATH/system_governors.sh"
+[ -f "$MODPATH/system_kernel.sh" ] && sh "$MODPATH/system_kernel.sh"
+[ -f "$MODPATH/system_cpu_gpu_power.sh" ] && sh "$MODPATH/system_cpu_gpu_power.sh"
