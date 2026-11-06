@@ -23,6 +23,7 @@ if grep -q /dev$ZRAM /proc/swaps; then
       break
     fi
   done
+  sleep 1
   if grep -q /dev$ZRAM /proc/swaps; then
     SWAPOFF=false
   fi
@@ -45,6 +46,7 @@ if $SWAPOFF; then
 fi
 
 # OS System ResetProps
+sleep 1
 if [ -x "$(command -v resetprop)" ]; then
     change_prop() {
         local prop="$1"
@@ -100,7 +102,10 @@ fi
 
 # Android Device/Kernel Settings/Parameters Modifications
 sleep 60
-[ -f "$MODPATH/system_settings.sh" ] && sh "$MODPATH/system_settings.sh"
 [ -f "$MODPATH/system_governors.sh" ] && sh "$MODPATH/system_governors.sh"
+sleep 1
 [ -f "$MODPATH/system_kernel.sh" ] && sh "$MODPATH/system_kernel.sh"
+sleep 1
 [ -f "$MODPATH/system_cpu_gpu_power.sh" ] && sh "$MODPATH/system_cpu_gpu_power.sh"
+sleep 1
+[ -f "$MODPATH/system_settings.sh" ] && sh "$MODPATH/system_settings.sh"
