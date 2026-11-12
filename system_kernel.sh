@@ -8,17 +8,6 @@ write() {
 	fi
 }
 
-# Variables
-kernel="/proc/sys/kernel/"
-vm="/proc/sys/vm/"
-cpuset="/dev/cpuset/"
-cpuctl="/dev/cpuctl/"
-stune="/dev/stune/"
-lmk="/sys/module/lowmemorykiller/parameters"
-tcp_v4="/proc/sys/net/ipv4/"
-fs="/proc/sys/fs/"
-perfmgr="/proc/perfmgr/"
-
 # Sync Data
 sync
 
@@ -259,57 +248,68 @@ write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 28
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 29
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 30
 
-for queue in /sys/*/*/queue
-do
-	write "$queue/nr_requests" 128
-	write "$queue/read_ahead_kb" 128
-done
-
-for queue in /sys/*/*/queue
-do
-	write "$queue/add_random" 0
-	write "$queue/iostats" 1
-	write "$queue/rotational" 0
-	write "$queue/nomerges" 2
-	write "$queue/rq_affinity" 2
-done
-
-for queue in /sys/*/*/queue
-do
-	write "$queue/iosched/front_merges" 1
-	write "$queue/iosched/back_seek_penalty" 1
-	write "$queue/iosched/slice_async_rq" 1
-	write "$queue/iosched/writes_starved" 3
-	write "$queue/iosched/fore_timeout" 5
-	write "$queue/iosched/async_depth" 8
-	write "$queue/iosched/io_threshold" 16
-	write "$queue/iosched/quantum" 8
-	write "$queue/iosched/fifo_batch" 16
-	write "$queue/iosched/slice_async" 10
-	write "$queue/iosched/slice_sync" 10
-	write "$queue/iosched/timeout_sync" 10
-	write "$queue/iosched/back_timeout" 10
-	write "$queue/iosched/max_budget" 16
-	write "$queue/iosched/fifo_expire_async" 30
-	write "$queue/iosched/read_expire" 50
-	write "$queue/iosched/fifo_expire_sync" 50
-	write "$queue/iosched/target_latency" 100
-	write "$queue/iosched/write_expire" 100
-	write "$queue/iosched/aging_expire" 5000
-	write "$queue/iosched/prio_aging_expire" 10000
-	write "$queue/iosched/slice_sync_us" 10000
-	write "$queue/iosched/slice_async_us" 5000
-	write "$queue/iosched/target_latency_us" 100000
-	write "$queue/iosched/back_seek_max" 1048576
-	write "$queue/iosched/read_lat_nsec" 1000000
-	write "$queue/iosched/write_lat_nsec" 1000000
-	write "$queue/iosched/strict_guarantees" 0
-	write "$queue/iosched/cpq_log" 0
-	write "$queue/iosched/slice_idle" 0
-	write "$queue/iosched/group_idle" 0
-	write "$queue/iosched/low_latency" 0
-	write "$queue/iosched/slice_idle_us" 0
-	write "$queue/iosched/group_idle_us" 0
+for dev_dir in /sys/block/*; do
+    dev=$(basename "$dev_dir")
+    case "$dev" in
+        loop*|dm-*|zram*|ram*|sr*|md*) continue ;;
+    esac
+    queue="$dev_dir/queue"
+    [ -d "$queue" ] || continue
+    if [ -f "$queue/rotational" ]; then
+        is_rotational=$(cat "$queue/rotational")
+    else
+        is_rotational=0
+    fi
+    write "$queue/add_random" 0
+    write "$queue/iostats" 1
+    write "$queue/rq_affinity" 2
+    if [ "$is_rotational" -eq 1 ]; then
+        write "$queue/rotational" 1
+        write "$queue/read_ahead_kb" 2048
+        write "$queue/nomerges" 0
+        write "$queue/nr_requests" 256
+    else
+        write "$queue/rotational" 0
+        write "$queue/read_ahead_kb" 128
+        write "$queue/nomerges" 2
+        write "$queue/nr_requests" 128
+    fi
+    iosched="$queue/iosched"
+    [ -d "$iosched" ] || continue
+    [ -f "$iosched/front_merges" ] && write "$iosched/front_merges" 1
+    [ -f "$iosched/back_seek_penalty" ] && write "$iosched/back_seek_penalty" 1
+    [ -f "$iosched/back_seek_max" ] && write "$iosched/back_seek_max" 1048576
+    [ -f "$iosched/fore_timeout" ] && write "$iosched/fore_timeout" 5
+    [ -f "$iosched/back_timeout" ] && write "$iosched/back_timeout" 10
+    [ -f "$iosched/timeout_sync" ] && write "$iosched/timeout_sync" 10
+    [ -f "$iosched/slice_async_rq" ] && write "$iosched/slice_async_rq" 1
+    [ -f "$iosched/writes_starved" ] && write "$iosched/writes_starved" 3
+    [ -f "$iosched/async_depth" ] && write "$iosched/async_depth" 8
+    [ -f "$iosched/io_threshold" ] && write "$iosched/io_threshold" 16
+    [ -f "$iosched/quantum" ] && write "$iosched/quantum" 8
+    [ -f "$iosched/fifo_batch" ] && write "$iosched/fifo_batch" 16
+    [ -f "$iosched/slice_async" ] && write "$iosched/slice_async" 10
+    [ -f "$iosched/slice_sync" ] && write "$iosched/slice_sync" 10
+    [ -f "$iosched/max_budget" ] && write "$iosched/max_budget" 16
+    [ -f "$iosched/fifo_expire_async" ] && write "$iosched/fifo_expire_async" 30
+    [ -f "$iosched/read_expire" ] && write "$iosched/read_expire" 50
+    [ -f "$iosched/fifo_expire_sync" ] && write "$iosched/fifo_expire_sync" 50
+    [ -f "$iosched/target_latency" ] && write "$iosched/target_latency" 100
+    [ -f "$iosched/write_expire" ] && write "$iosched/write_expire" 100
+    [ -f "$iosched/aging_expire" ] && write "$iosched/aging_expire" 5000
+    [ -f "$iosched/prio_aging_expire" ] && write "$iosched/prio_aging_expire" 10000
+    [ -f "$iosched/slice_sync_us" ] && write "$iosched/slice_sync_us" 10000
+    [ -f "$iosched/slice_async_us" ] && write "$iosched/slice_async_us" 5000
+    [ -f "$iosched/target_latency_us" ] && write "$iosched/target_latency_us" 100000
+    [ -f "$iosched/read_lat_nsec" ] && write "$iosched/read_lat_nsec" 1000000
+    [ -f "$iosched/write_lat_nsec" ] && write "$iosched/write_lat_nsec" 1000000
+    [ -f "$iosched/strict_guarantees" ] && write "$iosched/strict_guarantees" 0
+    [ -f "$iosched/cpq_log" ] && write "$iosched/cpq_log" 0
+    [ -f "$iosched/slice_idle" ] && write "$iosched/slice_idle" 0
+    [ -f "$iosched/group_idle" ] && write "$iosched/group_idle" 0
+    [ -f "$iosched/low_latency" ] && write "$iosched/low_latency" 0
+    [ -f "$iosched/slice_idle_us" ] && write "$iosched/slice_idle_us" 0
+    [ -f "$iosched/group_idle_us" ] && write "$iosched/group_idle_us" 0
 done
 
 # Memory

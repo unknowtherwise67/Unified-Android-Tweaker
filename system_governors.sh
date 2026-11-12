@@ -8,133 +8,92 @@ write() {
 	fi
 }
 
-# Variables
-kernel="/proc/sys/kernel/"
-vm="/proc/sys/vm/"
-cpuset="/dev/cpuset/"
-cpuctl="/dev/cpuctl/"
-stune="/dev/stune/"
-lmk="/sys/module/lowmemorykiller/parameters"
-tcp_v4="/proc/sys/net/ipv4/"
-fs="/proc/sys/fs/"
-perfmgr="/proc/perfmgr/"
-
 # Sync Data
 sync
 
 # CPU and GPU
-for cpu in /sys/*/system/cpu/cpu*/cpufreq/*
-do
-	available_governors="$(cat "$cpu/scaling_available_governors")"
-	for governor in 
-	do
-		if [[ "$available_governors" == *"$governor"* ]]
-		then
-			write "$cpu/scaling_governor" "$governor"
-			break
-		fi
-	done
+for cpu_dir in /sys/devices/system/cpu/cpufreq/policy* /sys/devices/system/cpu/cpu*/cpufreq; do
+    [ -d "$cpu_dir" ] || continue
+    avail_file="$cpu_dir/scaling_available_governors"
+    gov_file="$cpu_dir/scaling_governor"
+    [ -f "$avail_file" ] && [ -f "$gov_file" ] || continue
+    available_governors="$(cat "$avail_file" 2>/dev/null)"
+    for governor in performance; do
+        case "$available_governors" in
+            *"$governor"*)
+                write "$gov_file" "$governor"
+                break
+                ;;
+        esac
+    done
 done
 
-for cpu in /sys/*/system/cpu/cpufreq/policy*
-do
-	available_governors="$(cat "$cpu/scaling_available_governors")"
-	for governor in 
-	do
-		if [[ "$available_governors" == *"$governor"* ]]
-		then
-			write "$cpu/scaling_governor" "$governor"
-			break
-		fi
-	done
+for gpu_dir in /sys/class/kgsl/kgsl-3d0 /sys/class/devfreq/*gpu* /sys/devices/platform/*.gpu /sys/devices/soc/*.gpu; do
+    [ -d "$gpu_dir" ] || continue
+    for avail_file in "$gpu_dir/gpu_available_governor" "$gpu_dir/available_governors"; do
+        [ -f "$avail_file" ] || continue
+        gov_dir="$gpu_dir"
+        [ -f "$gpu_dir/gpu_governor" ] && target_file="$gpu_dir/gpu_governor"
+        [ -f "$gpu_dir/governor" ] && target_file="$gpu_dir/governor"
+        available_governors="$(cat "$avail_file" 2>/dev/null)"
+        for governor in performance; do
+            case "$available_governors" in
+                *"$governor"*)
+                    write "$target_file" "$governor"
+                    break 2
+                    ;;
+            esac
+        done
+    done
 done
 
-for gpu in /sys/*/kgsl/kgsl-3d0/devfreq
-do
-	available_governors="$(cat "$gpu/gpu_available_governor")"
-	for governor in 
-	do
-		if [[ "$available_governors" == *"$governor"* ]]
-		then
-			write "$gpu/gpu_governor" "$governor"
-			break
-		fi
-	done
+# 3. I/O SCHEDULERS
+for dev_dir in /sys/block/*; do
+    dev=$(basename "$dev_dir")
+    case "$dev" in
+        loop*|dm-*|zram*|ram*|sr*|md*) continue ;;
+    esac
+    queue="$dev_dir/queue"
+    sched_file="$queue/scheduler"
+    [ -f "$sched_file" ] || continue
+    available_schedulers="$(cat "$sched_file" 2>/dev/null)"
+    for sched in none mq-deadline bfq kyber deadline noop; do
+        case "$available_schedulers" in
+            *"[$sched]"*|*"$sched"*)
+                write "$sched_file" "$sched"
+                break
+                ;;
+        esac
+    done
 done
 
-for gpu in /sys/*/gpu/
-do
-	available_governors="$(cat "$gpu/gpu_available_governor")"
-	for governor in 
-	do
-		if [[ "$available_governors" == *"$governor"* ]]
-		then
-			write "$gpu/gpu_governor" "$governor"
-			break
-		fi
-	done
-done
-
-# I/O SCHEDULERS
-for queue in /sys/*/*/queue
-do
-	available_schedulers="$(cat "$queue/scheduler")"
-	for sched in none noop mq-deadline deadline kyber bfq cfq
-	do
-		if [[ "$available_schedulers" == *"$sched"* ]]
-		then
-			write "$queue/scheduler" "$sched"
-			break
-		fi
-	done
-done
-
-for nand_flash in /sys/*/devfreq/1d84000.ufshc
-do
-	available_governors="$(cat "$nand_flash/available_governors")"
-	for governor in performance
-	do
-		if [[ "$available_governors" == *"$governor"* ]]
-		then
-			write "$nand_flash/governor" "$governor"
-			break
-		fi
-	done
+for ufshc in /sys/class/devfreq/*ufshc* /sys/devices/platform/*.ufshc /sys/class/devfreq/soc:qcom,ufshc*; do
+    [ -d "$ufshc" ] || continue
+    avail_file="$ufshc/available_governors"
+    gov_file="$ufshc/governor"
+    [ -f "$avail_file" ] && [ -f "$gov_file" ] || continue
+    available_governors="$(cat "$avail_file" 2>/dev/null)"
+    for governor in performance; do
+        case "$available_governors" in
+            *"$governor"*)
+                write "$gov_file" "$governor"
+                break
+                ;;
+        esac
+    done
 done
 
 # TCP CONGESTION ALGORITHM
-for tcp in /proc/sys/net/*
-do
-	available_tcps="$(cat "$tcp/tcp_available_congestion_control")"
-	for tcp_ctrl in bbr2 bbr westwood cubic reno bic
-	do
-		if [[ "$available_tcps" == *"$tcp_ctrl"* ]]
-		then
-			write "$tcp/tcp_congestion_control" "$tcp_ctrl"
-			break
-		fi
-	done
-done
-
-# Modify to apply this parameters if all of above's parameters isn't working.
-write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor 
-write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor 
-write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor	
-write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor	
-write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor	
-write /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor	
-write /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor	
-write /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor	
-write /sys/devices/system/cpu/cpu8/cpufreq/scaling_governor	
-write /sys/devices/system/cpu/cpu9/cpufreq/scaling_governor	
-write /sys/devices/system/cpu/cpu10/cpufreq/scaling_governor 
-write /sys/devices/system/cpu/cpu11/cpufreq/scaling_governor 
-
-write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor 
-write /sys/devices/system/cpu/cpufreq/policy4/scaling_governor 
-write /sys/devices/system/cpu/cpufreq/policy7/scaling_governor 
-
-write /sys/class/kgsl/kgsl-3d0/devfreq/gpu_governor 
-write /sys/kernel/gpu/gpu_governor 
-write /sys/class/devfreq/1d84000.ufshc/governor 
-write /proc/sys/net/ipv4/tcp_congestion_control 
+tcp_avail="/proc/sys/net/ipv4/tcp_available_congestion_control"
+tcp_ctrl_file="/proc/sys/net/ipv4/tcp_congestion_control"
+if [ -f "$tcp_avail" ] && [ -f "$tcp_ctrl_file" ]; then
+    available_tcps="$(cat "$tcp_avail" 2>/dev/null)"
+    for tcp_ctrl in bbr bbr2 cubic reno westwood; do
+        case "$available_tcps" in
+            *"$tcp_ctrl"*)
+                write "$tcp_ctrl_file" "$tcp_ctrl"
+                break
+                ;;
+        esac
+    done
+fi
