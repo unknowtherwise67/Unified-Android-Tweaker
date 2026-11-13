@@ -1,4 +1,4 @@
-# Write to OS System/Device and Hardware Data Files
+# Write to OS System/Device and Hardware Files
 write() {
 	[[ ! -f "$1" ]] && return 1
 	chmod +w "$1" 2> /dev/null
@@ -12,150 +12,65 @@ write() {
 sync
 
 # CPU/GPU/IO
-for governor in /sys/*/system/cpu/*/cpufreq/*
+for governor in /sys/*/system/cpu/*/cpufreq/* /sys/*/system/cpu/cpufreq/*
 do
 	write "$governor/boost" 1
-	write "$governor/pl" 1
-	write "$governor/fastlane" 1
-	write "$governor/fast_ramp_down" 1
-	write "$governor/boostpulse" 1
-	write "$governor/use_sched_load" 1
-	write "$governor/use_migration_notif" 1
-	write "$governor/enable_prediction" 1
-	write "$governor/sampling_early_factor" 1
-	write "$governor/sampling_down_factor" 1
-	write "$governor/sampling_interim_factor" 1
-	write "$governor/powersave_bias" 1
-	write "$governor/ignore_hispeed_on_notif" 1
-	write "$governor/param_index" 1
-	write "$governor/sampling_down_factor" 1
-	write "$governor/enforced_mode" 1
-	write "$governor/io_is_busy" 1
-	write "$governor/align_windows" 1
-	write "$governor/ignore_nice_load" 1
-	write "$governor/input_boost" 1
-	write "$governor/iowait_boost_enable" 1
-	write "$governor/timer_slack" -1
-	write "$governor/sched_upmigrate_min_nice" -5
-	write "$governor/freq_step" 5
-	write "$governor/down_differential_multi_core" 5
-	write "$governor/target_load_shift" 15
-	write "$governor/down_differential" 30
-	write "$governor/up_threshold_multi_core" 50
-	write "$governor/hispeed_load" 70
-	write "$governor/go_hispeed_load" 70
-	write "$governor/up_threshold" 70
-	write "$governor/target_loads" 70
-	write "$governor/single_enter_load" 70
-	write "$governor/single_exit_load" 70
-	write "$governor/up_threshold_any_cpu_load" 70
-	write "$governor/target_load_thresh" 70
-	write "$governor/multi_enter_load" 100
-	write "$governor/multi_exit_load" 100
-	write "$governor/input_boost_ms" 150
-	write "$governor/boost_ms" 300
-	write "$governor/single_enter_time" 5000
-	write "$governor/timer_rate" 10000
-	write "$governor/sampling_rate" 10000
-	write "$governor/up_rate_limit_us" 10000
-	write "$governor/down_rate_limit_us" 10000
-	write "$governor/single_exit_time" 100000
-	write "$governor/multi_enter_time" 10000
-	write "$governor/sampling_rate_min" 10000
-	write "$governor/above_hispeed_delay" 10000
-	write "$governor/sched_freq_inc_notify" 50000
-	write "$governor/multi_exit_time" 100000
-	write "$governor/min_sample_time" 100000
-	write "$governor/hispeed_freq" 1000000
-	write "$governor/optimal_freq" 1000000
-	write "$governor/sync_freq" 1000000
-	write "$governor/rtg_boost_freq" 1000000
-	write "$governor/adaptive_high_freq" 1000000
-	write "$governor/adaptive_low_freq" 1000000
-	write "$governor/max_freq_hysteresis" 1000000
-	write "$governor/step_up_early_hispeed" 1000000
-	write "$governor/step_up_interim_hispeed" 1000000
-	write "$governor/up_threshold_any_cpu_freq" 1000000
-	write "$governor/boostpulse_duration" 200000
-	write "$governor/sched_freq_dec_notify" 500000
-	write "$governor/up_throttle_nsec" 10000000
-	write "$governor/down_throttle_nsec" 10000000
-done
-
-for governor in /sys/*/system/cpu/cpufreq/*
-do
+    write "$governor/pl" 1
+    write "$governor/io_is_busy" 1
+    write "$governor/timer_slack" -1
+    write "$governor/freq_step" 5
+    write "$governor/iowait_boost_enable" 1
 	write "$governor/boost" 1
-	write "$governor/pl" 1
-	write "$governor/fastlane" 1
-	write "$governor/fast_ramp_down" 1
-	write "$governor/boostpulse" 1
-	write "$governor/use_sched_load" 1
-	write "$governor/use_migration_notif" 1
-	write "$governor/enable_prediction" 1
-	write "$governor/sampling_early_factor" 1
-	write "$governor/sampling_down_factor" 1
-	write "$governor/sampling_interim_factor" 1
-	write "$governor/powersave_bias" 1
-	write "$governor/ignore_hispeed_on_notif" 1
-	write "$governor/param_index" 1
-	write "$governor/sampling_down_factor" 1
-	write "$governor/enforced_mode" 1
-	write "$governor/io_is_busy" 1
-	write "$governor/align_windows" 1
-	write "$governor/ignore_nice_load" 1
-	write "$governor/input_boost" 1
-	write "$governor/iowait_boost_enable" 1
-	write "$governor/timer_slack" -1
-	write "$governor/sched_upmigrate_min_nice" -5
-	write "$governor/freq_step" 5
-	write "$governor/down_differential_multi_core" 5
-	write "$governor/target_load_shift" 15
-	write "$governor/down_differential" 30
-	write "$governor/up_threshold_multi_core" 50
-	write "$governor/hispeed_load" 70
-	write "$governor/go_hispeed_load" 70
-	write "$governor/up_threshold" 70
-	write "$governor/target_loads" 70
-	write "$governor/single_enter_load" 70
-	write "$governor/single_exit_load" 70
-	write "$governor/up_threshold_any_cpu_load" 70
-	write "$governor/target_load_thresh" 70
-	write "$governor/multi_enter_load" 100
-	write "$governor/multi_exit_load" 100
-	write "$governor/input_boost_ms" 150
-	write "$governor/boost_ms" 300
-	write "$governor/single_enter_time" 5000
-	write "$governor/timer_rate" 10000
-	write "$governor/sampling_rate" 10000
-	write "$governor/up_rate_limit_us" 10000
-	write "$governor/down_rate_limit_us" 10000
-	write "$governor/single_exit_time" 100000
-	write "$governor/multi_enter_time" 10000
-	write "$governor/sampling_rate_min" 10000
-	write "$governor/above_hispeed_delay" 10000
-	write "$governor/sched_freq_inc_notify" 50000
-	write "$governor/multi_exit_time" 100000
-	write "$governor/min_sample_time" 100000
-	write "$governor/hispeed_freq" 1000000
-	write "$governor/optimal_freq" 1000000
-	write "$governor/sync_freq" 1000000
-	write "$governor/rtg_boost_freq" 1000000
-	write "$governor/adaptive_high_freq" 1000000
-	write "$governor/adaptive_low_freq" 1000000
-	write "$governor/max_freq_hysteresis" 1000000
-	write "$governor/step_up_early_hispeed" 1000000
-	write "$governor/step_up_interim_hispeed" 1000000
-	write "$governor/up_threshold_any_cpu_freq" 1000000
-	write "$governor/boostpulse_duration" 200000
-	write "$governor/sched_freq_dec_notify" 500000
-	write "$governor/up_throttle_nsec" 10000000
-	write "$governor/down_throttle_nsec" 10000000
+    write "$governor/fastlane" 1
+    write "$governor/fast_ramp_down" 1
+    write "$governor/boostpulse" 1
+    write "$governor/use_sched_load" 1
+    write "$governor/use_migration_notif" 1
+    write "$governor/enable_prediction" 1
+    write "$governor/io_is_busy" 1
+    write "$governor/align_windows" 1
+    write "$governor/ignore_nice_load" 1
+    write "$governor/input_boost" 1
+    write "$governor/iowait_boost_enable" 1
+    write "$governor/target_load_shift" 5
+    write "$governor/enforced_mode" 1
+    write "$governor/target_load_shift" 5
+    write "$governor/sched_upmigrate_min_nice" -5
+    write "$governor/down_differential" 35
+    write "$governor/up_threshold" 60
+    write "$governor/go_hispeed_load" 65
+    write "$governor/hispeed_load" 65
+    write "$governor/target_loads" "65 1400000:75 1800000:85"
+    write "$governor/single_enter_load" 60
+    write "$governor/single_exit_load" 90
+    write "$governor/up_threshold_any_cpu_load" 65
+    write "$governor/target_load_thresh" 65
+    write "$governor/multi_enter_load" 85
+    write "$governor/multi_exit_load" 95
+    write "$governor/input_boost_ms" 100
+    write "$governor/boost_ms" 200
+    write "$governor/single_enter_time" 2000
+    write "$governor/timer_rate" 5000
+    write "$governor/sampling_rate" 5000
+    write "$governor/up_rate_limit_us" 2000
+    write "$governor/down_rate_limit_us" 20000
+    write "$governor/single_exit_time" 50000
+    write "$governor/multi_enter_time" 5000
+    write "$governor/sampling_rate_min" 5000
+    write "$governor/above_hispeed_delay" "10000 1200000:20000"
+    write "$governor/sched_freq_inc_notify" 25000
+    write "$governor/multi_exit_time" 50000
+    write "$governor/min_sample_time" 40000
+    write "$governor/boostpulse_duration" 200000
+    write "$governor/sched_freq_dec_notify" 250000
+    write "$governor/up_throttle_nsec" 5000000
+    write "$governor/down_throttle_nsec" 5000000
 done
 
 write /sys/kernel/gpu/boost 1
 write /proc/mali/always_on 1
-write /proc/mali/dvfs_enable 1
-write /sys/module/ged/parameters/gpu_dvfs_enable 1
+write /proc/mali/dvfs_enable 0
+write /sys/module/ged/parameters/gpu_dvfs_enable 0
 write /sys/class/kgsl/kgsl-3d0/tmu 1
 write /sys/class/kgsl/kgsl-3d0/popp 1
 write /sys/class/kgsl/kgsl-3d0/pwrnap 1
@@ -330,6 +245,29 @@ write /proc/sys/vm/admin_reserve_kbytes 1000
 write /proc/sys/vm/overcommit_free_kbytes 1000
 write /proc/sys/vm/dirty_expire_centisecs 10000
 write /proc/sys/vm/dirty_writeback_centisecs 10000
+write /proc/sys/vm/laptop_mode 0
+write /proc/sys/vm/oom_kill_allocating_task 0
+write /sys/module/lowmemorykiller/parameters/oom_reaper 0
+write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
+write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
+write /sys/module/process_reclaim/parameters/enable_process_reclaim 0
+
+write /sys/block/zram0/initstate 1
+write /proc/sys/vm/stat_interval 10
+write /proc/sys/vm/overcommit_memory 1
+write /proc/sys/vm/page-cluster 0
+write /proc/sys/vm/dirty_background_ratio 5
+write /proc/sys/vm/dirty_ratio 10
+write /proc/sys/vm/dirty_expire_centisecs 3000
+write /proc/sys/vm/dirty_writeback_centisecs 5000
+write /proc/sys/vm/min_free_kbytes 16384
+write /proc/sys/vm/extra_free_kbytes 12288
+write /proc/sys/vm/user_reserve_kbytes 8192
+write /proc/sys/vm/admin_reserve_kbytes 4096
+write /proc/sys/vm/watermark_scale_factor 10
+write /proc/sys/vm/overcommit_ratio 100
+write /proc/sys/vm/vfs_cache_pressure 100
+write /proc/sys/vm/swappiness 100
 write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0,0
 write /proc/sys/vm/drop_caches 0
 write /proc/sys/vm/laptop_mode 0
@@ -340,169 +278,90 @@ write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
 write /sys/module/process_reclaim/parameters/enable_process_reclaim 0
 
 # Schedulers
-write /proc/sys/kernel/sched_task_unfilter_period 200000000
-write /proc/sys/kernel/sched_latency_ns 12000000
-write /proc/sys/kernel/sched_min_granularity_ns 2000000
-write /proc/sys/kernel/sched_wakeup_granularity_ns 2000000
-write /proc/sys/kernel/sched_coloc_busy_hyst_ns 50000000
-write /proc/sys/kernel/sched_short_burst_ns 5000000
-write /proc/sys/kernel/sched_deadline_period_max_us 4194304
-write /proc/sys/kernel/sched_short_sleep_ns 2000000
-write /proc/sys/kernel/sched_migration_cost_ns 1000000
-write /proc/sys/kernel/sched_shares_window_ns 10000000
-write /proc/sys/kernel/sched_shares_window 10000000
-write /proc/sys/kernel/sched_rt_period_us 1000000
-write /proc/sys/kernel/sched_rt_runtime_us 1000000
-write /proc/sys/kernel/sched_rr_timeslice_us 100000
-write /proc/sys/kernel/sched_util_clamp_max 1024
-write /proc/sys/kernel/sched_util_clamp_min 1024
-write /proc/sys/kernel/sched_util_clamp_min_rt_default 1024
-write /proc/sys/kernel/sched_select_prev_cpu_us 1000
-write /proc/sys/kernel/sched_time_avg 1000
-write /proc/sys/kernel/sched_assist_scenes 255
-write /proc/sys/kernel/sched_coloc_busy_hysteresis_enable_cpus 255
-write /proc/sys/kernel/sched_initial_task_util 128
-write /proc/sys/kernel/sched_time_avg_ms 100
-write /proc/sys/kernel/sched_rr_timeslice_ms 100
-write /proc/sys/kernel/sched_deadline_period_min_us 100
-write /proc/sys/kernel/sched_spill_load 100
-write /proc/sys/kernel/sched_asym_cap_sibling_freq_match_pct 70
-write /proc/sys/kernel/sched_upmigrate 50
-write /proc/sys/kernel/sched_downmigrate 50
-write /proc/sys/kernel/sched_group_upmigrate 50
-write /proc/sys/kernel/sched_group_downmigrate 50
-write /proc/sys/kernel/sched_walt_init_task_load_pct 50
-write /proc/sys/kernel/sched_init_task_load 50
-write /proc/sys/kernel/sched_min_task_util_for_boost_colocation 50
-write /proc/sys/kernel/sched_nr_migrate 32
-write /proc/sys/kernel/sched_coloc_busy_hyst_max_ms 30
-write /proc/sys/kernel/sched_many_wakeup_threshold 10
-write /proc/sys/kernel/sched_walt_cpu_high_irqload 10
-write /proc/sys/kernel/sched_big_waker_task_load 10
-write /proc/sys/kernel/sched_cfs_boost 10
-write /proc/sys/kernel/schedtune.boost 10
-write /proc/sys/kernel/sched_stune_task_threshold 5
-write /proc/sys/kernel/sched_spill_nr_run 5
-write /proc/sys/kernel/sched_ravg_hist_size 3
-write /proc/sys/kernel/sched_pelt_multiplier 4
-write /proc/sys/kernel/sched_window_stats_policy 2
-write /proc/sys/kernel/sched_use_walt_task_util 2
-write /proc/sys/kernel/perf_cpu_time_max_percent 1
-write /proc/sys/kernel/sched_schedstats 1
-write /proc/sys/kernel/sched_autogroup_enabled 1
-write /proc/sys/kernel/sched_is_big_little 1
-write /proc/sys/kernel/sched_use_walt_cpu_util 1
-write /proc/sys/kernel/sched_wake_to_idle 1
-write /proc/sys/kernel/sched_enable_thread_grouping 1
-write /proc/sys/kernel/sched_restrict_cluster_spill 1
-write /proc/sys/kernel/sched_assist_enabled 1
-write /proc/sys/kernel/sched_walt_rotate_big_tasks 1
-write /proc/sys/kernel/sched_big_task_rotation 1
-write /proc/sys/kernel/sched_isolation_hint 1
-write /proc/sys/kernel/sched_user_hint 1
-write /proc/sys/kernel/sched_sync_hint_enable 1
-write /proc/sys/kernel/sched_prefer_sync_wakee_to_waker 1
-write /proc/sys/kernel/sched_freq_aggregate 1
-write /proc/sys/kernel/sched_cstate_aware 1
-write /proc/sys/kernel/sched_ravg_window_nr_ticks 1
-write /proc/sys/kernel/sched_freq_dec_notify 1
-write /proc/sys/kernel/sched_freq_inc_notify 1
-write /proc/sys/kernel/sched_freq_aggregate_threshold 1
-write /proc/sys/kernel/sched_small_wakee_task_load 0
-write /proc/sys/kernel/sched_pred_alert_freq 0
-write /proc/sys/kernel/sched_energy_aware 0
-write /proc/sys/kernel/sched_tunable_scaling 0
-write /proc/sys/kernel/sched_child_runs_first 0
-write /proc/sys/kernel/sched_force_lb_enable 0
-write /proc/sys/kernel/sched_prefer_spread 0
-write /proc/sys/kernel/sched_dynamic_ravg_window_enable 0
-write /proc/sys/kernel/sched_min_task_util_for_colocation 0
-write /proc/sys/kernel/sched_min_task_util_for_boost 0
-write /proc/sys/kernel/sched_conservative_pl 0
-write /proc/sys/kernel/sched_assist_ux_uclamp_max_enable 0
-write /proc/sys/kernel/sched_little_cluster_coloc_fmin_khz 0
-
-write /sys/kernel/debug/sched_task_unfilter_period 200000000
-write /sys/kernel/debug/sched_latency_ns 12000000
-write /sys/kernel/debug/sched_min_granularity_ns 2000000
-write /sys/kernel/debug/sched_wakeup_granularity_ns 2000000
-write /sys/kernel/debug/sched_coloc_busy_hyst_ns 50000000
-write /sys/kernel/debug/sched_short_burst_ns 5000000
-write /sys/kernel/debug/sched_deadline_period_max_us 4194304
-write /sys/kernel/debug/sched_short_sleep_ns 2000000
-write /sys/kernel/debug/sched_migration_cost_ns 1000000
-write /sys/kernel/debug/sched_shares_window_ns 10000000
-write /sys/kernel/debug/sched_shares_window 10000000
-write /sys/kernel/debug/sched_rt_period_us 1000000
-write /sys/kernel/debug/sched_rt_runtime_us 1000000
-write /sys/kernel/debug/sched_rr_timeslice_us 100000
-write /sys/kernel/debug/sched_util_clamp_max 1024
-write /sys/kernel/debug/sched_util_clamp_min 1024
-write /sys/kernel/debug/sched_util_clamp_min_rt_default 1024
-write /sys/kernel/debug/sched_select_prev_cpu_us 1000
-write /sys/kernel/debug/sched_time_avg 1000
-write /sys/kernel/debug/sched_assist_scenes 255
-write /sys/kernel/debug/sched_coloc_busy_hysteresis_enable_cpus 255
-write /sys/kernel/debug/sched_initial_task_util 128
-write /sys/kernel/debug/sched_time_avg_ms 100
-write /sys/kernel/debug/sched_rr_timeslice_ms 100
-write /sys/kernel/debug/sched_deadline_period_min_us 100
-write /sys/kernel/debug/sched_spill_load 100
-write /sys/kernel/debug/sched_asym_cap_sibling_freq_match_pct 70
-write /sys/kernel/debug/sched_upmigrate 50
-write /sys/kernel/debug/sched_downmigrate 50
-write /sys/kernel/debug/sched_group_upmigrate 50
-write /sys/kernel/debug/sched_group_downmigrate 50
-write /sys/kernel/debug/sched_walt_init_task_load_pct 50
-write /sys/kernel/debug/sched_init_task_load 50
-write /sys/kernel/debug/sched_min_task_util_for_boost_colocation 50
-write /sys/kernel/debug/sched_nr_migrate 32
-write /sys/kernel/debug/sched_coloc_busy_hyst_max_ms 30
-write /sys/kernel/debug/sched_many_wakeup_threshold 10
-write /sys/kernel/debug/sched_walt_cpu_high_irqload 10
-write /sys/kernel/debug/sched_big_waker_task_load 10
-write /sys/kernel/debug/sched_cfs_boost 10
-write /sys/kernel/debug/schedtune.boost 10
-write /sys/kernel/debug/sched_stune_task_threshold 5
-write /sys/kernel/debug/sched_spill_nr_run 5
-write /sys/kernel/debug/sched_ravg_hist_size 3
-write /sys/kernel/debug/sched_pelt_multiplier 4
-write /sys/kernel/debug/sched_window_stats_policy 2
-write /sys/kernel/debug/sched_use_walt_task_util 2
-write /sys/kernel/debug/perf_cpu_time_max_percent 1
-write /sys/kernel/debug/sched_schedstats 1
-write /sys/kernel/debug/sched_autogroup_enabled 1
-write /sys/kernel/debug/sched_is_big_little 1
-write /sys/kernel/debug/sched_use_walt_cpu_util 1
-write /sys/kernel/debug/sched_wake_to_idle 1
-write /sys/kernel/debug/sched_enable_thread_grouping 1
-write /sys/kernel/debug/sched_restrict_cluster_spill 1
-write /sys/kernel/debug/sched_assist_enabled 1
-write /sys/kernel/debug/sched_walt_rotate_big_tasks 1
-write /sys/kernel/debug/sched_big_task_rotation 1
-write /sys/kernel/debug/sched_isolation_hint 1
-write /sys/kernel/debug/sched_user_hint 1
-write /sys/kernel/debug/sched_sync_hint_enable 1
-write /sys/kernel/debug/sched_prefer_sync_wakee_to_waker 1
-write /sys/kernel/debug/sched_freq_aggregate 1
-write /sys/kernel/debug/sched_cstate_aware 1
-write /sys/kernel/debug/sched_ravg_window_nr_ticks 1
-write /sys/kernel/debug/sched_freq_dec_notify 1
-write /sys/kernel/debug/sched_freq_inc_notify 1
-write /sys/kernel/debug/sched_freq_aggregate_threshold 1
-write /sys/kernel/debug/sched_small_wakee_task_load 0
-write /sys/kernel/debug/sched_pred_alert_freq 0
-write /sys/kernel/debug/sched_energy_aware 0
-write /sys/kernel/debug/sched_tunable_scaling 0
-write /sys/kernel/debug/sched_child_runs_first 0
-write /sys/kernel/debug/sched_force_lb_enable 0
-write /sys/kernel/debug/sched_prefer_spread 0
-write /sys/kernel/debug/sched_dynamic_ravg_window_enable 0
-write /sys/kernel/debug/sched_min_task_util_for_colocation 0
-write /sys/kernel/debug/sched_min_task_util_for_boost 0
-write /sys/kernel/debug/sched_conservative_pl 0
-write /sys/kernel/debug/sched_assist_ux_uclamp_max_enable 0
-write /sys/kernel/debug/sched_little_cluster_coloc_fmin_khz 0
+for sched in /proc/sys/kernel/ /sys/kernel/debug/
+do
+	write "$sched/sched_task_unfilter_period" 200000000
+	write "$sched/sched_latency_ns" 12000000
+	write "$sched/sched_min_granularity_ns" 2000000
+	write "$sched/sched_wakeup_granularity_ns" 2000000
+	write "$sched/sched_short_burst_ns" 5000000
+	write "$sched/sched_short_sleep_ns" 2000000
+	write "$sched/sched_migration_cost_ns" 1000000
+	write "$sched/sched_select_prev_cpu_us" 1000
+	write "$sched/sched_shares_window_ns" 10000000
+	write "$sched/sched_shares_window" 10000000
+	write "$sched/sched_time_avg" 1000
+	write "$sched/sched_time_avg_ms" 100
+	write "$sched/sched_ravg_hist_size" 3
+	write "$sched/sched_pelt_multiplier" 4
+	write "$sched/sched_window_stats_policy" 2
+	write "$sched/sched_ravg_window_nr_ticks" 1
+	write "$sched/sched_deadline_period_max_us" 4194304
+	write "$sched/sched_deadline_period_min_us" 100
+	write "$sched/sched_rt_period_us" 1000000
+	write "$sched/sched_rt_runtime_us" 1000000
+	write "$sched/sched_rr_timeslice_us" 100000
+	write "$sched/sched_rr_timeslice_ms" 100
+	write "$sched/sched_util_clamp_max" 1024
+	write "$sched/sched_util_clamp_min" 1024
+	write "$sched/sched_util_clamp_min_rt_default" 1024
+	write "$sched/sched_cfs_boost" 10
+	write "$sched/schedtune.boost" 10
+	write "$sched/sched_stune_task_threshold" 5
+	write "$sched/sched_min_task_util_for_boost" 0
+	write "$sched/sched_min_task_util_for_boost_colocation" 50
+	write "$sched/sched_nr_migrate" 32
+	write "$sched/sched_spill_load" 100
+	write "$sched/sched_spill_nr_run" 5
+	write "$sched/sched_asym_cap_sibling_freq_match_pct" 70
+	write "$sched/sched_upmigrate" 50
+	write "$sched/sched_downmigrate" 50
+	write "$sched/sched_group_upmigrate" 50
+	write "$sched/sched_group_downmigrate" 50
+	write "$sched/sched_walt_init_task_load_pct" 50
+	write "$sched/sched_init_task_load" 50
+	write "$sched/sched_initial_task_util" 128
+	write "$sched/sched_many_wakeup_threshold" 10
+	write "$sched/sched_walt_cpu_high_irqload" 10
+	write "$sched/sched_big_waker_task_load" 10
+	write "$sched/sched_restrict_cluster_spill" 1
+	write "$sched/sched_force_lb_enable" 0
+	write "$sched/sched_prefer_spread" 0
+	write "$sched/sched_coloc_busy_hyst_ns" 50000000
+	write "$sched/sched_coloc_busy_hysteresis_enable_cpus" 255
+	write "$sched/sched_coloc_busy_hyst_max_ms" 30
+	write "$sched/sched_assist_scenes" 255
+	write "$sched/sched_assist_enabled" 1
+	write "$sched/sched_assist_ux_uclamp_max_enable" 0
+	write "$sched/sched_enable_thread_grouping" 1
+	write "$sched/sched_min_task_util_for_colocation" 0
+	write "$sched/sched_little_cluster_coloc_fmin_khz" 0
+	write "$sched/sched_walt_rotate_big_tasks" 1
+	write "$sched/sched_big_task_rotation" 1
+	write "$sched/sched_isolation_hint" 1
+	write "$sched/sched_user_hint" 1
+	write "$sched/sched_sync_hint_enable" 1
+	write "$sched/sched_prefer_sync_wakee_to_waker" 1
+	write "$sched/sched_freq_aggregate" 1
+	write "$sched/sched_freq_aggregate_threshold" 1
+	write "$sched/sched_freq_dec_notify" 1
+	write "$sched/sched_freq_inc_notify" 1
+	write "$sched/sched_pred_alert_freq" 0
+	write "$sched/sched_energy_aware" 0
+	write "$sched/sched_cstate_aware" 1
+	write "$sched/sched_tunable_scaling" 0
+	write "$sched/sched_conservative_pl" 0
+	write "$sched/perf_cpu_time_max_percent" 1
+	write "$sched/sched_schedstats" 1
+	write "$sched/sched_autogroup_enabled" 1
+	write "$sched/sched_is_big_little" 1
+	write "$sched/sched_use_walt_task_util" 2
+	write "$sched/sched_use_walt_cpu_util" 1
+	write "$sched/sched_wake_to_idle" 1
+	write "$sched/sched_small_wakee_task_load" 0
+	write "$sched/sched_child_runs_first" 0
+	write "$sched/sched_dynamic_ravg_window_enable" 0
+done
 
 write /sys/kernel/debug/sched_features NO_GENTLE_FAIR_SLEEPERS
 write /sys/kernel/debug/sched_features NO_HRTICK
@@ -532,119 +391,118 @@ write /sys/kernel/debug/sched_features NO_SCHED_HMP
 write /sys/kernel/debug/sched_features NO_SCHED_MTK_EAS
 
 # TCP
-write /proc/sys/net/ipv4/tcp_ecn 2
-write /proc/sys/net/ipv4/tcp_sack 1
-write /proc/sys/net/ipv4/route/flush 1
-write /proc/sys/net/ipv4/tcp_rfc1337 1
-write /proc/sys/net/ipv4/tcp_tw_reuse 1
-write /proc/sys/net/ipv4/tcp_timestamps 1
-write /proc/sys/net/ipv4/tcp_mtu_probing 1
-write /proc/sys/net/ipv4/tcp_tw_recycle 0
-write /proc/sys/net/ipv4/tcp_no_metrics_save 1
-write /proc/sys/net/ipv4/tcp_window_scaling 1
-write /proc/sys/net/ipv4/tcp_syncookies 1
-write /proc/sys/net/ipv4/tcp_fastopen 3
-write /proc/sys/net/ipv4/tcp_keepalive_probes 5
-write /proc/sys/net/ipv4/tcp_keepalive_intvl 10
-write /proc/sys/net/ipv4/tcp_fin_timeout 15
-write /proc/sys/net/core/netdev_max_backlog 8192
-write /proc/sys/net/core/optmem_max 65536
-write /proc/sys/net/core/rmem_default 524288
-write /proc/sys/net/core/wmem_default 524288
-write /proc/sys/net/core/rmem_max 16777216
-write /proc/sys/net/core/wmem_max 16777216
-write /proc/sys/net/ipv4/tcp_slow_start_after_idle 0
-write /proc/sys/net/ipv4/ip_no_pmtu_disc 0
-write /proc/sys/net/ipv4/tcp_fack 0
+write net/ipv4/tcp_ecn 2
+write net/ipv4/tcp_sack 1
+write net/ipv4/tcp_fack 0
+write net/ipv4/tcp_timestamps 1
+write net/ipv4/tcp_window_scaling 1
+write net/ipv4/tcp_tw_reuse 1
+write net/ipv4/tcp_tw_recycle 0
+write net/ipv4/tcp_rfc1337 1
+write net/ipv4/tcp_fin_timeout 15
+write net/ipv4/tcp_keepalive_probes 5
+write net/ipv4/tcp_keepalive_intvl 10
+write net/ipv4/tcp_fastopen 3
+write net/ipv4/tcp_syncookies 1
+write net/core/netdev_max_backlog 8192
+write net/core/optmem_max 65536
+write net/core/rmem_default 524288
+write net/core/wmem_default 524288
+write net/core/rmem_max 16777216
+write net/core/wmem_max 16777216
+write net/ipv4/tcp_mtu_probing 1
+write net/ipv4/tcp_no_metrics_save 1
+write net/ipv4/tcp_slow_start_after_idle 0
+write net/ipv4/ip_no_pmtu_disc 0
+write net/ipv4/route/flush 1
 
 # Others parameters
-write /sys/kernel/rcu_normal 1
-write /sys/kernel/rcu_expedited 1
-write /proc/sys/fs/leases-enable 1
-write /sys/kernel/fp_boost/enabled 1
-write /sys/kernel/mi_reclaim/enable 1
-write /proc/sys/fs/dir-notify-enable 1
-write /proc/sys/dev/tty/ldisc_autoload 1
-write /sys/class/sec/switch/afc_disable 1
-write /proc/touchpanel/oplus_tp_direction 1
-write /proc/touchpanel/game_switch_enable 1
-write /proc/sys/kernel/slide_boost_enabled 1
-write /sys/kernel/dyn_fsync/Dyn_fsync_active 1
-write /proc/sys/kernel/launcher_boost_enabled 1
-write /sys/devices/system/cpu/sched/hint_enable 1
-write /sys/module/fast_charge/force_fast_charge 1
-write /sys/kernel/fast_charge/force_fast_charge 1
-write /sys/module/sync/parameters/fsync_enabled 1
-write /sys/class/mmc_host/mmc0/clk_scaling/enable 1
-write /sys/class/mmc_host/mmc1/clk_scaling/enable 1
-write /sys/module/lpm_levels/parameters/bias_hyst 1
-write /sys/kernel/tracing/events/sched/sched_boost_cpu 1
-write /sys/class/power_supply/battery/charging_enabled 1
-write /proc/cpufreq/cpufreq_power_mode 3
-write /proc/sys/fs/lease-break-time 5
-write /proc/sys/kernel/random/read_wakeup_threshold 256
-write /proc/sys/kernel/random/write_wakeup_threshold 256
-write /sys/kernel/oppo_display/LCM_CABC 0
-write /proc/touchpanel/oplus_tp_limit_enable 0
-write /sys/kernel/debug/msm_vidc/fw_low_power_mode 0
-write /sys/module/mmc_core/parameters/use_spi_crc 0
-write /sys/module/system/cpu/sched_mc_power_savings 0
+write sys/kernel/rcu_normal 1
+write sys/kernel/rcu_expedited 1
+write proc/sys/fs/leases-enable 1
+write sys/kernel/fp_boost/enabled 1
+write sys/kernel/mi_reclaim/enable 1
+write proc/sys/fs/dir-notify-enable 1
+write proc/sys/dev/tty/ldisc_autoload 1
+write sys/class/sec/switch/afc_disable 1
+write proc/touchpanel/oplus_tp_direction 1
+write proc/touchpanel/game_switch_enable 1
+write proc/sys/kernel/slide_boost_enabled 1
+write sys/kernel/dyn_fsync/Dyn_fsync_active 1
+write proc/sys/kernel/launcher_boost_enabled 1
+write sys/devices/system/cpu/sched/hint_enable 1
+write sys/module/fast_charge/force_fast_charge 1
+write sys/kernel/fast_charge/force_fast_charge 1
+write sys/module/sync/parameters/fsync_enabled 1
+write sys/class/mmc_host/mmc0/clk_scaling/enable 1
+write sys/class/mmc_host/mmc1/clk_scaling/enable 1
+write sys/module/lpm_levels/parameters/bias_hyst 1
+write sys/kernel/tracing/events/sched/sched_boost_cpu 1
+write sys/class/power_supply/battery/charging_enabled 1
+write proc/cpufreq/cpufreq_power_mode 3
+write proc/sys/fs/lease-break-time 5
+write proc/sys/kernel/random/read_wakeup_threshold 256
+write proc/sys/kernel/random/write_wakeup_threshold 256
+write sys/kernel/oppo_display/LCM_CABC 0
+write proc/touchpanel/oplus_tp_limit_enable 0
+write sys/kernel/debug/msm_vidc/fw_low_power_mode 0
+write sys/module/mmc_core/parameters/use_spi_crc 0
+write sys/module/system/cpu/sched_mc_power_savings 0
 write /sys/devices/platform/soc/1d84000.ufshc/clkscale_enable 0
 write /sys/devices/platform/soc/1d84000.ufshc/hibern8_on_idle_enable 0
 write /sys/devices/platform/soc/1d84000.ufshc/clkgate_enable 0
-write /sys/module/pm2/parameters/idle_sleep_mode N
-write /sys/module/lpm_levels/parameters/lpm_prediction N
-write /sys/module/lpm_levels/parameters/lpm_ipi_prediction N
-write /sys/module/lpm_levels/parameters/sleep_disabled N
-write /sys/module/battery_saver/parameters/enabled N
-write /sys/module/workqueue/parameters/power_efficient 0
-write /sys/module/mmc_core/parameters/removable N
-write /sys/module/mmc_core/parameters/use_spi_crc 0
-write /sys/module/mmc_core/parameters/crc 0
-write /sys/module/exynos_acme/parameters/enable_suspend_freqs N
-write /proc/sys/kernel/printk_devkmsg off
+write sys/module/pm2/parameters/idle_sleep_mode N
+write sys/module/lpm_levels/parameters/lpm_prediction N
+write sys/module/lpm_levels/parameters/lpm_ipi_prediction N
+write sys/module/lpm_levels/parameters/sleep_disabled N
+write sys/module/battery_saver/parameters/enabled N
+write sys/module/workqueue/parameters/power_efficient 0
+write sys/module/mmc_core/parameters/removable N
+write sys/module/mmc_core/parameters/crc 0
+write sys/module/exynos_acme/parameters/enable_suspend_freqs N
+write proc/sys/kernel/printk_devkmsg off
+write sys/kernel/gbe/gbe_enable1 1
+write sys/kernel/gbe/gbe_enable2 1
+write sys/kernel/ged/hal/dcs_mode 1
 
-write /sys/kernel/gbe/gbe_enable1 1
-write /sys/kernel/gbe/gbe_enable2 1
-write /sys/kernel/ged/hal/dcs_mode 1
-write /sys/module/ged/parameters/gx_game_mode 1
-write /sys/module/ged/parameters/boost_amp 1
-write /sys/module/ged/parameters/boost_extra 1
-write /sys/module/ged/parameters/boost_gpu_enable 1
-write /sys/module/ged/parameters/enable_cpu_boost 1
-write /sys/module/ged/parameters/enable_gpu_boost 1
-write /sys/module/ged/parameters/gx_frc_mode 1
-write /sys/module/ged/parameters/gx_boost_on 1
-write /sys/module/ged/parameters/gx_force_cpu_boost 1
-write /sys/module/ged/parameters/is_GED_KPI_enabled 1
-write /sys/module/ged/parameters/enable_game_self_frc_detect 1
-write /sys/module/ged/parameters/ged_boost_enable 1
-write /sys/module/ged/parameters/gx_3D_benchmark_on 1
-write /sys/module/ged/parameters/cpu_boost_policy 100
-write /sys/module/ged/parameters/ged_smart_boost 100
-write /sys/module/ged/parameters/gx_fb_dvfs_margin 100
-write /sys/module/ged/parameters/gx_tb_dvfs_margin 0
-write /sys/module/ged/parameters/target_t_cpu_remained 0
-write /sys/module/ged/parameters/gpu_debug_enable 0
-write /sys/module/ged/parameters/ged_force_mdp_enable 0
-write /sys/module/ged/parameters/ged_log_perf_trace_enable 0
-write /sys/module/ged/parameters/ged_log_trace_enable 0
-write /sys/module/ged/parameters/ged_monitor_3D_fence_debug 0
-write /sys/module/ged/parameters/ged_monitor_3D_fence_disable 0
-write /sys/module/ged/parameters/ged_monitor_3D_fence_systrace 0
+write sys/module/ged/parameters/gx_game_mode 1
+write sys/module/ged/parameters/boost_amp 1
+write sys/module/ged/parameters/boost_extra 1
+write sys/module/ged/parameters/boost_gpu_enable 1
+write sys/module/ged/parameters/enable_cpu_boost 1
+write sys/module/ged/parameters/enable_gpu_boost 1
+write sys/module/ged/parameters/gx_frc_mode 1
+write sys/module/ged/parameters/gx_boost_on 1
+write sys/module/ged/parameters/gx_force_cpu_boost 1
+write sys/module/ged/parameters/is_GED_KPI_enabled 1
+write sys/module/ged/parameters/enable_game_self_frc_detect 1
+write sys/module/ged/parameters/ged_boost_enable 1
+write sys/module/ged/parameters/gx_3D_benchmark_on 1
+write sys/module/ged/parameters/cpu_boost_policy 100
+write sys/module/ged/parameters/ged_smart_boost 100
+write sys/module/ged/parameters/gx_fb_dvfs_margin 100
+write sys/module/ged/parameters/gx_tb_dvfs_margin 0
+write sys/module/ged/parameters/target_t_cpu_remained 0
+write sys/module/ged/parameters/gpu_debug_enable 0
+write sys/module/ged/parameters/ged_force_mdp_enable 0
+write sys/module/ged/parameters/ged_log_perf_trace_enable 0
+write sys/module/ged/parameters/ged_log_trace_enable 0
+write sys/module/ged/parameters/ged_monitor_3D_fence_debug 0
+write sys/module/ged/parameters/ged_monitor_3D_fence_disable 0
+write sys/module/ged/parameters/ged_monitor_3D_fence_systrace 0
 
-write /proc/perfmgr/tchbst/user/usrtch enable 1
-write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_enable 1
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_prefer_idle 1
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_boost 1
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_boost 1
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_boost 1
-write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_up_loading 30
-write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_down_loading 10
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_uclamp_min 1024
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_uclamp_min 1024
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_uclamp_min 1024
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_uclamp_min 1024
+write proc/perfmgr/tchbst/user/usrtch enable 1
+write proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_enable 1
+write proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_prefer_idle 1
+write proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_boost 1
+write proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_boost 1
+write proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_boost 1
+write proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_up_loading 30
+write proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_down_loading 10
+write proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_uclamp_min 1024
+write proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_uclamp_min 1024
+write proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_uclamp_min 1024
+write proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_uclamp_min 1024
 
 write /proc/ppm/enabled 1
 write /proc/ppm/policy_status 0 0
@@ -1195,231 +1053,3 @@ write /sys/devices/system/cpu/cpu8/core_ctl/busy_up_thres 0
 write /sys/devices/system/cpu/cpu9/core_ctl/busy_up_thres 0
 write /sys/devices/system/cpu/cpu10/core_ctl/busy_up_thres 0
 write /sys/devices/system/cpu/cpu11/core_ctl/busy_up_thres 0
-
-write /dev/cpuset/cpus 0-1
-write /dev/cpuset/cpus 0-2
-write /dev/cpuset/cpus 0-3
-write /dev/cpuset/cpus 0-4
-write /dev/cpuset/cpus 0-5
-write /dev/cpuset/cpus 0-6
-write /dev/cpuset/cpus 0-7
-write /dev/cpuset/cpus 0-8
-write /dev/cpuset/cpus 0-9
-write /dev/cpuset/cpus 0-10
-write /dev/cpuset/cpus 0-11
-
-write /dev/cpuset/top-app/cpus 0-1
-write /dev/cpuset/top-app/cpus 0-2
-write /dev/cpuset/top-app/cpus 0-3
-write /dev/cpuset/top-app/cpus 0-4
-write /dev/cpuset/top-app/cpus 0-5
-write /dev/cpuset/top-app/cpus 0-6
-write /dev/cpuset/top-app/cpus 0-7
-write /dev/cpuset/top-app/cpus 0-8
-write /dev/cpuset/top-app/cpus 0-9
-write /dev/cpuset/top-app/cpus 0-10
-write /dev/cpuset/top-app/cpus 0-11
-
-write /dev/cpuset/application/cpus 0-1
-write /dev/cpuset/application/cpus 0-2
-write /dev/cpuset/application/cpus 0-3
-write /dev/cpuset/application/cpus 0-4
-write /dev/cpuset/application/cpus 0-5
-write /dev/cpuset/application/cpus 0-6
-write /dev/cpuset/application/cpus 0-7
-write /dev/cpuset/application/cpus 0-8
-write /dev/cpuset/application/cpus 0-9
-write /dev/cpuset/application/cpus 0-10
-write /dev/cpuset/application/cpus 0-11
-
-write /dev/cpuset/foreground_window/cpus 0-1
-write /dev/cpuset/foreground_window/cpus 0-2
-write /dev/cpuset/foreground_window/cpus 0-3
-write /dev/cpuset/foreground_window/cpus 0-4
-write /dev/cpuset/foreground_window/cpus 0-5
-write /dev/cpuset/foreground_window/cpus 0-6
-write /dev/cpuset/foreground_window/cpus 0-7
-write /dev/cpuset/foreground_window/cpus 0-8
-write /dev/cpuset/foreground_window/cpus 0-9
-write /dev/cpuset/foreground_window/cpus 0-10
-write /dev/cpuset/foreground_window/cpus 0-11
-
-write /dev/cpuset/background/cpus 0-1
-write /dev/cpuset/background/cpus 0-2
-write /dev/cpuset/background/cpus 0-3
-write /dev/cpuset/background/cpus 0-4
-write /dev/cpuset/background/cpus 0-5
-write /dev/cpuset/background/cpus 0-6
-write /dev/cpuset/background/cpus 0-7
-write /dev/cpuset/background/cpus 0-8
-write /dev/cpuset/background/cpus 0-9
-write /dev/cpuset/background/cpus 0-10
-write /dev/cpuset/background/cpus 0-11
-
-write /dev/cpuset/l-background/cpus 0-1
-write /dev/cpuset/l-background/cpus 0-2
-write /dev/cpuset/l-background/cpus 0-3
-write /dev/cpuset/l-background/cpus 0-4
-write /dev/cpuset/l-background/cpus 0-5
-write /dev/cpuset/l-background/cpus 0-6
-write /dev/cpuset/l-background/cpus 0-7
-write /dev/cpuset/l-background/cpus 0-8
-write /dev/cpuset/l-background/cpus 0-9
-write /dev/cpuset/l-background/cpus 0-10
-write /dev/cpuset/l-background/cpus 0-11
-
-write /dev/cpuset/h-background/cpus 0-1
-write /dev/cpuset/h-background/cpus 0-2
-write /dev/cpuset/h-background/cpus 0-3
-write /dev/cpuset/h-background/cpus 0-4
-write /dev/cpuset/h-background/cpus 0-5
-write /dev/cpuset/h-background/cpus 0-6
-write /dev/cpuset/h-background/cpus 0-7
-write /dev/cpuset/h-background/cpus 0-8
-write /dev/cpuset/h-background/cpus 0-9
-write /dev/cpuset/h-background/cpus 0-10
-write /dev/cpuset/h-background/cpus 0-11
-
-write /dev/cpuset/system-background/cpus 0-1
-write /dev/cpuset/system-background/cpus 0-2
-write /dev/cpuset/system-background/cpus 0-3
-write /dev/cpuset/system-background/cpus 0-4
-write /dev/cpuset/system-background/cpus 0-5
-write /dev/cpuset/system-background/cpus 0-6
-write /dev/cpuset/system-background/cpus 0-7
-write /dev/cpuset/system-background/cpus 0-8
-write /dev/cpuset/system-background/cpus 0-9
-write /dev/cpuset/system-background/cpus 0-10
-write /dev/cpuset/system-background/cpus 0-11
-
-write /dev/cpuset/restricted/cpus 0-1
-write /dev/cpuset/restricted/cpus 0-2
-write /dev/cpuset/restricted/cpus 0-3
-write /dev/cpuset/restricted/cpus 0-4
-write /dev/cpuset/restricted/cpus 0-5
-write /dev/cpuset/restricted/cpus 0-6
-write /dev/cpuset/restricted/cpus 0-7
-write /dev/cpuset/restricted/cpus 0-8
-write /dev/cpuset/restricted/cpus 0-9
-write /dev/cpuset/restricted/cpus 0-10
-write /dev/cpuset/restricted/cpus 0-11
-
-write /dev/cpuset/kernel/cpus 0-1
-write /dev/cpuset/kernel/cpus 0-2
-write /dev/cpuset/kernel/cpus 0-3
-write /dev/cpuset/kernel/cpus 0-4
-write /dev/cpuset/kernel/cpus 0-5
-write /dev/cpuset/kernel/cpus 0-6
-write /dev/cpuset/kernel/cpus 0-7
-write /dev/cpuset/kernel/cpus 0-8
-write /dev/cpuset/kernel/cpus 0-9
-write /dev/cpuset/kernel/cpus 0-10
-write /dev/cpuset/kernel/cpus 0-11
-
-write /dev/cpuset/rt/cpus 0-1
-write /dev/cpuset/rt/cpus 0-2
-write /dev/cpuset/rt/cpus 0-3
-write /dev/cpuset/rt/cpus 0-4
-write /dev/cpuset/rt/cpus 0-5
-write /dev/cpuset/rt/cpus 0-6
-write /dev/cpuset/rt/cpus 0-7
-write /dev/cpuset/rt/cpus 0-8
-write /dev/cpuset/rt/cpus 0-9
-write /dev/cpuset/rt/cpus 0-10
-write /dev/cpuset/rt/cpus 0-11
-
-write /dev/cpuset/nnapi-hal 0-1
-write /dev/cpuset/nnapi-hal 0-2
-write /dev/cpuset/nnapi-hal 0-3
-write /dev/cpuset/nnapi-hal 0-4
-write /dev/cpuset/nnapi-hal 0-5
-write /dev/cpuset/nnapi-hal 0-6
-write /dev/cpuset/nnapi-hal 0-7
-write /dev/cpuset/nnapi-hal 0-8
-write /dev/cpuset/nnapi-hal 0-9
-write /dev/cpuset/nnapi-hal 0-10
-write /dev/cpuset/nnapi-hal 0-11
-
-write /dev/cpuset/system/cpus 0-1
-write /dev/cpuset/system/cpus 0-2
-write /dev/cpuset/system/cpus 0-3
-write /dev/cpuset/system/cpus 0-4
-write /dev/cpuset/system/cpus 0-5
-write /dev/cpuset/system/cpus 0-6
-write /dev/cpuset/system/cpus 0-7
-write /dev/cpuset/system/cpus 0-8
-write /dev/cpuset/system/cpus 0-9
-write /dev/cpuset/system/cpus 0-10
-write /dev/cpuset/system/cpus 0-11
-
-write /dev/cpuset/camera-daemon/cpus 0-1
-write /dev/cpuset/camera-daemon/cpus 0-2
-write /dev/cpuset/camera-daemon/cpus 0-3
-write /dev/cpuset/camera-daemon/cpus 0-4
-write /dev/cpuset/camera-daemon/cpus 0-5
-write /dev/cpuset/camera-daemon/cpus 0-6
-write /dev/cpuset/camera-daemon/cpus 0-7
-write /dev/cpuset/camera-daemon/cpus 0-8
-write /dev/cpuset/camera-daemon/cpus 0-9
-write /dev/cpuset/camera-daemon/cpus 0-10
-write /dev/cpuset/camera-daemon/cpus 0-11
-
-write /dev/cpuset/sf/cpus 0-1
-write /dev/cpuset/sf/cpus 0-2
-write /dev/cpuset/sf/cpus 0-3
-write /dev/cpuset/sf/cpus 0-4
-write /dev/cpuset/sf/cpus 0-5
-write /dev/cpuset/sf/cpus 0-6
-write /dev/cpuset/sf/cpus 0-7
-write /dev/cpuset/sf/cpus 0-8
-write /dev/cpuset/sf/cpus 0-9
-write /dev/cpuset/sf/cpus 0-10
-write /dev/cpuset/sf/cpus 0-11
-
-write /dev/cpuset/oiface_fg/cpus 0-1
-write /dev/cpuset/oiface_fg/cpus 0-2
-write /dev/cpuset/oiface_fg/cpus 0-3
-write /dev/cpuset/oiface_fg/cpus 0-4
-write /dev/cpuset/oiface_fg/cpus 0-5
-write /dev/cpuset/oiface_fg/cpus 0-6
-write /dev/cpuset/oiface_fg/cpus 0-7
-write /dev/cpuset/oiface_fg/cpus 0-8
-write /dev/cpuset/oiface_fg/cpus 0-9
-write /dev/cpuset/oiface_fg/cpus 0-10
-write /dev/cpuset/oiface_fg/cpus 0-11
-
-write /dev/cpuset/display/cpus 0-1
-write /dev/cpuset/display/cpus 0-2
-write /dev/cpuset/display/cpus 0-3
-write /dev/cpuset/display/cpus 0-4
-write /dev/cpuset/display/cpus 0-5
-write /dev/cpuset/display/cpus 0-6
-write /dev/cpuset/display/cpus 0-7
-write /dev/cpuset/display/cpus 0-8
-write /dev/cpuset/display/cpus 0-9
-write /dev/cpuset/display/cpus 0-10
-write /dev/cpuset/display/cpus 0-11
-
-write /dev/cpuset/audio-app/cpus 0-1
-write /dev/cpuset/audio-app/cpus 0-2
-write /dev/cpuset/audio-app/cpus 0-3
-write /dev/cpuset/audio-app/cpus 0-4
-write /dev/cpuset/audio-app/cpus 0-5
-write /dev/cpuset/audio-app/cpus 0-6
-write /dev/cpuset/audio-app/cpus 0-7
-write /dev/cpuset/audio-app/cpus 0-8
-write /dev/cpuset/audio-app/cpus 0-9
-write /dev/cpuset/audio-app/cpus 0-10
-write /dev/cpuset/audio-app/cpus 0-11
-
-write /dev/cpuset/dex2oat/cpus 0-1
-write /dev/cpuset/dex2oat/cpus 0-2
-write /dev/cpuset/dex2oat/cpus 0-3
-write /dev/cpuset/dex2oat/cpus 0-4
-write /dev/cpuset/dex2oat/cpus 0-5
-write /dev/cpuset/dex2oat/cpus 0-6
-write /dev/cpuset/dex2oat/cpus 0-7
-write /dev/cpuset/dex2oat/cpus 0-8
-write /dev/cpuset/dex2oat/cpus 0-9
-write /dev/cpuset/dex2oat/cpus 0-10
-write /dev/cpuset/dex2oat/cpus 0-11

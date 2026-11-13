@@ -1,4 +1,4 @@
-# Write to OS System/Device and Hardware Data Files
+# Write to OS System/Device and Hardware Files
 write() {
 	[[ ! -f "$1" ]] && return 1
 	chmod +w "$1" 2> /dev/null

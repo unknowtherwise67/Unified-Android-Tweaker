@@ -1,12 +1,10 @@
 #!/system/bin/sh
-# Initialize variables at once
-MODPATH="${0%/*}"
 MODDIR="${0%/*}"
-
-# Timeout until Apply-On-Pre/Post-Boot actions
-while [ "$(getprop sys.boot_completed)" != "1" ]; do
+MODPATH="$MODDIR"
+until [ "$(getprop sys.boot_completed)" = "1" ] && [ -d "/sdcard/Android" ]; do
     sleep 1
 done
+sleep 1
 
 # Android Device/Kernel ZRAM Swap Virtual Memory Modifications
 ZRAM=/block/zram0
