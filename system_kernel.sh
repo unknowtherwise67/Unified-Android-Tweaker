@@ -180,42 +180,6 @@ for dev_dir in /sys/block/*; do
         write "$queue/nomerges" 2
         write "$queue/nr_requests" 128
     fi
-    iosched="$queue/iosched"
-    [ -d "$iosched" ] || continue
-    [ -f "$iosched/front_merges" ] && write "$iosched/front_merges" 1
-    [ -f "$iosched/back_seek_penalty" ] && write "$iosched/back_seek_penalty" 1
-    [ -f "$iosched/back_seek_max" ] && write "$iosched/back_seek_max" 1048576
-    [ -f "$iosched/fore_timeout" ] && write "$iosched/fore_timeout" 5
-    [ -f "$iosched/back_timeout" ] && write "$iosched/back_timeout" 10
-    [ -f "$iosched/timeout_sync" ] && write "$iosched/timeout_sync" 10
-    [ -f "$iosched/slice_async_rq" ] && write "$iosched/slice_async_rq" 1
-    [ -f "$iosched/writes_starved" ] && write "$iosched/writes_starved" 3
-    [ -f "$iosched/async_depth" ] && write "$iosched/async_depth" 8
-    [ -f "$iosched/io_threshold" ] && write "$iosched/io_threshold" 16
-    [ -f "$iosched/quantum" ] && write "$iosched/quantum" 8
-    [ -f "$iosched/fifo_batch" ] && write "$iosched/fifo_batch" 16
-    [ -f "$iosched/slice_async" ] && write "$iosched/slice_async" 10
-    [ -f "$iosched/slice_sync" ] && write "$iosched/slice_sync" 10
-    [ -f "$iosched/max_budget" ] && write "$iosched/max_budget" 16
-    [ -f "$iosched/fifo_expire_async" ] && write "$iosched/fifo_expire_async" 30
-    [ -f "$iosched/read_expire" ] && write "$iosched/read_expire" 50
-    [ -f "$iosched/fifo_expire_sync" ] && write "$iosched/fifo_expire_sync" 50
-    [ -f "$iosched/target_latency" ] && write "$iosched/target_latency" 100
-    [ -f "$iosched/write_expire" ] && write "$iosched/write_expire" 100
-    [ -f "$iosched/aging_expire" ] && write "$iosched/aging_expire" 5000
-    [ -f "$iosched/prio_aging_expire" ] && write "$iosched/prio_aging_expire" 10000
-    [ -f "$iosched/slice_sync_us" ] && write "$iosched/slice_sync_us" 10000
-    [ -f "$iosched/slice_async_us" ] && write "$iosched/slice_async_us" 5000
-    [ -f "$iosched/target_latency_us" ] && write "$iosched/target_latency_us" 100000
-    [ -f "$iosched/read_lat_nsec" ] && write "$iosched/read_lat_nsec" 1000000
-    [ -f "$iosched/write_lat_nsec" ] && write "$iosched/write_lat_nsec" 1000000
-    [ -f "$iosched/strict_guarantees" ] && write "$iosched/strict_guarantees" 0
-    [ -f "$iosched/cpq_log" ] && write "$iosched/cpq_log" 0
-    [ -f "$iosched/slice_idle" ] && write "$iosched/slice_idle" 0
-    [ -f "$iosched/group_idle" ] && write "$iosched/group_idle" 0
-    [ -f "$iosched/low_latency" ] && write "$iosched/low_latency" 0
-    [ -f "$iosched/slice_idle_us" ] && write "$iosched/slice_idle_us" 0
-    [ -f "$iosched/group_idle_us" ] && write "$iosched/group_idle_us" 0
 done
 
 # Memory
