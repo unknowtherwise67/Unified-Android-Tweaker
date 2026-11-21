@@ -11,6 +11,120 @@ write() {
 # Sync Data
 sync
 
+
+# Schedulers
+for sched in /proc/sys/kernel/ /sys/kernel/debug/
+do
+	write "$sched/sched_task_unfilter_period" 200000000
+	write "$sched/sched_latency_ns" 12000000
+	write "$sched/sched_min_granularity_ns" 2000000
+	write "$sched/sched_wakeup_granularity_ns" 2000000
+	write "$sched/sched_short_burst_ns" 5000000
+	write "$sched/sched_short_sleep_ns" 2000000
+	write "$sched/sched_migration_cost_ns" 1000000
+	write "$sched/sched_select_prev_cpu_us" 1000
+	write "$sched/sched_shares_window_ns" 10000000
+	write "$sched/sched_shares_window" 10000000
+	write "$sched/sched_time_avg" 1000
+	write "$sched/sched_time_avg_ms" 100
+	write "$sched/sched_ravg_hist_size" 3
+	write "$sched/sched_pelt_multiplier" 4
+	write "$sched/sched_window_stats_policy" 2
+	write "$sched/sched_ravg_window_nr_ticks" 1
+	write "$sched/sched_deadline_period_max_us" 4194304
+	write "$sched/sched_deadline_period_min_us" 100
+	write "$sched/sched_rt_period_us" 1000000
+	write "$sched/sched_rt_runtime_us" 1000000
+	write "$sched/sched_rr_timeslice_us" 100000
+	write "$sched/sched_rr_timeslice_ms" 100
+	write "$sched/sched_util_clamp_max" 1024
+	write "$sched/sched_util_clamp_min" 1024
+	write "$sched/sched_util_clamp_min_rt_default" 1024
+	write "$sched/sched_cfs_boost" 10
+	write "$sched/schedtune.boost" 10
+	write "$sched/sched_stune_task_threshold" 5
+	write "$sched/sched_min_task_util_for_boost" 0
+	write "$sched/sched_min_task_util_for_boost_colocation" 50
+	write "$sched/sched_nr_migrate" 32
+	write "$sched/sched_spill_load" 100
+	write "$sched/sched_spill_nr_run" 5
+	write "$sched/sched_asym_cap_sibling_freq_match_pct" 70
+	write "$sched/sched_upmigrate" 50
+	write "$sched/sched_downmigrate" 50
+	write "$sched/sched_group_upmigrate" 50
+	write "$sched/sched_group_downmigrate" 50
+	write "$sched/sched_walt_init_task_load_pct" 50
+	write "$sched/sched_init_task_load" 50
+	write "$sched/sched_initial_task_util" 128
+	write "$sched/sched_many_wakeup_threshold" 10
+	write "$sched/sched_walt_cpu_high_irqload" 10
+	write "$sched/sched_big_waker_task_load" 10
+	write "$sched/sched_restrict_cluster_spill" 1
+	write "$sched/sched_force_lb_enable" 0
+	write "$sched/sched_prefer_spread" 0
+	write "$sched/sched_coloc_busy_hyst_ns" 50000000
+	write "$sched/sched_coloc_busy_hysteresis_enable_cpus" 255
+	write "$sched/sched_coloc_busy_hyst_max_ms" 30
+	write "$sched/sched_assist_scenes" 255
+	write "$sched/sched_assist_enabled" 1
+	write "$sched/sched_assist_ux_uclamp_max_enable" 0
+	write "$sched/sched_enable_thread_grouping" 1
+	write "$sched/sched_min_task_util_for_colocation" 0
+	write "$sched/sched_little_cluster_coloc_fmin_khz" 0
+	write "$sched/sched_walt_rotate_big_tasks" 1
+	write "$sched/sched_big_task_rotation" 1
+	write "$sched/sched_isolation_hint" 1
+	write "$sched/sched_user_hint" 1
+	write "$sched/sched_sync_hint_enable" 1
+	write "$sched/sched_prefer_sync_wakee_to_waker" 1
+	write "$sched/sched_freq_aggregate" 1
+	write "$sched/sched_freq_aggregate_threshold" 1
+	write "$sched/sched_freq_dec_notify" 1
+	write "$sched/sched_freq_inc_notify" 1
+	write "$sched/sched_pred_alert_freq" 0
+	write "$sched/sched_energy_aware" 0
+	write "$sched/sched_cstate_aware" 1
+	write "$sched/sched_tunable_scaling" 0
+	write "$sched/sched_conservative_pl" 0
+	write "$sched/perf_cpu_time_max_percent" 1
+	write "$sched/sched_schedstats" 1
+	write "$sched/sched_autogroup_enabled" 1
+	write "$sched/sched_is_big_little" 1
+	write "$sched/sched_use_walt_task_util" 2
+	write "$sched/sched_use_walt_cpu_util" 1
+	write "$sched/sched_wake_to_idle" 1
+	write "$sched/sched_small_wakee_task_load" 0
+	write "$sched/sched_child_runs_first" 0
+	write "$sched/sched_dynamic_ravg_window_enable" 0
+done
+
+write /sys/kernel/debug/sched_features NO_GENTLE_FAIR_SLEEPERS
+write /sys/kernel/debug/sched_features NO_HRTICK
+write /sys/kernel/debug/sched_features NO_DOUBLE_TICK
+write /sys/kernel/debug/sched_features NO_RT_RUNTIME_SHARE
+write /sys/kernel/debug/sched_features NO_NEXT_BUDDY
+write /sys/kernel/debug/sched_features NO_LAST_BUDDY
+write /sys/kernel/debug/sched_features NO_TTWU_QUEUE
+write /sys/kernel/debug/sched_features NO_UTIL_EST
+write /sys/kernel/debug/sched_features NO_ARCH_CAPACITY
+write /sys/kernel/debug/sched_features NO_ARCH_POWER
+write /sys/kernel/debug/sched_features NO_START_DEBIT
+write /sys/kernel/debug/sched_features NO_CACHE_HOT_BUDDY
+write /sys/kernel/debug/sched_features NO_WAKEUP_PREEMPTION
+write /sys/kernel/debug/sched_features NO_LB_BIAS
+write /sys/kernel/debug/sched_features NO_NONTASK_CAPACITY
+write /sys/kernel/debug/sched_features NO_RT_PUSH_IPI
+write /sys/kernel/debug/sched_features NO_FORCE_SD_OVERLAP
+write /sys/kernel/debug/sched_features NO_LB_MIN
+write /sys/kernel/debug/sched_features NO_ATTACH_AGE_LOAD
+write /sys/kernel/debug/sched_features NO_SIS_AVG_CPU
+write /sys/kernel/debug/sched_features NO_MIN_CAPACITY_CAPPING
+write /sys/kernel/debug/sched_features NO_FBT_STRICT_ORDER
+write /sys/kernel/debug/sched_features NO_EAS_USE_NEED_IDLE
+write /sys/kernel/debug/sched_features NO_ENERGY_AWARE
+write /sys/kernel/debug/sched_features NO_SCHED_HMP
+write /sys/kernel/debug/sched_features NO_SCHED_MTK_EAS
+
 # CPU/GPU/IO
 for governor in /sys/*/system/cpu/*/cpufreq/* /sys/*/system/cpu/cpufreq/*
 do
@@ -65,6 +179,53 @@ do
     write "$governor/sched_freq_dec_notify" 250000
     write "$governor/up_throttle_nsec" 5000000
     write "$governor/down_throttle_nsec" 5000000
+done
+
+# Schedtunes/Stunes/Uclamps/Cpuctl/Core_Ctl
+for stune in /dev/stune/* /dev/cpuctl/*
+do
+    write "$stune/schedtune.boost" 10
+    write "$stune/sched_cfs_boost" 10
+    write "$stune/schedtune.colocate" 1
+    write "$stune/schedtune.sched_boost_enabled" 1
+    write "$stune/schedtune.prefer_high_cap" 1
+    write "$stune/schedtune.prefer_idle" 1
+    write "$stune/cpu.uclamp.latency_sensitive" 1
+    write "$stune/schedtune.sched_boost_no_override" 1
+    write "$stune/cgroup.sane_behavior" 0
+    write "$stune/schedtune.capacity_min" 100
+    write "$stune/schedtune.cpucapacity_min" 100
+    write "$stune/schedtune.uclamp.min.effective" 100
+    write "$stune/cpu.cpucapacity_min" 100
+    write "$stune/cpu.uclamp.max.effective" 100
+done
+
+write /proc/sys/kernel/sched_util_clamp_min 1024
+write /proc/sys/kernel/sched_util_clamp_max 1024
+write /proc/sys/kernel/sched_util_clamp_min_rt_default 1024
+
+for core_ctl in /sys/*/system/cpu/*/core_ctl/
+do
+    write "$core_ctl/min_cpus" 4
+    write "$core_ctl/task_thres" 100
+    write "$core_ctl/offline_delay_ms" 0
+    write "$core_ctl/busy_up_thres" 0
+    write "$core_ctl/busy_down_thres" 0
+done
+
+for cpuset in /dev/cpuset/*
+do
+    write "$cpuset/cpus" 0-1
+    write "$cpuset/cpus" 0-2
+    write "$cpuset/cpus" 0-3
+    write "$cpuset/cpus" 0-4
+    write "$cpuset/cpus" 0-5
+    write "$cpuset/cpus" 0-6
+    write "$cpuset/cpus" 0-7
+    write "$cpuset/cpus" 0-8
+    write "$cpuset/cpus" 0-9
+    write "$cpuset/cpus" 0-10
+    write "$cpuset/cpus" 0-11
 done
 
 write /sys/kernel/gpu/boost 1
@@ -275,119 +436,6 @@ write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
 write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
 write /sys/module/process_reclaim/parameters/enable_process_reclaim 0
 
-# Schedulers
-for sched in /proc/sys/kernel/ /sys/kernel/debug/
-do
-	write "$sched/sched_task_unfilter_period" 200000000
-	write "$sched/sched_latency_ns" 12000000
-	write "$sched/sched_min_granularity_ns" 2000000
-	write "$sched/sched_wakeup_granularity_ns" 2000000
-	write "$sched/sched_short_burst_ns" 5000000
-	write "$sched/sched_short_sleep_ns" 2000000
-	write "$sched/sched_migration_cost_ns" 1000000
-	write "$sched/sched_select_prev_cpu_us" 1000
-	write "$sched/sched_shares_window_ns" 10000000
-	write "$sched/sched_shares_window" 10000000
-	write "$sched/sched_time_avg" 1000
-	write "$sched/sched_time_avg_ms" 100
-	write "$sched/sched_ravg_hist_size" 3
-	write "$sched/sched_pelt_multiplier" 4
-	write "$sched/sched_window_stats_policy" 2
-	write "$sched/sched_ravg_window_nr_ticks" 1
-	write "$sched/sched_deadline_period_max_us" 4194304
-	write "$sched/sched_deadline_period_min_us" 100
-	write "$sched/sched_rt_period_us" 1000000
-	write "$sched/sched_rt_runtime_us" 1000000
-	write "$sched/sched_rr_timeslice_us" 100000
-	write "$sched/sched_rr_timeslice_ms" 100
-	write "$sched/sched_util_clamp_max" 1024
-	write "$sched/sched_util_clamp_min" 1024
-	write "$sched/sched_util_clamp_min_rt_default" 1024
-	write "$sched/sched_cfs_boost" 10
-	write "$sched/schedtune.boost" 10
-	write "$sched/sched_stune_task_threshold" 5
-	write "$sched/sched_min_task_util_for_boost" 0
-	write "$sched/sched_min_task_util_for_boost_colocation" 50
-	write "$sched/sched_nr_migrate" 32
-	write "$sched/sched_spill_load" 100
-	write "$sched/sched_spill_nr_run" 5
-	write "$sched/sched_asym_cap_sibling_freq_match_pct" 70
-	write "$sched/sched_upmigrate" 50
-	write "$sched/sched_downmigrate" 50
-	write "$sched/sched_group_upmigrate" 50
-	write "$sched/sched_group_downmigrate" 50
-	write "$sched/sched_walt_init_task_load_pct" 50
-	write "$sched/sched_init_task_load" 50
-	write "$sched/sched_initial_task_util" 128
-	write "$sched/sched_many_wakeup_threshold" 10
-	write "$sched/sched_walt_cpu_high_irqload" 10
-	write "$sched/sched_big_waker_task_load" 10
-	write "$sched/sched_restrict_cluster_spill" 1
-	write "$sched/sched_force_lb_enable" 0
-	write "$sched/sched_prefer_spread" 0
-	write "$sched/sched_coloc_busy_hyst_ns" 50000000
-	write "$sched/sched_coloc_busy_hysteresis_enable_cpus" 255
-	write "$sched/sched_coloc_busy_hyst_max_ms" 30
-	write "$sched/sched_assist_scenes" 255
-	write "$sched/sched_assist_enabled" 1
-	write "$sched/sched_assist_ux_uclamp_max_enable" 0
-	write "$sched/sched_enable_thread_grouping" 1
-	write "$sched/sched_min_task_util_for_colocation" 0
-	write "$sched/sched_little_cluster_coloc_fmin_khz" 0
-	write "$sched/sched_walt_rotate_big_tasks" 1
-	write "$sched/sched_big_task_rotation" 1
-	write "$sched/sched_isolation_hint" 1
-	write "$sched/sched_user_hint" 1
-	write "$sched/sched_sync_hint_enable" 1
-	write "$sched/sched_prefer_sync_wakee_to_waker" 1
-	write "$sched/sched_freq_aggregate" 1
-	write "$sched/sched_freq_aggregate_threshold" 1
-	write "$sched/sched_freq_dec_notify" 1
-	write "$sched/sched_freq_inc_notify" 1
-	write "$sched/sched_pred_alert_freq" 0
-	write "$sched/sched_energy_aware" 0
-	write "$sched/sched_cstate_aware" 1
-	write "$sched/sched_tunable_scaling" 0
-	write "$sched/sched_conservative_pl" 0
-	write "$sched/perf_cpu_time_max_percent" 1
-	write "$sched/sched_schedstats" 1
-	write "$sched/sched_autogroup_enabled" 1
-	write "$sched/sched_is_big_little" 1
-	write "$sched/sched_use_walt_task_util" 2
-	write "$sched/sched_use_walt_cpu_util" 1
-	write "$sched/sched_wake_to_idle" 1
-	write "$sched/sched_small_wakee_task_load" 0
-	write "$sched/sched_child_runs_first" 0
-	write "$sched/sched_dynamic_ravg_window_enable" 0
-done
-
-write /sys/kernel/debug/sched_features NO_GENTLE_FAIR_SLEEPERS
-write /sys/kernel/debug/sched_features NO_HRTICK
-write /sys/kernel/debug/sched_features NO_DOUBLE_TICK
-write /sys/kernel/debug/sched_features NO_RT_RUNTIME_SHARE
-write /sys/kernel/debug/sched_features NO_NEXT_BUDDY
-write /sys/kernel/debug/sched_features NO_LAST_BUDDY
-write /sys/kernel/debug/sched_features NO_TTWU_QUEUE
-write /sys/kernel/debug/sched_features NO_UTIL_EST
-write /sys/kernel/debug/sched_features NO_ARCH_CAPACITY
-write /sys/kernel/debug/sched_features NO_ARCH_POWER
-write /sys/kernel/debug/sched_features NO_START_DEBIT
-write /sys/kernel/debug/sched_features NO_CACHE_HOT_BUDDY
-write /sys/kernel/debug/sched_features NO_WAKEUP_PREEMPTION
-write /sys/kernel/debug/sched_features NO_LB_BIAS
-write /sys/kernel/debug/sched_features NO_NONTASK_CAPACITY
-write /sys/kernel/debug/sched_features NO_RT_PUSH_IPI
-write /sys/kernel/debug/sched_features NO_FORCE_SD_OVERLAP
-write /sys/kernel/debug/sched_features NO_LB_MIN
-write /sys/kernel/debug/sched_features NO_ATTACH_AGE_LOAD
-write /sys/kernel/debug/sched_features NO_SIS_AVG_CPU
-write /sys/kernel/debug/sched_features NO_MIN_CAPACITY_CAPPING
-write /sys/kernel/debug/sched_features NO_FBT_STRICT_ORDER
-write /sys/kernel/debug/sched_features NO_EAS_USE_NEED_IDLE
-write /sys/kernel/debug/sched_features NO_ENERGY_AWARE
-write /sys/kernel/debug/sched_features NO_SCHED_HMP
-write /sys/kernel/debug/sched_features NO_SCHED_MTK_EAS
-
 # TCP
 write net/ipv4/tcp_ecn 2
 write net/ipv4/tcp_sack 1
@@ -519,50 +567,3 @@ write /proc/ppm/policy_status 11 0
 write /sys/module/msm_thermal/core_control/enabled 1
 write /sys/module/msm_thermal/vdd_restriction/enabled 1
 write /sys/module/msm_thermal/parameters/enabled Y
-
-# Schedtunes/Stunes/Uclamps/Cpuctl/Core_Ctl
-for stune in /dev/stune/* /dev/cpuctl/*
-do
-    write "$stune/schedtune.boost" 10
-    write "$stune/sched_cfs_boost" 10
-    write "$stune/schedtune.colocate" 1
-    write "$stune/schedtune.sched_boost_enabled" 1
-    write "$stune/schedtune.prefer_high_cap" 1
-    write "$stune/schedtune.prefer_idle" 1
-    write "$stune/cpu.uclamp.latency_sensitive" 1
-    write "$stune/schedtune.sched_boost_no_override" 1
-    write "$stune/cgroup.sane_behavior" 0
-    write "$stune/schedtune.capacity_min" 100
-    write "$stune/schedtune.cpucapacity_min" 100
-    write "$stune/schedtune.uclamp.min.effective" 100
-    write "$stune/cpu.cpucapacity_min" 100
-    write "$stune/cpu.uclamp.max.effective" 100
-done
-
-write /proc/sys/kernel/sched_util_clamp_min 1024
-write /proc/sys/kernel/sched_util_clamp_max 1024
-write /proc/sys/kernel/sched_util_clamp_min_rt_default 1024
-
-for core_ctl in /sys/*/system/cpu/*/core_ctl/
-do
-    write "$core_ctl/min_cpus" 4
-    write "$core_ctl/task_thres" 100
-    write "$core_ctl/offline_delay_ms" 0
-    write "$core_ctl/busy_up_thres" 0
-    write "$core_ctl/busy_down_thres" 0
-done
-
-for cpuset in /dev/cpuset/*
-do
-    write "$cpuset/cpus" 0-1
-    write "$cpuset/cpus" 0-2
-    write "$cpuset/cpus" 0-3
-    write "$cpuset/cpus" 0-4
-    write "$cpuset/cpus" 0-5
-    write "$cpuset/cpus" 0-6
-    write "$cpuset/cpus" 0-7
-    write "$cpuset/cpus" 0-8
-    write "$cpuset/cpus" 0-9
-    write "$cpuset/cpus" 0-10
-    write "$cpuset/cpus" 0-11
-done
