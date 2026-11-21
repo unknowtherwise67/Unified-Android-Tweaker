@@ -25,18 +25,10 @@ sync
 # Be sure to set the value correctly - For example: 1500000 = 1500 mAh = Around 5 and 6 Watt.
 # Note that this modification may not/no longer work and/or supported, including newer Android Devices, due to hardware sources codes limitations from OEMs/Manufactuers.
 # Get correct information about the device's max charging current value (Wattage or mAh).
-write /sys/devices/system/cpu/cpu0/online 1
-write /sys/devices/system/cpu/cpu1/online 1
-write /sys/devices/system/cpu/cpu2/online 1
-write /sys/devices/system/cpu/cpu3/online 1
-write /sys/devices/system/cpu/cpu4/online 1
-write /sys/devices/system/cpu/cpu5/online 1
-write /sys/devices/system/cpu/cpu6/online 1
-write /sys/devices/system/cpu/cpu7/online 1
-write /sys/devices/system/cpu/cpu8/online 1
-write /sys/devices/system/cpu/cpu9/online 1
-write /sys/devices/system/cpu/cpu10/online 1
-write /sys/devices/system/cpu/cpu11/online 1
+for online in /sys/devices/system/cpu/*/online
+do
+	write "$online" 1
+done
 
 write /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq 
 write /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq 

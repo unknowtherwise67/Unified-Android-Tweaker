@@ -99,11 +99,11 @@ if [ -n "$adbroot" ]; then
 fi
 
 # Android Device/Kernel Settings/Parameters Modifications
-sleep 60
+sleep 1
+[ -f "$MODPATH/system_settings.sh" ] && sh "$MODPATH/system_settings.sh"
+sleep 1
 [ -f "$MODPATH/system_governors.sh" ] && sh "$MODPATH/system_governors.sh"
 sleep 1
 [ -f "$MODPATH/system_kernel.sh" ] && sh "$MODPATH/system_kernel.sh"
 sleep 1
 [ -f "$MODPATH/system_cpu_gpu_power.sh" ] && sh "$MODPATH/system_cpu_gpu_power.sh"
-sleep 1
-[ -f "$MODPATH/system_settings.sh" ] && sh "$MODPATH/system_settings.sh"

@@ -81,26 +81,3 @@ do
 		fi
 	done
 done
-
-# Modify and use this as fallback parameters if all of above's parameters isn't working.
-write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor 
-write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor 
-write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor	
-write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor	
-write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor	
-write /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor	
-write /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor	
-write /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor	
-write /sys/devices/system/cpu/cpu8/cpufreq/scaling_governor	
-write /sys/devices/system/cpu/cpu9/cpufreq/scaling_governor	
-write /sys/devices/system/cpu/cpu10/cpufreq/scaling_governor 
-write /sys/devices/system/cpu/cpu11/cpufreq/scaling_governor 
-
-write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor 
-write /sys/devices/system/cpu/cpufreq/policy4/scaling_governor 
-write /sys/devices/system/cpu/cpufreq/policy7/scaling_governor 
-
-write /sys/class/kgsl/kgsl-3d0/devfreq/gpu_governor 
-write /sys/kernel/gpu/gpu_governor 
-write /sys/class/devfreq/1d84000.ufshc/governor 
-write /proc/sys/net/ipv4/tcp_congestion_control 
