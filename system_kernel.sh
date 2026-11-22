@@ -365,8 +365,6 @@ do
     write "$stune/cpu.uclamp.latency_sensitive" 1
     write "$stune/schedtune.sched_boost_no_override" 1
     write "$stune/cgroup.sane_behavior" 0
-    write "$stune/schedtune.capacity_min" 100
-    write "$stune/schedtune.cpucapacity_min" 100
     write "$stune/schedtune.capacity.min" 100
     write "$stune/schedtune.cpucapacity.min" 100
     write "$stune/schedtune.uclamp.min.effective" 100
@@ -378,19 +376,17 @@ do
     write "$stune/cpu_uclamp.min.effective" 100
     write "$stune/cpu.uclamp.max" 100
     write "$stune/cpu.uclamp.max.effective" 100
-    write "$stune/schedtune.capacity_min" max
-    write "$stune/schedtune.cpucapacity_min" max
-    write "$stune/schedtune.capacity.min" max
-    write "$stune/schedtune.cpucapacity.min" max
-    write "$stune/schedtune.uclamp.min.effective" max
-    write "$stune/cpu.cpucapacity.min" max
-    write "$stune/cpu.uclamp.max.effective" max
-    write "$stune/cpu.uclamp.min" max
-    write "$stune/cpu.uclamp" max
-    write "$stune/cpu_uclamp.min" max
-    write "$stune/cpu_uclamp.min.effective" max
-    write "$stune/cpu.uclamp.max" max
-    write "$stune/cpu.uclamp.max.effective" max
+    write "$stune/schedtune.capacity_min" 100
+    write "$stune/schedtune.cpucapacity_min" 100
+    write "$stune/schedtune.uclamp.min_effective" 100
+    write "$stune/cpu.cpucapacity_min" 100
+    write "$stune/cpu.uclamp_max_effective" 100
+    write "$stune/cpu.uclamp_min" 100
+    write "$stune/cpu.uclamp" 100
+    write "$stune/cpu_uclamp_min" 100
+    write "$stune/cpu_uclamp_min.effective" 100
+    write "$stune/cpu.uclamp_max" 100
+    write "$stune/cpu.uclamp_max_effective" 100
 done
 
 write /proc/sys/kernel/sched_util_clamp_min 1024
