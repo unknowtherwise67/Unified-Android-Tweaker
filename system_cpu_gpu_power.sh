@@ -13,7 +13,7 @@ sync
 
 # CPU Cores Online/Offline, CPU/GPU Clocks/Frequencies Speed and Device Charging Power Modification
 # NOTE:
-# THIS PARAMETERS IS COMPLETELY OPTIONAL.
+# THIS PARAMETERS IS OPTIONAL.
 # DON'T TOUCH/MODIFY THE PARAMETERS IF YOU DON'T KNOW ABOUT IT.
 # For CPU/GPU Clocks/Frequencies Speed Modification:
 # Most APUs and CPUs clocks and frequencies speed clusters are divided into 2, 3 or more depends on hardware configurations from OEMs/Manufactuers.

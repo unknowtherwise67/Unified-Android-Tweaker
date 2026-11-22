@@ -48,7 +48,7 @@ settings put system oppo_super_power_saving_mode 0
 
 # Others
 dumpsys deviceidle disable
-setprop persist.sys.gps.izat.main 1
+setprop persist.sys.gps.izat.main 3
 /system/bin/device_config set_sync_disabled_for_tests persistent
 /system/bin/device_config put activity_manager freeze_on_cached_enabled false
 /system/bin/device_config put app_hibernation app_hibernation_enabled false
