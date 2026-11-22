@@ -11,53 +11,6 @@ write() {
 # Sync Data
 sync
 
-# Schedtunes/Stunes/Uclamps/Cpuctl/Core_Ctl
-for stune in /dev/stune/* /dev/cpuctl/*
-do
-    write "$stune/schedtune.boost" 10
-    write "$stune/sched_cfs_boost" 10
-    write "$stune/schedtune.colocate" 1
-    write "$stune/schedtune.sched_boost_enabled" 1
-    write "$stune/schedtune.prefer_high_cap" 1
-    write "$stune/schedtune.prefer_idle" 1
-    write "$stune/cpu.uclamp.latency_sensitive" 1
-    write "$stune/schedtune.sched_boost_no_override" 1
-    write "$stune/cgroup.sane_behavior" 0
-    write "$stune/schedtune.capacity_min" 100
-    write "$stune/schedtune.cpucapacity_min" 100
-    write "$stune/schedtune.uclamp.min.effective" 100
-    write "$stune/cpu.cpucapacity_min" 100
-    write "$stune/cpu.uclamp.max.effective" 100
-done
-
-write /proc/sys/kernel/sched_util_clamp_min 1024
-write /proc/sys/kernel/sched_util_clamp_max 1024
-write /proc/sys/kernel/sched_util_clamp_min_rt_default 1024
-
-for core_ctl in /sys/*/system/cpu/*/core_ctl/
-do
-    write "$core_ctl/min_cpus" 4
-    write "$core_ctl/task_thres" 100
-    write "$core_ctl/offline_delay_ms" 0
-    write "$core_ctl/busy_up_thres" 0
-    write "$core_ctl/busy_down_thres" 0
-done
-
-for cpuset in /dev/cpuset/*
-do
-    write "$cpuset/cpus" 0-1
-    write "$cpuset/cpus" 0-2
-    write "$cpuset/cpus" 0-3
-    write "$cpuset/cpus" 0-4
-    write "$cpuset/cpus" 0-5
-    write "$cpuset/cpus" 0-6
-    write "$cpuset/cpus" 0-7
-    write "$cpuset/cpus" 0-8
-    write "$cpuset/cpus" 0-9
-    write "$cpuset/cpus" 0-10
-    write "$cpuset/cpus" 0-11
-done
-
 # Schedulers
 KVER=$(uname -r)
 K_MAJ=$(echo "$KVER" | cut -d. -f1)
@@ -103,7 +56,7 @@ do
 	write "$sched/sched_rr_timeslice_us" 50000
 	write "$sched/sched_rr_timeslice_ms" 50
 	write "$sched/sched_util_clamp_max" 1024
-	write "$sched/sched_util_clamp_min" 512
+	write "$sched/sched_util_clamp_min" 1024
 	write "$sched/sched_util_clamp_min_rt_default" 1024
 	write "$sched/sched_cfs_boost" 10
 	write "$sched/schedtune.boost" 10
@@ -132,7 +85,7 @@ do
 	write "$sched/sched_coloc_busy_hyst_max_ms" 30
 	write "$sched/sched_assist_scenes" 255
 	write "$sched/sched_assist_enabled" 1
-	write "$sched/sched_assist_ux_uclamp_max_enable" 0
+	write "$sched/sched_assist_ux_uclamp_max_enable" 1
 	write "$sched/sched_enable_thread_grouping" 1
 	write "$sched/sched_min_task_util_for_colocation" 0
 	write "$sched/sched_little_cluster_coloc_fmin_khz" 0
@@ -181,7 +134,7 @@ for vnd_dir in /proc/sys/oplus_scheduler/sched_assist /sys/module/oplus_bsp_task
 do
 	write "$vnd_dir/sched_assist_enabled" 1
 	write "$vnd_dir/sched_assist_scenes" 255
-	write "$vnd_dir/sched_assist_ux_uclamp_max_enable" 0
+	write "$vnd_dir/sched_assist_ux_uclamp_max_enable" 1
 done
 
 for sf in /sys/kernel/debug/sched_features /sys/kernel/sched_features
@@ -217,196 +170,6 @@ do
 		write "$sf" WAKEUP_PREEMPTION
 	fi
 done
-
-# Others parameters
-write /sys/kernel/rcu_normal 0
-write /sys/kernel/rcu_expedited 1
-write /proc/sys/fs/leases-enable 1
-write /proc/sys/fs/lease-break-time 2
-write /proc/sys/fs/dir-notify-enable 1
-write /proc/sys/dev/tty/ldisc_autoload 0
-write /proc/sys/kernel/random/read_wakeup_threshold 256
-write /proc/sys/kernel/random/write_wakeup_threshold 256
-write /proc/sys/kernel/printk_devkmsg off
-write /sys/module/workqueue/parameters/power_efficient 0
-write /sys/module/sync/parameters/fsync_enabled 1
-write /sys/kernel/dyn_fsync/Dyn_fsync_active 1
-write /sys/kernel/tracing/events/sched/sched_boost_cpu/enable 1
-write /sys/kernel/tracing/events/sched/sched_boost_cpu 1
-write /sys/devices/system/cpu/sched/hint_enable 1
-write /sys/module/system/cpu/sched_mc_power_savings 0
-write /proc/cpufreq/cpufreq_power_mode 3
-write /sys/module/battery_saver/parameters/enabled N
-write /sys/module/pm2/parameters/idle_sleep_mode N
-write /sys/module/lpm_levels/parameters/bias_hyst 0
-write /sys/module/lpm_levels/parameters/lpm_prediction N
-write /sys/module/lpm_levels/parameters/lpm_ipi_prediction N
-write /sys/module/lpm_levels/parameters/sleep_disabled Y
-write /sys/module/exynos_acme/parameters/enable_suspend_freqs N
-write /sys/class/mmc_host/mmc0/clk_scaling/enable 0
-write /sys/class/mmc_host/mmc1/clk_scaling/enable 0
-write /sys/module/mmc_core/parameters/use_spi_crc 0
-write /sys/module/mmc_core/parameters/removable N
-write /sys/module/mmc_core/parameters/crc 0
-write /sys/devices/platform/soc/1d84000.ufshc/clkscale_enable 0
-write /sys/devices/platform/soc/1d84000.ufshc/hibern8_on_idle_enable 0
-write /sys/devices/platform/soc/1d84000.ufshc/clkgate_enable 0
-write /sys/kernel/oppo_display/LCM_CABC 0
-write /proc/touchpanel/oplus_tp_direction 1
-write /proc/touchpanel/game_switch_enable 1
-write /proc/touchpanel/oplus_tp_limit_enable 0
-write /proc/sys/kernel/slide_boost_enabled 1
-write /proc/sys/kernel/launcher_boost_enabled 1
-write /sys/kernel/fp_boost/enabled 1
-write /sys/kernel/debug/msm_vidc/fw_low_power_mode 0
-write /sys/kernel/mi_reclaim/enable 0
-write /sys/class/sec/switch/afc_disable 1
-write /sys/module/fast_charge/force_fast_charge 1
-write /sys/kernel/fast_charge/force_fast_charge 1
-write /sys/class/power_supply/battery/charging_enabled 1
-write /sys/kernel/gbe/gbe_enable1 1
-write /sys/kernel/gbe/gbe_enable2 1
-write /sys/kernel/ged/hal/dcs_mode 1
-write /sys/module/ged/parameters/gx_game_mode 1
-write /sys/module/ged/parameters/boost_amp 1
-write /sys/module/ged/parameters/boost_extra 1
-write /sys/module/ged/parameters/boost_gpu_enable 1
-write /sys/module/ged/parameters/enable_cpu_boost 1
-write /sys/module/ged/parameters/enable_gpu_boost 1
-write /sys/module/ged/parameters/gx_frc_mode 1
-write /sys/module/ged/parameters/gx_boost_on 1
-write /sys/module/ged/parameters/gx_force_cpu_boost 1
-write /sys/module/ged/parameters/is_GED_KPI_enabled 1
-write /sys/module/ged/parameters/enable_game_self_frc_detect 1
-write /sys/module/ged/parameters/ged_boost_enable 1
-write /sys/module/ged/parameters/gx_3D_benchmark_on 1
-write /sys/module/ged/parameters/cpu_boost_policy 100
-write /sys/module/ged/parameters/ged_smart_boost 100
-write /sys/module/ged/parameters/gx_fb_dvfs_margin 100
-write /sys/module/ged/parameters/gx_tb_dvfs_margin 0
-write /sys/module/ged/parameters/target_t_cpu_remained 0
-write /sys/module/ged/parameters/gpu_debug_enable 0
-write /sys/module/ged/parameters/ged_force_mdp_enable 0
-write /sys/module/ged/parameters/ged_log_perf_trace_enable 0
-write /sys/module/ged/parameters/ged_log_trace_enable 0
-write /sys/module/ged/parameters/ged_monitor_3D_fence_debug 0
-write /sys/module/ged/parameters/ged_monitor_3D_fence_disable 0
-write /sys/module/ged/parameters/ged_monitor_3D_fence_systrace 0
-write /proc/perfmgr/tchbst/user/usrtch/enable 1
-write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_enable 1
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_prefer_idle 1
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_boost 1
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_boost 1
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_boost 1
-write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_up_loading 30
-write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_down_loading 10
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_uclamp_min 1024
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_uclamp_min 1024
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_uclamp_min 1024
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_uclamp_min 1024
-write /sys/module/lpm_levels/parameters/secapp_sleep_disabled Y
-write /sys/module/lpm_levels/parameters/system_sleep_disabled Y
-write /sys/module/lpm_levels/parameters/cpu_sleep_disabled Y
-write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us 500
-write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us 500
-write /sys/kernel/oppo_display/hbm 0
-write /proc/touchpanel/oplus_tp_direction_limit 0
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_uclamp_max 1024
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_uclamp_max 1024
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_uclamp_max 1024
-
-write /proc/ppm/enabled 1
-write /proc/ppm/policy_status 0 0
-write /proc/ppm/policy_status 1 0
-write /proc/ppm/policy_status 2 0
-write /proc/ppm/policy_status 3 0
-write /proc/ppm/policy_status 4 0
-write /proc/ppm/policy_status 5 0
-write /proc/ppm/policy_status 6 0
-write /proc/ppm/policy_status 7 0
-write /proc/ppm/policy_status 8 0
-write /proc/ppm/policy_status 9 0
-write /proc/ppm/policy_status 10 0
-write /proc/ppm/policy_status 11 0
-
-write /sys/module/msm_thermal/core_control/enabled 1
-write /sys/module/msm_thermal/vdd_restriction/enabled 1
-write /sys/module/msm_thermal/parameters/enabled Y
-
-# Memory
-MEM_KB=$(awk '/^MemTotal:/ {print $2}' /proc/meminfo)
-[ -z "$MEM_KB" ] && MEM_KB=4194304
-RAM_GB=$(( (MEM_KB + 524288) / 1048576 ))
-[ "$RAM_GB" -lt 1 ] && RAM_GB=1
-[ "$RAM_GB" -gt 128 ] && RAM_GB=128
-ZRAM_BYTES=$(( MEM_KB * 1024 ))
-if [ "$RAM_GB" -le 2 ]; then
-    SWAPPINESS=120
-    VFS_CACHE_PRESSURE=100
-    MIN_FREE_KB=$(( RAM_GB * 8192 ))
-    EXTRA_FREE_KB=$(( RAM_GB * 8192 ))
-    WM_SCALE=150
-    DIRTY_BG=3
-    DIRTY_MAX=10
-elif [ "$RAM_GB" -le 8 ]; then
-    SWAPPINESS=100
-    VFS_CACHE_PRESSURE=100
-    MIN_FREE_KB=$(( RAM_GB * 4096 ))
-    EXTRA_FREE_KB=$(( RAM_GB * 6144 ))
-    WM_SCALE=125
-    DIRTY_BG=3
-    DIRTY_MAX=12
-elif [ "$RAM_GB" -le 32 ]; then
-    SWAPPINESS=80
-    VFS_CACHE_PRESSURE=90
-    MIN_FREE_KB=$(( RAM_GB * 3072 ))
-    EXTRA_FREE_KB=$(( RAM_GB * 4096 ))
-    WM_SCALE=100
-    DIRTY_BG=2
-    DIRTY_MAX=10
-else
-    SWAPPINESS=60
-    VFS_CACHE_PRESSURE=80
-    MIN_FREE_KB=$(( RAM_GB * 2048 ))
-    EXTRA_FREE_KB=$(( RAM_GB * 3072 ))
-    WM_SCALE=75
-    DIRTY_BG=2
-    DIRTY_MAX=10
-fi
-[ "$MIN_FREE_KB" -lt 4096 ] && MIN_FREE_KB=4096
-[ "$MIN_FREE_KB" -gt 262144 ] && MIN_FREE_KB=262144
-[ "$EXTRA_FREE_KB" -lt 4096 ] && EXTRA_FREE_KB=4096
-[ "$EXTRA_FREE_KB" -gt 393216 ] && EXTRA_FREE_KB=393216
-USER_RESERVE_KB=$(( MIN_FREE_KB / 2 ))
-ADMIN_RESERVE_KB=$(( MIN_FREE_KB / 4 ))
-OVERCOMMIT_FREE_KB=$(( MIN_FREE_KB * 2 ))
-[ "$USER_RESERVE_KB" -lt 2048 ] && USER_RESERVE_KB=2048
-[ "$ADMIN_RESERVE_KB" -lt 1024 ] && ADMIN_RESERVE_KB=1024
-[ "$OVERCOMMIT_FREE_KB" -lt 8192 ] && OVERCOMMIT_FREE_KB=8192
-write /proc/sys/vm/stat_interval 5
-write /proc/sys/vm/overcommit_memory 1
-write /proc/sys/vm/page-cluster 0
-write /proc/sys/vm/dirty_background_ratio "$DIRTY_BG"
-write /proc/sys/vm/dirty_ratio "$DIRTY_MAX"
-write /proc/sys/vm/watermark_scale_factor "$WM_SCALE"
-write /proc/sys/vm/overcommit_ratio 100
-write /proc/sys/vm/vfs_cache_pressure "$VFS_CACHE_PRESSURE"
-write /proc/sys/vm/swappiness "$SWAPPINESS"
-write /proc/sys/vm/min_free_kbytes "$MIN_FREE_KB"
-write /proc/sys/vm/extra_free_kbytes "$EXTRA_FREE_KB"
-write /proc/sys/vm/user_reserve_kbytes "$USER_RESERVE_KB"
-write /proc/sys/vm/admin_reserve_kbytes "$ADMIN_RESERVE_KB"
-write /proc/sys/vm/overcommit_free_kbytes "$OVERCOMMIT_FREE_KB"
-write /proc/sys/vm/dirty_expire_centisecs 2000
-write /proc/sys/vm/dirty_writeback_centisecs 1000
-write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0,0
-write /proc/sys/vm/drop_caches 0
-write /proc/sys/vm/laptop_mode 0
-write /proc/sys/vm/oom_kill_allocating_task 0
-write /sys/module/lowmemorykiller/parameters/oom_reaper 0
-write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
-write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
-write /sys/module/process_reclaim/parameters/enable_process_reclaim 0
 
 # CPU/GPU/IO
 for governor in /sys/*/system/cpu/*/cpufreq/* /sys/*/system/cpu/cpufreq/*
@@ -589,3 +352,261 @@ for dev_dir in /sys/block/*; do
     [ -f "$iosched/slice_idle_us" ] && write "$iosched/slice_idle_us" 0
     [ -f "$iosched/group_idle_us" ] && write "$iosched/group_idle_us" 0
 done
+
+# Schedtunes/Stunes/Uclamps/Cpuctl/Core_Ctl
+for stune in /dev/stune/* /dev/cpuctl/*
+do
+    write "$stune/schedtune.boost" 10
+    write "$stune/sched_cfs_boost" 10
+    write "$stune/schedtune.colocate" 1
+    write "$stune/schedtune.sched_boost_enabled" 1
+    write "$stune/schedtune.prefer_high_cap" 1
+    write "$stune/schedtune.prefer_idle" 1
+    write "$stune/cpu.uclamp.latency_sensitive" 1
+    write "$stune/schedtune.sched_boost_no_override" 1
+    write "$stune/cgroup.sane_behavior" 0
+    write "$stune/schedtune.capacity_min" 100
+    write "$stune/schedtune.cpucapacity_min" 100
+    write "$stune/schedtune.capacity.min" 100
+    write "$stune/schedtune.cpucapacity.min" 100
+    write "$stune/schedtune.uclamp.min.effective" 100
+    write "$stune/cpu.cpucapacity_min" 100
+    write "$stune/cpu.uclamp.max.effective" 100
+    write "$stune/cpu.uclamp.min" 100
+    write "$stune/cpu.uclamp" 100
+    write "$stune/cpu_uclamp.min" 100
+    write "$stune/cpu_uclamp.min.effective" 100
+    write "$stune/cpu.uclamp.max" 100
+    write "$stune/cpu.uclamp.max.effective" 100
+    write "$stune/schedtune.capacity_min" max
+    write "$stune/schedtune.cpucapacity_min" max
+    write "$stune/schedtune.capacity.min" max
+    write "$stune/schedtune.cpucapacity.min" max
+    write "$stune/schedtune.uclamp.min.effective" max
+    write "$stune/cpu.cpucapacity.min" max
+    write "$stune/cpu.uclamp.max.effective" max
+    write "$stune/cpu.uclamp.min" max
+    write "$stune/cpu.uclamp" max
+    write "$stune/cpu_uclamp.min" max
+    write "$stune/cpu_uclamp.min.effective" max
+    write "$stune/cpu.uclamp.max" max
+    write "$stune/cpu.uclamp.max.effective" max
+done
+
+write /proc/sys/kernel/sched_util_clamp_min 1024
+write /proc/sys/kernel/sched_util_clamp_max 1024
+write /proc/sys/kernel/sched_util_clamp_min_rt_default 1024
+
+for core_ctl in /sys/*/system/cpu/*/core_ctl/
+do
+    write "$core_ctl/min_cpus" 4
+    write "$core_ctl/task_thres" 100
+    write "$core_ctl/offline_delay_ms" 0
+    write "$core_ctl/busy_up_thres" 0
+    write "$core_ctl/busy_down_thres" 0
+done
+
+for cpuset in /dev/cpuset/*
+do
+    write "$cpuset/cpus" 0-1
+    write "$cpuset/cpus" 0-2
+    write "$cpuset/cpus" 0-3
+    write "$cpuset/cpus" 0-4
+    write "$cpuset/cpus" 0-5
+    write "$cpuset/cpus" 0-6
+    write "$cpuset/cpus" 0-7
+    write "$cpuset/cpus" 0-8
+    write "$cpuset/cpus" 0-9
+    write "$cpuset/cpus" 0-10
+    write "$cpuset/cpus" 0-11
+done
+
+# Memory
+MEM_KB=$(awk '/^MemTotal:/ {print $2}' /proc/meminfo)
+[ -z "$MEM_KB" ] && MEM_KB=4194304
+RAM_GB=$(( (MEM_KB + 524288) / 1048576 ))
+[ "$RAM_GB" -lt 1 ] && RAM_GB=1
+[ "$RAM_GB" -gt 128 ] && RAM_GB=128
+ZRAM_BYTES=$(( MEM_KB * 1024 ))
+if [ "$RAM_GB" -le 2 ]; then
+    SWAPPINESS=120
+    VFS_CACHE_PRESSURE=100
+    MIN_FREE_KB=$(( RAM_GB * 8192 ))
+    EXTRA_FREE_KB=$(( RAM_GB * 8192 ))
+    WM_SCALE=150
+    DIRTY_BG=3
+    DIRTY_MAX=10
+elif [ "$RAM_GB" -le 8 ]; then
+    SWAPPINESS=100
+    VFS_CACHE_PRESSURE=100
+    MIN_FREE_KB=$(( RAM_GB * 4096 ))
+    EXTRA_FREE_KB=$(( RAM_GB * 6144 ))
+    WM_SCALE=125
+    DIRTY_BG=3
+    DIRTY_MAX=12
+elif [ "$RAM_GB" -le 32 ]; then
+    SWAPPINESS=80
+    VFS_CACHE_PRESSURE=90
+    MIN_FREE_KB=$(( RAM_GB * 3072 ))
+    EXTRA_FREE_KB=$(( RAM_GB * 4096 ))
+    WM_SCALE=100
+    DIRTY_BG=2
+    DIRTY_MAX=10
+else
+    SWAPPINESS=60
+    VFS_CACHE_PRESSURE=80
+    MIN_FREE_KB=$(( RAM_GB * 2048 ))
+    EXTRA_FREE_KB=$(( RAM_GB * 3072 ))
+    WM_SCALE=75
+    DIRTY_BG=2
+    DIRTY_MAX=10
+fi
+[ "$MIN_FREE_KB" -lt 4096 ] && MIN_FREE_KB=4096
+[ "$MIN_FREE_KB" -gt 262144 ] && MIN_FREE_KB=262144
+[ "$EXTRA_FREE_KB" -lt 4096 ] && EXTRA_FREE_KB=4096
+[ "$EXTRA_FREE_KB" -gt 393216 ] && EXTRA_FREE_KB=393216
+USER_RESERVE_KB=$(( MIN_FREE_KB / 2 ))
+ADMIN_RESERVE_KB=$(( MIN_FREE_KB / 4 ))
+OVERCOMMIT_FREE_KB=$(( MIN_FREE_KB * 2 ))
+[ "$USER_RESERVE_KB" -lt 2048 ] && USER_RESERVE_KB=2048
+[ "$ADMIN_RESERVE_KB" -lt 1024 ] && ADMIN_RESERVE_KB=1024
+[ "$OVERCOMMIT_FREE_KB" -lt 8192 ] && OVERCOMMIT_FREE_KB=8192
+write /proc/sys/vm/stat_interval 5
+write /proc/sys/vm/overcommit_memory 1
+write /proc/sys/vm/page-cluster 0
+write /proc/sys/vm/dirty_background_ratio "$DIRTY_BG"
+write /proc/sys/vm/dirty_ratio "$DIRTY_MAX"
+write /proc/sys/vm/watermark_scale_factor "$WM_SCALE"
+write /proc/sys/vm/overcommit_ratio 100
+write /proc/sys/vm/vfs_cache_pressure "$VFS_CACHE_PRESSURE"
+write /proc/sys/vm/swappiness "$SWAPPINESS"
+write /proc/sys/vm/min_free_kbytes "$MIN_FREE_KB"
+write /proc/sys/vm/extra_free_kbytes "$EXTRA_FREE_KB"
+write /proc/sys/vm/user_reserve_kbytes "$USER_RESERVE_KB"
+write /proc/sys/vm/admin_reserve_kbytes "$ADMIN_RESERVE_KB"
+write /proc/sys/vm/overcommit_free_kbytes "$OVERCOMMIT_FREE_KB"
+write /proc/sys/vm/dirty_expire_centisecs 2000
+write /proc/sys/vm/dirty_writeback_centisecs 1000
+write /sys/module/lowmemorykiller/parameters/minfree 0,0,0,0,0,0
+write /proc/sys/vm/drop_caches 0
+write /proc/sys/vm/laptop_mode 0
+write /proc/sys/vm/oom_kill_allocating_task 0
+write /sys/module/lowmemorykiller/parameters/oom_reaper 0
+write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
+write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
+write /sys/module/process_reclaim/parameters/enable_process_reclaim 0
+
+# Others parameters
+write /sys/kernel/rcu_normal 0
+write /sys/kernel/rcu_expedited 1
+write /proc/sys/fs/leases-enable 1
+write /proc/sys/fs/lease-break-time 2
+write /proc/sys/fs/dir-notify-enable 1
+write /proc/sys/dev/tty/ldisc_autoload 0
+write /proc/sys/kernel/random/read_wakeup_threshold 256
+write /proc/sys/kernel/random/write_wakeup_threshold 256
+write /proc/sys/kernel/printk_devkmsg off
+write /sys/module/workqueue/parameters/power_efficient 0
+write /sys/module/sync/parameters/fsync_enabled 1
+write /sys/kernel/dyn_fsync/Dyn_fsync_active 1
+write /sys/kernel/tracing/events/sched/sched_boost_cpu/enable 1
+write /sys/kernel/tracing/events/sched/sched_boost_cpu 1
+write /sys/devices/system/cpu/sched/hint_enable 1
+write /sys/module/system/cpu/sched_mc_power_savings 0
+write /proc/cpufreq/cpufreq_power_mode 3
+write /sys/module/battery_saver/parameters/enabled N
+write /sys/module/pm2/parameters/idle_sleep_mode N
+write /sys/module/lpm_levels/parameters/bias_hyst 0
+write /sys/module/lpm_levels/parameters/lpm_prediction N
+write /sys/module/lpm_levels/parameters/lpm_ipi_prediction N
+write /sys/module/lpm_levels/parameters/sleep_disabled Y
+write /sys/module/exynos_acme/parameters/enable_suspend_freqs N
+write /sys/class/mmc_host/mmc0/clk_scaling/enable 0
+write /sys/class/mmc_host/mmc1/clk_scaling/enable 0
+write /sys/module/mmc_core/parameters/use_spi_crc 0
+write /sys/module/mmc_core/parameters/removable N
+write /sys/module/mmc_core/parameters/crc 0
+write /sys/devices/platform/soc/1d84000.ufshc/clkscale_enable 0
+write /sys/devices/platform/soc/1d84000.ufshc/hibern8_on_idle_enable 0
+write /sys/devices/platform/soc/1d84000.ufshc/clkgate_enable 0
+write /sys/kernel/oppo_display/LCM_CABC 0
+write /proc/touchpanel/oplus_tp_direction 1
+write /proc/touchpanel/game_switch_enable 1
+write /proc/touchpanel/oplus_tp_limit_enable 0
+write /proc/sys/kernel/slide_boost_enabled 1
+write /proc/sys/kernel/launcher_boost_enabled 1
+write /sys/kernel/fp_boost/enabled 1
+write /sys/kernel/debug/msm_vidc/fw_low_power_mode 0
+write /sys/kernel/mi_reclaim/enable 0
+write /sys/class/sec/switch/afc_disable 1
+write /sys/module/fast_charge/force_fast_charge 1
+write /sys/kernel/fast_charge/force_fast_charge 1
+write /sys/class/power_supply/battery/charging_enabled 1
+write /sys/kernel/gbe/gbe_enable1 1
+write /sys/kernel/gbe/gbe_enable2 1
+write /sys/kernel/ged/hal/dcs_mode 1
+write /sys/module/ged/parameters/gx_game_mode 1
+write /sys/module/ged/parameters/boost_amp 1
+write /sys/module/ged/parameters/boost_extra 1
+write /sys/module/ged/parameters/boost_gpu_enable 1
+write /sys/module/ged/parameters/enable_cpu_boost 1
+write /sys/module/ged/parameters/enable_gpu_boost 1
+write /sys/module/ged/parameters/gx_frc_mode 1
+write /sys/module/ged/parameters/gx_boost_on 1
+write /sys/module/ged/parameters/gx_force_cpu_boost 1
+write /sys/module/ged/parameters/is_GED_KPI_enabled 1
+write /sys/module/ged/parameters/enable_game_self_frc_detect 1
+write /sys/module/ged/parameters/ged_boost_enable 1
+write /sys/module/ged/parameters/gx_3D_benchmark_on 1
+write /sys/module/ged/parameters/cpu_boost_policy 100
+write /sys/module/ged/parameters/ged_smart_boost 100
+write /sys/module/ged/parameters/gx_fb_dvfs_margin 100
+write /sys/module/ged/parameters/gx_tb_dvfs_margin 0
+write /sys/module/ged/parameters/target_t_cpu_remained 0
+write /sys/module/ged/parameters/gpu_debug_enable 0
+write /sys/module/ged/parameters/ged_force_mdp_enable 0
+write /sys/module/ged/parameters/ged_log_perf_trace_enable 0
+write /sys/module/ged/parameters/ged_log_trace_enable 0
+write /sys/module/ged/parameters/ged_monitor_3D_fence_debug 0
+write /sys/module/ged/parameters/ged_monitor_3D_fence_disable 0
+write /sys/module/ged/parameters/ged_monitor_3D_fence_systrace 0
+write /proc/perfmgr/tchbst/user/usrtch/enable 1
+write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_enable 1
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_prefer_idle 1
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_boost 1
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_boost 1
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_boost 1
+write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_up_loading 30
+write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_down_loading 10
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_uclamp_min 1024
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_uclamp_min 1024
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_uclamp_min 1024
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_uclamp_min 1024
+write /sys/module/lpm_levels/parameters/secapp_sleep_disabled Y
+write /sys/module/lpm_levels/parameters/system_sleep_disabled Y
+write /sys/module/lpm_levels/parameters/cpu_sleep_disabled Y
+write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us 500
+write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us 500
+write /sys/kernel/oppo_display/hbm 0
+write /proc/touchpanel/oplus_tp_direction_limit 0
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_uclamp_max 1024
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_uclamp_max 1024
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_uclamp_max 1024
+
+write /proc/ppm/enabled 1
+write /proc/ppm/policy_status 0 0
+write /proc/ppm/policy_status 1 0
+write /proc/ppm/policy_status 2 0
+write /proc/ppm/policy_status 3 0
+write /proc/ppm/policy_status 4 0
+write /proc/ppm/policy_status 5 0
+write /proc/ppm/policy_status 6 0
+write /proc/ppm/policy_status 7 0
+write /proc/ppm/policy_status 8 0
+write /proc/ppm/policy_status 9 0
+write /proc/ppm/policy_status 10 0
+write /proc/ppm/policy_status 11 0
+
+write /sys/module/msm_thermal/core_control/enabled 1
+write /sys/module/msm_thermal/vdd_restriction/enabled 1
+write /sys/module/msm_thermal/parameters/enabled Y
