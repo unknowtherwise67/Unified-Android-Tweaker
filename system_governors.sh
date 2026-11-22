@@ -72,7 +72,7 @@ done
 for tcp in /proc/sys/net/*
 do
 	available_tcps="$(cat "$tcp/tcp_available_congestion_control")"
-	for tcp_ctrl in bbr2 bbr westwood cubic reno bic
+	for tcp_ctrl in
 	do
 		if [[ "$available_tcps" == *"$tcp_ctrl"* ]]
 		then
