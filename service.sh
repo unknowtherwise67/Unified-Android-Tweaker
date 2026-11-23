@@ -4,7 +4,6 @@ MODPATH="$MODDIR"
 until [ "$(getprop sys.boot_completed)" = "1" ] && [ -d "/sdcard/Android" ]; do
     sleep 1
 done
-sleep 1
 
 # Android Device/Kernel ZRAM Swap Virtual Memory Modifications
 ZRAM=/block/zram0
@@ -21,7 +20,6 @@ if grep -q /dev$ZRAM /proc/swaps; then
       break
     fi
   done
-  sleep 1
   if grep -q /dev$ZRAM /proc/swaps; then
     SWAPOFF=false
   fi
@@ -44,7 +42,6 @@ if $SWAPOFF; then
 fi
 
 # OS System ResetProps
-sleep 1
 if [ -x "$(command -v resetprop)" ]; then
     change_prop() {
         local prop="$1"
@@ -99,11 +96,8 @@ if [ -n "$adbroot" ]; then
 fi
 
 # Android Device/Kernel Settings/Parameters Modifications
-sleep 1
+sleep 60
 [ -f "$MODPATH/system_settings.sh" ] && sh "$MODPATH/system_settings.sh"
-sleep 1
 [ -f "$MODPATH/system_governors.sh" ] && sh "$MODPATH/system_governors.sh"
-sleep 1
 [ -f "$MODPATH/system_kernel.sh" ] && sh "$MODPATH/system_kernel.sh"
-sleep 1
 [ -f "$MODPATH/system_cpu_gpu_power.sh" ] && sh "$MODPATH/system_cpu_gpu_power.sh"
