@@ -11,6 +11,121 @@ write() {
 # Sync Data
 sync
 
+# Device/Hardware/Kernel/Other Specific
+write /sys/kernel/rcu_normal 0
+write /sys/kernel/rcu_expedited 1
+write /proc/sys/fs/leases-enable 1
+write /proc/sys/fs/lease-break-time 2
+write /proc/sys/fs/dir-notify-enable 1
+write /proc/sys/dev/tty/ldisc_autoload 0
+write /proc/sys/kernel/random/read_wakeup_threshold 256
+write /proc/sys/kernel/random/write_wakeup_threshold 256
+write /proc/sys/kernel/printk_devkmsg off
+write /sys/module/workqueue/parameters/power_efficient 0
+write /sys/module/sync/parameters/fsync_enabled 1
+write /sys/kernel/dyn_fsync/Dyn_fsync_active 1
+write /sys/kernel/tracing/events/sched/sched_boost_cpu/enable 1
+write /sys/kernel/tracing/events/sched/sched_boost_cpu 1
+write /sys/devices/system/cpu/sched/hint_enable 1
+write /sys/module/system/cpu/sched_mc_power_savings 0
+write /proc/cpufreq/cpufreq_power_mode 3
+write /sys/module/battery_saver/parameters/enabled N
+write /sys/module/pm2/parameters/idle_sleep_mode N
+write /sys/module/lpm_levels/parameters/bias_hyst 0
+write /sys/module/lpm_levels/parameters/lpm_prediction N
+write /sys/module/lpm_levels/parameters/lpm_ipi_prediction N
+write /sys/module/lpm_levels/parameters/sleep_disabled Y
+write /sys/module/exynos_acme/parameters/enable_suspend_freqs N
+write /sys/class/mmc_host/mmc0/clk_scaling/enable 0
+write /sys/class/mmc_host/mmc1/clk_scaling/enable 0
+write /sys/module/mmc_core/parameters/use_spi_crc 0
+write /sys/module/mmc_core/parameters/removable N
+write /sys/module/mmc_core/parameters/crc 0
+write /sys/devices/platform/soc/1d84000.ufshc/clkscale_enable 0
+write /sys/devices/platform/soc/1d84000.ufshc/hibern8_on_idle_enable 0
+write /sys/devices/platform/soc/1d84000.ufshc/clkgate_enable 0
+write /sys/kernel/oppo_display/LCM_CABC 0
+write /proc/touchpanel/oplus_tp_direction 1
+write /proc/touchpanel/game_switch_enable 1
+write /proc/touchpanel/oplus_tp_limit_enable 0
+write /proc/sys/kernel/slide_boost_enabled 1
+write /proc/sys/kernel/launcher_boost_enabled 1
+write /sys/kernel/fp_boost/enabled 1
+write /sys/kernel/debug/msm_vidc/fw_low_power_mode 0
+write /sys/kernel/mi_reclaim/enable 0
+write /sys/class/sec/switch/afc_disable 1
+write /sys/module/fast_charge/force_fast_charge 1
+write /sys/kernel/fast_charge/force_fast_charge 1
+write /sys/class/power_supply/battery/charging_enabled 1
+write /sys/kernel/gbe/gbe_enable1 1
+write /sys/kernel/gbe/gbe_enable2 1
+write /sys/kernel/ged/hal/dcs_mode 1
+write /sys/module/ged/parameters/gx_game_mode 1
+write /sys/module/ged/parameters/boost_amp 1
+write /sys/module/ged/parameters/boost_extra 1
+write /sys/module/ged/parameters/boost_gpu_enable 1
+write /sys/module/ged/parameters/enable_cpu_boost 1
+write /sys/module/ged/parameters/enable_gpu_boost 1
+write /sys/module/ged/parameters/gx_frc_mode 1
+write /sys/module/ged/parameters/gx_boost_on 1
+write /sys/module/ged/parameters/gx_force_cpu_boost 1
+write /sys/module/ged/parameters/is_GED_KPI_enabled 1
+write /sys/module/ged/parameters/enable_game_self_frc_detect 1
+write /sys/module/ged/parameters/ged_boost_enable 1
+write /sys/module/ged/parameters/gx_3D_benchmark_on 1
+write /sys/module/ged/parameters/cpu_boost_policy 100
+write /sys/module/ged/parameters/ged_smart_boost 100
+write /sys/module/ged/parameters/gx_fb_dvfs_margin 100
+write /sys/module/ged/parameters/gx_tb_dvfs_margin 0
+write /sys/module/ged/parameters/target_t_cpu_remained 0
+write /sys/module/ged/parameters/gpu_debug_enable 0
+write /sys/module/ged/parameters/ged_force_mdp_enable 0
+write /sys/module/ged/parameters/ged_log_perf_trace_enable 0
+write /sys/module/ged/parameters/ged_log_trace_enable 0
+write /sys/module/ged/parameters/ged_monitor_3D_fence_debug 0
+write /sys/module/ged/parameters/ged_monitor_3D_fence_disable 0
+write /sys/module/ged/parameters/ged_monitor_3D_fence_systrace 0
+write /proc/perfmgr/tchbst/user/usrtch/enable 1
+write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_enable 1
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_prefer_idle 1
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_boost 1
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_boost 1
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_boost 1
+write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_up_loading 30
+write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_down_loading 10
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_uclamp_min 1024
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_uclamp_min 1024
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_uclamp_min 1024
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_uclamp_min 1024
+write /sys/module/lpm_levels/parameters/secapp_sleep_disabled Y
+write /sys/module/lpm_levels/parameters/system_sleep_disabled Y
+write /sys/module/lpm_levels/parameters/cpu_sleep_disabled Y
+write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us 500
+write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us 500
+write /sys/kernel/oppo_display/hbm 0
+write /proc/touchpanel/oplus_tp_direction_limit 0
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_uclamp_max 1024
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_uclamp_max 1024
+write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_uclamp_max 1024
+
+write /proc/ppm/enabled 1
+write /proc/ppm/policy_status 0 0
+write /proc/ppm/policy_status 1 0
+write /proc/ppm/policy_status 2 0
+write /proc/ppm/policy_status 3 0
+write /proc/ppm/policy_status 4 0
+write /proc/ppm/policy_status 5 0
+write /proc/ppm/policy_status 6 0
+write /proc/ppm/policy_status 7 0
+write /proc/ppm/policy_status 8 0
+write /proc/ppm/policy_status 9 0
+write /proc/ppm/policy_status 10 0
+write /proc/ppm/policy_status 11 0
+
+write /sys/module/msm_thermal/core_control/enabled 1
+write /sys/module/msm_thermal/vdd_restriction/enabled 1
+write /sys/module/msm_thermal/parameters/enabled Y
+
 # Schedulers
 KVER=$(uname -r)
 K_MAJ=$(echo "$KVER" | cut -d. -f1)
@@ -171,188 +286,6 @@ do
 	fi
 done
 
-# CPU/GPU/IO
-for governor in /sys/*/system/cpu/*/cpufreq/* /sys/*/system/cpu/cpufreq/*
-do
-    write "$governor/boost" 1
-    write "$governor/pl" 1
-    write "$governor/io_is_busy" 1
-    write "$governor/iowait_boost_enable" 1
-    write "$governor/fastlane" 1
-    write "$governor/fast_ramp_down" 0
-    write "$governor/boostpulse" 1
-    write "$governor/use_sched_load" 1
-    write "$governor/use_migration_notif" 1
-    write "$governor/enable_prediction" 1
-    write "$governor/align_windows" 1
-    write "$governor/ignore_nice_load" 1
-    write "$governor/input_boost" 1
-    write "$governor/enforced_mode" 1
-    write "$governor/timer_slack" -1
-    write "$governor/freq_step" 15
-    write "$governor/target_load_shift" 5
-    write "$governor/sched_upmigrate_min_nice" -5
-    write "$governor/down_differential" 45
-    write "$governor/up_threshold" 45
-    write "$governor/go_hispeed_load" 50
-    write "$governor/hispeed_load" 50
-    write "$governor/target_loads" "50 1200000:60 1600000:70 1800000:80"
-    write "$governor/single_enter_load" 45
-    write "$governor/single_exit_load" 85
-    write "$governor/up_threshold_any_cpu_load" 50
-    write "$governor/target_load_thresh" 50
-    write "$governor/multi_enter_load" 75
-    write "$governor/multi_exit_load" 90
-    write "$governor/input_boost_ms" 150
-    write "$governor/boost_ms" 250
-    write "$governor/single_enter_time" 1000
-    write "$governor/timer_rate" 2500
-    write "$governor/sampling_rate" 2500
-    write "$governor/sampling_rate_min" 2500
-    write "$governor/up_rate_limit_us" 500
-    write "$governor/down_rate_limit_us" 15000
-    write "$governor/single_exit_time" 40000
-    write "$governor/multi_enter_time" 2000
-    write "$governor/above_hispeed_delay" "0 1200000:10000 1800000:15000"
-    write "$governor/sched_freq_inc_notify" 10000
-    write "$governor/multi_exit_time" 40000
-    write "$governor/min_sample_time" 20000
-    write "$governor/boostpulse_duration" 250000
-    write "$governor/sched_freq_dec_notify" 200000
-    write "$governor/up_throttle_nsec" 1000000
-    write "$governor/down_throttle_nsec" 4000000
-done
-
-write /sys/kernel/gpu/boost 1
-write /proc/mali/always_on 1
-write /proc/mali/dvfs_enable 1
-write /sys/module/ged/parameters/gpu_dvfs_enable 1
-write /sys/class/kgsl/kgsl-3d0/force_bus_on 1
-write /sys/class/kgsl/kgsl-3d0/force_clk_on 1
-write /sys/class/kgsl/kgsl-3d0/force_rail_on 1
-write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 3
-write /sys/kernel/debug/sde_rotator0/clk_always_on 1
-write /sys/module/mali/parameters/mali_touch_boost_level 1
-write /sys/class/simple_gpu_algorithm/parameters/simple_gpu_active 1
-write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync 1
-write /sys/module/adreno_idler/parameters/adreno_idler_idlewait 10
-write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync_downdifferential 50
-write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/no_vsync_upthreshold 10
-write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync_upthreshold 10
-write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/no_vsync_downdifferential 50
-write /sys/module/adreno_idler/parameters/adreno_idler_downdifferential 50
-write /sys/module/adreno_idler/parameters/adreno_idler_idleworkload 10000
-write /sys/class/simple_gpu_algorithm/parameters/simple_ramp_threshold 5000
-write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 0
-write /sys/class/kgsl/kgsl-3d0/max_pwrlevel 0
-write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 0
-write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 0
-write /sys/class/kgsl/kgsl-3d0/tmu 0
-write /sys/class/kgsl/kgsl-3d0/popp 0
-write /sys/class/kgsl/kgsl-3d0/pwrnap 0
-write /sys/class/simple_gpu_algorithm/parameters/simple_laziness 0
-write /sys/module/adreno_idler/parameters/adreno_idler_active N
-write /sys/devices/platform/13040000.mali/power_policy always_on
-write /sys/class/kgsl/kgsl-3d0/power_policy always_on
-
-for pwrlevel in /sys/class/kgsl/kgsl-3d0/min_pwrlevel /sys/class/kgsl/kgsl-3d0/default_pwrlevel
-do
-    write "$pwrlevel" 1
-    write "$pwrlevel" 2
-    write "$pwrlevel" 3
-    write "$pwrlevel" 4
-    write "$pwrlevel" 5
-    write "$pwrlevel" 6
-    write "$pwrlevel" 7
-    write "$pwrlevel" 8
-    write "$pwrlevel" 9
-    write "$pwrlevel" 10
-    write "$pwrlevel" 11
-    write "$pwrlevel" 12
-    write "$pwrlevel" 13
-    write "$pwrlevel" 14
-    write "$pwrlevel" 15
-    write "$pwrlevel" 16
-    write "$pwrlevel" 17
-    write "$pwrlevel" 18
-    write "$pwrlevel" 19
-    write "$pwrlevel" 20
-    write "$pwrlevel" 21
-    write "$pwrlevel" 22
-    write "$pwrlevel" 23
-    write "$pwrlevel" 24
-    write "$pwrlevel" 25
-    write "$pwrlevel" 26
-    write "$pwrlevel" 27
-    write "$pwrlevel" 28
-    write "$pwrlevel" 29
-    write "$pwrlevel" 30
-done
-
-for dev_dir in /sys/block/*; do
-    dev=$(basename "$dev_dir")
-    case "$dev" in
-        loop*|dm-*|zram*|ram*|sr*|md*) continue ;;
-    esac
-    queue="$dev_dir/queue"
-    [ -d "$queue" ] || continue
-    if [ -f "$queue/rotational" ]; then
-        is_rotational=$(cat "$queue/rotational")
-    else
-        is_rotational=0
-    fi
-    write "$queue/add_random" 0
-    write "$queue/iostats" 1
-    write "$queue/rq_affinity" 2
-    if [ "$is_rotational" -eq 1 ]; then
-        write "$queue/rotational" 1
-        write "$queue/read_ahead_kb" 2048
-        write "$queue/nomerges" 0
-        write "$queue/nr_requests" 256
-    else
-        write "$queue/rotational" 0
-        write "$queue/read_ahead_kb" 128
-        write "$queue/nomerges" 2
-        write "$queue/nr_requests" 128
-    fi
-    iosched="$queue/iosched"
-    [ -d "$iosched" ] || continue
-    [ -f "$iosched/front_merges" ] && write "$iosched/front_merges" 1
-    [ -f "$iosched/back_seek_penalty" ] && write "$iosched/back_seek_penalty" 1
-    [ -f "$iosched/back_seek_max" ] && write "$iosched/back_seek_max" 1048576
-    [ -f "$iosched/fore_timeout" ] && write "$iosched/fore_timeout" 5
-    [ -f "$iosched/back_timeout" ] && write "$iosched/back_timeout" 10
-    [ -f "$iosched/timeout_sync" ] && write "$iosched/timeout_sync" 10
-    [ -f "$iosched/slice_async_rq" ] && write "$iosched/slice_async_rq" 1
-    [ -f "$iosched/writes_starved" ] && write "$iosched/writes_starved" 3
-    [ -f "$iosched/async_depth" ] && write "$iosched/async_depth" 8
-    [ -f "$iosched/io_threshold" ] && write "$iosched/io_threshold" 16
-    [ -f "$iosched/quantum" ] && write "$iosched/quantum" 8
-    [ -f "$iosched/fifo_batch" ] && write "$iosched/fifo_batch" 16
-    [ -f "$iosched/slice_async" ] && write "$iosched/slice_async" 10
-    [ -f "$iosched/slice_sync" ] && write "$iosched/slice_sync" 10
-    [ -f "$iosched/max_budget" ] && write "$iosched/max_budget" 16
-    [ -f "$iosched/fifo_expire_async" ] && write "$iosched/fifo_expire_async" 30
-    [ -f "$iosched/read_expire" ] && write "$iosched/read_expire" 50
-    [ -f "$iosched/fifo_expire_sync" ] && write "$iosched/fifo_expire_sync" 50
-    [ -f "$iosched/target_latency" ] && write "$iosched/target_latency" 100
-    [ -f "$iosched/write_expire" ] && write "$iosched/write_expire" 100
-    [ -f "$iosched/aging_expire" ] && write "$iosched/aging_expire" 5000
-    [ -f "$iosched/prio_aging_expire" ] && write "$iosched/prio_aging_expire" 10000
-    [ -f "$iosched/slice_sync_us" ] && write "$iosched/slice_sync_us" 10000
-    [ -f "$iosched/slice_async_us" ] && write "$iosched/slice_async_us" 5000
-    [ -f "$iosched/target_latency_us" ] && write "$iosched/target_latency_us" 100000
-    [ -f "$iosched/read_lat_nsec" ] && write "$iosched/read_lat_nsec" 1000000
-    [ -f "$iosched/write_lat_nsec" ] && write "$iosched/write_lat_nsec" 1000000
-    [ -f "$iosched/strict_guarantees" ] && write "$iosched/strict_guarantees" 0
-    [ -f "$iosched/cpq_log" ] && write "$iosched/cpq_log" 0
-    [ -f "$iosched/slice_idle" ] && write "$iosched/slice_idle" 0
-    [ -f "$iosched/group_idle" ] && write "$iosched/group_idle" 0
-    [ -f "$iosched/low_latency" ] && write "$iosched/low_latency" 0
-    [ -f "$iosched/slice_idle_us" ] && write "$iosched/slice_idle_us" 0
-    [ -f "$iosched/group_idle_us" ] && write "$iosched/group_idle_us" 0
-done
-
 # Schedtunes/Stunes/Uclamps/Cpuctl/Core_Ctl
 for stune in /dev/stune/* /dev/cpuctl/*
 do
@@ -492,117 +425,184 @@ write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
 write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
 write /sys/module/process_reclaim/parameters/enable_process_reclaim 0
 
-# Others parameters
-write /sys/kernel/rcu_normal 0
-write /sys/kernel/rcu_expedited 1
-write /proc/sys/fs/leases-enable 1
-write /proc/sys/fs/lease-break-time 2
-write /proc/sys/fs/dir-notify-enable 1
-write /proc/sys/dev/tty/ldisc_autoload 0
-write /proc/sys/kernel/random/read_wakeup_threshold 256
-write /proc/sys/kernel/random/write_wakeup_threshold 256
-write /proc/sys/kernel/printk_devkmsg off
-write /sys/module/workqueue/parameters/power_efficient 0
-write /sys/module/sync/parameters/fsync_enabled 1
-write /sys/kernel/dyn_fsync/Dyn_fsync_active 1
-write /sys/kernel/tracing/events/sched/sched_boost_cpu/enable 1
-write /sys/kernel/tracing/events/sched/sched_boost_cpu 1
-write /sys/devices/system/cpu/sched/hint_enable 1
-write /sys/module/system/cpu/sched_mc_power_savings 0
-write /proc/cpufreq/cpufreq_power_mode 3
-write /sys/module/battery_saver/parameters/enabled N
-write /sys/module/pm2/parameters/idle_sleep_mode N
-write /sys/module/lpm_levels/parameters/bias_hyst 0
-write /sys/module/lpm_levels/parameters/lpm_prediction N
-write /sys/module/lpm_levels/parameters/lpm_ipi_prediction N
-write /sys/module/lpm_levels/parameters/sleep_disabled Y
-write /sys/module/exynos_acme/parameters/enable_suspend_freqs N
-write /sys/class/mmc_host/mmc0/clk_scaling/enable 0
-write /sys/class/mmc_host/mmc1/clk_scaling/enable 0
-write /sys/module/mmc_core/parameters/use_spi_crc 0
-write /sys/module/mmc_core/parameters/removable N
-write /sys/module/mmc_core/parameters/crc 0
-write /sys/devices/platform/soc/1d84000.ufshc/clkscale_enable 0
-write /sys/devices/platform/soc/1d84000.ufshc/hibern8_on_idle_enable 0
-write /sys/devices/platform/soc/1d84000.ufshc/clkgate_enable 0
-write /sys/kernel/oppo_display/LCM_CABC 0
-write /proc/touchpanel/oplus_tp_direction 1
-write /proc/touchpanel/game_switch_enable 1
-write /proc/touchpanel/oplus_tp_limit_enable 0
-write /proc/sys/kernel/slide_boost_enabled 1
-write /proc/sys/kernel/launcher_boost_enabled 1
-write /sys/kernel/fp_boost/enabled 1
-write /sys/kernel/debug/msm_vidc/fw_low_power_mode 0
-write /sys/kernel/mi_reclaim/enable 0
-write /sys/class/sec/switch/afc_disable 1
-write /sys/module/fast_charge/force_fast_charge 1
-write /sys/kernel/fast_charge/force_fast_charge 1
-write /sys/class/power_supply/battery/charging_enabled 1
-write /sys/kernel/gbe/gbe_enable1 1
-write /sys/kernel/gbe/gbe_enable2 1
-write /sys/kernel/ged/hal/dcs_mode 1
-write /sys/module/ged/parameters/gx_game_mode 1
-write /sys/module/ged/parameters/boost_amp 1
-write /sys/module/ged/parameters/boost_extra 1
-write /sys/module/ged/parameters/boost_gpu_enable 1
-write /sys/module/ged/parameters/enable_cpu_boost 1
-write /sys/module/ged/parameters/enable_gpu_boost 1
-write /sys/module/ged/parameters/gx_frc_mode 1
-write /sys/module/ged/parameters/gx_boost_on 1
-write /sys/module/ged/parameters/gx_force_cpu_boost 1
-write /sys/module/ged/parameters/is_GED_KPI_enabled 1
-write /sys/module/ged/parameters/enable_game_self_frc_detect 1
-write /sys/module/ged/parameters/ged_boost_enable 1
-write /sys/module/ged/parameters/gx_3D_benchmark_on 1
-write /sys/module/ged/parameters/cpu_boost_policy 100
-write /sys/module/ged/parameters/ged_smart_boost 100
-write /sys/module/ged/parameters/gx_fb_dvfs_margin 100
-write /sys/module/ged/parameters/gx_tb_dvfs_margin 0
-write /sys/module/ged/parameters/target_t_cpu_remained 0
-write /sys/module/ged/parameters/gpu_debug_enable 0
-write /sys/module/ged/parameters/ged_force_mdp_enable 0
-write /sys/module/ged/parameters/ged_log_perf_trace_enable 0
-write /sys/module/ged/parameters/ged_log_trace_enable 0
-write /sys/module/ged/parameters/ged_monitor_3D_fence_debug 0
-write /sys/module/ged/parameters/ged_monitor_3D_fence_disable 0
-write /sys/module/ged/parameters/ged_monitor_3D_fence_systrace 0
-write /proc/perfmgr/tchbst/user/usrtch/enable 1
-write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_enable 1
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_prefer_idle 1
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_boost 1
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_boost 1
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_boost 1
-write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_up_loading 30
-write /proc/perfmgr/boost_ctrl/cpu_ctrl/cfp_down_loading 10
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_uclamp_min 1024
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_uclamp_min 1024
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_uclamp_min 1024
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_bg_uclamp_min 1024
-write /sys/module/lpm_levels/parameters/secapp_sleep_disabled Y
-write /sys/module/lpm_levels/parameters/system_sleep_disabled Y
-write /sys/module/lpm_levels/parameters/cpu_sleep_disabled Y
-write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us 500
-write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us 500
-write /sys/kernel/oppo_display/hbm 0
-write /proc/touchpanel/oplus_tp_direction_limit 0
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_uclamp_max 1024
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_fg_uclamp_max 1024
-write /proc/perfmgr/boost_ctrl/eas_ctrl/perfserv_ta_uclamp_max 1024
+# CPU/GPU/IO
+for dev_dir in /sys/block/*; do
+    dev=$(basename "$dev_dir")
+    case "$dev" in
+        loop*|dm-*|zram*|ram*|sr*|md*) continue ;;
+    esac
+    queue="$dev_dir/queue"
+    [ -d "$queue" ] || continue
+    if [ -f "$queue/rotational" ]; then
+        is_rotational=$(cat "$queue/rotational")
+    else
+        is_rotational=0
+    fi
+    write "$queue/add_random" 0
+    write "$queue/iostats" 1
+    write "$queue/rq_affinity" 2
+    if [ "$is_rotational" -eq 1 ]; then
+        write "$queue/rotational" 1
+        write "$queue/read_ahead_kb" 2048
+        write "$queue/nomerges" 0
+        write "$queue/nr_requests" 256
+    else
+        write "$queue/rotational" 0
+        write "$queue/read_ahead_kb" 128
+        write "$queue/nomerges" 2
+        write "$queue/nr_requests" 128
+    fi
+    iosched="$queue/iosched"
+    [ -d "$iosched" ] || continue
+    [ -f "$iosched/front_merges" ] && write "$iosched/front_merges" 1
+    [ -f "$iosched/back_seek_penalty" ] && write "$iosched/back_seek_penalty" 1
+    [ -f "$iosched/back_seek_max" ] && write "$iosched/back_seek_max" 1048576
+    [ -f "$iosched/fore_timeout" ] && write "$iosched/fore_timeout" 5
+    [ -f "$iosched/back_timeout" ] && write "$iosched/back_timeout" 10
+    [ -f "$iosched/timeout_sync" ] && write "$iosched/timeout_sync" 10
+    [ -f "$iosched/slice_async_rq" ] && write "$iosched/slice_async_rq" 1
+    [ -f "$iosched/writes_starved" ] && write "$iosched/writes_starved" 3
+    [ -f "$iosched/async_depth" ] && write "$iosched/async_depth" 8
+    [ -f "$iosched/io_threshold" ] && write "$iosched/io_threshold" 16
+    [ -f "$iosched/quantum" ] && write "$iosched/quantum" 8
+    [ -f "$iosched/fifo_batch" ] && write "$iosched/fifo_batch" 16
+    [ -f "$iosched/slice_async" ] && write "$iosched/slice_async" 10
+    [ -f "$iosched/slice_sync" ] && write "$iosched/slice_sync" 10
+    [ -f "$iosched/max_budget" ] && write "$iosched/max_budget" 16
+    [ -f "$iosched/fifo_expire_async" ] && write "$iosched/fifo_expire_async" 30
+    [ -f "$iosched/read_expire" ] && write "$iosched/read_expire" 50
+    [ -f "$iosched/fifo_expire_sync" ] && write "$iosched/fifo_expire_sync" 50
+    [ -f "$iosched/target_latency" ] && write "$iosched/target_latency" 100
+    [ -f "$iosched/write_expire" ] && write "$iosched/write_expire" 100
+    [ -f "$iosched/aging_expire" ] && write "$iosched/aging_expire" 5000
+    [ -f "$iosched/prio_aging_expire" ] && write "$iosched/prio_aging_expire" 10000
+    [ -f "$iosched/slice_sync_us" ] && write "$iosched/slice_sync_us" 10000
+    [ -f "$iosched/slice_async_us" ] && write "$iosched/slice_async_us" 5000
+    [ -f "$iosched/target_latency_us" ] && write "$iosched/target_latency_us" 100000
+    [ -f "$iosched/read_lat_nsec" ] && write "$iosched/read_lat_nsec" 1000000
+    [ -f "$iosched/write_lat_nsec" ] && write "$iosched/write_lat_nsec" 1000000
+    [ -f "$iosched/strict_guarantees" ] && write "$iosched/strict_guarantees" 0
+    [ -f "$iosched/cpq_log" ] && write "$iosched/cpq_log" 0
+    [ -f "$iosched/slice_idle" ] && write "$iosched/slice_idle" 0
+    [ -f "$iosched/group_idle" ] && write "$iosched/group_idle" 0
+    [ -f "$iosched/low_latency" ] && write "$iosched/low_latency" 0
+    [ -f "$iosched/slice_idle_us" ] && write "$iosched/slice_idle_us" 0
+    [ -f "$iosched/group_idle_us" ] && write "$iosched/group_idle_us" 0
+done
 
-write /proc/ppm/enabled 1
-write /proc/ppm/policy_status 0 0
-write /proc/ppm/policy_status 1 0
-write /proc/ppm/policy_status 2 0
-write /proc/ppm/policy_status 3 0
-write /proc/ppm/policy_status 4 0
-write /proc/ppm/policy_status 5 0
-write /proc/ppm/policy_status 6 0
-write /proc/ppm/policy_status 7 0
-write /proc/ppm/policy_status 8 0
-write /proc/ppm/policy_status 9 0
-write /proc/ppm/policy_status 10 0
-write /proc/ppm/policy_status 11 0
+write /sys/kernel/gpu/boost 1
+write /proc/mali/always_on 1
+write /proc/mali/dvfs_enable 1
+write /sys/module/ged/parameters/gpu_dvfs_enable 1
+write /sys/class/kgsl/kgsl-3d0/force_bus_on 1
+write /sys/class/kgsl/kgsl-3d0/force_clk_on 1
+write /sys/class/kgsl/kgsl-3d0/force_rail_on 1
+write /sys/class/kgsl/kgsl-3d0/devfreq/adrenoboost 3
+write /sys/kernel/debug/sde_rotator0/clk_always_on 1
+write /sys/module/mali/parameters/mali_touch_boost_level 1
+write /sys/class/simple_gpu_algorithm/parameters/simple_gpu_active 1
+write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync 1
+write /sys/module/adreno_idler/parameters/adreno_idler_idlewait 10
+write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync_downdifferential 50
+write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/no_vsync_upthreshold 10
+write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/vsync_upthreshold 10
+write /sys/class/kgsl/kgsl-3d0/devfreq/gpufreq/mali_ondemand/no_vsync_downdifferential 50
+write /sys/module/adreno_idler/parameters/adreno_idler_downdifferential 50
+write /sys/module/adreno_idler/parameters/adreno_idler_idleworkload 10000
+write /sys/class/simple_gpu_algorithm/parameters/simple_ramp_threshold 5000
+write /sys/class/kgsl/kgsl-3d0/min_pwrlevel 0
+write /sys/class/kgsl/kgsl-3d0/max_pwrlevel 0
+write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 0
+write /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel 0
+write /sys/class/kgsl/kgsl-3d0/tmu 0
+write /sys/class/kgsl/kgsl-3d0/popp 0
+write /sys/class/kgsl/kgsl-3d0/pwrnap 0
+write /sys/class/simple_gpu_algorithm/parameters/simple_laziness 0
+write /sys/module/adreno_idler/parameters/adreno_idler_active N
+write /sys/devices/platform/13040000.mali/power_policy always_on
+write /sys/class/kgsl/kgsl-3d0/power_policy always_on
 
-write /sys/module/msm_thermal/core_control/enabled 1
-write /sys/module/msm_thermal/vdd_restriction/enabled 1
-write /sys/module/msm_thermal/parameters/enabled Y
+for pwrlevel in /sys/class/kgsl/kgsl-3d0/min_pwrlevel /sys/class/kgsl/kgsl-3d0/default_pwrlevel
+do
+    write "$pwrlevel" 1
+    write "$pwrlevel" 2
+    write "$pwrlevel" 3
+    write "$pwrlevel" 4
+    write "$pwrlevel" 5
+    write "$pwrlevel" 6
+    write "$pwrlevel" 7
+    write "$pwrlevel" 8
+    write "$pwrlevel" 9
+    write "$pwrlevel" 10
+    write "$pwrlevel" 11
+    write "$pwrlevel" 12
+    write "$pwrlevel" 13
+    write "$pwrlevel" 14
+    write "$pwrlevel" 15
+    write "$pwrlevel" 16
+    write "$pwrlevel" 17
+    write "$pwrlevel" 18
+    write "$pwrlevel" 19
+    write "$pwrlevel" 20
+    write "$pwrlevel" 21
+    write "$pwrlevel" 22
+    write "$pwrlevel" 23
+    write "$pwrlevel" 24
+    write "$pwrlevel" 25
+    write "$pwrlevel" 26
+    write "$pwrlevel" 27
+    write "$pwrlevel" 28
+    write "$pwrlevel" 29
+    write "$pwrlevel" 30
+done
+
+for governor in /sys/*/system/cpu/*/cpufreq/* /sys/*/system/cpu/cpufreq/*
+do
+    write "$governor/boost" 1
+    write "$governor/pl" 1
+    write "$governor/io_is_busy" 1
+    write "$governor/iowait_boost_enable" 1
+    write "$governor/fastlane" 1
+    write "$governor/fast_ramp_down" 0
+    write "$governor/boostpulse" 1
+    write "$governor/use_sched_load" 1
+    write "$governor/use_migration_notif" 1
+    write "$governor/enable_prediction" 1
+    write "$governor/align_windows" 1
+    write "$governor/ignore_nice_load" 1
+    write "$governor/input_boost" 1
+    write "$governor/enforced_mode" 1
+    write "$governor/timer_slack" -1
+    write "$governor/freq_step" 15
+    write "$governor/target_load_shift" 5
+    write "$governor/sched_upmigrate_min_nice" -5
+    write "$governor/down_differential" 45
+    write "$governor/up_threshold" 45
+    write "$governor/go_hispeed_load" 50
+    write "$governor/hispeed_load" 50
+    write "$governor/target_loads" "50 1200000:60 1600000:70 1800000:80"
+    write "$governor/single_enter_load" 45
+    write "$governor/single_exit_load" 85
+    write "$governor/up_threshold_any_cpu_load" 50
+    write "$governor/target_load_thresh" 50
+    write "$governor/multi_enter_load" 75
+    write "$governor/multi_exit_load" 90
+    write "$governor/input_boost_ms" 150
+    write "$governor/boost_ms" 250
+    write "$governor/single_enter_time" 1000
+    write "$governor/timer_rate" 2500
+    write "$governor/sampling_rate" 2500
+    write "$governor/sampling_rate_min" 2500
+    write "$governor/up_rate_limit_us" 500
+    write "$governor/down_rate_limit_us" 15000
+    write "$governor/single_exit_time" 40000
+    write "$governor/multi_enter_time" 2000
+    write "$governor/above_hispeed_delay" "0 1200000:10000 1800000:15000"
+    write "$governor/sched_freq_inc_notify" 10000
+    write "$governor/multi_exit_time" 40000
+    write "$governor/min_sample_time" 20000
+    write "$governor/boostpulse_duration" 250000
+    write "$governor/sched_freq_dec_notify" 200000
+    write "$governor/up_throttle_nsec" 1000000
+    write "$governor/down_throttle_nsec" 4000000
+done
