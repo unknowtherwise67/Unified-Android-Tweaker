@@ -6,6 +6,7 @@ until [ "$(getprop sys.boot_completed)" = "1" ] && [ -d "/sdcard/Android" ]; do
 done
 
 # Android Device/Kernel ZRAM Swap Virtual Memory Modifications
+sleep 1
 ZRAM=/block/zram0
 DISKSIZEDEF=`cat /sys$ZRAM/disksize`
 DISKSIZE=
@@ -20,6 +21,7 @@ if grep -q /dev$ZRAM /proc/swaps; then
       break
     fi
   done
+  sleep 1
   if grep -q /dev$ZRAM /proc/swaps; then
     SWAPOFF=false
   fi
@@ -42,6 +44,7 @@ if $SWAPOFF; then
 fi
 
 # OS System ResetProps
+sleep 1
 if [ -x "$(command -v resetprop)" ]; then
     change_prop() {
         local prop="$1"
@@ -96,7 +99,7 @@ if [ -n "$adbroot" ]; then
 fi
 
 # Android Device/Kernel Settings/Parameters Modifications
-sleep 60
+sleep 1
 [ -f "$MODPATH/system_settings.sh" ] && sh "$MODPATH/system_settings.sh"
 [ -f "$MODPATH/system_governors.sh" ] && sh "$MODPATH/system_governors.sh"
 [ -f "$MODPATH/system_kernel.sh" ] && sh "$MODPATH/system_kernel.sh"

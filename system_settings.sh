@@ -43,17 +43,3 @@ settings put global device_idle_constants "enabled=false"
 settings put global app_standby_enabled 0
 settings put global dynamic_power_savings_enabled 0
 settings put global low_power_trigger_level 0
-settings put global oppo_smart_low_power_set 0
-settings put system oppo_super_power_saving_mode 0
-
-# Others
-dumpsys deviceidle disable
-setprop persist.sys.gps.izat.main 3
-/system/bin/device_config set_sync_disabled_for_tests persistent
-/system/bin/device_config put activity_manager freeze_on_cached_enabled false
-/system/bin/device_config put app_hibernation app_hibernation_enabled false
-/system/bin/device_config put activity_manager bg_current_drain_auto_restrict_abusive_apps_enabled false
-/system/bin/device_config put activity_manager max_cached_processes 128
-/system/bin/device_config put activity_manager max_phantom_processes 2147483647
-/system/bin/device_config put activity_manager short_fgs_timeout_duration 2147483647
-/system/bin/device_config put activity_manager bg_current_drain_threshold_to_restricted 2147483647
