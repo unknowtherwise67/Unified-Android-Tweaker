@@ -126,8 +126,6 @@ write /sys/module/msm_thermal/core_control/enabled 1
 write /sys/module/msm_thermal/vdd_restriction/enabled 1
 write /sys/module/msm_thermal/parameters/enabled Y
 
-dumpsys deviceidle disable
-
 # Schedulers
 KVER=$(uname -r)
 K_MAJ=$(echo "$KVER" | cut -d. -f1)
