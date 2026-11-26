@@ -61,6 +61,7 @@ settings put global background_process_limit -1
 dumpsys deviceidle unforce 2> /dev/null
 dumpsys deviceidle enable all 2> /dev/null
 dumpsys battery reset 2> /dev/null
+dumpsys deviceidle disable
 
 # Manufacturer/Brand Device Specific/Other Settings
 settings put global adaptive_fast_charging 1

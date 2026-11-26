@@ -122,10 +122,6 @@ write /proc/ppm/policy_status 9 0
 write /proc/ppm/policy_status 10 0
 write /proc/ppm/policy_status 11 0
 
-write /sys/module/msm_thermal/core_control/enabled 1
-write /sys/module/msm_thermal/vdd_restriction/enabled 1
-write /sys/module/msm_thermal/parameters/enabled Y
-
 # Schedulers
 KVER=$(uname -r)
 K_MAJ=$(echo "$KVER" | cut -d. -f1)
@@ -286,70 +282,6 @@ do
 	fi
 done
 
-# Schedtunes/Stunes/Uclamps/Cpuctl/Core_Ctl
-for stune in /dev/stune/* /dev/cpuctl/*
-do
-    write "$stune/schedtune.boost" 10
-    write "$stune/sched_cfs_boost" 10
-    write "$stune/schedtune.colocate" 1
-    write "$stune/schedtune.sched_boost_enabled" 1
-    write "$stune/schedtune.prefer_high_cap" 1
-    write "$stune/schedtune.prefer_idle" 1
-    write "$stune/cpu.uclamp.latency_sensitive" 1
-    write "$stune/schedtune.sched_boost_no_override" 1
-    write "$stune/cgroup.sane_behavior" 0
-    write "$stune/schedtune.capacity.min" 100
-    write "$stune/schedtune.cpucapacity.min" 100
-    write "$stune/schedtune.uclamp.min.effective" 100
-    write "$stune/cpu.cpucapacity_min" 100
-    write "$stune/cpu.uclamp.max.effective" 100
-    write "$stune/cpu.uclamp.min" 100
-    write "$stune/cpu.uclamp" 100
-    write "$stune/cpu_uclamp.min" 100
-    write "$stune/cpu_uclamp.min.effective" 100
-    write "$stune/cpu.uclamp.max" 100
-    write "$stune/cpu.uclamp.max.effective" 100
-    write "$stune/schedtune.capacity_min" 100
-    write "$stune/schedtune.cpucapacity_min" 100
-    write "$stune/schedtune.uclamp.min_effective" 100
-    write "$stune/cpu.cpucapacity_min" 100
-    write "$stune/cpu.uclamp_max_effective" 100
-    write "$stune/cpu.uclamp_min" 100
-    write "$stune/cpu.uclamp" 100
-    write "$stune/cpu_uclamp_min" 100
-    write "$stune/cpu_uclamp_min.effective" 100
-    write "$stune/cpu.uclamp_max" 100
-    write "$stune/cpu.uclamp_max_effective" 100
-done
-
-write /proc/sys/kernel/sched_util_clamp_min 1024
-write /proc/sys/kernel/sched_util_clamp_max 1024
-write /proc/sys/kernel/sched_util_clamp_min_rt_default 1024
-
-for core_ctl in /sys/*/system/cpu/*/core_ctl/
-do
-    write "$core_ctl/min_cpus" 4
-    write "$core_ctl/task_thres" 100
-    write "$core_ctl/offline_delay_ms" 0
-    write "$core_ctl/busy_up_thres" 0
-    write "$core_ctl/busy_down_thres" 0
-done
-
-for cpuset in /dev/cpuset/*
-do
-    write "$cpuset/cpus" 0-1
-    write "$cpuset/cpus" 0-2
-    write "$cpuset/cpus" 0-3
-    write "$cpuset/cpus" 0-4
-    write "$cpuset/cpus" 0-5
-    write "$cpuset/cpus" 0-6
-    write "$cpuset/cpus" 0-7
-    write "$cpuset/cpus" 0-8
-    write "$cpuset/cpus" 0-9
-    write "$cpuset/cpus" 0-10
-    write "$cpuset/cpus" 0-11
-done
-
 # Memory
 MEM_KB=$(awk '/^MemTotal:/ {print $2}' /proc/meminfo)
 [ -z "$MEM_KB" ] && MEM_KB=4194304
@@ -490,6 +422,10 @@ for dev_dir in /sys/block/*; do
     [ -f "$iosched/group_idle_us" ] && write "$iosched/group_idle_us" 0
 done
 
+write /sys/module/msm_thermal/core_control/enabled 1
+write /sys/module/msm_thermal/vdd_restriction/enabled 1
+write /sys/module/msm_thermal/parameters/enabled Y
+
 write /sys/kernel/gpu/boost 1
 write /proc/mali/always_on 1
 write /proc/mali/dvfs_enable 1
@@ -555,6 +491,77 @@ do
     write "$pwrlevel" 29
     write "$pwrlevel" 30
 done
+
+write /sys/module/cpu_boost/parameters/input_boost_ms 0
+write /sys/module/cpu_boost/parameters/sched_boost_on_input 0
+
+for input_boost_freq in /sys/module/cpu_boost/parameters/input_boost_freq *:
+do
+    write "$input_boost_freq" 1000
+done
+
+for core_ctl in /sys/*/system/cpu/*/core_ctl/
+do
+    write "$core_ctl/min_cpus" 4
+    write "$core_ctl/task_thres" 100
+    write "$core_ctl/offline_delay_ms" 0
+    write "$core_ctl/busy_up_thres" 0
+    write "$core_ctl/busy_down_thres" 0
+done
+
+for cpuset in /dev/cpuset/*
+do
+    write "$cpuset/cpus" 0-1
+    write "$cpuset/cpus" 0-2
+    write "$cpuset/cpus" 0-3
+    write "$cpuset/cpus" 0-4
+    write "$cpuset/cpus" 0-5
+    write "$cpuset/cpus" 0-6
+    write "$cpuset/cpus" 0-7
+    write "$cpuset/cpus" 0-8
+    write "$cpuset/cpus" 0-9
+    write "$cpuset/cpus" 0-10
+    write "$cpuset/cpus" 0-11
+done
+
+for stune in /dev/stune/* /dev/cpuctl/*
+do
+    write "$stune/schedtune.boost" 10
+    write "$stune/sched_cfs_boost" 10
+    write "$stune/schedtune.colocate" 1
+    write "$stune/schedtune.sched_boost_enabled" 1
+    write "$stune/schedtune.prefer_high_cap" 1
+    write "$stune/schedtune.prefer_idle" 1
+    write "$stune/cpu.uclamp.latency_sensitive" 1
+    write "$stune/schedtune.sched_boost_no_override" 1
+    write "$stune/cgroup.sane_behavior" 0
+    write "$stune/schedtune.capacity.min" 100
+    write "$stune/schedtune.cpucapacity.min" 100
+    write "$stune/schedtune.uclamp.min.effective" 100
+    write "$stune/cpu.cpucapacity_min" 100
+    write "$stune/cpu.uclamp.max.effective" 100
+    write "$stune/cpu.uclamp.min" 100
+    write "$stune/cpu.uclamp" 100
+    write "$stune/cpu_uclamp.min" 100
+    write "$stune/cpu_uclamp.min.effective" 100
+    write "$stune/cpu.uclamp.max" 100
+    write "$stune/cpu.uclamp.max.effective" 100
+    write "$stune/schedtune.capacity_min" 100
+    write "$stune/schedtune.cpucapacity_min" 100
+    write "$stune/schedtune.uclamp.min_effective" 100
+    write "$stune/cpu.cpucapacity_min" 100
+    write "$stune/cpu.uclamp_max_effective" 100
+    write "$stune/cpu.uclamp_min" 100
+    write "$stune/cpu.uclamp" 100
+    write "$stune/cpu_uclamp_min" 100
+    write "$stune/cpu_uclamp_min.effective" 100
+    write "$stune/cpu.uclamp_max" 100
+    write "$stune/cpu.uclamp_max_effective" 100
+done
+
+write /proc/sys/kernel/sched_util_clamp_min 1024
+write /proc/sys/kernel/sched_util_clamp_max 1024
+write /proc/sys/kernel/sched_util_clamp_min_rt_default 1024
 
 for governor in /sys/*/system/cpu/*/cpufreq/* /sys/*/system/cpu/cpufreq/*
 do
